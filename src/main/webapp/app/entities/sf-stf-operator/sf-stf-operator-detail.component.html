@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sfStfOperator">
+            <h2><span jhiTranslate="desgloseApp.sfStfOperator.detail.title">Sf Stf Operator</span> {{sfStfOperator.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.sfStfOperator.branchCode" [ngbTooltip]="'desgloseApp.sfStfOperator.help.branchCode' | translate">Branch Code</span></dt>
+                <dd>
+                    <span>{{sfStfOperator.branchCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.sfStfOperator.operatorCode" [ngbTooltip]="'desgloseApp.sfStfOperator.help.operatorCode' | translate">Operator Code</span></dt>
+                <dd>
+                    <span>{{sfStfOperator.operatorCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.sfStfOperator.loginName" [ngbTooltip]="'desgloseApp.sfStfOperator.help.loginName' | translate">Login Name</span></dt>
+                <dd>
+                    <span>{{sfStfOperator.loginName}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.sfStfOperator.isSupervisor" [ngbTooltip]="'desgloseApp.sfStfOperator.help.isSupervisor' | translate">Is Supervisor</span></dt>
+                <dd>
+                    <span>{{sfStfOperator.isSupervisor}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.sfStfOperator.signedOn" [ngbTooltip]="'desgloseApp.sfStfOperator.help.signedOn' | translate">Signed On</span></dt>
+                <dd>
+                    <span>{{sfStfOperator.signedOn}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.sfStfOperator.dayOpen" [ngbTooltip]="'desgloseApp.sfStfOperator.help.dayOpen' | translate">Day Open</span></dt>
+                <dd>
+                    <span>{{sfStfOperator.dayOpen}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sf-stf-operator', sfStfOperator.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

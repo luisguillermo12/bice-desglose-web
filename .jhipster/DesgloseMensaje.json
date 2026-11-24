@@ -1,0 +1,70 @@
+{
+    "name": "DesgloseMensaje",
+    "fields": [
+        {
+            "fieldName": "fecEvent",
+            "javadoc": "Fecha y hora de ocurrido el evento.",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codCliente",
+            "javadoc": "Rut de cliente.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codTipoDes",
+            "javadoc": "Tipo de desglose.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codSubtipoDes",
+            "javadoc": "Subtipo de desglose.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codMoneda",
+            "javadoc": "Código de moneda.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numRolEmpleado",
+            "javadoc": "Rol empleado asociado.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "glsComentarios",
+            "javadoc": "Mensaje enviado.",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181011140728",
+    "javadoc": "Representa la tabla \"DESGLO_MSG_WK\" que guarda mensajería entre digitador y revisor para un ciclo o flujo de desglose. Pertenece al esquema CIF_ADMIN.\n@author
+    Antonio Marrero Palomino",
+    "entityTableName": "desglose_mensaje",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

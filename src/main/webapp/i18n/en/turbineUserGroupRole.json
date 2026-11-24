@@ -1,0 +1,24 @@
+
+{
+    "desgloseApp": {
+        "turbineUserGroupRole" : {
+            "home": {
+                "title": "Turbine User Group Roles",
+                "createLabel": "Create a new Turbine User Group Role",
+                "createOrEditLabel": "Create or edit a Turbine User Group Role"
+            },
+            "created": "A new Turbine User Group Role is created with identifier {{ param }}",
+            "updated": "A Turbine User Group Role is updated with identifier {{ param }}",
+            "deleted": "A Turbine User Group Role is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Turbine User Group Role {{ id }}?"
+            },
+            "detail": {
+                "title": "Turbine User Group Role"
+            },
+            "user": "User",
+            "group": "Group",
+            "role": "Role"
+        }
+    }
+}

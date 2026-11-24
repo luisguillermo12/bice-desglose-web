@@ -1,0 +1,80 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="desgloseApp.clienteJuridico.home.title">Cliente Juridicos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-cliente-juridico" [routerLink]="['/cliente-juridico/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="desgloseApp.clienteJuridico.home.createLabel">
+            Create new Cliente Juridico
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="clienteJuridicos">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numCliente"><span jhiTranslate="desgloseApp.clienteJuridico.numCliente">Num Cliente</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="glsRazonSoci"><span jhiTranslate="desgloseApp.clienteJuridico.glsRazonSoci">Gls Razon Soci</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nomFantasia"><span jhiTranslate="desgloseApp.clienteJuridico.nomFantasia">Nom Fantasia</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codGrupoEcon"><span jhiTranslate="desgloseApp.clienteJuridico.codGrupoEcon">Cod Grupo Econ</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecConstitucion"><span jhiTranslate="desgloseApp.clienteJuridico.fecConstitucion">Fec Constitucion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codTipoCliempresa"><span jhiTranslate="desgloseApp.clienteJuridico.codTipoCliempresa">Cod Tipo Cliempresa</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="glsWeb"><span jhiTranslate="desgloseApp.clienteJuridico.glsWeb">Gls Web</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codRegStatus"><span jhiTranslate="desgloseApp.clienteJuridico.codRegStatus">Cod Reg Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codRegLog"><span jhiTranslate="desgloseApp.clienteJuridico.codRegLog">Cod Reg Log</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="glsRazonSocialLegal"><span jhiTranslate="desgloseApp.clienteJuridico.glsRazonSocialLegal">Gls Razon Social Legal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let clienteJuridico of clienteJuridicos ;trackBy: trackId">
+                <td><a [routerLink]="['/cliente-juridico', clienteJuridico.id, 'view' ]">{{clienteJuridico.id}}</a></td>
+                <td>{{clienteJuridico.numCliente}}</td>
+                <td>{{clienteJuridico.glsRazonSoci}}</td>
+                <td>{{clienteJuridico.nomFantasia}}</td>
+                <td>{{clienteJuridico.codGrupoEcon}}</td>
+                <td>{{clienteJuridico.fecConstitucion | date:'mediumDate'}}</td>
+                <td>{{clienteJuridico.codTipoCliempresa}}</td>
+                <td>{{clienteJuridico.glsWeb}}</td>
+                <td>{{clienteJuridico.codRegStatus}}</td>
+                <td>{{clienteJuridico.codRegLog}}</td>
+                <td>{{clienteJuridico.glsRazonSocialLegal}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/cliente-juridico', clienteJuridico.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/cliente-juridico', clienteJuridico.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'cliente-juridico/'+ clienteJuridico.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="clienteJuridicos && clienteJuridicos.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+<div class="modal-header">
+    <h4 class="modal-title"><span jhiTranslate="breakdown.otherDatConfig.title"></span></h4>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            (click)="closeModal()">&times;
+    </button>
+</div>
+<div class="modal-body">
+    <jhi-alert></jhi-alert>
+    <jhi-alert-error></jhi-alert-error>
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <label class="col-sm-12 col-form-label" jhiTranslate="breakdown.otherDatConfig.subTitle"></label>
+        </div>
+        <div class="col-12">
+            <form name="otherDataDataForm" role="form" novalidate #otherDataDataForm="ngForm" id="otherDataDataForm">
+                <div class="form-group">
+                    <ngx-datatable
+                        [messages]="{emptyMessage: 'footer.emptyMessage' | translate, selectedMessage: 'footer.selected' | translate, totalMessage: 'footer.total' | translate}"
+                        class="material"
+                        [rows]="rows"
+                        [columnMode]="'force'"
+                        [footerHeight]="50"
+                        [rowHeight]="'auto'"
+                        [limit]="13"
+                        (activate)="onActivate($event)"
+                        [selected]="selected"
+                        [selectionType]="'checkbox'"
+                        [selectAllRowsOnPage]="false"
+                        (select)='onSelect($event)'>
+                        <ngx-datatable-column [width]="30" [sortable]="false" [canAutoResize]="false" [draggable]="false" [resizeable]="false" [headerCheckboxable]="true"
+                                              [checkboxable]="true">
+                        </ngx-datatable-column>
+                        <ngx-datatable-column [width]="50" [canAutoResize]="false">
+                            <ng-template let-column="column" ngx-datatable-header-template>
+                                <span jhiTranslate="breakdown.otherDatConfig.tableHeaders.code"></span>
+                            </ng-template>
+                            <ng-template let-row="row" ngx-datatable-cell-template>
+                                {{row.codConcepto}}
+                            </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-column [canAutoResize]="true">
+                            <ng-template let-column="column" ngx-datatable-header-template>
+                                <span jhiTranslate="breakdown.otherDatConfig.tableHeaders.ccc"></span>
+                            </ng-template>
+                            <ng-template let-row="row" ngx-datatable-cell-template>
+                                {{row.tipoConcep}}
+                            </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-column [width]="80" [canAutoResize]="false" *ngIf="fechaPeriodo!=''">
+                            <ng-template let-column="column" ngx-datatable-header-template>
+                                <span>{{fechaPeriodoStr}}</span>
+                            </ng-template>
+                            <ng-template let-row="row" ngx-datatable-cell-template>
+                                {{row.prc}}
+                            </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-column [width]="80" [canAutoResize]="false" *ngIf="fechaPeriodo1!=''">
+                            <ng-template let-column="column" ngx-datatable-header-template>
+                                <span>{{fechaPeriodo1Str}}</span>
+                            </ng-template>
+                            <ng-template let-row="row" ngx-datatable-cell-template>
+                                {{row.prc1}}
+                            </ng-template>
+                        </ngx-datatable-column>
+                    </ngx-datatable>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="field_observations" class="col-sm-12 col-form-label" jhiTranslate="breakdown.otherDatConfig.observations"></label>
+                    <div class="col-sm-12">
+                        <textarea type="text" class="form-control form-control-sm text-uppercase" name="observations" id="field_observations" rows="6"
+                                  [(ngModel)]="observations" #fieldObservations (keyup)="onKey($event)"></textarea>
+                        <span>(Caracteres: {{contador}} )</span>
+                        <span class="text-danger" *ngIf="!checkCaractOther">{{caractValidationMessage}}</span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6"></div>
+                    <div class="col-sm-3">
+                        <button class="btn btn-default btn-block btn-custom-font-size-1" (click)="onClickCancel()">
+                            <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="global.form.cancel"></span>
+                        </button>
+                    </div>
+                    <div class="col-sm-3">
+                        <button class="btn btn-primary btn-block btn-custom-font-size-1" (click)="onClickSaveOtherDataConfig()" [disabled]="!checkCaractOther">
+                            <fa-icon [icon]="'check'"></fa-icon>&nbsp;<span jhiTranslate="global.form.accept"></span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

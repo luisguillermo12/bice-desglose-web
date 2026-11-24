@@ -1,0 +1,109 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-cliente-juridico-heading" jhiTranslate="desgloseApp.clienteJuridico.home.createOrEditLabel">Create or edit a Cliente Juridico</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!clienteJuridico.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="clienteJuridico.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteJuridico.numCliente" for="field_numCliente" [ngbTooltip]="'desgloseApp.clienteJuridico.help.numCliente' | translate">Num Cliente</label>
+                    <input type="number" class="form-control" name="numCliente" id="field_numCliente"
+                        [(ngModel)]="clienteJuridico.numCliente" required/>
+                    <div [hidden]="!(editForm.controls.numCliente?.dirty && editForm.controls.numCliente?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.numCliente?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.numCliente?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteJuridico.glsRazonSoci" for="field_glsRazonSoci" [ngbTooltip]="'desgloseApp.clienteJuridico.help.glsRazonSoci' | translate">Gls Razon Soci</label>
+                    <input type="text" class="form-control" name="glsRazonSoci" id="field_glsRazonSoci"
+                        [(ngModel)]="clienteJuridico.glsRazonSoci" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteJuridico.nomFantasia" for="field_nomFantasia" [ngbTooltip]="'desgloseApp.clienteJuridico.help.nomFantasia' | translate">Nom Fantasia</label>
+                    <input type="text" class="form-control" name="nomFantasia" id="field_nomFantasia"
+                        [(ngModel)]="clienteJuridico.nomFantasia" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteJuridico.codGrupoEcon" for="field_codGrupoEcon" [ngbTooltip]="'desgloseApp.clienteJuridico.help.codGrupoEcon' | translate">Cod Grupo Econ</label>
+                    <input type="number" class="form-control" name="codGrupoEcon" id="field_codGrupoEcon"
+                        [(ngModel)]="clienteJuridico.codGrupoEcon" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteJuridico.fecConstitucion" for="field_fecConstitucion" [ngbTooltip]="'desgloseApp.clienteJuridico.help.fecConstitucion' | translate">Fec Constitucion</label>
+                    <div class="input-group">
+                        <input id="field_fecConstitucion" type="text" class="form-control" name="fecConstitucion" ngbDatepicker  #fecConstitucionDp="ngbDatepicker" [(ngModel)]="clienteJuridico.fecConstitucion"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecConstitucionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteJuridico.codTipoCliempresa" for="field_codTipoCliempresa" [ngbTooltip]="'desgloseApp.clienteJuridico.help.codTipoCliempresa' | translate">Cod Tipo Cliempresa</label>
+                    <input type="text" class="form-control" name="codTipoCliempresa" id="field_codTipoCliempresa"
+                        [(ngModel)]="clienteJuridico.codTipoCliempresa" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteJuridico.glsWeb" for="field_glsWeb" [ngbTooltip]="'desgloseApp.clienteJuridico.help.glsWeb' | translate">Gls Web</label>
+                    <input type="text" class="form-control" name="glsWeb" id="field_glsWeb"
+                        [(ngModel)]="clienteJuridico.glsWeb" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteJuridico.codRegStatus" for="field_codRegStatus" [ngbTooltip]="'desgloseApp.clienteJuridico.help.codRegStatus' | translate">Cod Reg Status</label>
+                    <input type="number" class="form-control" name="codRegStatus" id="field_codRegStatus"
+                        [(ngModel)]="clienteJuridico.codRegStatus" required/>
+                    <div [hidden]="!(editForm.controls.codRegStatus?.dirty && editForm.controls.codRegStatus?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codRegStatus?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.codRegStatus?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteJuridico.codRegLog" for="field_codRegLog" [ngbTooltip]="'desgloseApp.clienteJuridico.help.codRegLog' | translate">Cod Reg Log</label>
+                    <input type="number" class="form-control" name="codRegLog" id="field_codRegLog"
+                        [(ngModel)]="clienteJuridico.codRegLog" required/>
+                    <div [hidden]="!(editForm.controls.codRegLog?.dirty && editForm.controls.codRegLog?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codRegLog?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.codRegLog?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteJuridico.glsRazonSocialLegal" for="field_glsRazonSocialLegal" [ngbTooltip]="'desgloseApp.clienteJuridico.help.glsRazonSocialLegal' | translate">Gls Razon Social Legal</label>
+                    <input type="text" class="form-control" name="glsRazonSocialLegal" id="field_glsRazonSocialLegal"
+                        [(ngModel)]="clienteJuridico.glsRazonSocialLegal" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+
+{
+    "desgloseApp": {
+        "desgloseRevisionLog" : {
+            "home": {
+                "title": "Desglose Revision Logs",
+                "createLabel": "Crear nuevo Desglose Revision Log",
+                "createOrEditLabel": "Crear o editar Desglose Revision Log"
+            },
+            "created": "Un nuevo Desglose Revision Log ha sido creado con el identificador {{ param }}",
+            "updated": "Un Desglose Revision Log ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Desglose Revision Log ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Desglose Revision Log {{ id }}?"
+            },
+            "detail": {
+                "title": "Desglose Revision Log"
+            },
+            "fecEvent": "Fec Event",
+            "numLineaLog": "Num Linea Log",
+            "codCliente": "Cod Cliente",
+            "codTipoDes": "Cod Tipo Des",
+            "codSubtipoDes": "Cod Subtipo Des",
+            "codMoneda": "Cod Moneda",
+            "numRolEmpleado": "Num Rol Empleado",
+            "codEstado": "Cod Estado",
+            "codEstadoOld": "Cod Estado Old",
+            "numRolEmpReem": "Num Rol Emp Reem",
+            "glsComentarios": "Gls Comentarios",
+            "help": {
+                "fecEvent": "Fecha y hora de evento.",
+                "numLineaLog": "Número de linea.",
+                "codCliente": "Rut de cliente.",
+                "codTipoDes": "Tipo de desglose.",
+                "codSubtipoDes": "Subtipo de desglose.",
+                "codMoneda": "Código de moneda.",
+                "numRolEmpleado": "Rol empleado.",
+                "codEstado": "Estado nuevo.",
+                "codEstadoOld": "Estado antiguo.",
+                "numRolEmpReem": "Rol empleado reemplazado.",
+                "glsComentarios": "Comentarios."
+            }
+        }
+    }
+}

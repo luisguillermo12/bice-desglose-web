@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="desgloseMensaje">
+            <h2><span jhiTranslate="desgloseApp.desgloseMensaje.detail.title">Desglose Mensaje</span> {{desgloseMensaje.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.desgloseMensaje.fecEvent" [ngbTooltip]="'desgloseApp.desgloseMensaje.help.fecEvent' | translate">Fec Event</span></dt>
+                <dd>
+                    <span>{{desgloseMensaje.fecEvent}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseMensaje.codCliente" [ngbTooltip]="'desgloseApp.desgloseMensaje.help.codCliente' | translate">Cod Cliente</span></dt>
+                <dd>
+                    <span>{{desgloseMensaje.codCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseMensaje.codTipoDes" [ngbTooltip]="'desgloseApp.desgloseMensaje.help.codTipoDes' | translate">Cod Tipo Des</span></dt>
+                <dd>
+                    <span>{{desgloseMensaje.codTipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseMensaje.codSubtipoDes" [ngbTooltip]="'desgloseApp.desgloseMensaje.help.codSubtipoDes' | translate">Cod Subtipo Des</span></dt>
+                <dd>
+                    <span>{{desgloseMensaje.codSubtipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseMensaje.codMoneda" [ngbTooltip]="'desgloseApp.desgloseMensaje.help.codMoneda' | translate">Cod Moneda</span></dt>
+                <dd>
+                    <span>{{desgloseMensaje.codMoneda}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseMensaje.numRolEmpleado" [ngbTooltip]="'desgloseApp.desgloseMensaje.help.numRolEmpleado' | translate">Num Rol Empleado</span></dt>
+                <dd>
+                    <span>{{desgloseMensaje.numRolEmpleado}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseMensaje.glsComentarios" [ngbTooltip]="'desgloseApp.desgloseMensaje.help.glsComentarios' | translate">Gls Comentarios</span></dt>
+                <dd>
+                    <span>{{desgloseMensaje.glsComentarios}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/desglose-mensaje', desgloseMensaje.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

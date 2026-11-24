@@ -1,0 +1,84 @@
+--------------------------------------------------------
+--  File created - Monday-March-11-2019   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table CONSOL
+--------------------------------------------------------
+
+  CREATE TABLE "DGL_ADMIN"."CONSOL" 
+   (	"COD_CLIENTE" VARCHAR2(20 BYTE), 
+	"COD_TIPO_DES" NUMBER(1,0), 
+	"COD_SUBTIPO_DES" NUMBER(2,0), 
+	"COD_MONEDA" VARCHAR2(20 BYTE), 
+	"COR_EMPRESA" NUMBER(2,0), 
+	"NOM_EMPRESA" VARCHAR2(50 BYTE), 
+	"COD_TIPO_PLANTILLA_DES" NUMBER(5,0) DEFAULT 0
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 131072 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT) ;
+--------------------------------------------------------
+--  DDL for Index PK_CONSOL
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "DGL_ADMIN"."PK_CONSOL" ON "DGL_ADMIN"."CONSOL" ("COD_CLIENTE", "COD_TIPO_DES", "COD_SUBTIPO_DES", "COD_MONEDA", "COR_EMPRESA") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS NOLOGGING 
+  STORAGE(INITIAL 131072 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT) ;
+--------------------------------------------------------
+--  DDL for Trigger CIF_TRG_INS_CONSOL
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "DGL_ADMIN"."CIF_TRG_INS_CONSOL" BEFORE INSERT ON CONSOL
+REFERENCING OLD AS OLD NEW AS NEW
+FOR EACH ROW
+/***********************************************************************************
+------ DATOS DE CREACION ---
+Nombre Logico     :CIF_TRG_INS_CONSOL
+Fecha             :03/12/2005
+Autor             :Rodrigo González Kirkman
+Descripcion       :Realiza diversas validaciones sobre los campos de la tabla CONSOL
+Tablas Involucradas..
+	   CONSOL
+
+------ DATOS ULTIMA MODIFICACION
+Fecha       :
+Responsable :
+***********************************************************************************/
+DECLARE
+  v_cor_empresa      NUMBER(2):=0;
+BEGIN
+   IF INSERTING THEN
+      SELECT NVL(MAX(COR_EMPRESA),0) INTO v_cor_empresa
+      FROM   CONSOL
+      WHERE  COD_CLIENTE = :NEW.COD_CLIENTE
+      AND    COD_TIPO_DES = :NEW.COD_TIPO_DES
+      AND    COD_SUBTIPO_DES = :NEW.COD_SUBTIPO_DES
+      AND    COD_MONEDA = :NEW.COD_MONEDA;
+      :NEW.COR_EMPRESA := v_cor_empresa + 1;
+   END IF;
+--------------
+EXCEPTION
+WHEN others THEN
+     raise_application_error(-1,'Error: No se puede Insertar la Empresa Consolidadora.');
+END CIF_TRG_INS_CONSOL;
+
+
+
+/
+ALTER TRIGGER "DGL_ADMIN"."CIF_TRG_INS_CONSOL" ENABLE;
+--------------------------------------------------------
+--  Constraints for Table CONSOL
+--------------------------------------------------------
+
+  ALTER TABLE "DGL_ADMIN"."CONSOL" MODIFY ("COD_TIPO_PLANTILLA_DES" NOT NULL ENABLE);
+  ALTER TABLE "DGL_ADMIN"."CONSOL" MODIFY ("NOM_EMPRESA" NOT NULL ENABLE);
+  ALTER TABLE "DGL_ADMIN"."CONSOL" MODIFY ("COR_EMPRESA" NOT NULL ENABLE);
+  ALTER TABLE "DGL_ADMIN"."CONSOL" MODIFY ("COD_MONEDA" NOT NULL ENABLE);
+  ALTER TABLE "DGL_ADMIN"."CONSOL" MODIFY ("COD_SUBTIPO_DES" NOT NULL ENABLE);
+  ALTER TABLE "DGL_ADMIN"."CONSOL" MODIFY ("COD_TIPO_DES" NOT NULL ENABLE);
+  ALTER TABLE "DGL_ADMIN"."CONSOL" MODIFY ("COD_CLIENTE" NOT NULL ENABLE);
+  ALTER TABLE "DGL_ADMIN"."CONSOL" ADD CONSTRAINT "PK_CONSOL" PRIMARY KEY ("COD_CLIENTE", "COD_TIPO_DES", "COD_SUBTIPO_DES", "COD_MONEDA", "COR_EMPRESA")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS NOLOGGING 
+  STORAGE(INITIAL 131072 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT);

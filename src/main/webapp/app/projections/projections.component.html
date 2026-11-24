@@ -1,0 +1,178 @@
+<div class="modal-header">
+    <h4 class="modal-title form-group row col-sm-12">
+        <div class="form-row form-group row col-sm-12">
+            <div class="form-group row col-sm-10">
+            </div>
+            <div class="form-group row col-sm-2 a-la-derecha">
+            </div>
+        </div>
+    </h4>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            (click)="closeModal()">&times;
+    </button>
+</div>
+<div class="modal-body">
+<div class="col-lg-12">
+    <jhi-alert></jhi-alert>
+    <jhi-alert-error></jhi-alert-error>
+    <div class="card">
+        <div class="card-header hand-pointer" (click)="isCollapsedClientDataPanel = !isCollapsedClientDataPanel" [attr.aria-expanded]="!isCollapsedClientDataPanel"
+             aria-controls="collapseClientDataPanel">
+            <div class="row">
+                <span class="col-sm-11" jhiTranslate="desgloseApp.projections.breakdownData"></span>
+                <span class="col-sm-1">
+                    <fa-icon class="float-sm-right fa-sm" [icon]="isCollapsedClientDataPanel ? ICON_CARD_OPEN : ICON_CARD_CLOSE"></fa-icon>
+                </span>
+            </div>
+        </div>
+        <div class="card-body" [ngbCollapse]="isCollapsedClientDataPanel" id="collapseClientDataPanel">
+            <form name="clientDataForm" role="form" novalidate #clientDataForm="ngForm" id="clientDataForm">
+                <div class="form-row" #clientDataDiv>
+                    <div class="form-group col-md-1">
+                        <label class="form-control-label" jhiTranslate="global.menu.maintenance.templateProyect" for="field_plantilla_proyect"></label>
+                        <select class="form-control form-control-sm" id="field_plantilla_proyect" name="codPlantillaProyect"
+                                [(ngModel)]="codPlantillaProyect">
+                            <option [ngValue]="el.codGenerico" *ngFor="let el of (simpleComboboxTypes | filterDescripcionCodigo:CODTABLA_TIPO_PLANTILLAS_PROYECCION)">
+                                {{el.glsGenericalarga }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label class="form-control-label" jhiTranslate="desgloseApp.projections.name" for="field_name"></label>
+                        <input type="text" class="form-control form-control-sm text-uppercase" name="name" id="field_name" #fieldName disabled [value]="nameCliente"/>
+                    </div>
+
+                    <div class="form-group col-md-1">
+                        <label for="field_rut" class="form-control-label" jhiTranslate="breakdown.search.rut"></label>
+                        <input type="text" class="form-control form-control-sm col-sm-12" name="rut" id="field_rut" [(ngModel)]="breakdownFilterRequestDTO.rut"  disabled
+                               #fieldRut/>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label class="form-control-label" jhiTranslate="global.form.monetaryUnit" for="field_monetaryUnit"></label>
+                        <select class="form-control form-control-sm" id="field_monetaryUnit" name="monetaryUnit" #selectedfield_monetaryUnit disabled [(ngModel)]="codUnidMoneda">
+                            <option [ngValue]="el.codGenerico" *ngFor="let el of (simpleComboboxTypes | filterDescripcionCodigo:CODTABLA_UNIDAD_MONETARIA)">
+                                {{el.glsGenericalarga }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label class="form-control-label" jhiTranslate="desgloseApp.projections.baseYear" for="field_baseYear"></label>
+                        <div class="input-group">
+                            <input type="text" class="form-control form-control-sm col-sm-6" name="baseYear" id="field_baseYear" #fieldBaseYear disabled
+                                   [value]="selectedPeriodYear | date: 'yyyy'"/>
+                            <input type="text" class="form-control form-control-sm col-sm-6" name="projectionYears" id="field_projectionYears" #fieldProjectionYears
+                                   [(ngModel)]="projectionYears"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label class="form-control-label" jhiTranslate="breakdown.state.tittle" for="field_state"></label>
+                        <input type="text" readonly disabled class="form-control-plaintext form-control-sm col-sm-8 text-uppercase" name="state" id="field_state"
+                               [(ngModel)]="estadoPry"/>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <div class="form-row float-right mr-sm-2">
+                        <div class="form-group ml-1">
+                            <label class="form-control-label" for="buttonProject">   </label>
+                            <button class="btn btn-sm btn-primary btn-block" (click)="onClickProject()" id="buttonProject">
+                                &nbsp;<span jhiTranslate="desgloseApp.projections.project" class="botones-font-size"></span>
+                            </button>
+                        </div>
+                        <div class="form-group ml-1">
+                            <label class="form-control-label" for="buttonEditar">   </label>
+                            <button class="btn btn-sm btn-primary btn-block" (click)="onClickEditar()" id="buttonEditar" #buttonEditar>
+                                &nbsp;<span jhiTranslate="desgloseApp.projections.editar" class="botones-font-size"></span>
+                            </button>
+                        </div>
+                        <div class="form-group ml-1">
+                            <label class="form-control-label" for="buttonCalcular">   </label>
+                            <button class="btn btn-sm btn-primary btn-block" (click)="onClickCalcular()" id="buttonCalcular" #buttonCalcular>
+                                &nbsp;<span jhiTranslate="desgloseApp.projections.calcular" class="botones-font-size"></span>
+                            </button>
+                        </div>
+                        <div class="form-group ml-1">
+                            <label class="form-control-label" for="buttonSave">   </label>
+                            <button class="btn btn-sm btn-primary btn-block" (click)="onClickGrabar()" id="buttonSave" #buttonSave>
+                                &nbsp;<span jhiTranslate="desgloseApp.projections.grabar" class="botones-font-size"></span>
+                            </button>
+                        </div>
+                        <div class="form-group ml-1">
+                            <label class="form-control-label" for="buttonCerrar">   </label>
+                            <button class="btn btn-sm btn-primary btn-block" (click)="onClickCerrar()" id="buttonCerrar" #buttonCerrar>
+                                <span jhiTranslate="desgloseApp.projections.cerrar" class="botones-font-size"></span>
+                            </button>
+                        </div>
+                        <div class="form-group ml-1">
+                            <label class="form-control-label" for="buttonPrint">   </label>
+                            <button class="btn btn-sm btn-primary btn-block" (click)="onClickPrintTabPrint()" id="buttonPrint">
+                                <span jhiTranslate="desgloseApp.projections.print" class="botones-font-size"></span>
+                            </button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header hand-pointer" (click)="isCollapsedDataPanel = !isCollapsedDataPanel" [attr.aria-expanded]="!isCollapsedDataPanel" aria-controls="collapseDataPanel">
+            <div class="row">
+                <span class="col-sm-11" jhiTranslate="desgloseApp.projections.data"></span>
+                <span class="col-sm-1">
+                    <fa-icon class="float-sm-right fa-sm" [icon]="isCollapsedDataPanel ? ICON_CARD_OPEN : ICON_CARD_CLOSE"></fa-icon>
+                </span>
+            </div>
+        </div>
+        <div  style="display: none">
+            <hot-table
+                [licenseKey]="HANDS_ON_TABLE_LICENSE_KEY"
+                [hotId]="handOnTableModelDataInstanceId"
+                #dataTableTab1
+                [data]="data"
+                [colHeaders]="colHeaders"
+                [columns]="columns"
+                [settings]="options"
+                [formulas]="true">
+            </hot-table>
+        </div>
+
+        <div class="card-body" [ngbCollapse]="isCollapsedDataPanel" id="collapseDataPanel">
+                <ngx-spinner [fullScreen]="false" type="ball-clip-rotate-multiple" size="medium">
+                    <p class="loading" id = "divCarga">Cargando...</p>
+                </ngx-spinner>
+            <div class="form-group col-md-12" id = "divTableProjection">
+                <hot-table
+                    [licenseKey]="HANDS_ON_TABLE_LICENSE_KEY"
+                    [hotId]="handOnTableProjectionInstanceId"
+                    #dataTableTab2
+                    [data]="dataProyecciones"
+                    [colHeaders]="colHeadersProjection"
+                    [columns]="columnsProjection"
+                    [settings]="options"
+                    [formulas]="false">
+                </hot-table>
+            </div>
+        </div>
+        <div class="form-group col-md-12"  style="display: none">
+            <hot-table
+                [licenseKey]="HANDS_ON_TABLE_LICENSE_KEY"
+                [hotId]="handOnTableProjectionCalculadoraInstanceId"
+                #dataTableTab3
+                [data]="dataProyeccionesCalculo"
+                [colHeaders]="colHeadersProjectionCalculadora"
+                [columns]="columnsProjectionCalculadora"
+                [settings]="options"
+                [formulas]="true">
+            </hot-table>
+        </div>
+        <!--<div class="form-group row p-1" [hidden]="isDivFormulaValueHidden">
+            <div class="col-sm-12">
+                <div id="selectedCellValueContainerId">
+                    <ngb-alert [dismissible]="false" class="cell-value-excel">
+                        <span class="label label-primary" id="selectedCellValueId">&emsp;</span>
+                    </ngb-alert>
+                </div>
+            </div>
+        </div>-->
+    </div>
+</div>
+</div>

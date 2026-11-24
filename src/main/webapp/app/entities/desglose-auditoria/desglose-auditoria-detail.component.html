@@ -1,0 +1,83 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="desgloseAuditoria">
+            <h2><span jhiTranslate="desgloseApp.desgloseAuditoria.detail.title">Desglose Auditoria</span> {{desgloseAuditoria.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.desgloseAuditoria.codCliente" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.codCliente' | translate">Cod Cliente</span></dt>
+                <dd>
+                    <span>{{desgloseAuditoria.codCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseAuditoria.codTipoDes" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.codTipoDes' | translate">Cod Tipo Des</span></dt>
+                <dd>
+                    <span>{{desgloseAuditoria.codTipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseAuditoria.codSubtipoDes" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.codSubtipoDes' | translate">Cod Subtipo Des</span></dt>
+                <dd>
+                    <span>{{desgloseAuditoria.codSubtipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseAuditoria.codMoneda" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.codMoneda' | translate">Cod Moneda</span></dt>
+                <dd>
+                    <span>{{desgloseAuditoria.codMoneda}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseAuditoria.fecEvento" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.fecEvento' | translate">Fec Evento</span></dt>
+                <dd>
+                    <span>{{desgloseAuditoria.fecEvento}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseAuditoria.numLinea" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.numLinea' | translate">Num Linea</span></dt>
+                <dd>
+                    <span>{{desgloseAuditoria.numLinea}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseAuditoria.codEvento" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.codEvento' | translate">Cod Evento</span></dt>
+                <dd>
+                    <span>{{desgloseAuditoria.codEvento}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseAuditoria.rolEmpleadoAccion" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.rolEmpleadoAccion' | translate">Rol Empleado Accion</span></dt>
+                <dd>
+                    <span>{{desgloseAuditoria.rolEmpleadoAccion}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseAuditoria.glsRol" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.glsRol' | translate">Gls Rol</span></dt>
+                <dd>
+                    <span>{{desgloseAuditoria.glsRol}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseAuditoria.codEstadoOri" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.codEstadoOri' | translate">Cod Estado Ori</span></dt>
+                <dd>
+                    <span>{{desgloseAuditoria.codEstadoOri}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseAuditoria.codEstadoNvo" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.codEstadoNvo' | translate">Cod Estado Nvo</span></dt>
+                <dd>
+                    <span>{{desgloseAuditoria.codEstadoNvo}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseAuditoria.rolEmpleadoOri" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.rolEmpleadoOri' | translate">Rol Empleado Ori</span></dt>
+                <dd>
+                    <span>{{desgloseAuditoria.rolEmpleadoOri}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseAuditoria.rolEmpleadoNvo" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.rolEmpleadoNvo' | translate">Rol Empleado Nvo</span></dt>
+                <dd>
+                    <span>{{desgloseAuditoria.rolEmpleadoNvo}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseAuditoria.flgResultValid" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.flgResultValid' | translate">Flg Result Valid</span></dt>
+                <dd>
+                    <span>{{desgloseAuditoria.flgResultValid}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseAuditoria.glsComentario" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.glsComentario' | translate">Gls Comentario</span></dt>
+                <dd>
+                    <span>{{desgloseAuditoria.glsComentario}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/desglose-auditoria', desgloseAuditoria.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

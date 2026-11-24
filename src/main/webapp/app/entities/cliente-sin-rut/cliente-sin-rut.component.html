@@ -1,0 +1,80 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="desgloseApp.clienteSinRut.home.title">Cliente Sin Ruts</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-cliente-sin-rut" [routerLink]="['/cliente-sin-rut/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span jhiTranslate="desgloseApp.clienteSinRut.home.createLabel">
+            Create new Cliente Sin Rut
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="clienteSinRuts">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+                <th jhiSortBy="codCliente"><span jhiTranslate="desgloseApp.clienteSinRut.codCliente">Cod Cliente</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="nomCliente"><span jhiTranslate="desgloseApp.clienteSinRut.nomCliente">Nom Cliente</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="nomPaterno"><span jhiTranslate="desgloseApp.clienteSinRut.nomPaterno">Nom Paterno</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="nomMaterno"><span jhiTranslate="desgloseApp.clienteSinRut.nomMaterno">Nom Materno</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="codActividad"><span jhiTranslate="desgloseApp.clienteSinRut.codActividad">Cod Actividad</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let clienteSinRut of clienteSinRuts ;trackBy: trackId">
+                <td><a [routerLink]="['/cliente-sin-rut', clienteSinRut.codCliente, 'view' ]">{{clienteSinRut.codCliente}}</a></td>
+                <td>{{clienteSinRut.nomCliente}}</td>
+                <td>{{clienteSinRut.nomPaterno}}</td>
+                <td>{{clienteSinRut.nomMaterno}}</td>
+                <td>{{clienteSinRut.codActividad}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/cliente-sin-rut', clienteSinRut.codCliente, 'view' ]"
+                                target="_blank"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/cliente-sin-rut', clienteSinRut.codCliente, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'cliente-sin-rut/'+ clienteSinRut.codCliente + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="clienteSinRuts && clienteSinRuts.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true"
+                            (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

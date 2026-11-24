@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cuadre">
+            <h2><span jhiTranslate="desgloseApp.cuadre.detail.title">Cuadre</span></h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.cuadre.codTpoConcep1" [ngbTooltip]="'desgloseApp.cuadre.help.codTpoConcep1' | translate">Cod Tpo Concep 1</span></dt>
+                <dd>
+                    <span>{{cuadre.codTpoConcep1}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.cuadre.corConcepto1" [ngbTooltip]="'desgloseApp.cuadre.help.corConcepto1' | translate">Cor Concepto 1</span></dt>
+                <dd>
+                    <span>{{cuadre.corConcepto1}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.cuadre.codTpoConcep2" [ngbTooltip]="'desgloseApp.cuadre.help.codTpoConcep2' | translate">Cod Tpo Concep 2</span></dt>
+                <dd>
+                    <span>{{cuadre.codTpoConcep2}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.cuadre.corConcepto2" [ngbTooltip]="'desgloseApp.cuadre.help.corConcepto2' | translate">Cor Concepto 2</span></dt>
+                <dd>
+                    <span>{{cuadre.corConcepto2}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.cuadre.glsMensaje" [ngbTooltip]="'desgloseApp.cuadre.help.glsMensaje' | translate">Gls Mensaje</span></dt>
+                <dd>
+                    <span>{{cuadre.glsMensaje}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cuadre', cuadre.codTpoConcep1,  cuadre.corConcepto1, cuadre.codTpoConcep2, cuadre.corConcepto2, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

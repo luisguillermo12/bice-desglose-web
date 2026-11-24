@@ -1,0 +1,53 @@
+{
+    "name": "Cuadre",
+    "fields": [
+        {
+            "fieldName": "codTpoConcep1",
+            "javadoc": "Tipo de concepto 1.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "corConcepto1",
+            "javadoc": "Correlativo del concepto 1.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codTpoConcep2",
+            "javadoc": "Tipo de concepto 2.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "corConcepto2",
+            "javadoc": "Correlativo del concepto 2.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "glsMensaje",
+            "javadoc": "Mensaje a mostrar.",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181011140734",
+    "javadoc": "Representa la tabla \"CUADRE\", en donde se definición condiciones de cuadratura a realizar previo al grabado de un desglose. Pertenece al esquema CIF_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "cuadre",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

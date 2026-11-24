@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-unique-session-control-heading" jhiTranslate="desgloseApp.uniqueSessionControl.home.createOrEditLabel">Create or edit a Unique Session Control</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!uniqueSessionControl.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="uniqueSessionControl.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.uniqueSessionControl.loginName" for="field_loginName">Login Name</label>
+                    <input type="text" class="form-control" name="loginName" id="field_loginName"
+                        [(ngModel)]="uniqueSessionControl.loginName" required/>
+                    <div [hidden]="!(editForm.controls.loginName?.dirty && editForm.controls.loginName?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.loginName?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.uniqueSessionControl.sessionCheckTime" for="field_sessionCheckTime">Session Check Time</label>
+                    <div class="d-flex">
+                        <input id="field_sessionCheckTime" type="datetime-local" class="form-control" name="sessionCheckTime" [(ngModel)]="sessionCheckTime"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.uniqueSessionControl.sessionEndTime" for="field_sessionEndTime">Session End Time</label>
+                    <div class="d-flex">
+                        <input id="field_sessionEndTime" type="datetime-local" class="form-control" name="sessionEndTime" [(ngModel)]="sessionEndTime"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.uniqueSessionControl.jwt" for="field_jwt">Jwt</label>
+                    <input type="text" class="form-control" name="jwt" id="field_jwt"
+                        [(ngModel)]="uniqueSessionControl.jwt" required/>
+                    <div [hidden]="!(editForm.controls.jwt?.dirty && editForm.controls.jwt?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.jwt?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

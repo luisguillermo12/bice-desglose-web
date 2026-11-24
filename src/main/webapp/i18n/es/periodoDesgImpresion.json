@@ -1,0 +1,42 @@
+
+{
+    "periodoDesgImpresion": "Se generó el impreso correctamente.",
+    "desgloseApp": {
+        "periodoDesgImpresion" : {
+            "home": {
+                "title": "Periodo Desg Impresions",
+                "createLabel": "Crear nuevo Periodo Desg Impresion",
+                "createOrEditLabel": "Crear o editar Periodo Desg Impresion"
+            },
+            "created": "Un nuevo Periodo Desg Impresion ha sido creado con el identificador {{ param }}",
+            "updated": "Un Periodo Desg Impresion ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Periodo Desg Impresion ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Periodo Desg Impresion {{ id }}?"
+            },
+            "detail": {
+                "title": "Periodo Desg Impresion"
+            },
+            "codCliente": "Cod Cliente",
+            "codTipoDes": "Cod Tipo Des",
+            "codSubtipoDes": "Cod Subtipo Des",
+            "codMoneda": "Cod Moneda",
+            "codMonedaImp": "Cod Moneda Imp",
+            "fecPeriodo": "Fec Periodo",
+            "valDeflacPrd": "Val Deflac Prd",
+            "valTipoCambio": "Val Tipo Cambio",
+            "corImpreso": "Cor Impreso",
+            "help": {
+                "codCliente": "Rut de cliente.",
+                "codTipoDes": "Tipo de desglose.",
+                "codSubtipoDes": "Subtipo de desglose.",
+                "codMoneda": "Código de moneda.",
+                "codMonedaImp": "Código de moneda de impresión.",
+                "fecPeriodo": "Fecha para el período.",
+                "valDeflacPrd": "Valor deflator para el período. Precisión 6, escala 3.",
+                "valTipoCambio": "Valor tipo de cambio. Precisión 12, escala 6.",
+                "corImpreso": "Correlativo de impresión."
+            }
+        }
+    }
+}

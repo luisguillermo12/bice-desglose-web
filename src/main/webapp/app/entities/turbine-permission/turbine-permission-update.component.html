@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-turbine-permission-heading" jhiTranslate="desgloseApp.turbinePermission.home.createOrEditLabel">Create or edit a Turbine Permission</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!turbinePermission.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="turbinePermission.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.turbinePermission.permissionId" for="field_permissionId">Permission Id</label>
+                    <input type="number" class="form-control" name="permissionId" id="field_permissionId"
+                        [(ngModel)]="turbinePermission.permissionId" required/>
+                    <div [hidden]="!(editForm.controls.permissionId?.dirty && editForm.controls.permissionId?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.permissionId?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.permissionId?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.turbinePermission.permissionName" for="field_permissionName">Permission Name</label>
+                    <input type="text" class="form-control" name="permissionName" id="field_permissionName"
+                        [(ngModel)]="turbinePermission.permissionName" required/>
+                    <div [hidden]="!(editForm.controls.permissionName?.dirty && editForm.controls.permissionName?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.permissionName?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.turbinePermission.objectdata" for="field_objectdata">Objectdata</label>
+                    <div>
+                        <div *ngIf="turbinePermission.objectdata" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(turbinePermission.objectdataContentType, turbinePermission.objectdata)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{turbinePermission.objectdataContentType}}, {{byteSize(turbinePermission.objectdata)}}</span>
+                            <button type="button" (click)="turbinePermission.objectdata=null;turbinePermission.objectdataContentType=null;"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_objectdata" (change)="setFileData($event, turbinePermission, 'objectdata', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="objectdata" id="field_objectdata"
+                        [(ngModel)]="turbinePermission.objectdata" />
+                    <input type="hidden" class="form-control" name="objectdataContentType" id="field_objectdataContentType"
+                        [(ngModel)]="turbinePermission.objectdataContentType" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

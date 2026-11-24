@@ -1,0 +1,100 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="desgloseApp.clienteNatural.home.title">Cliente Naturals</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-cliente-natural" [routerLink]="['/cliente-natural/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="desgloseApp.clienteNatural.home.createLabel">
+            Create new Cliente Natural
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="clienteNaturals">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numCliente"><span jhiTranslate="desgloseApp.clienteNatural.numCliente">Num Cliente</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="flgEmpleado"><span jhiTranslate="desgloseApp.clienteNatural.flgEmpleado">Flg Empleado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nomPaterno"><span jhiTranslate="desgloseApp.clienteNatural.nomPaterno">Nom Paterno</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nomMaterno"><span jhiTranslate="desgloseApp.clienteNatural.nomMaterno">Nom Materno</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nomNombres"><span jhiTranslate="desgloseApp.clienteNatural.nomNombres">Nom Nombres</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nomNickname"><span jhiTranslate="desgloseApp.clienteNatural.nomNickname">Nom Nickname</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codNacion"><span jhiTranslate="desgloseApp.clienteNatural.codNacion">Cod Nacion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codResidencia"><span jhiTranslate="desgloseApp.clienteNatural.codResidencia">Cod Residencia</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codProfesion"><span jhiTranslate="desgloseApp.clienteNatural.codProfesion">Cod Profesion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecNacim"><span jhiTranslate="desgloseApp.clienteNatural.fecNacim">Fec Nacim</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codSexo"><span jhiTranslate="desgloseApp.clienteNatural.codSexo">Cod Sexo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codNivEducac"><span jhiTranslate="desgloseApp.clienteNatural.codNivEducac">Cod Niv Educac</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codEstcivil"><span jhiTranslate="desgloseApp.clienteNatural.codEstcivil">Cod Estcivil</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codSepBienes"><span jhiTranslate="desgloseApp.clienteNatural.codSepBienes">Cod Sep Bienes</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numCargas"><span jhiTranslate="desgloseApp.clienteNatural.numCargas">Num Cargas</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecAntigViv"><span jhiTranslate="desgloseApp.clienteNatural.fecAntigViv">Fec Antig Viv</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecDefuncion"><span jhiTranslate="desgloseApp.clienteNatural.fecDefuncion">Fec Defuncion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecCertEcivi"><span jhiTranslate="desgloseApp.clienteNatural.fecCertEcivi">Fec Cert Ecivi</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codRegStatus"><span jhiTranslate="desgloseApp.clienteNatural.codRegStatus">Cod Reg Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codRegLog"><span jhiTranslate="desgloseApp.clienteNatural.codRegLog">Cod Reg Log</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let clienteNatural of clienteNaturals ;trackBy: trackId">
+                <td><a [routerLink]="['/cliente-natural', clienteNatural.id, 'view' ]">{{clienteNatural.id}}</a></td>
+                <td>{{clienteNatural.numCliente}}</td>
+                <td>{{clienteNatural.flgEmpleado}}</td>
+                <td>{{clienteNatural.nomPaterno}}</td>
+                <td>{{clienteNatural.nomMaterno}}</td>
+                <td>{{clienteNatural.nomNombres}}</td>
+                <td>{{clienteNatural.nomNickname}}</td>
+                <td>{{clienteNatural.codNacion}}</td>
+                <td>{{clienteNatural.codResidencia}}</td>
+                <td>{{clienteNatural.codProfesion}}</td>
+                <td>{{clienteNatural.fecNacim | date:'mediumDate'}}</td>
+                <td>{{clienteNatural.codSexo}}</td>
+                <td>{{clienteNatural.codNivEducac}}</td>
+                <td>{{clienteNatural.codEstcivil}}</td>
+                <td>{{clienteNatural.codSepBienes}}</td>
+                <td>{{clienteNatural.numCargas}}</td>
+                <td>{{clienteNatural.fecAntigViv | date:'mediumDate'}}</td>
+                <td>{{clienteNatural.fecDefuncion | date:'mediumDate'}}</td>
+                <td>{{clienteNatural.fecCertEcivi | date:'mediumDate'}}</td>
+                <td>{{clienteNatural.codRegStatus}}</td>
+                <td>{{clienteNatural.codRegLog}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/cliente-natural', clienteNatural.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/cliente-natural', clienteNatural.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'cliente-natural/'+ clienteNatural.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="clienteNaturals && clienteNaturals.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

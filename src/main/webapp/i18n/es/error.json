@@ -1,0 +1,32 @@
+{
+    "error": {
+        "title": "¡Página de error!",
+        "blankTitle": "",
+        "http": {
+            "400": "Bad request.",
+            "403": "No tiene permisos para acceder a la página.",
+            "405": "The HTTP verb you used is not supported for this URL.",
+            "500": "Ha ocurrido un error inesperado. Por favor intente otra vez. Si el error persiste contacte al administrador."
+        },
+        "impresion": "El Desglose señalado no se puede imprimir por que no existe",
+        "concurrencyFailure": "Otro usuario modificó estos datos al mismo tiempo que usted. Tus cambios fueron rechazados.",
+        "validation": "Validation error on the server.",
+        "invalidRut": "El rut ingresado es inválido, por favor reingrese.",
+        "noPeriodsToConsolidate": "No hay periodos a consolidar.",
+        "emptyName": "El nombre ingresado no puede ser vacío.",
+        "conceptNotExist": "El concepto padre no existe en la base de datos",
+        "conceptExist": "El concepto ya existe en la base de datos",
+        "rutDoesNotExist": "Error, El cliente no se encuentra registrado en las bases de datos. Favor verifique que el rut sea el correcto o contáctese con el administrador.",
+        "noEconomicActivity": "Cliente sin actividad comercial definida.",
+        "storageProcedureExecutionException": "Ha ocurrido un error ejecutando un procedimiento almacenado. Por favor intente más otra vez.",
+        "testCaseOnPurposeException": "Ha ocurrido un error de prueba (lanzado a propósito) por razones de depuración. Por favor contáctese con el administrador.",
+        "storageProcedureBusinessError": "Error de negocio ejecutando un procedimiento almacenado. <strong> {{errorDetail}} </strong>",
+        "saveBreakdownValidationError": "Ocurrió un error de validación al guardar el desglose. <strong> {{errorDetail}} </strong>",
+        "editBreakdownError": "No es posible editar el desglose. <strong> {{errorDetail}} </strong>",
+        "insufficientPermissionBusinessError": "El usuario no tiene permiso para ejecutar la acción de <strong class=\"text-uppercase\"> {{errorDetail}} </strong>.",
+        "sqlError": "Ha ocurrido un error de base de datos. Por favor intente otra vez. Si el error persiste contacte al administrador.",
+        "userHasNoPermission": "No dispone de permisos para eliminar el desglose.",
+        "userReplacement": "Ud. está siendo reemplazado por {{errorDetail}}, por lo tanto no puede acceder a la plataforma.",
+        "forbiddenUserNotLoggedIn": "¡Debe iniciar sesión! Por favor, ingrese al sistema e intente de nuevo."
+    }
+}

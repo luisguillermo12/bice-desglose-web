@@ -1,0 +1,152 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-desglose-auditoria-heading" jhiTranslate="desgloseApp.desgloseAuditoria.home.createOrEditLabel">Create or edit a Desglose Auditoria</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!desgloseAuditoria.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="desgloseAuditoria.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseAuditoria.codCliente" for="field_codCliente" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.codCliente' | translate">Cod Cliente</label>
+                    <input type="text" class="form-control" name="codCliente" id="field_codCliente"
+                        [(ngModel)]="desgloseAuditoria.codCliente" required/>
+                    <div [hidden]="!(editForm.controls.codCliente?.dirty && editForm.controls.codCliente?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codCliente?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseAuditoria.codTipoDes" for="field_codTipoDes" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.codTipoDes' | translate">Cod Tipo Des</label>
+                    <input type="number" class="form-control" name="codTipoDes" id="field_codTipoDes"
+                        [(ngModel)]="desgloseAuditoria.codTipoDes" required/>
+                    <div [hidden]="!(editForm.controls.codTipoDes?.dirty && editForm.controls.codTipoDes?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codTipoDes?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.codTipoDes?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseAuditoria.codSubtipoDes" for="field_codSubtipoDes" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.codSubtipoDes' | translate">Cod Subtipo Des</label>
+                    <input type="number" class="form-control" name="codSubtipoDes" id="field_codSubtipoDes"
+                        [(ngModel)]="desgloseAuditoria.codSubtipoDes" required/>
+                    <div [hidden]="!(editForm.controls.codSubtipoDes?.dirty && editForm.controls.codSubtipoDes?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codSubtipoDes?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.codSubtipoDes?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseAuditoria.codMoneda" for="field_codMoneda" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.codMoneda' | translate">Cod Moneda</label>
+                    <input type="text" class="form-control" name="codMoneda" id="field_codMoneda"
+                        [(ngModel)]="desgloseAuditoria.codMoneda" required/>
+                    <div [hidden]="!(editForm.controls.codMoneda?.dirty && editForm.controls.codMoneda?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codMoneda?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseAuditoria.fecEvento" for="field_fecEvento" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.fecEvento' | translate">Fec Evento</label>
+                    <div class="input-group">
+                        <input id="field_fecEvento" type="text" class="form-control" name="fecEvento" ngbDatepicker  #fecEventoDp="ngbDatepicker" [(ngModel)]="desgloseAuditoria.fecEvento"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecEventoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.fecEvento?.dirty && editForm.controls.fecEvento?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.fecEvento?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseAuditoria.numLinea" for="field_numLinea" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.numLinea' | translate">Num Linea</label>
+                    <input type="number" class="form-control" name="numLinea" id="field_numLinea"
+                        [(ngModel)]="desgloseAuditoria.numLinea" required/>
+                    <div [hidden]="!(editForm.controls.numLinea?.dirty && editForm.controls.numLinea?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.numLinea?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.numLinea?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseAuditoria.codEvento" for="field_codEvento" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.codEvento' | translate">Cod Evento</label>
+                    <input type="text" class="form-control" name="codEvento" id="field_codEvento"
+                        [(ngModel)]="desgloseAuditoria.codEvento" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseAuditoria.rolEmpleadoAccion" for="field_rolEmpleadoAccion" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.rolEmpleadoAccion' | translate">Rol Empleado Accion</label>
+                    <input type="text" class="form-control" name="rolEmpleadoAccion" id="field_rolEmpleadoAccion"
+                        [(ngModel)]="desgloseAuditoria.rolEmpleadoAccion" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseAuditoria.glsRol" for="field_glsRol" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.glsRol' | translate">Gls Rol</label>
+                    <input type="text" class="form-control" name="glsRol" id="field_glsRol"
+                        [(ngModel)]="desgloseAuditoria.glsRol" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseAuditoria.codEstadoOri" for="field_codEstadoOri" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.codEstadoOri' | translate">Cod Estado Ori</label>
+                    <input type="text" class="form-control" name="codEstadoOri" id="field_codEstadoOri"
+                        [(ngModel)]="desgloseAuditoria.codEstadoOri" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseAuditoria.codEstadoNvo" for="field_codEstadoNvo" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.codEstadoNvo' | translate">Cod Estado Nvo</label>
+                    <input type="text" class="form-control" name="codEstadoNvo" id="field_codEstadoNvo"
+                        [(ngModel)]="desgloseAuditoria.codEstadoNvo" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseAuditoria.rolEmpleadoOri" for="field_rolEmpleadoOri" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.rolEmpleadoOri' | translate">Rol Empleado Ori</label>
+                    <input type="text" class="form-control" name="rolEmpleadoOri" id="field_rolEmpleadoOri"
+                        [(ngModel)]="desgloseAuditoria.rolEmpleadoOri" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseAuditoria.rolEmpleadoNvo" for="field_rolEmpleadoNvo" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.rolEmpleadoNvo' | translate">Rol Empleado Nvo</label>
+                    <input type="text" class="form-control" name="rolEmpleadoNvo" id="field_rolEmpleadoNvo"
+                        [(ngModel)]="desgloseAuditoria.rolEmpleadoNvo" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseAuditoria.flgResultValid" for="field_flgResultValid" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.flgResultValid' | translate">Flg Result Valid</label>
+                    <input type="text" class="form-control" name="flgResultValid" id="field_flgResultValid"
+                        [(ngModel)]="desgloseAuditoria.flgResultValid" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseAuditoria.glsComentario" for="field_glsComentario" [ngbTooltip]="'desgloseApp.desgloseAuditoria.help.glsComentario' | translate">Gls Comentario</label>
+                    <input type="text" class="form-control" name="glsComentario" id="field_glsComentario"
+                        [(ngModel)]="desgloseAuditoria.glsComentario" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

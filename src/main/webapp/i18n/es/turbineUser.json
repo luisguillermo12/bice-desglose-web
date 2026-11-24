@@ -1,0 +1,34 @@
+
+{
+    "desgloseApp": {
+        "turbineUser" : {
+            "home": {
+                "title": "Turbine Users",
+                "createLabel": "Crear nuevo Turbine User",
+                "createOrEditLabel": "Crear o editar Turbine User"
+            },
+            "created": "Un nuevo Turbine User ha sido creado con el identificador {{ param }}",
+            "updated": "Un Turbine User ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Turbine User ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Turbine User {{ id }}?"
+            },
+            "detail": {
+                "title": "Turbine User"
+            },
+            "userId": "User Id",
+            "loginName": "Login Name",
+            "passwordValue": "Password Value",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email",
+            "confirmValue": "Confirm Value",
+            "modified": "Modified",
+            "created": "Created",
+            "lastLogin": "Last Login",
+            "expire": "Expire",
+            "expirePassword": "Expire Password",
+            "objectdata": "Objectdata"
+        }
+    }
+}

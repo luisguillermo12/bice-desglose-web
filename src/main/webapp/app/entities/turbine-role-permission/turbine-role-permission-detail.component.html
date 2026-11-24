@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="turbineRolePermission">
+            <h2><span jhiTranslate="desgloseApp.turbineRolePermission.detail.title">Turbine Role Permission</span> {{turbineRolePermission.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.turbineRolePermission.role">Role</span></dt>
+                <dd>
+                    <div *ngIf="turbineRolePermission.roleId">
+                        <a [routerLink]="['/turbine-role', turbineRolePermission.roleId, 'view']">{{turbineRolePermission.roleId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.turbineRolePermission.permission">Permission</span></dt>
+                <dd>
+                    <div *ngIf="turbineRolePermission.permissionId">
+                        <a [routerLink]="['/turbine-permission', turbineRolePermission.permissionId, 'view']">{{turbineRolePermission.permissionId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/turbine-role-permission', turbineRolePermission.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

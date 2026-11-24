@@ -1,0 +1,51 @@
+
+{
+    "desgloseApp": {
+        "tablaServicioMail" : {
+            "home": {
+                "title": "Tabla Servicio Mails",
+                "createLabel": "Crear nuevo Tabla Servicio Mail",
+                "createOrEditLabel": "Crear o editar Tabla Servicio Mail"
+            },
+            "created": "Un nuevo Tabla Servicio Mail ha sido creado con el identificador {{ param }}",
+            "updated": "Un Tabla Servicio Mail ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Tabla Servicio Mail ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Tabla Servicio Mail {{ id }}?"
+            },
+            "detail": {
+                "title": "Tabla Servicio Mail"
+            },
+            "codSistema": "Cod Sistema",
+            "numSolicitud": "Num Solicitud",
+            "fecSolicitud": "Fec Solicitud",
+            "numTrxSistema": "Num Trx Sistema",
+            "glsFromNombre": "Gls From Nombre",
+            "glsFromMail": "Gls From Mail",
+            "glsAsunto": "Gls Asunto",
+            "glsMensaje": "Gls Mensaje",
+            "fecEnvMail": "Fec Env Mail",
+            "numIntento": "Num Intento",
+            "numMaxReintento": "Num Max Reintento",
+            "codEstado": "Cod Estado",
+            "glsDetRespuesta": "Gls Det Respuesta",
+            "glsContentType": "Gls Content Type",
+            "help": {
+                "codSistema": "Código sistema.",
+                "numSolicitud": "Número solicitud envio.",
+                "fecSolicitud": "Fecha solicitud.",
+                "numTrxSistema": "Número trx sistema solicitante.",
+                "glsFromNombre": "Nombre remitente.",
+                "glsFromMail": "Mail remitente.",
+                "glsAsunto": "Asunto mail.",
+                "glsMensaje": "Detalle mensaje.",
+                "fecEnvMail": "Fecha envío mail.",
+                "numIntento": "Número intento.",
+                "numMaxReintento": "Número máximo reintento.",
+                "codEstado": "Estado envío correo: PTE (Pendiente), PRO (En proceso), REI (Reintentar), OK (Enviado), NOK (No enviado).",
+                "glsDetRespuesta": "Detalle respuesta envío.",
+                "glsContentType": "Tipo del contenido del correo."
+            }
+        }
+    }
+}

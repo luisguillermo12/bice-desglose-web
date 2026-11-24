@@ -1,0 +1,253 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="desgloseApp.desglose.home.title">Desgloses</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-desglose" [routerLink]="['/desglose/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span jhiTranslate="desgloseApp.desglose.home.createLabel">
+            Create new Desglose
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="desgloses">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+                <th jhiSortBy="codCliente"><span jhiTranslate="desgloseApp.desglose.codCliente">Cod Cliente</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="codTipoDes"><span jhiTranslate="desgloseApp.desglose.codTipoDes">Cod Tipo Des</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="codSubtipoDes"><span jhiTranslate="desgloseApp.desglose.codSubtipoDes">Cod Subtipo Des</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="codMoneda"><span jhiTranslate="desgloseApp.desglose.codMoneda">Cod Moneda</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="codUnidMoneda"><span jhiTranslate="desgloseApp.desglose.codUnidMoneda">Cod Unid Moneda</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="glsSubtipoDes"><span jhiTranslate="desgloseApp.desglose.glsSubtipoDes">Gls Subtipo Des</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="valDeflacBase"><span jhiTranslate="desgloseApp.desglose.valDeflacBase">Val Deflac Base</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="valIva"><span jhiTranslate="desgloseApp.desglose.valIva">Val Iva</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="nomUserAnalis"><span jhiTranslate="desgloseApp.desglose.nomUserAnalis">Nom User Analis</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="glsObservacion"><span jhiTranslate="desgloseApp.desglose.glsObservacion">Gls Observacion</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="nomUserCrea"><span jhiTranslate="desgloseApp.desglose.nomUserCrea">Nom User Crea</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="fecUserCrea"><span jhiTranslate="desgloseApp.desglose.fecUserCrea">Fec User Crea</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="nomUserModif"><span jhiTranslate="desgloseApp.desglose.nomUserModif">Nom User Modif</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="fecUserModif"><span jhiTranslate="desgloseApp.desglose.fecUserModif">Fec User Modif</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="fecDeflacBase"><span jhiTranslate="desgloseApp.desglose.fecDeflacBase">Fec Deflac Base</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="nomUserOpen"><span jhiTranslate="desgloseApp.desglose.nomUserOpen">Nom User Open</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="flgIsTemporal"><span jhiTranslate="desgloseApp.desglose.flgIsTemporal">Flg Is Temporal</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="codMonedaImp"><span jhiTranslate="desgloseApp.desglose.codMonedaImp">Cod Moneda Imp</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="fecHraOpen"><span jhiTranslate="desgloseApp.desglose.fecHraOpen">Fec Hra Open</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="nomUser"><span jhiTranslate="desgloseApp.desglose.nomUser">Nom User</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="flgValidacion"><span jhiTranslate="desgloseApp.desglose.flgValidacion">Flg Validacion</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="flgRevision"><span jhiTranslate="desgloseApp.desglose.flgRevision">Flg Revision</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="glsComentValid"><span jhiTranslate="desgloseApp.desglose.glsComentValid">Gls Coment Valid</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="codEstado"><span jhiTranslate="desgloseApp.desglose.codEstado">Cod Estado</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="rolEmpleadoDesDef"><span jhiTranslate="desgloseApp.desglose.rolEmpleadoDesDef">Rol Empleado Des Def</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="nomRevisorDef"><span jhiTranslate="desgloseApp.desglose.nomRevisorDef">Nom Revisor Def</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="fecDesgloDef"><span jhiTranslate="desgloseApp.desglose.fecDesgloDef">Fec Desglo Def</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="rolEmpleadoRevMod"><span jhiTranslate="desgloseApp.desglose.rolEmpleadoRevMod">Rol Empleado Rev Mod</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="rolEmpleadoDefEnvPdf"><span jhiTranslate="desgloseApp.desglose.rolEmpleadoDefEnvPdf">Rol Empleado Def Env Pdf</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="fecDesgloEnvPdf"><span jhiTranslate="desgloseApp.desglose.fecDesgloEnvPdf">Fec Desglo Env Pdf</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="codMonedaRpt"><span jhiTranslate="desgloseApp.desglose.codMonedaRpt">Cod Moneda Rpt</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="corImpresionRpt"><span jhiTranslate="desgloseApp.desglose.corImpresionRpt">Cor Impresion Rpt</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="flgEjeFactoringRpt"><span jhiTranslate="desgloseApp.desglose.flgEjeFactoringRpt">Flg Eje Factoring Rpt</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="fecPeriodo1Rpt"><span jhiTranslate="desgloseApp.desglose.fecPeriodo1Rpt">Fec Periodo 1 Rpt</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="fecPeriodo2Rpt"><span jhiTranslate="desgloseApp.desglose.fecPeriodo2Rpt">Fec Periodo 2 Rpt</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="fecPeriodo3Rpt"><span jhiTranslate="desgloseApp.desglose.fecPeriodo3Rpt">Fec Periodo 3 Rpt</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="fecPeriodo4Rpt"><span jhiTranslate="desgloseApp.desglose.fecPeriodo4Rpt">Fec Periodo 4 Rpt</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="fecPerConsol1Rpt"><span jhiTranslate="desgloseApp.desglose.fecPerConsol1Rpt">Fec Per Consol 1 Rpt</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="fecPerConsol2Rpt"><span jhiTranslate="desgloseApp.desglose.fecPerConsol2Rpt">Fec Per Consol 2 Rpt</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="fecUlt1Rpt"><span jhiTranslate="desgloseApp.desglose.fecUlt1Rpt">Fec Ult 1 Rpt</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="fecUlt2Rpt"><span jhiTranslate="desgloseApp.desglose.fecUlt2Rpt">Fec Ult 2 Rpt</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="fecUserModifRpt"><span jhiTranslate="desgloseApp.desglose.fecUserModifRpt">Fec User Modif Rpt</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="nomUserModifRpt"><span jhiTranslate="desgloseApp.desglose.nomUserModifRpt">Nom User Modif Rpt</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="numReporteRpt"><span jhiTranslate="desgloseApp.desglose.numReporteRpt">Num Reporte Rpt</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="fecGeneracionRpt"><span jhiTranslate="desgloseApp.desglose.fecGeneracionRpt">Fec Generacion Rpt</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="numDevolEjecutor"><span jhiTranslate="desgloseApp.desglose.numDevolEjecutor">Num Devol Ejecutor</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="numRolChgEstado"><span jhiTranslate="desgloseApp.desglose.numRolChgEstado">Num Rol Chg Estado</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="flgReq2firma"><span jhiTranslate="desgloseApp.desglose.flgReq2firma">Flg Req 2 Firma</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let desglose of desgloses ;trackBy: trackId">
+                <td><a [routerLink]="['/desglose', desglose.codCliente, desglose.codTipoDes, desglose.codSubtipoDes, desglose.codMoneda, desglose.codPlantilla, 'view' ]">
+                    {{desglose.codCliente}}</a></td>
+                <td>{{desglose.codTipoDes}}</td>
+                <td>{{desglose.codSubtipoDes}}</td>
+                <td>{{desglose.codMoneda}}</td>
+                <td>{{desglose.codUnidMoneda}}</td>
+                <td>{{desglose.glsSubtipoDes}}</td>
+                <td>{{desglose.valDeflacBase}}</td>
+                <td>{{desglose.valIva}}</td>
+                <td>{{desglose.nomUserAnalis}}</td>
+                <td>{{desglose.glsObservacion}}</td>
+                <td>{{desglose.nomUserCrea}}</td>
+                <td>{{desglose.fecUserCrea | date:'mediumDate'}}</td>
+                <td>{{desglose.nomUserModif}}</td>
+                <td>{{desglose.fecUserModif | date:'mediumDate'}}</td>
+                <td>{{desglose.fecDeflacBase | date:'mediumDate'}}</td>
+                <td>{{desglose.nomUserOpen}}</td>
+                <td>{{desglose.flgIsTemporal}}</td>
+                <td>{{desglose.codMonedaImp}}</td>
+                <td>{{desglose.fecHraOpen | date:'mediumDate'}}</td>
+                <td>{{desglose.nomUser}}</td>
+                <td>{{desglose.flgValidacion}}</td>
+                <td>{{desglose.flgRevision}}</td>
+                <td>{{desglose.glsComentValid}}</td>
+                <td>{{desglose.codEstado}}</td>
+                <td>{{desglose.rolEmpleadoDesDef}}</td>
+                <td>{{desglose.nomRevisorDef}}</td>
+                <td>{{desglose.fecDesgloDef | date:'mediumDate'}}</td>
+                <td>{{desglose.rolEmpleadoRevMod}}</td>
+                <td>{{desglose.rolEmpleadoDefEnvPdf}}</td>
+                <td>{{desglose.fecDesgloEnvPdf | date:'mediumDate'}}</td>
+                <td>{{desglose.codMonedaRpt}}</td>
+                <td>{{desglose.corImpresionRpt}}</td>
+                <td>{{desglose.flgEjeFactoringRpt}}</td>
+                <td>{{desglose.fecPeriodo1Rpt | date:'mediumDate'}}</td>
+                <td>{{desglose.fecPeriodo2Rpt | date:'mediumDate'}}</td>
+                <td>{{desglose.fecPeriodo3Rpt | date:'mediumDate'}}</td>
+                <td>{{desglose.fecPeriodo4Rpt | date:'mediumDate'}}</td>
+                <td>{{desglose.fecPerConsol1Rpt | date:'mediumDate'}}</td>
+                <td>{{desglose.fecPerConsol2Rpt | date:'mediumDate'}}</td>
+                <td>{{desglose.fecUlt1Rpt | date:'mediumDate'}}</td>
+                <td>{{desglose.fecUlt2Rpt | date:'mediumDate'}}</td>
+                <td>{{desglose.fecUserModifRpt | date:'mediumDate'}}</td>
+                <td>{{desglose.nomUserModifRpt}}</td>
+                <td>{{desglose.numReporteRpt}}</td>
+                <td>{{desglose.fecGeneracionRpt | date:'mediumDate'}}</td>
+                <td>{{desglose.numDevolEjecutor}}</td>
+                <td>{{desglose.numRolChgEstado}}</td>
+                <td>{{desglose.flgReq2firma}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/desglose', desglose.codCliente, desglose.codTipoDes, desglose.codSubtipoDes, desglose.codMoneda, desglose.codPlantilla, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/desglose', desglose.codCliente, desglose.codTipoDes, desglose.codSubtipoDes, desglose.codMoneda, desglose.codPlantilla, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'desglose/'+ desglose.codCliente + '/' + desglose.codTipoDes + '/' + desglose.codSubtipoDes + '/' +
+                                    desglose.codMoneda + '/' + desglose.codPlantilla +'/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="desgloses && desgloses.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true"
+                            (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

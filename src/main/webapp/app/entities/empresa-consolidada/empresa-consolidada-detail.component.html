@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="empresaConsolidada">
+            <h2><span jhiTranslate="desgloseApp.empresaConsolidada.detail.title">Empresa Consolidada</span> {{empresaConsolidada.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.empresaConsolidada.codCliente" [ngbTooltip]="'desgloseApp.empresaConsolidada.help.codCliente' | translate">Cod Cliente</span></dt>
+                <dd>
+                    <span>{{empresaConsolidada.codCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.empresaConsolidada.codTipoDes" [ngbTooltip]="'desgloseApp.empresaConsolidada.help.codTipoDes' | translate">Cod Tipo Des</span></dt>
+                <dd>
+                    <span>{{empresaConsolidada.codTipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.empresaConsolidada.codSubtipoDes" [ngbTooltip]="'desgloseApp.empresaConsolidada.help.codSubtipoDes' | translate">Cod Subtipo Des</span></dt>
+                <dd>
+                    <span>{{empresaConsolidada.codSubtipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.empresaConsolidada.codMoneda" [ngbTooltip]="'desgloseApp.empresaConsolidada.help.codMoneda' | translate">Cod Moneda</span></dt>
+                <dd>
+                    <span>{{empresaConsolidada.codMoneda}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.empresaConsolidada.corEmpresa" [ngbTooltip]="'desgloseApp.empresaConsolidada.help.corEmpresa' | translate">Cor Empresa</span></dt>
+                <dd>
+                    <span>{{empresaConsolidada.corEmpresa}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.empresaConsolidada.nomEmpresa" [ngbTooltip]="'desgloseApp.empresaConsolidada.help.nomEmpresa' | translate">Nom Empresa</span></dt>
+                <dd>
+                    <span>{{empresaConsolidada.nomEmpresa}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/empresa-consolidada', empresaConsolidada.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

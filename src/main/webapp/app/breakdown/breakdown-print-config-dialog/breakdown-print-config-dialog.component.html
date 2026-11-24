@@ -1,0 +1,73 @@
+<div class="modal-header">
+    <h4 class="modal-title"><span jhiTranslate="breakdown.printConfig.title"></span></h4>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            (click)="closeModal()">&times;
+    </button>
+</div>
+<div class="modal-body">
+    <jhi-alert-error></jhi-alert-error>
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <form name="printConfigDataForm" role="form" novalidate #printConfigDataForm="ngForm" id="printConfigDataForm">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="global.form.breakdownCurrency" for="field_currency"></label>
+                        <select class="form-control form-control-sm" id="field_currency" name="currency" [(ngModel)]="breakdown.codMoneda" #selectedCurrency
+                                [disabled]="initialDisabled">
+                            <option [ngValue]="el.codGenerico" *ngFor="let el of (simpleComboboxTypes | filterDescripcionCodigo:CODTABLA_TIPO_MONEDAS)">
+                                {{el.glsGenericalarga }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="global.form.date" for="field_fecDeflacBase"></label>
+                        <div class="input-group">
+                            <input id="field_fecDeflacBase" type="text" class="form-control form-control-sm" name="fecDeflacBase" ngbDatepicker #fecDeflacBase="ngbDatepicker"
+                                   [(ngModel)]="breakdown.fecDeflacBase" [disabled]="initialDisabled"/>
+                            <span class="input-group-append">
+                                <button type="button" class="btn btn-default btn-sm" (click)="fecDeflacBase.toggle()" [disabled]="initialDisabled">
+                                    <fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="global.form.printCurrency" for="field_printCurrency"></label>
+                        <select class="form-control form-control-sm" id="field_printCurrency" name="printCurrency" [(ngModel)]="breakdown.codMonedaImp" #selectedPrintCurrency>
+                            <option [ngValue]="el.codGenerico" *ngFor="let el of (simpleComboboxTypes | filterDescripcionCodigo:CODTABLA_TIPO_MONEDAS)">
+                                {{el.glsGenericalarga }}
+                            </option>
+                        </select>
+                        <div [hidden]="!(printConfigDataForm.controls.printCurrency?.dirty && printConfigDataForm.controls.printCurrency?.invalid)">
+                            <small class="form-text text-danger" [hidden]="!printConfigDataForm.controls.printCurrency?.errors?.required"
+                                   jhiTranslate="entity.validation.required"></small>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="global.form.baseDeflator" for="field_baseDeflatorSlashDate"></label>
+                        <input type="text" class="form-control form-control-sm" name="rut" id="field_baseDeflatorSlashDate" [(ngModel)]="breakdown.valDeflacBase"
+                               [disabled]="initialDisabled"/>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    tabla
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-8"></div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-default btn-block btn-custom-font-size-1" (click)="onClickCancel()">
+                            <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="global.form.cancel"></span>
+                        </button>
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-primary btn-block btn-custom-font-size-1" (click)="onClickSaveClient()" [disabled]="printConfigDataForm.form.invalid">
+                            <fa-icon [icon]="'check'"></fa-icon>&nbsp;<span jhiTranslate="global.form.accept"></span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

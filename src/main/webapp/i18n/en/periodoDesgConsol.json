@@ -1,0 +1,37 @@
+
+{
+    "desgloseApp": {
+        "periodoDesgConsol" : {
+            "home": {
+                "title": "Periodo Desg Consols",
+                "createLabel": "Create a new Periodo Desg Consol",
+                "createOrEditLabel": "Create or edit a Periodo Desg Consol"
+            },
+            "created": "A new Periodo Desg Consol is created with identifier {{ param }}",
+            "updated": "A Periodo Desg Consol is updated with identifier {{ param }}",
+            "deleted": "A Periodo Desg Consol is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Periodo Desg Consol {{ id }}?"
+            },
+            "detail": {
+                "title": "Periodo Desg Consol"
+            },
+            "codCliente": "Cod Cliente",
+            "codTipoDes": "Cod Tipo Des",
+            "codSubtipoDes": "Cod Subtipo Des",
+            "codMoneda": "Cod Moneda",
+            "corEmpresa": "Cor Empresa",
+            "fecPeriodo": "Fec Periodo",
+            "valPrcConsol": "Val Prc Consol",
+            "help": {
+                "codCliente": "Rut de cliente.",
+                "codTipoDes": "Tipo de desglose.",
+                "codSubtipoDes": "Subtipo de desglose.",
+                "codMoneda": "Código de moneda.",
+                "corEmpresa": "Correlativo para diferenciar una empresa de otra dentro del consolidado.",
+                "fecPeriodo": "Fecha para el período.",
+                "valPrcConsol": "Valor porcentual asociado a la empresa dentro del consolidado. Precisión 5, escala 4."
+            }
+        }
+    }
+}

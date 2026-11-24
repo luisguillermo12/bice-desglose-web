@@ -1,0 +1,203 @@
+
+/**
+ * Representa la tabla "DESCOD". Contiene parámetros generales. Pertenece al esquema BCT_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity DescripcionCodigo {
+	/**
+	 * Código de tabla del concepto.
+	 */
+	codTabla String required,
+	/**
+	 * Código genérico asociado al código de tabla.
+	 */
+	codGenerico String required,
+	/**
+	 * Descripción corta.
+	 */
+	glsGenericacorta String,
+	/**
+	 * Descripción larga.
+	 */
+	glsGenericalarga String,
+	/**
+	 * Código de vigencia del registro.
+	 */
+	codRegStatus Integer required,
+	/**
+	 * Código de modificación del registro.
+	 */
+	codRegLog Integer
+}
+// Create Unique Index Idx_Descod On Descod (Cod_Tabla Asc, Cod_Generico Asc, Cod_Reg_Log Asc) 
+
+/**
+ * Representa la tabla "RELTAB". Contiene la relación de conceptos definidos en DESCOD. Pertenece al esquema BCT_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity RelacionTabla {
+	/**
+	 * Id correlativo.
+	 */
+	numCorRegistro Integer required,
+	/**
+	 * Código de tabla 1 del concepto.
+	 */
+	codTabla1 String,
+	/**
+	 * Código de tabla 2 del concepto.
+	 */
+	codTabla2 String,
+	/**
+	 * Código genérico 1 asociado al código de tabla.
+	 */
+	codGenerico1 String,
+	/**
+	 * Código genérico 2 asociado al código de tabla.
+	 */
+	codGenerico2 String,
+	/**
+	 * Código de vigencia del registro.
+	 */
+	codRegStatus Integer required,
+	/**
+	 * Código de modificación del registro.
+	 */
+	codRegLog Integer
+}
+// Create Unique Index Idx_Reltab On Reltab (Num_Cor_Registro Asc, Cod_Reg_Log Asc) 
+
+/**
+ * Representa la tabla "TABVAL". Contiene la definición de valores de conceptos definidos en DESCOD. Pertenece al esquema BCT_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity TablaValor {
+	/**
+	 * Código de tabla del concepto.
+	 */
+	codTabla String required,
+	/**
+	 * Código genérico asociado al código de tabla.
+	 */
+	codGenerico String required,
+	/**
+	 * Fecha de validez.
+	 */
+	fecValidez LocalDate required,
+	/**
+	 * Valor asociado al concepto.
+	 */
+	valor BigDecimal,
+	/**
+	 * Tipo del valor.
+	 */
+	codTipovalor Integer,
+	/**
+	 * Código de vigencia del registro.
+	 */
+	codRegStatus Integer required,
+	/**
+	 * Código de modificación del registro.
+	 */
+	codRegLog Integer
+}
+// Create Unique Index Idx_Tabval On Tabval (Cod_Tabla Asc, Cod_Generico Asc, Fec_Validez Asc, Cod_Tipovalor Asc, Cod_Reg_Log Asc) 
+
+/**
+ * Representa la tabla "TBL_SRV_MAIL". Almacena solicitudes de envío de correo. Pertenece al esquema BCT_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity TablaServicioMail {
+	/**
+	 * Código sistema.
+	 */
+	codSistema String,
+	/**
+	 * Número solicitud envio.
+	 */
+	numSolicitud Long required,
+	/**
+	 * Fecha solicitud.
+	 */
+	fecSolicitud LocalDate,
+	/**
+	 * Número trx sistema solicitante.
+	 */
+	numTrxSistema Long,
+	/**
+	 * Nombre remitente.
+	 */
+	glsFromNombre String,
+	/**
+	 * Mail remitente.
+	 */
+	glsFromMail String,
+	/**
+	 * Asunto mail.
+	 */
+	glsAsunto String,
+	/**
+	 * Detalle mensaje.
+	 */
+	glsMensaje Long,
+	/**
+	 * Fecha envío mail.
+	 */
+	fecEnvMail LocalDate,
+	/**
+	 * Número intento.
+	 */
+	numIntento Long,
+	/**
+	 * Número máximo reintento.
+	 */
+	numMaxReintento Long,
+	/**
+	 * Estado envío correo: PTE (Pendiente), PRO (En proceso), REI (Reintentar), OK (Enviado), NOK (No enviado).
+	 */
+	codEstado String,
+	/**
+	 * Detalle respuesta envío.
+	 */
+	glsDetRespuesta String,
+	/**
+	 * Tipo del contenido del correo.
+	 */
+	glsContentType String
+}
+// Create Unique Index CifAdmin.PkTblSrvMail On CifAdmin.TblSrvMail (CodSistema, NumSolicitud)
+
+/**
+ * Representa la tabla "TBL_SRV_MAIL_DEST". Almacena los destinatarios de las solicitudes de envío de correo. Pertenece al esquema BCT_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity TablaServMailDest {
+	/**
+	 * Codigo sistema.
+	 */
+	codSistema String required,
+	/**
+	 * Número solicitud envío.
+	 */
+	numSolicitud Long required,
+	/**
+	 * Nombre destinatario.
+	 */
+	glsToNombre String required,
+	/**
+	 * Mail destinatario.
+	 */
+	glsToMail String required,
+	/**
+	 * Tipo destinatario TO, CC, CCO.
+	 */
+	codTipoDest String required
+}
+// Create Unique Index CifAdmin.PkTblSrvMailDest On CifAdmin.TblSrvMailDest (CodSistema, NumSolicitud, GlsToMail, CodTipoDest) 
+
+// Set pagination options
+paginate * with pagination
+// Set service options
+service * with serviceClass
+// Set mapping options
+dto * with mapstruct

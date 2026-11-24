@@ -1,0 +1,75 @@
+{
+    "name": "ClienteJuridico",
+    "fields": [
+        {
+            "fieldName": "numCliente",
+            "javadoc": "Número del cliente.",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "glsRazonSoci",
+            "javadoc": "Razon social.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nomFantasia",
+            "javadoc": "Nombre de fantasia.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codGrupoEcon",
+            "javadoc": "Grupo económico.",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fecConstitucion",
+            "javadoc": "Fecha de constitución.",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "codTipoCliempresa",
+            "javadoc": "Tipo cliente empresa.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "glsWeb",
+            "javadoc": "URL de la web de la empresa.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codRegStatus",
+            "javadoc": "Código de vigencia del registro.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codRegLog",
+            "javadoc": "Código de modificacion del registro.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "glsRazonSocialLegal",
+            "javadoc": "Razón social legal.",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181022151502",
+    "javadoc": "Representa la tabla \"CLIJUR\" que contiene información de clientes empresa y persona jurídica. Pertenece al esquema CIF_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "cliente_juridico",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,174 @@
+{
+    "name": "Concepto",
+    "fields": [
+        {
+            "fieldName": "codTipoConcep",
+            "javadoc": "Tipo de concepto. Posibles permitidos ('Balance','EstResult','GenFondos','IndFinan','DeudaSbif').",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "corConcepto",
+            "javadoc": "Correlativo de concepto.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codConcepto",
+            "javadoc": "Código de cuenta.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "glsConcepto",
+            "javadoc": "Decripción de concepto o cuenta.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numSecuencia",
+            "javadoc": "Secuencia.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numLvlIndent",
+            "javadoc": "Nivel de identación.",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codTipoRegis",
+            "javadoc": "Tipo registro. Posibles permitidos (TITULO, NORMAL, MULTIREGISTRO).",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "glsFormulaVal",
+            "javadoc": "Fórmula de evaluación de concepto.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "glsFormulaPrc",
+            "javadoc": "Fórmula de evaluación totales porcentuales.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "glsFormulaDef",
+            "javadoc": "Fórmuala conceptual de deflactación.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "flgIsTotal",
+            "javadoc": "Señala si concepto es de total o no.",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "flgUserModif",
+            "javadoc": "Señala si concepto en desglose puede ser modificado por el usuario.",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "flgConActivo",
+            "javadoc": "Señala si concepto en desglose está activo o no.",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numDecimales",
+            "javadoc": "Cantidad de decimales.",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "flgHaceAjust",
+            "javadoc": "Señala si concepto se ajusta o no (redondeo).",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "flgIsBold",
+            "javadoc": "Señala si se muestra con negritas o no.",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "flgIsUcase",
+            "javadoc": "Señala si se muestra en mayúscula o no.",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "flgIsEnclosed",
+            "javadoc": "Señala que es adjunto y hereda formato de concepto padre.",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "flgIsPrinted",
+            "javadoc": "Señala si concepto se imprime en reporte o no.",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numDecPrint",
+            "javadoc": "Señala cantidad de decimales que se imprimen en reporte.",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "flgNonegativ",
+            "javadoc": "Señala si concepto puede ser negativo o no.",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "flgAfterspace",
+            "javadoc": "Señala si imprime espacio después de concepto.",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181011140735",
+    "javadoc": "Representa la tabla \"CONCEP\" que contiene concepto de desglose. Pertenece al esquema CIF_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "concepto",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

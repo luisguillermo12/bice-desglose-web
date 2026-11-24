@@ -1,0 +1,29 @@
+
+{
+    "desgloseApp": {
+        "uniqueSessionControl" : {
+            "home": {
+                "title": "Control de sesión única",
+                "createLabel": "Crear nuevo Unique Session Control",
+                "createOrEditLabel": "Crear o editar Unique Session Control"
+            },
+            "created": "Un nuevo Unique Session Control ha sido creado con el identificador {{ param }}",
+            "updated": "Un Unique Session Control ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Se ha eliminado el elemento de control de sesión única.",
+            "deletedList": "Se han eliminado los elementos seleccionados de control de sesión única.",
+            "deletedElements": "Eliminar seleccionados",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar los elementos seleccionados?",
+                "noItemSelected": "Debe seleccionar al menos un elemento para eliminar",
+                "tittle": "Alerta"
+            },
+            "detail": {
+                "title": "Control de sesión única"
+            },
+            "loginName": "Nombre de usuario",
+            "sessionCheckTime": "Chequeo de sesión activa",
+            "sessionEndTime": "Sesión terminada",
+            "jwt": "Jwt"
+        }
+    }
+}

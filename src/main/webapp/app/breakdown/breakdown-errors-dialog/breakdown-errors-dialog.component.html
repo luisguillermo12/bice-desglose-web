@@ -1,0 +1,68 @@
+<div class="modal-header">
+    <h4 class="modal-title"><span jhiTranslate="breakdown.errors.title"></span></h4>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            (click)="closeModal()">&times;
+    </button>
+</div>
+<div class="modal-body">
+    <jhi-alert></jhi-alert>
+    <jhi-alert-error></jhi-alert-error>
+    <div class="row justify-content-center">
+        <div class="col-12 card">
+            <ngx-datatable
+                [messages]="{emptyMessage: 'footer.emptyMessage' | translate, selectedMessage: 'footer.selected' | translate, totalMessage: 'footer.total' | translate}"
+                class="material"
+                [rows]="iBreakdownValidationErrorList"
+                [columnMode]="'force'"
+                [footerHeight]="50"
+                [rowHeight]="'auto'"
+                [limit]="20">
+                <ngx-datatable-column [maxWidth]="300" *ngIf="mostrarColumnas">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        <span jhiTranslate="breakdown.errors.tableRow">FILA</span>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.tableRow}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column [maxWidth]="200" *ngIf="mostrarColumnas">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        <span jhiTranslate="breakdown.errors.period">PERIODO</span>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.period | date: DATE_FORMAT_ES_UI}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column>
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        <span jhiTranslate="breakdown.errors.errorMessage">MENSAJE</span>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.errorMessage}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column [maxWidth]="300">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        <span jhiTranslate="breakdown.errors.lockProcess">LOCK PROCESS</span>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.isRequired ? 'Si' : 'No'}}
+                    </ng-template>
+                </ngx-datatable-column>
+            </ngx-datatable>
+            <div class="form-group row mt-sm-3" *ngIf="!isAnyValidationRequired">
+                <div class="form-group col-sm-10"><h6 [jhiTranslate]="questionMessage"></h6></div>
+                <div class="col-sm-1">
+                    <button class="btn btn-default btn-block btn-custom-font-size-1" (click)="triggerOnClickAcceptEvent(false)">
+                        <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="global.form.no"></span>
+                    </button>
+                </div>
+                <div class="col-sm-1">
+                    <button class="btn btn-primary btn-block btn-custom-font-size-1" (click)="triggerOnClickAcceptEvent(true)">
+                        <fa-icon [icon]="'check'"></fa-icon>&nbsp;<span jhiTranslate="global.form.yes"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="relacionTabla">
+            <h2><span jhiTranslate="desgloseApp.relacionTabla.detail.title">Relacion Tabla</span> {{relacionTabla.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.relacionTabla.numCorRegistro" [ngbTooltip]="'desgloseApp.relacionTabla.help.numCorRegistro' | translate">Num Cor Registro</span></dt>
+                <dd>
+                    <span>{{relacionTabla.numCorRegistro}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.relacionTabla.codTabla1" [ngbTooltip]="'desgloseApp.relacionTabla.help.codTabla1' | translate">Cod Tabla 1</span></dt>
+                <dd>
+                    <span>{{relacionTabla.codTabla1}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.relacionTabla.codTabla2" [ngbTooltip]="'desgloseApp.relacionTabla.help.codTabla2' | translate">Cod Tabla 2</span></dt>
+                <dd>
+                    <span>{{relacionTabla.codTabla2}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.relacionTabla.codGenerico1" [ngbTooltip]="'desgloseApp.relacionTabla.help.codGenerico1' | translate">Cod Generico 1</span></dt>
+                <dd>
+                    <span>{{relacionTabla.codGenerico1}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.relacionTabla.codGenerico2" [ngbTooltip]="'desgloseApp.relacionTabla.help.codGenerico2' | translate">Cod Generico 2</span></dt>
+                <dd>
+                    <span>{{relacionTabla.codGenerico2}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.relacionTabla.codRegStatus" [ngbTooltip]="'desgloseApp.relacionTabla.help.codRegStatus' | translate">Cod Reg Status</span></dt>
+                <dd>
+                    <span>{{relacionTabla.codRegStatus}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.relacionTabla.codRegLog" [ngbTooltip]="'desgloseApp.relacionTabla.help.codRegLog' | translate">Cod Reg Log</span></dt>
+                <dd>
+                    <span>{{relacionTabla.codRegLog}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/relacion-tabla', relacionTabla.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

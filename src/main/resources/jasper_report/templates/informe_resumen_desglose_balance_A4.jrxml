@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="informe_de_ingreso_A4" pageWidth="612" pageHeight="1008" columnWidth="592" leftMargin="10" rightMargin="10" topMargin="10" bottomMargin="5" uuid="403a9356-3b39-42b7-aa8e-f447ee9eb62a">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="net.sf.jasperreports.awt.ignore.missing.font" value="true"/>
+	<property name="net.sf.jasperreports.default.font.name" value="Lucida Sans"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<style name="header_style_bold" vTextAlign="Middle" rotation="None" pattern="" fontName="Arial" fontSize="7" isBold="true">
+		<pen lineWidth="1.0" lineColor="#8A8888"/>
+		<box topPadding="0" leftPadding="3" bottomPadding="0" rightPadding="3">
+			<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="row_style_number" hTextAlign="Right" vTextAlign="Middle" rotation="None" fontName="Times New Roman" fontSize="6">
+		<pen lineWidth="1.0" lineColor="#8A8888"/>
+		<box topPadding="0" leftPadding="3" bottomPadding="0" rightPadding="3">
+			<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="footer_css" forecolor="#AB10E3" hTextAlign="Center" vTextAlign="Middle"/>
+	<style name="header_style" mode="Opaque" forecolor="#FFFFFF" backcolor="#828282" hTextAlign="Center" vTextAlign="Middle" pattern="" fontName="Times New Roman" fontSize="6" isBold="true">
+		<box>
+			<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#424242"/>
+			<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#424242"/>
+			<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#424242"/>
+			<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#424242"/>
+		</box>
+	</style>
+	<style name="header_style_normal" scaleImage="RetainShape" vTextAlign="Middle" rotation="None" pattern="" fontName="Times New Roman" fontSize="6" isBold="false" pdfFontName="Times-Roman">
+		<pen lineWidth="1.0" lineColor="#8A8888"/>
+		<box topPadding="0" leftPadding="3" bottomPadding="0" rightPadding="3">
+			<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="row_style" vTextAlign="Middle" fontName="Times New Roman" fontSize="6">
+		<pen lineWidth="1.0" lineColor="#8A8888"/>
+		<box padding="3">
+			<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="header_style_normal_foo" scaleImage="RetainShape" vTextAlign="Middle" rotation="None" pattern="" fontName="Arial" fontSize="8" isBold="false">
+		<pen lineWidth="1.0" lineColor="#8A8888"/>
+		<box topPadding="0" leftPadding="3" bottomPadding="0" rightPadding="3">
+			<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="tableDataSet" uuid="aa357218-02ee-4165-84fc-8d34f9d505ad">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<parameter name="fechaPeriodo1" class="java.lang.String"/>
+		<parameter name="fechaPeriodo2" class="java.lang.String"/>
+		<parameter name="fechaPeriodo3" class="java.lang.String"/>
+		<parameter name="fechaPeriodo4" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="period1Value" class="java.lang.String">
+			<fieldDescription><![CDATA[period1Value]]></fieldDescription>
+		</field>
+		<field name="period3Percent" class="java.lang.String">
+			<fieldDescription><![CDATA[period3Percent]]></fieldDescription>
+		</field>
+		<field name="corConcept" class="java.lang.String">
+			<fieldDescription><![CDATA[corConcept]]></fieldDescription>
+		</field>
+		<field name="conceptName" class="java.lang.String">
+			<fieldDescription><![CDATA[conceptName]]></fieldDescription>
+		</field>
+		<field name="period3Value" class="java.lang.String">
+			<fieldDescription><![CDATA[period3Value]]></fieldDescription>
+		</field>
+		<field name="period1Percent" class="java.lang.String">
+			<fieldDescription><![CDATA[period1Percent]]></fieldDescription>
+		</field>
+		<field name="period2Percent" class="java.lang.String">
+			<fieldDescription><![CDATA[period2Percent]]></fieldDescription>
+		</field>
+		<field name="period2Value" class="java.lang.String">
+			<fieldDescription><![CDATA[period2Value]]></fieldDescription>
+		</field>
+		<field name="period4Percent" class="java.lang.String">
+			<fieldDescription><![CDATA[period4Percent]]></fieldDescription>
+		</field>
+		<field name="period4Value" class="java.lang.String">
+			<fieldDescription><![CDATA[period4Value]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="dataSource" class="cl.tutorial.desglose.service.dto.report.PdfSummaryReportDTO"/>
+	<parameter name="subReportPath" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="userName" class="java.lang.String"/>
+	<parameter name="lastModificationDate" class="java.lang.String"/>
+	<parameter name="fechaNotasPeriodo1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getFechaNotasPeriodo1()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaNotasPeriodo2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getFechaNotasPeriodo2()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaNotasLetraPeriodo1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getFechaNotasLetraPeriodo1()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaNotasLetraPeriodo2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getFechaNotasLetraPeriodo2()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaPeriodoSbif1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getFechaPeriodoSbif1()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaPeriodoSbif2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getFechaPeriodoSbif2()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaPeriodoSbif3" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getFechaPeriodoSbif3()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaPeriodoSbif4" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getFechaPeriodoSbif4()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="deudaDirectaVigenteSbif1" class="java.math.BigDecimal">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getDeudaDirectaVigenteSbif1()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="deudaDirectaVigenteSbif2" class="java.math.BigDecimal">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getDeudaDirectaVigenteSbif2()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="deudaDirectaVigenteSbif3" class="java.math.BigDecimal">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getDeudaDirectaVigenteSbif3()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="deudaDirectaVigenteSbif4" class="java.math.BigDecimal">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getDeudaDirectaVigenteSbif4()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="deudaIndirectaVigenteSbif1" class="java.math.BigDecimal">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getDeudaIndirectaVigenteSbif1()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="deudaIndirectaVigenteSbif2" class="java.math.BigDecimal">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getDeudaIndirectaVigenteSbif2()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="deudaIndirectaVigenteSbif3" class="java.math.BigDecimal">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getDeudaIndirectaVigenteSbif3()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="deudaIndirectaVigenteSbif4" class="java.math.BigDecimal">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getDeudaIndirectaVigenteSbif4()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ImprimirTablaButton" class="java.lang.Boolean"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nombreUsuario" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreUsuario]]></fieldDescription>
+	</field>
+	<field name="fechaModificacion" class="java.lang.String">
+		<fieldDescription><![CDATA[fechaModificacion]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="42">
+			<frame>
+				<reportElement x="1" y="14" width="589" height="26" uuid="febe3590-1144-43ad-91b9-34a12332121b"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<staticText>
+					<reportElement style="header_style_bold" x="0" y="4" width="46" height="9" uuid="406c2bc1-1702-4a67-980b-c587fd3a8ac0"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[NOMBRE:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="header_style_bold" x="254" y="4" width="26" height="9" uuid="09f92eee-f889-4fd8-a0d2-39b895797e26"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[RUT:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="header_style_bold" x="0" y="13" width="46" height="9" uuid="8bd2e22d-3707-4631-a18d-55b9ee973ca0"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[ACTIVIDAD:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="header_style_bold" x="254" y="13" width="26" height="9" uuid="94922c1d-b5d7-4b35-8322-3825df070929"/>
+					<textElement>
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TIPO:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="header_style_bold" x="440" y="13" width="25" height="9" uuid="adf623c6-69e6-42d1-a97f-e94b5a08a785"/>
+					<textElement>
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[EN:]]></text>
+				</staticText>
+				<textField isBlankWhenNull="false">
+					<reportElement style="header_style_normal" x="46" y="4" width="208" height="9" uuid="f79fcd80-fe95-47fe-b463-e57ff97f7cce"/>
+					<box>
+						<bottomPen lineWidth="0.25" lineColor="#000000"/>
+					</box>
+					<textElement>
+						<font fontName="Times New Roman" size="7" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{dataSource}.getNombreCliente()]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="false">
+					<reportElement style="header_style_normal" x="280" y="4" width="135" height="9" uuid="3cfd22b6-7f8c-4903-b91e-72335429ce58"/>
+					<box>
+						<bottomPen lineWidth="0.25"/>
+					</box>
+					<textElement>
+						<font fontName="Times New Roman" size="7" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{dataSource}.getRutCliente()]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="false">
+					<reportElement style="header_style_normal" x="46" y="13" width="208" height="9" uuid="1f7a3696-c523-4431-b2ff-217081a8efd3"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement>
+						<font fontName="Times New Roman" size="7" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{dataSource}.getActividad()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="header_style_normal" x="280" y="13" width="135" height="9" uuid="253c999d-4b54-442b-a290-c18f2043d406"/>
+					<box>
+						<bottomPen lineWidth="0.25"/>
+					</box>
+					<textElement>
+						<font fontName="Arial" size="7" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{dataSource}.getTipoDesglose()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="header_style_normal" x="465" y="13" width="85" height="9" uuid="acd2d7f1-fc53-4208-a2f3-b17ed4c091c4"/>
+					<box>
+						<bottomPen lineWidth="0.25"/>
+					</box>
+					<textElement>
+						<font fontName="Times New Roman" size="7" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{dataSource}.getMontosEn()]]></textFieldExpression>
+				</textField>
+				<image>
+					<reportElement x="0" y="-13" width="90" height="10" uuid="194025d1-6e3d-4f44-8e47-46321ed271a8"/>
+					<imageExpression><![CDATA[$P{dataSource}.getImgLogoBancoBice()]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</title>
+	<detail>
+		<band height="7" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="350" height="1" uuid="7e3618d4-300c-4e93-959a-4e0efafbe060"/>
+				<subreportParameter name="dataSource">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDatosBalance()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodo1">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFecPerido1()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodo2">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFecPerido2()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodo3">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFecPerido3()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodo4">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFecPerido4()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tituloTabla">
+					<subreportParameterExpression><![CDATA["BALANCE"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subReportPath">
+					<subreportParameterExpression><![CDATA[$P{subReportPath}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="auditor1">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getAuditor1()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="auditor2">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getAuditor2()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="auditor3">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getAuditor3()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="auditor4">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getAuditor4()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="calificacion1">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getCalificacion1()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="calificacion2">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getCalificacion2()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="calificacion3">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getCalificacion3()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="calificacion4">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getCalificacion4()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tituloMoneda">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getMontosEn()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodoSbif1">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFechaPeriodoSbif1()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodoSbif2">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFechaPeriodoSbif2()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodoSbif3">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFechaPeriodoSbif3()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodoSbif4">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFechaPeriodoSbif4()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="deudaDirectaVigenteSbif1">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDeudaDirectaVigenteSbif1()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="deudaDirectaVigenteSbif2">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDeudaDirectaVigenteSbif2()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="deudaDirectaVigenteSbif3">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDeudaDirectaVigenteSbif3()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="deudaDirectaVigenteSbif4">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDeudaDirectaVigenteSbif4()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="deudaIndirectaVigenteSbif1">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDeudaIndirectaVigenteSbif1()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="deudaIndirectaVigenteSbif2">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDeudaIndirectaVigenteSbif2()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="deudaIndirectaVigenteSbif3">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDeudaIndirectaVigenteSbif3()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="deudaIndirectaVigenteSbif4">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDeudaIndirectaVigenteSbif4()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="printSummary">
+					<subreportParameterExpression><![CDATA[true]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tituloTablaComplemento">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getTituloReporte()]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{dataSource}.getDatosBalance())]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subReportPath} + "subrpt_tbl_bal_est_res.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="360" y="0" width="230" height="1" uuid="dcb8d59b-b827-483f-9255-58c4edf2ab64"/>
+				<subreportParameter name="dataSource">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDatosNotasDesglose()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaNotasLetraPeriodo1">
+					<subreportParameterExpression><![CDATA[$P{fechaNotasLetraPeriodo1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaNotasLetraPeriodo2">
+					<subreportParameterExpression><![CDATA[$P{fechaNotasLetraPeriodo2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tituloTabla">
+					<subreportParameterExpression><![CDATA["NOTAS AL DESGLOSE"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subReportPath">
+					<subreportParameterExpression><![CDATA[$P{subReportPath}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tituloMoneda">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getMontosEn()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tituloTablaComplemento">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getTituloReporte()]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{dataSource}.getDatosNotasDesglose())]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subReportPath} + "subrpt_tbl_notas_desglose.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="4" width="350" height="1" uuid="d3ada792-7166-4c6f-9f47-6a816c17afe4"/>
+				<subreportParameter name="dataSource">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDatosEstadoResultado()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodo1">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFecPerido1()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodo2">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFecPerido2()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodo3">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFecPerido3()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodo4">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFecPerido4()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tituloTabla">
+					<subreportParameterExpression><![CDATA["ESTADO DE RESULTADO"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subReportPath">
+					<subreportParameterExpression><![CDATA[$P{subReportPath}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tituloTablaComplemento">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getTituloReporte()]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{dataSource}.getDatosEstadoResultado())]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subReportPath} + "subrpt_tbl_bal_est_res.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="360" y="1" width="230" height="1" uuid="884e1923-a7f7-4798-92cc-71888a22a796"/>
+				<subreportParameter name="dataSource">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDatosEmpresasConsolidan()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaNotasPeriodo1">
+					<subreportParameterExpression><![CDATA[$P{fechaNotasPeriodo1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaNotasPeriodo2">
+					<subreportParameterExpression><![CDATA[$P{fechaNotasPeriodo2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tituloTabla">
+					<subreportParameterExpression><![CDATA["EMPRESAS QUE CONSOLIDAN"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subReportPath">
+					<subreportParameterExpression><![CDATA[$P{subReportPath}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tituloTablaComplemento">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getTituloReporte()]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{dataSource}.getDatosEmpresasConsolidan())]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subReportPath} + "subrpt_tbl_emp_consol.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="360" y="6" width="230" height="1" uuid="eb81fa7e-ed0a-4059-a755-3e4dd37ecd5a"/>
+				<subreportParameter name="dataSource">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDatosObservaciones()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tituloTabla">
+					<subreportParameterExpression><![CDATA["OBSERVACIONES"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subReportPath">
+					<subreportParameterExpression><![CDATA[$P{subReportPath}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tituloTablaComplemento">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getTituloReporte()]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{dataSource}.getDatosObservaciones())]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subReportPath} + "subrpt_tbl_observaciones.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="5" width="350" height="1" uuid="7e016c91-de1c-45e3-8029-4d8154af93ab"/>
+				<subreportParameter name="dataSource">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDatosGenFondFlujEfectivo()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodo1">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFecPerido1()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodo2">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFecPerido2()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodo3">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFecPerido3()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodo4">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFecPerido4()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tituloTabla">
+					<subreportParameterExpression><![CDATA["GENERACIÓN DE FONDOS Y FLUJO EFECTVO"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subReportPath">
+					<subreportParameterExpression><![CDATA[$P{subReportPath}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tituloTablaComplemento">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getTituloReporte()]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{dataSource}.getDatosGenFondFlujEfectivo())]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subReportPath} + "subrpt_tbl_gen_fondos_ind_fin.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="6" width="350" height="1" uuid="74e8f137-28e9-4bd8-8c08-882180b2092c"/>
+				<subreportParameter name="dataSource">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDatosIndicadorFinanciero()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodo1">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFecPerido1()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodo2">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFecPerido2()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodo3">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFecPerido3()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodo4">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFecPerido4()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tituloTabla">
+					<subreportParameterExpression><![CDATA["INDICADORES FINANCIEROS"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subReportPath">
+					<subreportParameterExpression><![CDATA[$P{subReportPath}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tituloTablaComplemento">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getTituloReporte()]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{dataSource}.getDatosIndicadorFinanciero())]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subReportPath} + "subrpt_tbl_gen_fondos_ind_fin.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="2" width="350" height="1" uuid="1300cedb-53dc-4fe0-bab0-3836f5b8f504">
+					<printWhenExpression><![CDATA[$P{dataSource}.isImprimirTablaButton()]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="dataSource">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDatosBalance()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodo1">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFecPerido1()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodo2">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFecPerido2()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodo3">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFecPerido3()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodo4">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFecPerido4()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tituloTabla">
+					<subreportParameterExpression><![CDATA["BALANCE"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subReportPath">
+					<subreportParameterExpression><![CDATA[$P{subReportPath}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="auditor1">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getAuditor1()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="auditor2">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getAuditor2()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="auditor3">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getAuditor3()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="auditor4">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getAuditor4()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="calificacion1">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getCalificacion1()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="calificacion2">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getCalificacion2()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="calificacion3">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getCalificacion3()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="calificacion4">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getCalificacion4()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tituloMoneda">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getMontosEn()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodoSbif1">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFechaPeriodoSbif1()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodoSbif2">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFechaPeriodoSbif2()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodoSbif3">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFechaPeriodoSbif3()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fechaPeriodoSbif4">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getFechaPeriodoSbif4()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="deudaDirectaVigenteSbif1">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDeudaDirectaVigenteSbif1()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="deudaDirectaVigenteSbif2">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDeudaDirectaVigenteSbif2()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="deudaDirectaVigenteSbif3">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDeudaDirectaVigenteSbif3()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="deudaDirectaVigenteSbif4">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDeudaDirectaVigenteSbif4()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="deudaIndirectaVigenteSbif1">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDeudaIndirectaVigenteSbif1()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="deudaIndirectaVigenteSbif2">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDeudaIndirectaVigenteSbif2()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="deudaIndirectaVigenteSbif3">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDeudaIndirectaVigenteSbif3()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="deudaIndirectaVigenteSbif4">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getDeudaIndirectaVigenteSbif4()]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="printSummary">
+					<subreportParameterExpression><![CDATA[true]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tituloTablaComplemento">
+					<subreportParameterExpression><![CDATA[$P{dataSource}.getTituloReporte()]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{dataSource}.getDatosBalance())]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subReportPath} + "subrpt_table_button.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<lastPageFooter>
+		<band height="23">
+			<textField isBlankWhenNull="true">
+				<reportElement style="header_style_normal_foo" x="0" y="0" width="295" height="12" uuid="61bc39da-6002-4afe-9ff4-06b5a0d879ad"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dataSource}.getEjecutor()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="header_style_normal" x="0" y="12" width="295" height="8" uuid="44387264-c337-4008-9031-68c24ae118f4"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{dataSource}.getEjecutorFechaModificacion()!=null ?"Fecha Modificación: " + $P{dataSource}.getEjecutorFechaModificacion():null)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="header_style_normal_foo" x="295" y="0" width="295" height="12" uuid="e974d914-e7f2-4f93-9f2e-c7d8f2a99e60"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dataSource}.getRevisor()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="header_style_normal" x="290" y="12" width="295" height="8" uuid="f36d952f-25f8-4336-b61e-ee495c576128"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{dataSource}.getRevisorFechaModificacion()!=null ?"Fecha Modificación: " + $P{dataSource}.getRevisorFechaModificacion():null)]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+</jasperReport>

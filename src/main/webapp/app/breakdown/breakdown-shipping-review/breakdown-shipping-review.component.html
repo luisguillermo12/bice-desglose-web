@@ -1,0 +1,78 @@
+<div class="modal-header">
+    <h4 class="modal-title"><span *ngIf="isEnviarRevisor" jhiTranslate="breakdown.shipping.title">
+    </span><span *ngIf="!isEnviarRevisor" jhiTranslate="breakdown.shipping.title2"></span></h4>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            (click)="closeModal()">&times;
+    </button>
+</div>
+<div class="modal-body">
+    <jhi-alert></jhi-alert>
+    <jhi-alert-error></jhi-alert-error>
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <form name="breakdownShippingReview" role="form" novalidate #breakdownShippingReview="ngForm" id="breakdownShippingReview">
+                <div class="form-row">
+                    <div class="form-row col-sm-12" *ngIf="isEnviarRevisor">
+                        <div class="col-sm-12">
+                            <label for="field_reviser" class="col-sm-3 col-form-label" jhiTranslate="breakdown.shipping.reviewer"></label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control form-control-sm" name="reviser"
+                                       [(ngModel)]="nameRevisor" id="field_reviser" disabled/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row col-sm-12" *ngIf="!isEnviarRevisor">
+                        <div class="col-sm-12">
+                            <label for="field_reviser" class="col-sm-3 col-form-label" jhiTranslate="breakdown.shipping.executor"></label>
+                            <div class="col-sm-12">
+                                <select class="form-control form-control-sm" id="field_executer" name="breakdownExecuter" [(ngModel)]="codeAnalista" #selectedExecuter>
+                                    <option [ngValue]="el.operatorCode" *ngFor="let el of listaAnalistas">
+                                        {{el.loginName }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row col-sm-12">
+                        <div class="col-sm-12">
+                            <label for="field_client" class="col-sm-3 col-form-label" jhiTranslate="breakdown.shipping.client"></label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control form-control-sm" name="client"
+                                       [(ngModel)]="nameCliente" id="field_client" disabled/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row col-sm-12">
+                        <div class="col-sm-12">
+                            <label for="field_commentary" class="col-sm-3 col-form-label" jhiTranslate="breakdown.shipping.commentary"></label>
+                            <div class="col-sm-12">
+                            <textarea type="text" class="form-control form-control-sm text-uppercase" name="commentary" id="field_commentary" rows="6" ngbAutofocus
+                                      [(ngModel)]="commentary" (keyup)="onKey($event)"></textarea>
+                                <span>(Caracteres: {{contador}} )</span>
+                                <span class="text-danger" *ngIf="!checkCaractOther">{{caractValidationMessage}}</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 row mt-2">
+                            <div class="col-sm-6"></div>
+                            <div class="col-sm-3">
+                                <button class="btn btn-default btn-block btn-custom-font-size-1" (click)="onClickCancel()">
+                                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="global.form.cancel"></span>
+                                </button>
+                            </div>
+                            <div class="col-sm-3 pr-0" *ngIf="isEnviarRevisor">
+                                <button type="button" class="btn btn-primary btn-block btn-custom-font-size-1" (click)="onClickEnviar()" [disabled]="!checkCaractOther">
+                                    <fa-icon [icon]="'check'"></fa-icon>&nbsp;<span jhiTranslate="breakdown.shipping.send"></span>
+                                </button>
+                            </div>
+                            <div class="col-sm-3 pr-0" *ngIf="!isEnviarRevisor">
+                                <button type="button" class="btn btn-primary btn-block btn-custom-font-size-1" (click)="onClickDevolver()" [disabled]="!checkCaractOther">
+                                    <fa-icon [icon]="'check'"></fa-icon>&nbsp;<span jhiTranslate="breakdown.shipping.send"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

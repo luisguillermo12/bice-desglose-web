@@ -1,0 +1,123 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="desgloseChequeoInfo">
+            <h2><span jhiTranslate="desgloseApp.desgloseChequeoInfo.detail.title">Desglose Chequeo Info</span> {{desgloseChequeoInfo.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.fecCheck" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.fecCheck' | translate">Fec Check</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.fecCheck}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.codTipoInforme" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.codTipoInforme' | translate">Cod Tipo Informe</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.codTipoInforme}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.glsFactorInforme" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.glsFactorInforme' | translate">Gls Factor Informe</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.glsFactorInforme}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.codCliente" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.codCliente' | translate">Cod Cliente</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.codCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.codTipoDes" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.codTipoDes' | translate">Cod Tipo Des</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.codTipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.codSubtipoDes" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.codSubtipoDes' | translate">Cod Subtipo Des</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.codSubtipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.codMoneda" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.codMoneda' | translate">Cod Moneda</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.codMoneda}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.fecPeriodo" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.fecPeriodo' | translate">Fec Periodo</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.fecPeriodo}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.numRank" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.numRank' | translate">Num Rank</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.numRank}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.fecUserModif" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.fecUserModif' | translate">Fec User Modif</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.fecUserModif}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.glsUserModif" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.glsUserModif' | translate">Gls User Modif</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.glsUserModif}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.valDeflacBase" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.valDeflacBase' | translate">Val Deflac Base</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.valDeflacBase}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.valDeflacPeriodo" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.valDeflacPeriodo' | translate">Val Deflac Periodo</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.valDeflacPeriodo}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.valDeflacCalc" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.valDeflacCalc' | translate">Val Deflac Calc</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.valDeflacCalc}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.valConceptoBd" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.valConceptoBd' | translate">Val Concepto Bd</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.valConceptoBd}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.valConceptoOnline" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.valConceptoOnline' | translate">Val Concepto Online</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.valConceptoOnline}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.glsConceptoFormula" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.glsConceptoFormula' | translate">Gls Concepto Formula</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.glsConceptoFormula}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.valDif" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.valDif' | translate">Val Dif</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.valDif}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.mtoActivo" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.mtoActivo' | translate">Mto Activo</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.mtoActivo}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.mtoPasivoPatr" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.mtoPasivoPatr' | translate">Mto Pasivo Patr</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.mtoPasivoPatr}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.corConcepto" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.corConcepto' | translate">Cor Concepto</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.corConcepto}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.corValor" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.corValor' | translate">Cor Valor</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.corValor}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.codTipoConcep" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.codTipoConcep' | translate">Cod Tipo Concep</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.codTipoConcep}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.codEstado" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.codEstado' | translate">Cod Estado</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.codEstado}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoInfo.glsObservacion" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.glsObservacion' | translate">Gls Observacion</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoInfo.glsObservacion}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/desglose-chequeo-info', desgloseChequeoInfo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

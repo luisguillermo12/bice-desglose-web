@@ -1,0 +1,161 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-desglose-chequeo-info-heading" jhiTranslate="desgloseApp.desgloseChequeoInfo.home.createOrEditLabel">Create or edit a Desglose Chequeo Info</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!desgloseChequeoInfo.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="desgloseChequeoInfo.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.fecCheck" for="field_fecCheck" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.fecCheck' | translate">Fec Check</label>
+                    <div class="d-flex">
+                        <input id="field_fecCheck" type="datetime-local" class="form-control" name="fecCheck" [(ngModel)]="fecCheck"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.codTipoInforme" for="field_codTipoInforme" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.codTipoInforme' | translate">Cod Tipo Informe</label>
+                    <input type="text" class="form-control" name="codTipoInforme" id="field_codTipoInforme"
+                        [(ngModel)]="desgloseChequeoInfo.codTipoInforme" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.glsFactorInforme" for="field_glsFactorInforme" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.glsFactorInforme' | translate">Gls Factor Informe</label>
+                    <input type="text" class="form-control" name="glsFactorInforme" id="field_glsFactorInforme"
+                        [(ngModel)]="desgloseChequeoInfo.glsFactorInforme" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.codCliente" for="field_codCliente" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.codCliente' | translate">Cod Cliente</label>
+                    <input type="text" class="form-control" name="codCliente" id="field_codCliente"
+                        [(ngModel)]="desgloseChequeoInfo.codCliente" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.codTipoDes" for="field_codTipoDes" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.codTipoDes' | translate">Cod Tipo Des</label>
+                    <input type="number" class="form-control" name="codTipoDes" id="field_codTipoDes"
+                        [(ngModel)]="desgloseChequeoInfo.codTipoDes" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.codSubtipoDes" for="field_codSubtipoDes" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.codSubtipoDes' | translate">Cod Subtipo Des</label>
+                    <input type="number" class="form-control" name="codSubtipoDes" id="field_codSubtipoDes"
+                        [(ngModel)]="desgloseChequeoInfo.codSubtipoDes" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.codMoneda" for="field_codMoneda" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.codMoneda' | translate">Cod Moneda</label>
+                    <input type="text" class="form-control" name="codMoneda" id="field_codMoneda"
+                        [(ngModel)]="desgloseChequeoInfo.codMoneda" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.fecPeriodo" for="field_fecPeriodo" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.fecPeriodo' | translate">Fec Periodo</label>
+                    <div class="input-group">
+                        <input id="field_fecPeriodo" type="text" class="form-control" name="fecPeriodo" ngbDatepicker  #fecPeriodoDp="ngbDatepicker" [(ngModel)]="desgloseChequeoInfo.fecPeriodo"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecPeriodoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.numRank" for="field_numRank" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.numRank' | translate">Num Rank</label>
+                    <input type="number" class="form-control" name="numRank" id="field_numRank"
+                        [(ngModel)]="desgloseChequeoInfo.numRank" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.fecUserModif" for="field_fecUserModif" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.fecUserModif' | translate">Fec User Modif</label>
+                    <div class="input-group">
+                        <input id="field_fecUserModif" type="text" class="form-control" name="fecUserModif" ngbDatepicker  #fecUserModifDp="ngbDatepicker" [(ngModel)]="desgloseChequeoInfo.fecUserModif"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecUserModifDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.glsUserModif" for="field_glsUserModif" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.glsUserModif' | translate">Gls User Modif</label>
+                    <input type="text" class="form-control" name="glsUserModif" id="field_glsUserModif"
+                        [(ngModel)]="desgloseChequeoInfo.glsUserModif" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.valDeflacBase" for="field_valDeflacBase" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.valDeflacBase' | translate">Val Deflac Base</label>
+                    <input type="number" class="form-control" name="valDeflacBase" id="field_valDeflacBase"
+                        [(ngModel)]="desgloseChequeoInfo.valDeflacBase" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.valDeflacPeriodo" for="field_valDeflacPeriodo" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.valDeflacPeriodo' | translate">Val Deflac Periodo</label>
+                    <input type="number" class="form-control" name="valDeflacPeriodo" id="field_valDeflacPeriodo"
+                        [(ngModel)]="desgloseChequeoInfo.valDeflacPeriodo" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.valDeflacCalc" for="field_valDeflacCalc" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.valDeflacCalc' | translate">Val Deflac Calc</label>
+                    <input type="number" class="form-control" name="valDeflacCalc" id="field_valDeflacCalc"
+                        [(ngModel)]="desgloseChequeoInfo.valDeflacCalc" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.valConceptoBd" for="field_valConceptoBd" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.valConceptoBd' | translate">Val Concepto Bd</label>
+                    <input type="number" class="form-control" name="valConceptoBd" id="field_valConceptoBd"
+                        [(ngModel)]="desgloseChequeoInfo.valConceptoBd" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.valConceptoOnline" for="field_valConceptoOnline" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.valConceptoOnline' | translate">Val Concepto Online</label>
+                    <input type="number" class="form-control" name="valConceptoOnline" id="field_valConceptoOnline"
+                        [(ngModel)]="desgloseChequeoInfo.valConceptoOnline" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.glsConceptoFormula" for="field_glsConceptoFormula" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.glsConceptoFormula' | translate">Gls Concepto Formula</label>
+                    <input type="text" class="form-control" name="glsConceptoFormula" id="field_glsConceptoFormula"
+                        [(ngModel)]="desgloseChequeoInfo.glsConceptoFormula" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.valDif" for="field_valDif" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.valDif' | translate">Val Dif</label>
+                    <input type="number" class="form-control" name="valDif" id="field_valDif"
+                        [(ngModel)]="desgloseChequeoInfo.valDif" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.mtoActivo" for="field_mtoActivo" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.mtoActivo' | translate">Mto Activo</label>
+                    <input type="number" class="form-control" name="mtoActivo" id="field_mtoActivo"
+                        [(ngModel)]="desgloseChequeoInfo.mtoActivo" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.mtoPasivoPatr" for="field_mtoPasivoPatr" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.mtoPasivoPatr' | translate">Mto Pasivo Patr</label>
+                    <input type="number" class="form-control" name="mtoPasivoPatr" id="field_mtoPasivoPatr"
+                        [(ngModel)]="desgloseChequeoInfo.mtoPasivoPatr" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.corConcepto" for="field_corConcepto" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.corConcepto' | translate">Cor Concepto</label>
+                    <input type="number" class="form-control" name="corConcepto" id="field_corConcepto"
+                        [(ngModel)]="desgloseChequeoInfo.corConcepto" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.corValor" for="field_corValor" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.corValor' | translate">Cor Valor</label>
+                    <input type="number" class="form-control" name="corValor" id="field_corValor"
+                        [(ngModel)]="desgloseChequeoInfo.corValor" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.codTipoConcep" for="field_codTipoConcep" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.codTipoConcep' | translate">Cod Tipo Concep</label>
+                    <input type="text" class="form-control" name="codTipoConcep" id="field_codTipoConcep"
+                        [(ngModel)]="desgloseChequeoInfo.codTipoConcep" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.codEstado" for="field_codEstado" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.codEstado' | translate">Cod Estado</label>
+                    <input type="text" class="form-control" name="codEstado" id="field_codEstado"
+                        [(ngModel)]="desgloseChequeoInfo.codEstado" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoInfo.glsObservacion" for="field_glsObservacion" [ngbTooltip]="'desgloseApp.desgloseChequeoInfo.help.glsObservacion' | translate">Gls Observacion</label>
+                    <input type="text" class="form-control" name="glsObservacion" id="field_glsObservacion"
+                        [(ngModel)]="desgloseChequeoInfo.glsObservacion" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

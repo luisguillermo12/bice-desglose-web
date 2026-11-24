@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tablaValor">
+            <h2><span jhiTranslate="desgloseApp.tablaValor.detail.title">Tabla Valor</span> {{tablaValor.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.tablaValor.codTabla" [ngbTooltip]="'desgloseApp.tablaValor.help.codTabla' | translate">Cod Tabla</span></dt>
+                <dd>
+                    <span>{{tablaValor.codTabla}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.tablaValor.codGenerico" [ngbTooltip]="'desgloseApp.tablaValor.help.codGenerico' | translate">Cod Generico</span></dt>
+                <dd>
+                    <span>{{tablaValor.codGenerico}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.tablaValor.fecValidez" [ngbTooltip]="'desgloseApp.tablaValor.help.fecValidez' | translate">Fec Validez</span></dt>
+                <dd>
+                    <span>{{tablaValor.fecValidez}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.tablaValor.valor" [ngbTooltip]="'desgloseApp.tablaValor.help.valor' | translate">Valor</span></dt>
+                <dd>
+                    <span>{{tablaValor.valor}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.tablaValor.codTipovalor" [ngbTooltip]="'desgloseApp.tablaValor.help.codTipovalor' | translate">Cod Tipovalor</span></dt>
+                <dd>
+                    <span>{{tablaValor.codTipovalor}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.tablaValor.codRegStatus" [ngbTooltip]="'desgloseApp.tablaValor.help.codRegStatus' | translate">Cod Reg Status</span></dt>
+                <dd>
+                    <span>{{tablaValor.codRegStatus}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.tablaValor.codRegLog" [ngbTooltip]="'desgloseApp.tablaValor.help.codRegLog' | translate">Cod Reg Log</span></dt>
+                <dd>
+                    <span>{{tablaValor.codRegLog}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tabla-valor', tablaValor.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

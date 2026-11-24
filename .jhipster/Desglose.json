@@ -1,0 +1,303 @@
+{
+    "name": "Desglose",
+    "fields": [
+        {
+            "fieldName": "codCliente",
+            "javadoc": "Rut de cliente.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codTipoDes",
+            "javadoc": "Tipo de desglose.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codSubtipoDes",
+            "javadoc": "Subtipo de desglose.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codMoneda",
+            "javadoc": "Código de moneda.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codUnidMoneda",
+            "javadoc": "Unidad monetaria.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "glsSubtipoDes",
+            "javadoc": "Descripción para Subtipo de desglose.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valDeflacBase",
+            "javadoc": "Valor deflactor base. Precisión 6, escala 3.",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required",
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": 1000
+        },
+        {
+            "fieldName": "valIva",
+            "javadoc": "Valor IVA. Precisión 4, escala 3.",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required",
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": 1
+        },
+        {
+            "fieldName": "nomUserAnalis",
+            "javadoc": "Login de último usuario que guarda desglose.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "glsObservacion",
+            "javadoc": "Observación para el Desglose ingresada en configuración de desglose.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nomUserCrea",
+            "javadoc": "Login de usuario que crea desglose.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fecUserCrea",
+            "javadoc": "Fecha de creación de desglose.",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nomUserModif",
+            "javadoc": "Login de usuario que modifica desglose.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fecUserModif",
+            "javadoc": "Fecha de modificación de desglose.",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fecDeflacBase",
+            "javadoc": "Fecha asociada al deflactor base.",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nomUserOpen",
+            "javadoc": "Login de usuario que tiene abierto o cargado el desglose.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "flgIsTemporal",
+            "javadoc": "Flag que indica si el desglose es temporal o no.",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codMonedaImp",
+            "javadoc": "Código de moneda de impresión.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fecHraOpen",
+            "javadoc": "Fecha y hora desde que está abierto o cargado el desglose.",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "nomUser",
+            "javadoc": "Nombre del usuario que tiene abierto o cargado el desglose.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "flgValidacion",
+            "javadoc": "Flag que señala resultado de validación. OK o NOK.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "flgRevision",
+            "javadoc": "Flag que señala condicion de revision. AREV o ENREV.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "glsComentValid",
+            "javadoc": "Comentario producto de la validación.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codEstado",
+            "javadoc": "Estado del desglose.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rolEmpleadoDesDef",
+            "javadoc": "Rol empleado que lleva desglose a estado definitivo.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nomRevisorDef",
+            "javadoc": "Nombre de revisor que lleva desglose a estado definitivo.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fecDesgloDef",
+            "javadoc": "Fecha en que desglose se lleva a estado definitivo.",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "rolEmpleadoRevMod",
+            "javadoc": "Rol empleado de revisor que revisó y modificó desglose.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rolEmpleadoDefEnvPdf",
+            "javadoc": "Rol empleado que genera PDF para desglose.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fecDesgloEnvPdf",
+            "javadoc": "Fecha de envío del PDF.",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "codMonedaRpt",
+            "javadoc": "Código moneda impresión (se usa como parámetro).",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "corImpresionRpt",
+            "javadoc": "Correlativo de impresión (se usa como parámetro).",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "flgEjeFactoringRpt",
+            "javadoc": "Flag que señala si es ejecutivo de factoring o no (se usa como parámetro).",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fecPeriodo1Rpt",
+            "javadoc": "Fecha período 1 (se usa como parámetro).",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fecPeriodo2Rpt",
+            "javadoc": "Fecha período 2 (se usa como parámetro).",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fecPeriodo3Rpt",
+            "javadoc": "Fecha período 3 (se usa como parámetro).",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fecPeriodo4Rpt",
+            "javadoc": "Fecha período 4 (se usa como parámetro).",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fecPerConsol1Rpt",
+            "javadoc": "Fecha período Consolidado 1 (se usa como parámetro).",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fecPerConsol2Rpt",
+            "javadoc": "Fecha período consolidado 2 (se usa como parámetro).",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fecUlt1Rpt",
+            "javadoc": "Fecha último período 1 (se usa como parámetro).",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fecUlt2Rpt",
+            "javadoc": "Fecha último período 2 (se usa como parámetro).",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fecUserModifRpt",
+            "javadoc": "Fecha de aprobación desglose (se usa como parámetro).",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "nomUserModifRpt",
+            "javadoc": "Nombre aprobador de desglose (se usa como parámetro).",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numReporteRpt",
+            "javadoc": "Número de plantilla de reporte (se usa como parámetro).",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fecGeneracionRpt",
+            "javadoc": "Fecha generación del reporte (se usa como parámetro).",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "numDevolEjecutor",
+            "javadoc": "Contador que señala las veces en que desglose es enviado a revisión.",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numRolChgEstado",
+            "javadoc": "Rol empleado que produce cambio de estado a desglose.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "flgReq2firma",
+            "javadoc": "Flag que señala si falta segunda firma o no.",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181011140714",
+    "javadoc": "Representa la tabla \"DESGLO\" que contiene desglose individuales o consolidado para las distintas monedas. Pertenece al esquema CIF_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "desglose",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

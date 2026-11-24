@@ -1,0 +1,41 @@
+
+{
+    "desgloseApp": {
+        "desgloseReemplazo" : {
+            "home": {
+                "title": "Desglose Reemplazos",
+                "createLabel": "Crear nuevo Desglose Reemplazo",
+                "createOrEditLabel": "Crear o editar Desglose Reemplazo"
+            },
+            "created": "Un nuevo Desglose Reemplazo ha sido creado con el identificador {{ param }}",
+            "updated": "Un Desglose Reemplazo ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Desglose Reemplazo ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Desglose Reemplazo {{ id }}?"
+            },
+            "detail": {
+                "title": "Desglose Reemplazo"
+            },
+            "codCargo": "Cod Cargo",
+            "numRolEmpleado": "Num Rol Empleado",
+            "desCodCargo": "Des Cod Cargo",
+            "desNumRolEmpleado": "Des Num Rol Empleado",
+            "fecReemplazo": "Fec Reemplazo",
+            "fecElimReemplazo": "Fec Elim Reemplazo",
+            "numRolEmpleadoCrea": "Num Rol Empleado Crea",
+            "numRolEmpleadoElim": "Num Rol Empleado Elim",
+            "codRegStatus": "Cod Reg Status",
+            "help": {
+                "codCargo": "Código cargo. Posibles permitidos (001-Subgte, 002-Jefe Grupo y 003-Analista).",
+                "numRolEmpleado": "Rol de usuario asociado al cargo.",
+                "desCodCargo": "Código cargo. Posibles permitidos (001-Subgte, 002-Jefe Grupo y 003-Analista).",
+                "desNumRolEmpleado": "Rol de usuario asociado al cargo.",
+                "fecReemplazo": "Fecha del reemplazo.",
+                "fecElimReemplazo": "Fecha de eliminación del reemplazo.",
+                "numRolEmpleadoCrea": "Rol de quien crea el reemplazo.",
+                "numRolEmpleadoElim": "Rol de quien elimina el reemplazo.",
+                "codRegStatus": "Código de vigencia del registro."
+            }
+        }
+    }
+}

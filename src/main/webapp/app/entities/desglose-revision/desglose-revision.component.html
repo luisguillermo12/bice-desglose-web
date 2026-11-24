@@ -1,0 +1,86 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="desgloseApp.desgloseRevision.home.title">Desglose Revisions</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-desglose-revision" [routerLink]="['/desglose-revision/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="desgloseApp.desgloseRevision.home.createLabel">
+            Create new Desglose Revision
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="desgloseRevisions">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codCliente"><span jhiTranslate="desgloseApp.desgloseRevision.codCliente">Cod Cliente</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codTipoDes"><span jhiTranslate="desgloseApp.desgloseRevision.codTipoDes">Cod Tipo Des</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codSubtipoDes"><span jhiTranslate="desgloseApp.desgloseRevision.codSubtipoDes">Cod Subtipo Des</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codMoneda"><span jhiTranslate="desgloseApp.desgloseRevision.codMoneda">Cod Moneda</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="rolDigitador"><span jhiTranslate="desgloseApp.desgloseRevision.rolDigitador">Rol Digitador</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="rolRevisor"><span jhiTranslate="desgloseApp.desgloseRevision.rolRevisor">Rol Revisor</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="rolRevisorReem"><span jhiTranslate="desgloseApp.desgloseRevision.rolRevisorReem">Rol Revisor Reem</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="glsNotificacion"><span jhiTranslate="desgloseApp.desgloseRevision.glsNotificacion">Gls Notificacion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="flgNotificado"><span jhiTranslate="desgloseApp.desgloseRevision.flgNotificado">Flg Notificado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecEnvioRevision"><span jhiTranslate="desgloseApp.desgloseRevision.fecEnvioRevision">Fec Envio Revision</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecEnRevision"><span jhiTranslate="desgloseApp.desgloseRevision.fecEnRevision">Fec En Revision</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecTerminoRevision"><span jhiTranslate="desgloseApp.desgloseRevision.fecTerminoRevision">Fec Termino Revision</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codRegStatus"><span jhiTranslate="desgloseApp.desgloseRevision.codRegStatus">Cod Reg Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let desgloseRevision of desgloseRevisions ;trackBy: trackId">
+                <td><a [routerLink]="['/desglose-revision', desgloseRevision.id, 'view' ]">{{desgloseRevision.id}}</a></td>
+                <td>{{desgloseRevision.codCliente}}</td>
+                <td>{{desgloseRevision.codTipoDes}}</td>
+                <td>{{desgloseRevision.codSubtipoDes}}</td>
+                <td>{{desgloseRevision.codMoneda}}</td>
+                <td>{{desgloseRevision.rolDigitador}}</td>
+                <td>{{desgloseRevision.rolRevisor}}</td>
+                <td>{{desgloseRevision.rolRevisorReem}}</td>
+                <td>{{desgloseRevision.glsNotificacion}}</td>
+                <td>{{desgloseRevision.flgNotificado}}</td>
+                <td>{{desgloseRevision.fecEnvioRevision | date:'mediumDate'}}</td>
+                <td>{{desgloseRevision.fecEnRevision | date:'mediumDate'}}</td>
+                <td>{{desgloseRevision.fecTerminoRevision | date:'mediumDate'}}</td>
+                <td>{{desgloseRevision.codRegStatus}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/desglose-revision', desgloseRevision.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/desglose-revision', desgloseRevision.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'desglose-revision/'+ desgloseRevision.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="desgloseRevisions && desgloseRevisions.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

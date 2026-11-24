@@ -1,0 +1,33 @@
+
+{
+    "desgloseApp": {
+        "clienteSinRut" : {
+            "home": {
+                "title": "Cliente Sin Ruts",
+                "createLabel": "Create a new Cliente Sin Rut",
+                "createOrEditLabel": "Create or edit a Cliente Sin Rut"
+            },
+            "created": "A new Cliente Sin Rut is created with identifier {{ param }}",
+            "updated": "A Cliente Sin Rut is updated with identifier {{ param }}",
+            "deleted": "A Cliente Sin Rut is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Cliente Sin Rut {{ id }}?"
+            },
+            "detail": {
+                "title": "Cliente Sin Rut"
+            },
+            "codCliente": "Cod Cliente",
+            "nomCliente": "Nom Cliente",
+            "nomPaterno": "Nom Paterno",
+            "nomMaterno": "Nom Materno",
+            "codActividad": "Cod Actividad",
+            "help": {
+                "codCliente": "Rut de cliente.",
+                "nomCliente": "Nombre de cliente o razón social.",
+                "nomPaterno": "Apellido paterno del cliente.",
+                "nomMaterno": "Apellido materno del cliente.",
+                "codActividad": "Código de actividad asociada al cliente."
+            }
+        }
+    }
+}

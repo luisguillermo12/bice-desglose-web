@@ -1,0 +1,9 @@
+entity BlackListJwt {
+    invalidateTime ZonedDateTime required,
+	jwt String required
+}
+
+// Set pagination options
+paginate * with pagination
+// Set service options
+service * with serviceClass

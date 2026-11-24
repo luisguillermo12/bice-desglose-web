@@ -1,0 +1,85 @@
+{
+    "name": "TurbineUser",
+    "fields": [
+        {
+            "fieldName": "userId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "loginName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "passwordValue",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "firstName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "confirmValue",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "modified",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "created",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "lastLogin",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "expire",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "expirePassword",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "objectdata",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181022174825",
+    "javadoc": "Representa la tabla \"TURBINE_USER\" que contiene usuarios del banco. Pertenece al esquema SF_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "turbine_user",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

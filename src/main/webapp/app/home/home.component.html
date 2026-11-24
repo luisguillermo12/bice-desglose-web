@@ -1,0 +1,40 @@
+<div class="row" style="height: 50em;">
+    <div class="col-md-12" >
+        <hr class="my-4">
+        <div>
+            <!--<h3 class="text-dark">-->
+                <!--<img src="../../content/images/bancobice_grande.png">-->
+                <!--<span>&nbsp;&nbsp;&nbsp;</span>-->
+                <!--<span jhiTranslate="global.applicationTitle"></span>-->
+            <!--</h3>-->
+            <p class="lead text-justify text-dark styleFont" style="font-size:12px;" jhiTranslate="global.applicationTitle"></p>
+        </div>
+        <div > </div>
+        <hr class="my-4">
+        <!--<div class="col-md-12" *ngIf="isAuthenticated()">-->
+            <!--<hot-table #dataTable-->
+                       <!--[colHeaders]="true"-->
+                       <!--[rowHeaders]="true"-->
+                       <!--[formulas]="true"-->
+                       <!--[data]="data"-->
+                       <!--[afterSelection]="afterSelectionMethod">-->
+            <!--</hot-table>-->
+        <!--</div>-->
+        <!--<div *ngIf="isAuthenticated()" hidden="true" id="selectedCellValueContainerId" style="padding-left: 15px;">-->
+            <!--<ngb-alert [dismissible]="false">-->
+                <!--<span class="label label-primary" id="selectedCellValueId"></span>-->
+            <!--</ngb-alert>-->
+        <!--</div>-->
+        <div class="col-md-12" *ngIf="!isAuthenticated()">
+            <br>
+            <hr class="my-4">
+            <br>
+            <p class="lead">
+                <a class="center btn btn-primary btn-sm text-white font-weight-normal" (click)="login()" id="login" jhiTranslate="login.form.button">Iniciar Sesión</a>
+            </p>
+            <!--<p class="lead" *ngIf="isAuthenticated()">-->
+                <!--<a class="center btn btn-danger btn-lg text-white" (click)="logout()" id="logout">Cerrar Sesión</a>-->
+            <!--</p>-->
+        </div>
+    </div>
+</div>

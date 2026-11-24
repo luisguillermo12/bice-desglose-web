@@ -1,0 +1,25 @@
+
+{
+    "desgloseApp": {
+        "uniqueSessionControl" : {
+            "home": {
+                "title": "Unique Session Controls",
+                "createLabel": "Create a new Unique Session Control",
+                "createOrEditLabel": "Create or edit a Unique Session Control"
+            },
+            "created": "A new Unique Session Control is created with identifier {{ param }}",
+            "updated": "A Unique Session Control is updated with identifier {{ param }}",
+            "deleted": "A Unique Session Control is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Unique Session Control {{ id }}?"
+            },
+            "detail": {
+                "title": "Unique Session Control"
+            },
+            "loginName": "Login Name",
+            "sessionCheckTime": "Session Check Time",
+            "sessionEndTime": "Session End Time",
+            "jwt": "Jwt"
+        }
+    }
+}

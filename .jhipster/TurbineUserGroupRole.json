@@ -1,0 +1,40 @@
+{
+    "name": "TurbineUserGroupRole",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "turbineUser",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "turbineUserGroupRole"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "group",
+            "otherEntityName": "turbineGroup",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "turbineUserGroupRole"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "role",
+            "otherEntityName": "turbineRole",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "turbineUserGroupRole"
+        }
+    ],
+    "changelogDate": "20181022174827",
+    "javadoc": "Representa la tabla \"TURBINE_USER_GROUP_ROLE\" que relacion usuario, grupo y rol. Pertenece al esquema SF_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "turbine_user_group_role",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

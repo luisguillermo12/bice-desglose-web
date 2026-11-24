@@ -1,0 +1,13 @@
+entity UniqueSessionControl {
+	loginName String required,
+    sessionCheckTime ZonedDateTime,
+    sessionEndTime ZonedDateTime,
+	jwt String required
+}
+
+// Set pagination options
+paginate * with pagination
+// Set service options
+service * with serviceClass
+// Set mapping options
+dto * with mapstruct

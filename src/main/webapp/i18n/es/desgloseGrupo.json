@@ -1,0 +1,31 @@
+
+{
+    "desgloseApp": {
+        "desgloseGrupo" : {
+            "home": {
+                "title": "Desglose Grupos",
+                "createLabel": "Crear nuevo Desglose Grupo",
+                "createOrEditLabel": "Crear o editar Desglose Grupo"
+            },
+            "created": "Un nuevo Desglose Grupo ha sido creado con el identificador {{ param }}",
+            "updated": "Un Desglose Grupo ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Desglose Grupo ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Desglose Grupo {{ id }}?"
+            },
+            "detail": {
+                "title": "Desglose Grupo"
+            },
+            "codCargo": "Cod Cargo",
+            "numRolEmpleado": "Num Rol Empleado",
+            "desCodCargo": "Des Cod Cargo",
+            "desNumRolEmpleado": "Des Num Rol Empleado",
+            "help": {
+                "codCargo": "Código cargo. Posibles permitidos (001-Subgte, 002-Jefe Grupo y 003-Analista).",
+                "numRolEmpleado": "Rol de usuario asociado al cargo.",
+                "desCodCargo": "Código cargo. Posibles permitidos (001-Subgte, 002-Jefe Grupo y 003-Analista).",
+                "desNumRolEmpleado": "Rol de usuario asociado al cargo."
+            }
+        }
+    }
+}

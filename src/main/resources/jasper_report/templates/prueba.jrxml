@@ -1,0 +1,1075 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subreporte_inf_resumen_left_A4" pageWidth="1008" pageHeight="612" orientation="Landscape" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="771e77e1-b584-46ee-b640-5a6861e6b1b2">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="net.sf.jasperreports.awt.ignore.missing.font" value="true"/>
+	<property name="net.sf.jasperreports.default.font.name" value="Times New Roman"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<style name="TittleHeaderCss" fill="Solid" hTextAlign="Center" vTextAlign="Middle" fontSize="8" isBold="true"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF"/>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF"/>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF"/>
+	<style name="Table 1_TH" mode="Opaque" backcolor="#FFFFFF"/>
+	<style name="Table 1_CH" mode="Opaque" backcolor="#FFFFFF"/>
+	<style name="Table 1_TD" mode="Opaque" backcolor="#FFFFFF" hTextAlign="Right"/>
+	<style name="Conditional_style" hTextAlign="Right" fontName="Times New Roman" fontSize="5">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{flgIsBold}==1]]></conditionExpression>
+			<style fontSize="6" isBold="true"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{flgIsEnclosed}==1]]></conditionExpression>
+			<style>
+				<box>
+					<pen lineWidth="1.25"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</style>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{flgIsTotal}==1]]></conditionExpression>
+			<style>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+			</style>
+		</conditionalStyle>
+	</style>
+	<style name="Conditional_style_tittle" fontName="Times New Roman" fontSize="5">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{flgIsBoldO}]]></conditionExpression>
+			<style fontSize="5" isBold="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="title_top" hTextAlign="Center" hImageAlign="Center" vTextAlign="Middle" vImageAlign="Middle">
+		<box>
+			<topPen lineWidth="1.25" lineStyle="Solid" lineColor="#000000"/>
+			<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="title_button" hTextAlign="Center" hImageAlign="Center" vImageAlign="Middle">
+		<box>
+			<pen lineWidth="1.25"/>
+			<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TD1" mode="Opaque" backcolor="#FFFFFF" hTextAlign="Justified"/>
+	<subDataset name="DataTableSourse" uuid="30414b97-77e8-455c-a242-9dc4590424e9">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<parameter name="periodHistoryFecha" class="java.lang.String"/>
+		<parameter name="period1Fecha_" class="java.lang.String"/>
+		<parameter name="period2Fecha_" class="java.lang.String"/>
+		<parameter name="period3Fecha_" class="java.lang.String"/>
+		<parameter name="period4Fecha_" class="java.lang.String"/>
+		<parameter name="period5Fecha_" class="java.lang.String"/>
+		<parameter name="period6Fecha_" class="java.lang.String"/>
+		<parameter name="period7Fecha_" class="java.lang.String"/>
+		<parameter name="period8Fecha_" class="java.lang.String"/>
+		<parameter name="period9Fecha_" class="java.lang.String"/>
+		<parameter name="period10Fecha_" class="java.lang.String"/>
+		<parameter name="period11Fecha_" class="java.lang.String"/>
+		<parameter name="period12Fecha_" class="java.lang.String"/>
+		<parameter name="period13Fecha_" class="java.lang.String"/>
+		<parameter name="period14Fecha_" class="java.lang.String"/>
+		<parameter name="period15Fecha_" class="java.lang.String"/>
+		<parameter name="period16Fecha_" class="java.lang.String"/>
+		<parameter name="period17Fecha_" class="java.lang.String"/>
+		<parameter name="period18Fecha_" class="java.lang.String"/>
+		<parameter name="period19Fecha_" class="java.lang.String"/>
+		<parameter name="period20Fecha_" class="java.lang.String"/>
+		<parameter name="tituloTabla" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="conceptName" class="java.lang.String"/>
+		<field name="corConcept" class="java.lang.String"/>
+		<field name="periodHistoryFecha" class="java.lang.String"/>
+		<field name="period1Fecha" class="java.lang.String"/>
+		<field name="period2Fecha" class="java.lang.String"/>
+		<field name="period3Fecha" class="java.lang.String"/>
+		<field name="period4Fecha" class="java.lang.String"/>
+		<field name="period5Fecha" class="java.lang.String"/>
+		<field name="period6Fecha" class="java.lang.String"/>
+		<field name="period7Fecha" class="java.lang.String"/>
+		<field name="period8Fecha" class="java.lang.String"/>
+		<field name="period9Fecha" class="java.lang.String"/>
+		<field name="period10Fecha" class="java.lang.String"/>
+		<field name="period1Value" class="java.math.BigDecimal"/>
+		<field name="period2Value" class="java.math.BigDecimal"/>
+		<field name="period3Value" class="java.math.BigDecimal"/>
+		<field name="period4Value" class="java.math.BigDecimal"/>
+		<field name="period5Value" class="java.math.BigDecimal"/>
+		<field name="period6Value" class="java.math.BigDecimal"/>
+		<field name="period7Value" class="java.math.BigDecimal"/>
+		<field name="period8Value" class="java.math.BigDecimal"/>
+		<field name="period9Value" class="java.math.BigDecimal"/>
+		<field name="period10Value" class="java.math.BigDecimal"/>
+		<field name="period11Value" class="java.math.BigDecimal"/>
+		<field name="period12Value" class="java.math.BigDecimal"/>
+		<field name="period13Value" class="java.math.BigDecimal"/>
+		<field name="period14Value" class="java.math.BigDecimal"/>
+		<field name="period15Value" class="java.math.BigDecimal"/>
+		<field name="periodHistoryValue" class="java.math.BigDecimal"/>
+		<field name="flgIsBoldO" class="java.lang.Boolean"/>
+		<field name="flgIsEnclosedO" class="java.lang.Boolean"/>
+		<field name="flgIsEnclosed" class="java.lang.Integer"/>
+		<field name="flgIsBold" class="java.lang.Integer"/>
+		<field name="flgTititleO" class="java.lang.Boolean"/>
+		<field name="period16Value" class="java.math.BigDecimal"/>
+		<field name="period17Value" class="java.math.BigDecimal"/>
+		<field name="period18Value" class="java.math.BigDecimal"/>
+		<field name="period19Value" class="java.math.BigDecimal"/>
+		<field name="period20Value" class="java.math.BigDecimal"/>
+		<field name="formatPathern" class="java.lang.String"/>
+		<field name="flgIsTotal" class="java.lang.Integer"/>
+	</subDataset>
+	<parameter name="tituloTabla" class="java.lang.String"/>
+	<parameter name="subReportPath" class="java.lang.String"/>
+	<parameter name="dataSource" class="java.util.Collection"/>
+	<parameter name="periodHistoryFecha" class="java.lang.String"/>
+	<parameter name="period1Fecha" class="java.lang.String"/>
+	<parameter name="period2Fecha" class="java.lang.String"/>
+	<parameter name="period3Fecha" class="java.lang.String"/>
+	<parameter name="period5Fecha" class="java.lang.String"/>
+	<parameter name="period4Fecha" class="java.lang.String"/>
+	<parameter name="period6Fecha" class="java.lang.String"/>
+	<parameter name="period7Fecha" class="java.lang.String"/>
+	<parameter name="period8Fecha" class="java.lang.String"/>
+	<parameter name="period9Fecha" class="java.lang.String"/>
+	<parameter name="period10Fecha" class="java.lang.String"/>
+	<parameter name="period11Fecha" class="java.lang.String"/>
+	<parameter name="period12Fecha" class="java.lang.String"/>
+	<parameter name="period13Fecha" class="java.lang.String"/>
+	<parameter name="period14Fecha" class="java.lang.String"/>
+	<parameter name="period15Fecha" class="java.lang.String"/>
+	<parameter name="period16Fecha" class="java.lang.String"/>
+	<parameter name="period17Fecha" class="java.lang.String"/>
+	<parameter name="period19Fecha" class="java.lang.String"/>
+	<parameter name="period18Fecha" class="java.lang.String"/>
+	<parameter name="period20Fecha" class="java.lang.String"/>
+	<parameter name="numeroPagina" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="conceptName" class="java.lang.String"/>
+	<summary>
+		<band height="21">
+			<componentElement>
+				<reportElement isPrintRepeatedValues="false" x="0" y="0" width="40" height="16" uuid="2e108940-c5b5-48ec-aab1-6f729c93c979">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 1_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 1_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table 1_TD"/>
+					<property name="net.sf.jasperreports.export.headertoolbar.table.name" value=""/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DataTableSourse" uuid="3818ba5f-e970-4a91-86a4-fe1c9ac093ef">
+						<datasetParameter name="period1Fecha_">
+							<datasetParameterExpression><![CDATA[$P{period1Fecha}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="period2Fecha_">
+							<datasetParameterExpression><![CDATA[$P{period2Fecha}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="period3Fecha_">
+							<datasetParameterExpression><![CDATA[$P{period3Fecha}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="period4Fecha_">
+							<datasetParameterExpression><![CDATA[$P{period4Fecha}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="period5Fecha_">
+							<datasetParameterExpression><![CDATA[$P{period5Fecha}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="period6Fecha_">
+							<datasetParameterExpression><![CDATA[$P{period6Fecha}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="period7Fecha_">
+							<datasetParameterExpression><![CDATA[$P{period7Fecha}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="period8Fecha_">
+							<datasetParameterExpression><![CDATA[$P{period8Fecha}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="period9Fecha_">
+							<datasetParameterExpression><![CDATA[$P{period9Fecha}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="period10Fecha_">
+							<datasetParameterExpression><![CDATA[$P{period10Fecha}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="period11Fecha_">
+							<datasetParameterExpression><![CDATA[$P{period11Fecha}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="period12Fecha_">
+							<datasetParameterExpression><![CDATA[$P{period12Fecha}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="period13Fecha_">
+							<datasetParameterExpression><![CDATA[$P{period13Fecha}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="period14Fecha_">
+							<datasetParameterExpression><![CDATA[$P{period14Fecha}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="period15Fecha_">
+							<datasetParameterExpression><![CDATA[$P{period15Fecha}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="period16Fecha_">
+							<datasetParameterExpression><![CDATA[$P{period16Fecha}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="period17Fecha_">
+							<datasetParameterExpression><![CDATA[$P{period17Fecha}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="period18Fecha_">
+							<datasetParameterExpression><![CDATA[$P{period18Fecha}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="period19Fecha_">
+							<datasetParameterExpression><![CDATA[$P{period19Fecha}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="period20Fecha_">
+							<datasetParameterExpression><![CDATA[$P{period20Fecha}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="periodHistoryFecha">
+							<datasetParameterExpression><![CDATA[$P{periodHistoryFecha}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="tituloTabla">
+							<datasetParameterExpression><![CDATA[$P{tituloTabla}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{dataSource})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="80" uuid="14df1ffe-e01f-4d6a-ad70-2d5176a15bf6">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:tableHeader style="Table 1_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement style="title_top" x="0" y="0" width="80" height="10" uuid="e1063c9e-eb0b-460b-8f07-d68dc7ed6359"/>
+								<textElement textAlignment="Left">
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{tituloTabla}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement style="title_button" x="0" y="10" width="80" height="10" uuid="97837775-3129-4810-8612-c185973abf07"/>
+								<box>
+									<pen lineWidth="1.25"/>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Left">
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<text><![CDATA[HISTORICO]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 1_TD1" height="10">
+							<textField isBlankWhenNull="true">
+								<reportElement style="Conditional_style" x="0" y="0" width="80" height="10" uuid="5e9d3409-4b64-4f37-9753-3445c8ef5ff2">
+									<printWhenExpression><![CDATA[$F{flgTititleO} == false]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Justified">
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{conceptName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="b5689d2d-9c4d-44ea-91a9-dbf911cd33b9">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<printWhenExpression><![CDATA[$P{periodHistoryFecha} != null]]></printWhenExpression>
+						<jr:tableHeader style="Table 1_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement style="title_top" x="0" y="0" width="40" height="10" uuid="d6e11700-45ac-432c-ad8c-a02c5bb021f2"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{periodHistoryFecha}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement style="title_button" x="0" y="10" width="40" height="10" uuid="dbefa88e-f909-4d1c-bfe0-fd12d7920282"/>
+								<box>
+									<pen lineWidth="1.25"/>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<text><![CDATA[HISTORICO]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 1_TD" height="10">
+							<textField isBlankWhenNull="true">
+								<reportElement style="Conditional_style" x="0" y="0" width="40" height="10" uuid="dcc03382-1c37-4911-9502-b61f215928cf"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{periodHistoryValue}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{formatPathern}]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="6ffd7fe8-c4ba-4b73-99f0-43c6858c1ffc">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<printWhenExpression><![CDATA[$P{period1Fecha} !=null]]></printWhenExpression>
+						<jr:tableHeader style="Table 1_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement style="title_top" x="0" y="0" width="40" height="10" uuid="d34cd42d-14b4-492a-96fe-23ef964b18b4"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{period1Fecha_}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement style="title_button" x="0" y="10" width="40" height="10" uuid="335af4fe-8d8d-4182-910b-73c3a2850ae4"/>
+								<box>
+									<pen lineWidth="1.25"/>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<text><![CDATA[PROY]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 1_TD" height="10">
+							<textField isBlankWhenNull="true">
+								<reportElement style="Conditional_style" x="0" y="0" width="40" height="10" uuid="b4343cf0-c4ef-4491-a0c8-40944e6c81c4"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{period1Value}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{formatPathern}]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="7a7757ea-0cc5-4e3f-922d-a2319e6ff177">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+						<printWhenExpression><![CDATA[$P{period2Fecha} !=null]]></printWhenExpression>
+						<jr:tableHeader style="Table 1_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement style="title_top" x="0" y="0" width="40" height="10" uuid="fc9e574e-912f-4bff-a555-27fe51067148"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{period2Fecha_}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement style="title_button" x="0" y="10" width="40" height="10" uuid="2524a82d-43f0-4922-9322-5bb12d2e574e"/>
+								<box>
+									<pen lineWidth="1.25"/>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<text><![CDATA[PROY]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 1_TD" height="10">
+							<textField isBlankWhenNull="true">
+								<reportElement style="Conditional_style" x="0" y="0" width="40" height="10" uuid="020addfb-9465-42fb-ac2c-60040fa7d00c"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{period2Value}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{formatPathern}]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="70694e0d-541d-4458-b235-10557703d87e">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+						<printWhenExpression><![CDATA[$P{period3Fecha} != null]]></printWhenExpression>
+						<jr:tableHeader style="Table 1_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement style="title_top" x="0" y="0" width="40" height="10" uuid="e71ccca5-8680-42b2-b7c9-35d787400626"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{period3Fecha_}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement style="title_button" x="0" y="10" width="40" height="10" uuid="b6ff93ec-1f81-4c21-9afa-c91628b603dd"/>
+								<box>
+									<pen lineWidth="1.25"/>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<text><![CDATA[PROY]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 1_TD" height="10">
+							<textField isBlankWhenNull="true">
+								<reportElement style="Conditional_style" x="0" y="0" width="40" height="10" uuid="5514d92c-cd6c-48ad-b681-401df08f9323"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{period3Value}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{formatPathern}]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="258e087a-e0c6-42c3-adc4-6112c7ee3313">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column6"/>
+						<printWhenExpression><![CDATA[$P{period4Fecha} != null]]></printWhenExpression>
+						<jr:tableHeader style="Table 1_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement style="title_top" x="0" y="0" width="40" height="10" uuid="4ded3608-6ba2-4a44-871e-43d493336108"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{period4Fecha_}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement style="title_button" x="0" y="10" width="40" height="10" uuid="67a77a3b-a58c-4185-b1dc-6d3354a53a43"/>
+								<box>
+									<pen lineWidth="1.25"/>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<text><![CDATA[PROY]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 1_TD" height="10">
+							<textField isBlankWhenNull="true">
+								<reportElement style="Conditional_style" x="0" y="0" width="40" height="10" uuid="78f3f084-a479-4090-bfc1-3677888c4ce4"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{period4Value}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{formatPathern}]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="ca5c80c4-4881-44bc-aad0-89738c225ae7">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column7"/>
+						<printWhenExpression><![CDATA[$P{period5Fecha} != null]]></printWhenExpression>
+						<jr:tableHeader style="Table 1_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement style="title_top" x="0" y="0" width="40" height="10" uuid="db7f8dae-b6d2-4ba7-8881-214f8bf5635c"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{period5Fecha_}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement style="title_button" x="0" y="10" width="40" height="10" uuid="75445a3a-840c-4fd2-a2d2-90d6aa2945fd"/>
+								<box>
+									<pen lineWidth="1.25"/>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<text><![CDATA[PROY]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 1_TD" height="10">
+							<textField isBlankWhenNull="true">
+								<reportElement style="Conditional_style" x="0" y="0" width="40" height="10" uuid="77afb627-42f1-4bb6-a0a5-3eaad80cb7eb"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{period5Value}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{formatPathern}]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="87ecabe8-c42c-4fe3-817a-ace0bf1107c7">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column8"/>
+						<printWhenExpression><![CDATA[$P{period6Fecha} != null]]></printWhenExpression>
+						<jr:tableHeader style="Table 1_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement style="title_top" x="0" y="0" width="40" height="10" uuid="7a5f452d-480d-41b7-a0c5-3185fdfc106e"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{period6Fecha_}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement style="title_button" x="0" y="10" width="40" height="10" uuid="e0e2bb85-8cec-44e1-a3e6-32bfae8a8455"/>
+								<box>
+									<pen lineWidth="1.25"/>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<text><![CDATA[PROY]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 1_TD" height="10">
+							<textField isBlankWhenNull="true">
+								<reportElement style="Conditional_style" x="0" y="0" width="40" height="10" uuid="1295a359-4417-4b62-9d12-339784eccd94"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{period6Value}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{formatPathern}]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="553e231d-a3c5-4bd1-a2a7-682d7bad6a24">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column9"/>
+						<printWhenExpression><![CDATA[$P{period7Fecha} !=null]]></printWhenExpression>
+						<jr:tableHeader style="Table 1_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement style="title_top" x="0" y="0" width="40" height="10" uuid="5be2ea38-ddfa-494d-a3e7-8906c376436c"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{period7Fecha_}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement style="title_button" x="0" y="10" width="40" height="10" uuid="cee6b762-ddfe-4be4-bf43-f951d79dd400"/>
+								<box>
+									<pen lineWidth="1.25"/>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<text><![CDATA[PROY]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 1_TD" height="10">
+							<textField isBlankWhenNull="true">
+								<reportElement style="Conditional_style" x="0" y="0" width="40" height="10" uuid="25b5d27b-07e5-489a-9bfb-db82323219e6"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{period7Value}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{formatPathern}]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="03dcf0f6-df22-46a3-b092-f58aaced6349">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column10"/>
+						<printWhenExpression><![CDATA[$P{period8Fecha} != null]]></printWhenExpression>
+						<jr:tableHeader style="Table 1_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement style="title_top" x="0" y="0" width="40" height="10" uuid="3579f724-3fbb-442a-99ba-4ee2c6e7685c"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{period8Fecha_}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="0" y="10" width="40" height="10" uuid="7f8d6c10-f51e-4683-b2d1-f8c0b3c4f46d"/>
+								<box>
+									<pen lineWidth="1.25"/>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center">
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<text><![CDATA[PROY]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 1_TD" height="10">
+							<textField isBlankWhenNull="true">
+								<reportElement style="Conditional_style" x="0" y="0" width="40" height="10" uuid="473a502d-ffe5-400b-aeef-f4562f8f0aca"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{period8Value}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{formatPathern}]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="cd25ff2b-f257-4fc0-9c13-ebf98c52a585">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column11"/>
+						<printWhenExpression><![CDATA[$P{period9Fecha} !=null]]></printWhenExpression>
+						<jr:tableHeader style="Table 1_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement style="title_top" x="0" y="0" width="40" height="10" uuid="bf2098e0-f762-4328-85d1-cdb9c27c9d03"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{period9Fecha_}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement style="title_button" x="0" y="10" width="40" height="10" uuid="bb6e7210-65e7-4d2a-8463-eb09c2124e69"/>
+								<box>
+									<pen lineWidth="1.25"/>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<text><![CDATA[PROY]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 1_TD" height="10">
+							<textField isBlankWhenNull="true">
+								<reportElement style="Conditional_style" x="0" y="0" width="40" height="10" uuid="9a185c19-5684-4c5b-a73f-b649974f93c5"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{period9Value}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{formatPathern}]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="e41a02cb-9594-43e0-bfb7-5e807bbaaf39">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column12"/>
+						<printWhenExpression><![CDATA[$P{period10Fecha} != null]]></printWhenExpression>
+						<jr:tableHeader style="Table 1_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement style="title_top" x="0" y="0" width="40" height="10" uuid="704dc7a7-754c-4eeb-801b-d23664140319"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{period10Fecha_}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement style="title_button" x="0" y="10" width="40" height="10" uuid="a8b8c0bb-7a96-4581-9260-913556e138b0"/>
+								<box>
+									<pen lineWidth="1.25"/>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<text><![CDATA[PROY]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 1_TD" height="10">
+							<textField isBlankWhenNull="true">
+								<reportElement style="Conditional_style" x="0" y="0" width="40" height="10" uuid="68c0bd3e-dcd9-4f24-bb00-0c1439d1bf8b"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{period10Value}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{formatPathern}]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="a63b421b-bb6a-4ae1-9a3f-93d05ec24731">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column13"/>
+						<printWhenExpression><![CDATA[$P{period11Fecha} != null]]></printWhenExpression>
+						<jr:tableHeader style="Table 1_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement style="title_top" x="0" y="0" width="40" height="10" uuid="80ac6fcd-64e4-4f14-9b6b-c041ef1a0780"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{period11Fecha_}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement style="title_button" x="0" y="10" width="40" height="10" uuid="d39c69d3-9885-4ee6-a166-390a67297dc6"/>
+								<box>
+									<pen lineWidth="1.25"/>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<text><![CDATA[PROY]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 1_TD" height="10">
+							<textField isBlankWhenNull="true">
+								<reportElement style="Conditional_style" x="0" y="0" width="40" height="10" uuid="16805bc1-8201-406a-aa9c-883ddc84a676"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{period11Value}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{formatPathern}]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="9299e5c8-fcac-43f6-966c-c5b6816f8471">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column14"/>
+						<printWhenExpression><![CDATA[$P{period12Fecha} != null]]></printWhenExpression>
+						<jr:tableHeader style="Table 1_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement style="title_top" x="0" y="0" width="40" height="10" uuid="0fd95f8c-8bc6-4674-8a3d-a16cc2cf7537"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{period12Fecha_}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement style="title_button" x="0" y="10" width="40" height="10" uuid="18f63f0d-77d4-4cb9-b0a8-9b5ba883891c"/>
+								<box>
+									<pen lineWidth="1.25"/>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<text><![CDATA[PROY]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 1_TD" height="10">
+							<textField isBlankWhenNull="true">
+								<reportElement style="Conditional_style" x="0" y="0" width="40" height="10" uuid="2909b77a-adcf-4362-8f8a-99bf0237455b"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{period12Value}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{formatPathern}]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="9cafc874-0e19-43a0-b9a7-04b6d674ac45">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column15"/>
+						<printWhenExpression><![CDATA[$P{period13Fecha} != null]]></printWhenExpression>
+						<jr:tableHeader style="Table 1_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement style="title_top" x="0" y="0" width="40" height="10" uuid="a38270e6-14a0-4091-93ba-dd9d2c4a9abd"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{period13Fecha_}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement style="title_button" x="0" y="10" width="40" height="10" uuid="47e24fe7-7a20-455b-a182-478ed297fd1d"/>
+								<box>
+									<pen lineWidth="1.25"/>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<text><![CDATA[PROY]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 1_TD" height="10">
+							<textField isBlankWhenNull="true">
+								<reportElement style="Conditional_style" x="0" y="0" width="40" height="10" uuid="da6f359f-78a7-42cb-8cfc-c7d267d90df8"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{period13Value}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{formatPathern}]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="babe116a-e3c8-491e-9eb6-6f821f727ec4">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column16"/>
+						<printWhenExpression><![CDATA[$P{period14Fecha} != null]]></printWhenExpression>
+						<jr:tableHeader style="Table 1_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement style="title_top" x="0" y="0" width="40" height="10" uuid="8da2585d-dd7a-440a-872f-eb5caf7671ad"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{period14Fecha_}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement style="title_button" x="0" y="10" width="40" height="10" uuid="7b477fe8-a222-452d-b60f-4bae0fda3f6f"/>
+								<box>
+									<pen lineWidth="1.25"/>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<text><![CDATA[PROY]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 1_TD" height="10">
+							<textField isBlankWhenNull="true">
+								<reportElement style="Conditional_style" x="0" y="0" width="40" height="10" uuid="47d65ad4-035f-4dbc-a9a9-6127d6cd692b"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{period14Value}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{formatPathern}]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="c9fc0b8d-4664-4916-aa96-116eabc26981">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column17"/>
+						<printWhenExpression><![CDATA[$P{period15Fecha} != null]]></printWhenExpression>
+						<jr:tableHeader style="Table 1_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement style="title_top" x="0" y="0" width="40" height="10" uuid="cb1c9257-0590-48a0-b78c-7b638c201c56"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{period15Fecha_}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement style="title_button" x="0" y="10" width="40" height="10" uuid="b0bc8a15-7fff-4cd6-9553-50a5a9dffa0b"/>
+								<box>
+									<pen lineWidth="1.25"/>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<text><![CDATA[PROY]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 1_TD" height="10">
+							<textField isBlankWhenNull="true">
+								<reportElement style="Conditional_style" x="0" y="0" width="40" height="10" uuid="52453e09-c443-4c83-8405-f57f8156e6bf"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{period15Value}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{formatPathern}]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="6c0907d6-aafa-4734-b054-d5c0cd9e5071">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column18"/>
+						<printWhenExpression><![CDATA[$P{period16Fecha} != null]]></printWhenExpression>
+						<jr:tableHeader style="Table 1_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement style="title_top" x="0" y="0" width="40" height="10" uuid="3b0caf7e-adcf-474d-acd9-aba8cf052f77"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{period16Fecha_}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement style="title_button" x="0" y="10" width="40" height="10" uuid="eff29c6a-b105-40ad-ae98-e790d8ec607b"/>
+								<box>
+									<pen lineWidth="1.25"/>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<text><![CDATA[PROY]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 1_TD" height="10">
+							<textField isBlankWhenNull="true">
+								<reportElement style="Conditional_style" x="0" y="0" width="40" height="10" uuid="cc074585-6b0f-4e22-8187-d329fa3ec44a"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{period16Value}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{formatPathern}]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="c1109425-49f1-4194-8727-a6a3d8cc51ee">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column19"/>
+						<printWhenExpression><![CDATA[$P{period17Fecha} != null]]></printWhenExpression>
+						<jr:tableHeader style="Table 1_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement style="title_top" x="0" y="0" width="40" height="10" uuid="1f0b2986-37e8-48ad-bf02-8dbc90eecce5"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{period17Fecha_}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement style="title_button" x="0" y="10" width="40" height="10" uuid="abf30b0c-f42c-45d7-a04d-9323927e12e0"/>
+								<box>
+									<pen lineWidth="1.25"/>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<text><![CDATA[PROY]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 1_TD" height="10">
+							<textField isBlankWhenNull="true">
+								<reportElement style="Conditional_style" x="0" y="0" width="40" height="10" uuid="8dcc5ed1-baa9-4c26-85d8-5548de2a4da2"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{period17Value}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{formatPathern}]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="c76788b8-5e13-4e18-9f02-c13887898f68">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column20"/>
+						<printWhenExpression><![CDATA[$P{period18Fecha} !=null]]></printWhenExpression>
+						<jr:tableHeader style="Table 1_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement style="title_top" x="0" y="0" width="40" height="10" uuid="b3632136-c664-47a2-9021-48abe66f0308"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{period18Fecha_}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement style="title_button" x="0" y="10" width="40" height="10" uuid="81863e7d-b0c8-4eb7-8939-d4dc2a6b4550"/>
+								<box>
+									<pen lineWidth="1.25"/>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<text><![CDATA[PROY]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 1_TD" height="10">
+							<textField isBlankWhenNull="true">
+								<reportElement style="Conditional_style" x="0" y="0" width="40" height="10" uuid="65c8422e-90a7-4f2d-8117-172c13a5fe8d"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{period18Value}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{formatPathern}]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="dcace0ae-2fea-408a-9f3c-bbca2def145c">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column21"/>
+						<printWhenExpression><![CDATA[$P{period19Fecha} != null]]></printWhenExpression>
+						<jr:tableHeader style="Table 1_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement style="title_top" x="0" y="0" width="40" height="10" uuid="933722f5-5bff-43c7-9e38-c725e5802417"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{period19Fecha_}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement style="title_button" x="0" y="10" width="40" height="10" uuid="637ee69b-c73b-49c4-80fc-08ca88b2e7ff"/>
+								<box>
+									<pen lineWidth="1.25"/>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<text><![CDATA[PROY]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 1_TD" height="10">
+							<textField isBlankWhenNull="true">
+								<reportElement style="Conditional_style" x="0" y="0" width="40" height="10" uuid="fb886349-76ad-4bb0-ac25-9b66e464cbf9"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{period19Value}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{formatPathern}]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="7523e303-7697-4d78-a558-f4fb0d654253">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column22"/>
+						<printWhenExpression><![CDATA[$P{period20Fecha} != null]]></printWhenExpression>
+						<jr:tableHeader style="Table 1_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement style="title_top" x="0" y="0" width="40" height="10" uuid="a9fcbd04-5f26-4742-9428-8c9d5ac9021e"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{period20Fecha_}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement style="title_button" x="0" y="10" width="40" height="10" uuid="c3f1b0e6-ace4-4d8f-a321-1e27b551bea7"/>
+								<box>
+									<pen lineWidth="1.25"/>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<text><![CDATA[PROY]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 1_TD" height="10">
+							<textField isBlankWhenNull="true">
+								<reportElement style="Conditional_style" x="0" y="0" width="40" height="10" uuid="f813b19f-fe64-4104-b8ba-a4a61a4950dd"/>
+								<textElement>
+									<font fontName="Times New Roman" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{period20Value}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{formatPathern}]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<break>
+				<reportElement x="0" y="17" width="100" height="1" uuid="876cbded-44f0-4e19-add3-7d6c449a3235">
+					<printWhenExpression><![CDATA[$P{numeroPagina} != 3]]></printWhenExpression>
+				</reportElement>
+			</break>
+		</band>
+	</summary>
+</jasperReport>

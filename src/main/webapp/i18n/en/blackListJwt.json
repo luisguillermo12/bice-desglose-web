@@ -1,0 +1,23 @@
+
+{
+    "desgloseApp": {
+        "blackListJwt" : {
+            "home": {
+                "title": "Black List Jwts",
+                "createLabel": "Create a new Black List Jwt",
+                "createOrEditLabel": "Create or edit a Black List Jwt"
+            },
+            "created": "A new Black List Jwt is created with identifier {{ param }}",
+            "updated": "A Black List Jwt is updated with identifier {{ param }}",
+            "deleted": "A Black List Jwt is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Black List Jwt {{ id }}?"
+            },
+            "detail": {
+                "title": "Black List Jwt"
+            },
+            "invalidateTime": "Invalidate Time",
+            "jwt": "Jwt"
+        }
+    }
+}

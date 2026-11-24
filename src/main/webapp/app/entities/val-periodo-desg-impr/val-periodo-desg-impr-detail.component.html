@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="valPeriodoDesgImpr">
+            <h2><span jhiTranslate="desgloseApp.valPeriodoDesgImpr.detail.title">Val Periodo Desg Impr</span> {{valPeriodoDesgImpr.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.valPeriodoDesgImpr.codCliente" [ngbTooltip]="'desgloseApp.valPeriodoDesgImpr.help.codCliente' | translate">Cod Cliente</span></dt>
+                <dd>
+                    <span>{{valPeriodoDesgImpr.codCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.valPeriodoDesgImpr.codTipoDes" [ngbTooltip]="'desgloseApp.valPeriodoDesgImpr.help.codTipoDes' | translate">Cod Tipo Des</span></dt>
+                <dd>
+                    <span>{{valPeriodoDesgImpr.codTipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.valPeriodoDesgImpr.codSubtipoDes" [ngbTooltip]="'desgloseApp.valPeriodoDesgImpr.help.codSubtipoDes' | translate">Cod Subtipo Des</span></dt>
+                <dd>
+                    <span>{{valPeriodoDesgImpr.codSubtipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.valPeriodoDesgImpr.codMoneda" [ngbTooltip]="'desgloseApp.valPeriodoDesgImpr.help.codMoneda' | translate">Cod Moneda</span></dt>
+                <dd>
+                    <span>{{valPeriodoDesgImpr.codMoneda}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.valPeriodoDesgImpr.codMonedaImp" [ngbTooltip]="'desgloseApp.valPeriodoDesgImpr.help.codMonedaImp' | translate">Cod Moneda Imp</span></dt>
+                <dd>
+                    <span>{{valPeriodoDesgImpr.codMonedaImp}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.valPeriodoDesgImpr.fecPeriodo" [ngbTooltip]="'desgloseApp.valPeriodoDesgImpr.help.fecPeriodo' | translate">Fec Periodo</span></dt>
+                <dd>
+                    <span>{{valPeriodoDesgImpr.fecPeriodo}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.valPeriodoDesgImpr.codTipoConcep" [ngbTooltip]="'desgloseApp.valPeriodoDesgImpr.help.codTipoConcep' | translate">Cod Tipo Concep</span></dt>
+                <dd>
+                    <span>{{valPeriodoDesgImpr.codTipoConcep}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.valPeriodoDesgImpr.corConcepto" [ngbTooltip]="'desgloseApp.valPeriodoDesgImpr.help.corConcepto' | translate">Cor Concepto</span></dt>
+                <dd>
+                    <span>{{valPeriodoDesgImpr.corConcepto}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.valPeriodoDesgImpr.corValor" [ngbTooltip]="'desgloseApp.valPeriodoDesgImpr.help.corValor' | translate">Cor Valor</span></dt>
+                <dd>
+                    <span>{{valPeriodoDesgImpr.corValor}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.valPeriodoDesgImpr.valConcepto" [ngbTooltip]="'desgloseApp.valPeriodoDesgImpr.help.valConcepto' | translate">Val Concepto</span></dt>
+                <dd>
+                    <span>{{valPeriodoDesgImpr.valConcepto}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.valPeriodoDesgImpr.corImpreso" [ngbTooltip]="'desgloseApp.valPeriodoDesgImpr.help.corImpreso' | translate">Cor Impreso</span></dt>
+                <dd>
+                    <span>{{valPeriodoDesgImpr.corImpreso}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/val-periodo-desg-impr', valPeriodoDesgImpr.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

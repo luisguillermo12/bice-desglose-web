@@ -1,0 +1,45 @@
+
+{
+    "desgloseApp": {
+        "valPeriodoDesgImpr" : {
+            "home": {
+                "title": "Val Periodo Desg Imprs",
+                "createLabel": "Crear nuevo Val Periodo Desg Impr",
+                "createOrEditLabel": "Crear o editar Val Periodo Desg Impr"
+            },
+            "created": "Un nuevo Val Periodo Desg Impr ha sido creado con el identificador {{ param }}",
+            "updated": "Un Val Periodo Desg Impr ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Val Periodo Desg Impr ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Val Periodo Desg Impr {{ id }}?"
+            },
+            "detail": {
+                "title": "Val Periodo Desg Impr"
+            },
+            "codCliente": "Cod Cliente",
+            "codTipoDes": "Cod Tipo Des",
+            "codSubtipoDes": "Cod Subtipo Des",
+            "codMoneda": "Cod Moneda",
+            "codMonedaImp": "Cod Moneda Imp",
+            "fecPeriodo": "Fec Periodo",
+            "codTipoConcep": "Cod Tipo Concep",
+            "corConcepto": "Cor Concepto",
+            "corValor": "Cor Valor",
+            "valConcepto": "Val Concepto",
+            "corImpreso": "Cor Impreso",
+            "help": {
+                "codCliente": "Rut de cliente.",
+                "codTipoDes": "Tipo de desglose.",
+                "codSubtipoDes": "Subtipo de desglose.",
+                "codMoneda": "Código de moneda.",
+                "codMonedaImp": "Código de moneda de impresión.",
+                "fecPeriodo": "Fecha para el período.",
+                "codTipoConcep": "Tipo de concepto.",
+                "corConcepto": "Correlativo para concepto.",
+                "corValor": "Correlativo que aplica para multiregistro, de lo contrario siempre es cero.",
+                "valConcepto": "Valor asociado al concepto o cuenta. Precisión 17, escala 3.",
+                "corImpreso": "Correlativo de impresión."
+            }
+        }
+    }
+}

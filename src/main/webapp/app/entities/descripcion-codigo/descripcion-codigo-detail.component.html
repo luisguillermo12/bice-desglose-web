@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="descripcionCodigo">
+            <h2><span jhiTranslate="desgloseApp.descripcionCodigo.detail.title">Descripcion Codigo</span> {{descripcionCodigo.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.descripcionCodigo.codTabla" [ngbTooltip]="'desgloseApp.descripcionCodigo.help.codTabla' | translate">Cod Tabla</span></dt>
+                <dd>
+                    <span>{{descripcionCodigo.codTabla}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.descripcionCodigo.codGenerico" [ngbTooltip]="'desgloseApp.descripcionCodigo.help.codGenerico' | translate">Cod Generico</span></dt>
+                <dd>
+                    <span>{{descripcionCodigo.codGenerico}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.descripcionCodigo.glsGenericacorta" [ngbTooltip]="'desgloseApp.descripcionCodigo.help.glsGenericacorta' | translate">Gls Genericacorta</span></dt>
+                <dd>
+                    <span>{{descripcionCodigo.glsGenericacorta}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.descripcionCodigo.glsGenericalarga" [ngbTooltip]="'desgloseApp.descripcionCodigo.help.glsGenericalarga' | translate">Gls Genericalarga</span></dt>
+                <dd>
+                    <span>{{descripcionCodigo.glsGenericalarga}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.descripcionCodigo.codRegStatus" [ngbTooltip]="'desgloseApp.descripcionCodigo.help.codRegStatus' | translate">Cod Reg Status</span></dt>
+                <dd>
+                    <span>{{descripcionCodigo.codRegStatus}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.descripcionCodigo.codRegLog" [ngbTooltip]="'desgloseApp.descripcionCodigo.help.codRegLog' | translate">Cod Reg Log</span></dt>
+                <dd>
+                    <span>{{descripcionCodigo.codRegLog}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/descripcion-codigo', descripcionCodigo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

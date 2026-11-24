@@ -1,0 +1,105 @@
+{
+    "name": "ValPeriodoDesgImpr",
+    "fields": [
+        {
+            "fieldName": "codCliente",
+            "javadoc": "Rut de cliente.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codTipoDes",
+            "javadoc": "Tipo de desglose.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codSubtipoDes",
+            "javadoc": "Subtipo de desglose.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codMoneda",
+            "javadoc": "Código de moneda.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codMonedaImp",
+            "javadoc": "Código de moneda de impresión.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fecPeriodo",
+            "javadoc": "Fecha para el período.",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codTipoConcep",
+            "javadoc": "Tipo de concepto.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "corConcepto",
+            "javadoc": "Correlativo para concepto.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "corValor",
+            "javadoc": "Correlativo que aplica para multiregistro, de lo contrario siempre es cero.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "valConcepto",
+            "javadoc": "Valor asociado al concepto o cuenta. Precisión 17, escala 3.",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "corImpreso",
+            "javadoc": "Correlativo de impresión.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181011140718",
+    "javadoc": "Representa la tabla \"VALIMP_WK\" que contiene detalle de valores asociada a las distintas cuentas y períodos de cada desglose generado para la impresión.
+    Pertenece al esquema CIF_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "val_periodo_desg_impr",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

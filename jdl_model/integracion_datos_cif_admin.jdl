@@ -1,0 +1,239 @@
+/**
+ * Representa la tabla "BASCLI" que contiene información basica de los clientes. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity ClienteBasico {
+	/**
+	 * Número del cliente.
+	 */
+  	numCliente Long required,
+	/**
+	 * Rol empleado asociado.
+	 */
+	numRolEmpleado String,
+	codTipoJuridi Integer,
+	/**
+	 * Sucursal del cliente.
+	 */
+	codSucursal Integer,
+	codCliente String,
+	codTipoCliente Integer,
+	codSectorEconom Integer,
+	fecCliente LocalDate,
+	numCorDomlegal Integer,
+	/**
+	 * Código de actividad asociada al cliente.
+	 */
+	codActividad Integer,
+	codSector Integer,
+	codCatdeu Integer,
+	codRelaBice Integer,
+	codGrupRela Integer,
+	codEstaDeud Integer,
+	numCarpeta Integer,
+	numCasiInte Integer,
+	glsSinoSbif String,
+	fecDeclJurada LocalDate,
+	fecVerifDomlegal LocalDate,
+	/**
+	 * Código de vigencia del registro.
+	 */
+	codRegStatus Integer required,
+	/**
+	 * Código de modificación del registro.
+	 */
+	codRegLog Integer required,
+	flgFirmaCobprejud String,
+	fecFirmaCobprejud LocalDate,
+	numTaxId String,
+	codSiiExeimp String,
+	flgSiiContprimeracat String,
+	codTipoAlerta String,
+	fecAlerta LocalDate,
+	flgMandatoInv String, // Default 'N'
+	/**
+	 * Giro del cliente según SII.
+	 */
+	codGirosii Integer, // Default 0
+	/**
+	 * Código alerta de fraude.
+	 */
+	codAlertaFrd String 
+} 
+// Create Unique Index IdxBascli On Bascli (numCliente Asc, codRegLog Asc) 
+
+/**
+ * Representa la tabla "CLINAT" que contiene información de clientes persona natural. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity ClienteNatural {
+	/**
+	 * Número del cliente.
+	 */
+  	numCliente Long required,
+	/**
+	 * Si es empleado o no.
+	 */
+	flgEmpleado String,
+	/**
+	 * Apellido paterno.
+	 */
+	nomPaterno String,
+	/**
+	 * Apellido materno.
+	 */
+	nomMaterno String,
+	/**
+	 * Nombres.
+	 */
+	nomNombres String,
+	/**
+	 * Pseudonimo.
+	 */
+	nomNickname String,
+	/**
+	 * Nacionalidad del cliente.
+	 */
+	codNacion String,
+	/**
+	 * Residencia.
+	 */
+	codResidencia String,
+	/**
+	 * Profesión del cliente.
+	 */
+	codProfesion Integer,
+	/**
+	 * Fecha de nacimiento.
+	 */
+	fecNacim LocalDate,
+	/**
+	 * Sexo.
+	 */
+	codSexo String,
+	/**
+	 * Nivel educacional del cliente.
+	 */
+	codNivEducac Integer,
+	/**
+	 * Estado civil del cliente.
+	 */
+	codEstcivil String,
+	/**
+	 * Separación de bienes.
+	 */
+	codSepBienes String,
+	/**
+	 * Número de cargas.
+	 */
+	numCargas Integer,
+	/**
+	 * Antiguedad vivienda.
+	 */
+	fecAntigViv LocalDate,
+	/**
+	 * Fecha de defunción.
+	 */
+	fecDefuncion LocalDate,
+	/**
+	 * Fecha certificado estado civil.
+	 */
+	fecCertEcivi LocalDate,
+	/**
+	 * Código de vigencia del registro.
+	 */
+	codRegStatus Integer required,
+	/**
+	 * Código de modificación del registro.
+	 */
+	codRegLog Integer required 
+} 
+// Create Unique Index IdxClinat On Clinat (numCliente Asc, codRegLog Asc) 
+
+/**
+ * Representa la tabla "IDECLI" que contiene la relación rut cliente versus número de cliente. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity IdentificacionCliente {
+	/**
+	 * Número del cliente.
+	 */
+	numCliente Long required,
+	/**
+	 * Tipo de identificación del cliente.
+	 */
+  	codTipoIden Integer,
+	/**
+	 * Rut del cliente.
+	 */
+	numIden String,
+	/**
+	 * Fecha de creación.
+	 */
+	fecCreacion LocalDate,
+	/**
+	 * Código de vigencia del registro.
+	 */
+	codRegStatus Integer required,
+	/**
+	 * Código de modificación del registro.
+	 */
+	codRegLog Integer required 
+}
+// Create Unique Index IdxIdecli On Idecli (numCliente Asc, codTipoIden Asc, codRegLog Asc) 
+
+
+/**
+ * Representa la tabla "CLIJUR" que contiene información de clientes empresa y persona jurídica. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity ClienteJuridico {
+	/**
+	 * Número del cliente.
+	 */
+  	numCliente Long required,
+	/**
+	 * Razon social.
+	 */
+	glsRazonSoci String,
+	/**
+	 * Nombre de fantasia.
+	 */
+	nomFantasia String,
+	/**
+	 * Grupo económico.
+	 */
+	codGrupoEcon Integer,
+	/**
+	 * Fecha de constitución.
+	 */
+	fecConstitucion LocalDate,
+	/**
+	 * Tipo cliente empresa.
+	 */
+	codTipoCliempresa String,
+	/**
+	 * URL de la web de la empresa.
+	 */
+	glsWeb String,
+	/**
+	 * Código de vigencia del registro.
+	 */
+	codRegStatus Integer required,
+	/**
+	 * Código de modificacion del registro.
+	 */
+	codRegLog Integer required,
+	/**
+	 * Razón social legal.
+	 */
+	glsRazonSocialLegal String 
+}
+// Create Unique Index IdxClijur On Clijur (numCliente Asc, codRegLog Asc) 
+
+// Set pagination options
+paginate * with pagination
+// Set service options
+service * with serviceClass
+// Set mapping options
+dto * with mapstruct

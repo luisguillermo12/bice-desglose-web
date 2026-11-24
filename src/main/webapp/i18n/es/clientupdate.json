@@ -1,0 +1,17 @@
+{
+  "clientupdate": {
+      "title": "Actualización de clientes sin Rut",
+      "subtitle": "Detalle de clientes",
+      "actualizacion": "Actualización información cliente",
+      "nombre": "Nombre",
+      "apellidoPaterno": "Apellido paterno",
+      "apellidoMaterno": "Apellido materno",
+      "actividadEconomica": "Actividad económica",
+      "actualizar": "Actualizar",
+      "cerrar": "Cerrar",
+      "guardar": "Guardar",
+      "seleccioneActividad": "Seleccione actividad económica",
+      "exito": "Se actualizó correctamente",
+      "mensaje": ""
+  }
+}

@@ -1,0 +1,37 @@
+--------------------------------------------------------
+--  File created - Monday-February-25-2019   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table DGL_CHK_LOG
+--------------------------------------------------------
+
+  CREATE TABLE "DGL_CHK_LOG" 
+   (	"COD_TIPO_PROCESO" VARCHAR2(10 BYTE), 
+	"COD_CLIENTE" VARCHAR2(20 BYTE), 
+	"COD_TIPO_DES" NUMBER, 
+	"COD_SUBTIPO_DES" NUMBER, 
+	"COD_MONEDA" VARCHAR2(20 BYTE), 
+	"FEC_LOG" TIMESTAMP (6), 
+	"GLS_LOG" VARCHAR2(300 BYTE), 
+	"COD_TIPO_PLANTILLA" NUMBER(5,0) DEFAULT 0
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+
+   COMMENT ON TABLE "DGL_CHK_LOG"  IS 'Tabla log de chequeo';
+--------------------------------------------------------
+--  DDL for Index IDX_DGL_CHK_LOG_N
+--------------------------------------------------------
+
+  CREATE INDEX "IDX_DGL_CHK_LOG_N" ON "DGL_CHK_LOG" ("COD_TIPO_PROCESO", "COD_CLIENTE", "COD_TIPO_DES", "COD_SUBTIPO_DES", "COD_MONEDA") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  Constraints for Table DGL_CHK_LOG
+--------------------------------------------------------
+
+  ALTER TABLE "DGL_CHK_LOG" MODIFY ("COD_TIPO_PLANTILLA" NOT NULL ENABLE);

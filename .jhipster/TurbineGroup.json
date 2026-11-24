@@ -1,0 +1,36 @@
+{
+    "name": "TurbineGroup",
+    "fields": [
+        {
+            "fieldName": "groupId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "groupName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "objectdata",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181022174823",
+    "javadoc": "Representa la tabla \"TURBINE_GROUP\" que contiene grupos de usuario. Pertenece al esquema SF_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "turbine_group",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

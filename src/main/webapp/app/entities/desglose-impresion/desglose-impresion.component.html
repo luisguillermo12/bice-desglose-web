@@ -1,0 +1,78 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="desgloseApp.desgloseImpresion.home.title">Desglose Impresions</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-desglose-impresion" [routerLink]="['/desglose-impresion/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="desgloseApp.desgloseImpresion.home.createLabel">
+            Create new Desglose Impresion
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="desgloseImpresions">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codCliente"><span jhiTranslate="desgloseApp.desgloseImpresion.codCliente">Cod Cliente</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codTipoDes"><span jhiTranslate="desgloseApp.desgloseImpresion.codTipoDes">Cod Tipo Des</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codSubtipoDes"><span jhiTranslate="desgloseApp.desgloseImpresion.codSubtipoDes">Cod Subtipo Des</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codMoneda"><span jhiTranslate="desgloseApp.desgloseImpresion.codMoneda">Cod Moneda</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codMonedaImp"><span jhiTranslate="desgloseApp.desgloseImpresion.codMonedaImp">Cod Moneda Imp</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="valDeflacBase"><span jhiTranslate="desgloseApp.desgloseImpresion.valDeflacBase">Val Deflac Base</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecCreacion"><span jhiTranslate="desgloseApp.desgloseImpresion.fecCreacion">Fec Creacion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecDeflacBase"><span jhiTranslate="desgloseApp.desgloseImpresion.fecDeflacBase">Fec Deflac Base</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="corImpreso"><span jhiTranslate="desgloseApp.desgloseImpresion.corImpreso">Cor Impreso</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let desgloseImpresion of desgloseImpresions ;trackBy: trackId">
+                <td><a [routerLink]="['/desglose-impresion', desgloseImpresion.id, 'view' ]">{{desgloseImpresion.id}}</a></td>
+                <td>{{desgloseImpresion.codCliente}}</td>
+                <td>{{desgloseImpresion.codTipoDes}}</td>
+                <td>{{desgloseImpresion.codSubtipoDes}}</td>
+                <td>{{desgloseImpresion.codMoneda}}</td>
+                <td>{{desgloseImpresion.codMonedaImp}}</td>
+                <td>{{desgloseImpresion.valDeflacBase}}</td>
+                <td>{{desgloseImpresion.fecCreacion | date:'mediumDate'}}</td>
+                <td>{{desgloseImpresion.fecDeflacBase | date:'mediumDate'}}</td>
+                <td>{{desgloseImpresion.corImpreso}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/desglose-impresion', desgloseImpresion.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/desglose-impresion', desgloseImpresion.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'desglose-impresion/'+ desgloseImpresion.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="desgloseImpresions && desgloseImpresions.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

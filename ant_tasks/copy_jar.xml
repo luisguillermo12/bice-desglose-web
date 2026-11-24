@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="AntCopyJar" default="copy_jar">
+	<target name="copy_jar">
+		<!--<copy todir="../../EA-UI/jar/code_analysis">-->
+		<!--<fileset dir="../target/parser-jar-with-dependencies.jar"/>-->
+		<!--</copy>-->
+		<copy file="../target/parser-jar-with-dependencies.jar" tofile="../../EA-UI/jar/code_analysis/parser-jar-with-dependencies.jar" overwrite="true" />
+	</target>
+</project>

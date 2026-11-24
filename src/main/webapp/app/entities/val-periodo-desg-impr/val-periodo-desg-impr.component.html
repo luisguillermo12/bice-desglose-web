@@ -1,0 +1,82 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="desgloseApp.valPeriodoDesgImpr.home.title">Val Periodo Desg Imprs</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-val-periodo-desg-impr" [routerLink]="['/val-periodo-desg-impr/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="desgloseApp.valPeriodoDesgImpr.home.createLabel">
+            Create new Val Periodo Desg Impr
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="valPeriodoDesgImprs">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codCliente"><span jhiTranslate="desgloseApp.valPeriodoDesgImpr.codCliente">Cod Cliente</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codTipoDes"><span jhiTranslate="desgloseApp.valPeriodoDesgImpr.codTipoDes">Cod Tipo Des</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codSubtipoDes"><span jhiTranslate="desgloseApp.valPeriodoDesgImpr.codSubtipoDes">Cod Subtipo Des</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codMoneda"><span jhiTranslate="desgloseApp.valPeriodoDesgImpr.codMoneda">Cod Moneda</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codMonedaImp"><span jhiTranslate="desgloseApp.valPeriodoDesgImpr.codMonedaImp">Cod Moneda Imp</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecPeriodo"><span jhiTranslate="desgloseApp.valPeriodoDesgImpr.fecPeriodo">Fec Periodo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codTipoConcep"><span jhiTranslate="desgloseApp.valPeriodoDesgImpr.codTipoConcep">Cod Tipo Concep</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="corConcepto"><span jhiTranslate="desgloseApp.valPeriodoDesgImpr.corConcepto">Cor Concepto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="corValor"><span jhiTranslate="desgloseApp.valPeriodoDesgImpr.corValor">Cor Valor</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="valConcepto"><span jhiTranslate="desgloseApp.valPeriodoDesgImpr.valConcepto">Val Concepto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="corImpreso"><span jhiTranslate="desgloseApp.valPeriodoDesgImpr.corImpreso">Cor Impreso</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let valPeriodoDesgImpr of valPeriodoDesgImprs ;trackBy: trackId">
+                <td><a [routerLink]="['/val-periodo-desg-impr', valPeriodoDesgImpr.id, 'view' ]">{{valPeriodoDesgImpr.id}}</a></td>
+                <td>{{valPeriodoDesgImpr.codCliente}}</td>
+                <td>{{valPeriodoDesgImpr.codTipoDes}}</td>
+                <td>{{valPeriodoDesgImpr.codSubtipoDes}}</td>
+                <td>{{valPeriodoDesgImpr.codMoneda}}</td>
+                <td>{{valPeriodoDesgImpr.codMonedaImp}}</td>
+                <td>{{valPeriodoDesgImpr.fecPeriodo | date:'mediumDate'}}</td>
+                <td>{{valPeriodoDesgImpr.codTipoConcep}}</td>
+                <td>{{valPeriodoDesgImpr.corConcepto}}</td>
+                <td>{{valPeriodoDesgImpr.corValor}}</td>
+                <td>{{valPeriodoDesgImpr.valConcepto}}</td>
+                <td>{{valPeriodoDesgImpr.corImpreso}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/val-periodo-desg-impr', valPeriodoDesgImpr.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/val-periodo-desg-impr', valPeriodoDesgImpr.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'val-periodo-desg-impr/'+ valPeriodoDesgImpr.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="valPeriodoDesgImprs && valPeriodoDesgImprs.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

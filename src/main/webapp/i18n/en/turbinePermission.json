@@ -1,0 +1,24 @@
+
+{
+    "desgloseApp": {
+        "turbinePermission" : {
+            "home": {
+                "title": "Turbine Permissions",
+                "createLabel": "Create a new Turbine Permission",
+                "createOrEditLabel": "Create or edit a Turbine Permission"
+            },
+            "created": "A new Turbine Permission is created with identifier {{ param }}",
+            "updated": "A Turbine Permission is updated with identifier {{ param }}",
+            "deleted": "A Turbine Permission is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Turbine Permission {{ id }}?"
+            },
+            "detail": {
+                "title": "Turbine Permission"
+            },
+            "permissionId": "Permission Id",
+            "permissionName": "Permission Name",
+            "objectdata": "Objectdata"
+        }
+    }
+}

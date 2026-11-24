@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tablaServMailDest">
+            <h2><span jhiTranslate="desgloseApp.tablaServMailDest.detail.title">Tabla Serv Mail Dest</span> {{tablaServMailDest.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.tablaServMailDest.codSistema" [ngbTooltip]="'desgloseApp.tablaServMailDest.help.codSistema' | translate">Cod Sistema</span></dt>
+                <dd>
+                    <span>{{tablaServMailDest.codSistema}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.tablaServMailDest.numSolicitud" [ngbTooltip]="'desgloseApp.tablaServMailDest.help.numSolicitud' | translate">Num Solicitud</span></dt>
+                <dd>
+                    <span>{{tablaServMailDest.numSolicitud}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.tablaServMailDest.glsToNombre" [ngbTooltip]="'desgloseApp.tablaServMailDest.help.glsToNombre' | translate">Gls To Nombre</span></dt>
+                <dd>
+                    <span>{{tablaServMailDest.glsToNombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.tablaServMailDest.glsToMail" [ngbTooltip]="'desgloseApp.tablaServMailDest.help.glsToMail' | translate">Gls To Mail</span></dt>
+                <dd>
+                    <span>{{tablaServMailDest.glsToMail}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.tablaServMailDest.codTipoDest" [ngbTooltip]="'desgloseApp.tablaServMailDest.help.codTipoDest' | translate">Cod Tipo Dest</span></dt>
+                <dd>
+                    <span>{{tablaServMailDest.codTipoDest}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tabla-serv-mail-dest', tablaServMailDest.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

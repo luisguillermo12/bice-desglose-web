@@ -1,0 +1,37 @@
+
+{
+    "desgloseApp": {
+        "desgloseChequeoLog" : {
+            "home": {
+                "title": "Desglose Chequeo Logs",
+                "createLabel": "Crear nuevo Desglose Chequeo Log",
+                "createOrEditLabel": "Crear o editar Desglose Chequeo Log"
+            },
+            "created": "Un nuevo Desglose Chequeo Log ha sido creado con el identificador {{ param }}",
+            "updated": "Un Desglose Chequeo Log ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Desglose Chequeo Log ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Desglose Chequeo Log {{ id }}?"
+            },
+            "detail": {
+                "title": "Desglose Chequeo Log"
+            },
+            "codTipoProceso": "Cod Tipo Proceso",
+            "codCliente": "Cod Cliente",
+            "codTipoDes": "Cod Tipo Des",
+            "codSubtipoDes": "Cod Subtipo Des",
+            "codMoneda": "Cod Moneda",
+            "fecLog": "Fec Log",
+            "glsLog": "Gls Log",
+            "help": {
+                "codTipoProceso": "Identifica tipo de proceso en LOG.",
+                "codCliente": "Rut de cliente.",
+                "codTipoDes": "Tipo de desglose.",
+                "codSubtipoDes": "Subtipo de desglose.",
+                "codMoneda": "Codigo de moneda.",
+                "fecLog": "Fecha y hora de LOG.",
+                "glsLog": "Descripcion del LOG."
+            }
+        }
+    }
+}

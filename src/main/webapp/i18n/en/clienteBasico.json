@@ -1,0 +1,63 @@
+
+{
+    "desgloseApp": {
+        "clienteBasico" : {
+            "home": {
+                "title": "Cliente Basicos",
+                "createLabel": "Create a new Cliente Basico",
+                "createOrEditLabel": "Create or edit a Cliente Basico"
+            },
+            "created": "A new Cliente Basico is created with identifier {{ param }}",
+            "updated": "A Cliente Basico is updated with identifier {{ param }}",
+            "deleted": "A Cliente Basico is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Cliente Basico {{ id }}?"
+            },
+            "detail": {
+                "title": "Cliente Basico"
+            },
+            "numCliente": "Num Cliente",
+            "numRolEmpleado": "Num Rol Empleado",
+            "codTipoJuridi": "Cod Tipo Juridi",
+            "codSucursal": "Cod Sucursal",
+            "codCliente": "Cod Cliente",
+            "codTipoCliente": "Cod Tipo Cliente",
+            "codSectorEconom": "Cod Sector Econom",
+            "fecCliente": "Fec Cliente",
+            "numCorDomlegal": "Num Cor Domlegal",
+            "codActividad": "Cod Actividad",
+            "codSector": "Cod Sector",
+            "codCatdeu": "Cod Catdeu",
+            "codRelaBice": "Cod Rela Bice",
+            "codGrupRela": "Cod Grup Rela",
+            "codEstaDeud": "Cod Esta Deud",
+            "numCarpeta": "Num Carpeta",
+            "numCasiInte": "Num Casi Inte",
+            "glsSinoSbif": "Gls Sino Sbif",
+            "fecDeclJurada": "Fec Decl Jurada",
+            "fecVerifDomlegal": "Fec Verif Domlegal",
+            "codRegStatus": "Cod Reg Status",
+            "codRegLog": "Cod Reg Log",
+            "flgFirmaCobprejud": "Flg Firma Cobprejud",
+            "fecFirmaCobprejud": "Fec Firma Cobprejud",
+            "numTaxId": "Num Tax Id",
+            "codSiiExeimp": "Cod Sii Exeimp",
+            "flgSiiContprimeracat": "Flg Sii Contprimeracat",
+            "codTipoAlerta": "Cod Tipo Alerta",
+            "fecAlerta": "Fec Alerta",
+            "flgMandatoInv": "Flg Mandato Inv",
+            "codGirosii": "Cod Girosii",
+            "codAlertaFrd": "Cod Alerta Frd",
+            "help": {
+                "numCliente": "Número del cliente.",
+                "numRolEmpleado": "Rol empleado asociado.",
+                "codSucursal": "Sucursal del cliente.",
+                "codActividad": "Código de actividad asociada al cliente.",
+                "codRegStatus": "Código de vigencia del registro.",
+                "codRegLog": "Código de modificación del registro.",
+                "codGirosii": "Giro del cliente según SII.",
+                "codAlertaFrd": "Código alerta de fraude."
+            }
+        }
+    }
+}

@@ -1,0 +1,67 @@
+{
+    "desgloseApp": {
+        "clienteDTO": {
+            "name" : "Nombre",
+            "fatherLastName" : "Apellido paterno",
+            "motherLastName" : "Apellido materno"
+        },
+        "clienteNatural": {
+            "home": {
+                "title": "Cliente Naturals",
+                "createLabel": "Crear nuevo Cliente Natural",
+                "createOrEditLabel": "Crear o editar Cliente Natural"
+            },
+            "created": "Un nuevo Cliente Natural ha sido creado",
+            "updated": "Un Cliente Natural ha sido actualizado",
+            "deleted": "Un Cliente Natural ha sido eliminado",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Cliente Natural?"
+            },
+            "detail": {
+                "title": "Cliente Natural"
+            },
+            "numCliente": "Num Cliente",
+            "flgEmpleado": "Flg Empleado",
+            "nomPaterno": "Nom Paterno",
+            "nomMaterno": "Nom Materno",
+            "nomNombres": "Nom Nombres",
+            "nomNickname": "Nom Nickname",
+            "codNacion": "Cod Nacion",
+            "codResidencia": "Cod Residencia",
+            "codProfesion": "Cod Profesion",
+            "fecNacim": "Fec Nacim",
+            "codSexo": "Cod Sexo",
+            "codNivEducac": "Cod Niv Educac",
+            "codEstcivil": "Cod Estcivil",
+            "codSepBienes": "Cod Sep Bienes",
+            "numCargas": "Num Cargas",
+            "fecAntigViv": "Fec Antig Viv",
+            "fecDefuncion": "Fec Defuncion",
+            "fecCertEcivi": "Fec Cert Ecivi",
+            "codRegStatus": "Cod Reg Status",
+            "codRegLog": "Cod Reg Log",
+            "help": {
+                "numCliente": "Número del cliente.",
+                "flgEmpleado": "Si es empleado o no.",
+                "nomPaterno": "Apellido paterno.",
+                "nomMaterno": "Apellido materno.",
+                "nomNombres": "Nombres.",
+                "nomNickname": "Pseudonimo.",
+                "codNacion": "Nacionalidad del cliente.",
+                "codResidencia": "Residencia.",
+                "codProfesion": "Profesión del cliente.",
+                "fecNacim": "Fecha de nacimiento.",
+                "codSexo": "Sexo.",
+                "codNivEducac": "Nivel educacional del cliente.",
+                "codEstcivil": "Estado civil del cliente.",
+                "codSepBienes": "Separación de bienes.",
+                "numCargas": "Número de cargas.",
+                "fecAntigViv": "Antiguedad vivienda.",
+                "fecDefuncion": "Fecha de defunción.",
+                "fecCertEcivi": "Fecha certificado estado civil.",
+                "codRegStatus": "Código de vigencia del registro.",
+                "codRegLog": "Código de modificación del registro."
+            }
+        }
+    }
+}

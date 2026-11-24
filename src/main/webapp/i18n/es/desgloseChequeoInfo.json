@@ -1,0 +1,73 @@
+
+{
+    "desgloseApp": {
+        "desgloseChequeoInfo" : {
+            "home": {
+                "title": "Desglose Chequeo Infos",
+                "createLabel": "Crear nuevo Desglose Chequeo Info",
+                "createOrEditLabel": "Crear o editar Desglose Chequeo Info"
+            },
+            "created": "Un nuevo Desglose Chequeo Info ha sido creado con el identificador {{ param }}",
+            "updated": "Un Desglose Chequeo Info ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Desglose Chequeo Info ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Desglose Chequeo Info {{ id }}?"
+            },
+            "detail": {
+                "title": "Desglose Chequeo Info"
+            },
+            "fecCheck": "Fec Check",
+            "codTipoInforme": "Cod Tipo Informe",
+            "glsFactorInforme": "Gls Factor Informe",
+            "codCliente": "Cod Cliente",
+            "codTipoDes": "Cod Tipo Des",
+            "codSubtipoDes": "Cod Subtipo Des",
+            "codMoneda": "Cod Moneda",
+            "fecPeriodo": "Fec Periodo",
+            "numRank": "Num Rank",
+            "fecUserModif": "Fec User Modif",
+            "glsUserModif": "Gls User Modif",
+            "valDeflacBase": "Val Deflac Base",
+            "valDeflacPeriodo": "Val Deflac Periodo",
+            "valDeflacCalc": "Val Deflac Calc",
+            "valConceptoBd": "Val Concepto Bd",
+            "valConceptoOnline": "Val Concepto Online",
+            "glsConceptoFormula": "Gls Concepto Formula",
+            "valDif": "Val Dif",
+            "mtoActivo": "Mto Activo",
+            "mtoPasivoPatr": "Mto Pasivo Patr",
+            "corConcepto": "Cor Concepto",
+            "corValor": "Cor Valor",
+            "codTipoConcep": "Cod Tipo Concep",
+            "codEstado": "Cod Estado",
+            "glsObservacion": "Gls Observacion",
+            "help": {
+                "fecCheck": "Fecha y hora del chequeo.",
+                "codTipoInforme": "Tipo de informe.",
+                "glsFactorInforme": "Glosa asociada al tipo de informe.",
+                "codCliente": "Rut de cliente.",
+                "codTipoDes": "Tipo de desglose.",
+                "codSubtipoDes": "Subtipo de desglose.",
+                "codMoneda": "Codigo de moneda.",
+                "fecPeriodo": "Fecha para el período.",
+                "numRank": "Contador de ocurrencias.",
+                "fecUserModif": "Fecha de modificación de desglose.",
+                "glsUserModif": "Usuario que realiza modificación.",
+                "valDeflacBase": "Valor deflactor base. Precisión 38, escala 3.",
+                "valDeflacPeriodo": "Valor deflactor período. Precisión 38, escala 3.",
+                "valDeflacCalc": "Valor de deflactacion (base dividido por período). Precisión 38, escala 3.",
+                "valConceptoBd": "Valor de concepto en base de datos. Precisión 38, escala 3.",
+                "valConceptoOnline": "Valor de concepto calculado en consulta. Precisión 38, escala 3.",
+                "glsConceptoFormula": "Detalle de fórmula.",
+                "valDif": "Diferencia entre valor base de datos y valor calculado en consulta. Precisión 38, escala 3.",
+                "mtoActivo": "Monto activo. Precisión 38, escala 3.",
+                "mtoPasivoPatr": "Monto pasivo-patrimonio. Precisión 38, escala 3.",
+                "corConcepto": "Correlativo para concepto.",
+                "corValor": "Correlativo que aplica para multiregistro, de lo contrario siempre es cero.",
+                "codTipoConcep": "Tipo de concepto.",
+                "codEstado": "Estado.",
+                "glsObservacion": "Comentarios."
+            }
+        }
+    }
+}

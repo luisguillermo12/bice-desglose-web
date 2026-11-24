@@ -1,0 +1,185 @@
+{
+    "name": "Periodo",
+    "fields": [
+        {
+            "fieldName": "codCliente",
+            "javadoc": "Rut de cliente.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codTipoDes",
+            "javadoc": "Tipo de desglose.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codSubtipoDes",
+            "javadoc": "Subtipo de desglose.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codMoneda",
+            "javadoc": "Código de moneda.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fecPeriodo",
+            "javadoc": "Fecha para el período.",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numMeses",
+            "javadoc": "Cantidad de meses asociadas al período. Valor entre 1 y 12, ambos inclusive.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 1,
+            "fieldValidateRulesMax": 12
+        },
+        {
+            "fieldName": "valDeflacPrd",
+            "javadoc": "Valor deflator para el período. Precisión 6, escala 3. Valor entre 1 y 1000, sin incluir ambos.",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required",
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": 1000
+        },
+        {
+            "fieldName": "codAuditor",
+            "javadoc": "Código empresa auditora.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "glsOtrosAudit",
+            "javadoc": "Descripción de otra auditora.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codEstadoPrd",
+            "javadoc": "Estado del período. Valores permitidos (0, 1, 2).",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codEstadoAudi",
+            "javadoc": "Estado de la auditoría. Valores permitidos (0, 1, 2).",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "mtoSbifDdVig",
+            "javadoc": "Valor deuda directa vigente. Precisión 17, escala 2.",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "mtoSbifDdMor",
+            "javadoc": "Valor deuda directa morosa. Precisión 17, escala 2.",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "mtoSbifDdVen",
+            "javadoc": "Valor deuda directa vencida. Precisión 17, escala 2.",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "mtoSbifDdCas",
+            "javadoc": "Valor deuda directa castigada. Precisión 17, escala 2.",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "mtoSbifDiVig",
+            "javadoc": "Valor deuda indirecta vigente. Precisión 17, escala 2.",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "mtoSbifDiVen",
+            "javadoc": "Valor deuda indirecta vencida. Precisión 17, escala 2.",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "mtoSbifDiCas",
+            "javadoc": "Valor deuda indirecta castigada. Precisión 17, escala 2.",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "nomUserCrea",
+            "javadoc": "Login usuario que crea período.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fecUserCrea",
+            "javadoc": "Fecha de creación del período.",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nomUserModif",
+            "javadoc": "Login usuario que modifica período.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fecUserModif",
+            "javadoc": "Fecha de modificación del período.",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fecInformSbif",
+            "javadoc": "Fecha de actualización deudas SBIF.",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "valTipoCambio",
+            "javadoc": "Valor tipo de cambio. Precisión 12, escala 6.",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "mtoSbifImp90179",
+            "javadoc": "Valor deuda impaga entre 90 y 180 días. Precisión 17, escala 2.",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181011140716",
+    "javadoc": "Representa la tabla \"PERIOD\" que contiene información para períodos del desglose. Pertenece al esquema CIF_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "periodo",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

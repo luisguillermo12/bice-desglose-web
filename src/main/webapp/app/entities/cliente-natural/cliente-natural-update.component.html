@@ -1,0 +1,174 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-cliente-natural-heading" jhiTranslate="desgloseApp.clienteNatural.home.createOrEditLabel">Create or edit a Cliente Natural</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!clienteNatural.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="clienteNatural.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteNatural.numCliente" for="field_numCliente" [ngbTooltip]="'desgloseApp.clienteNatural.help.numCliente' | translate">Num Cliente</label>
+                    <input type="number" class="form-control" name="numCliente" id="field_numCliente"
+                        [(ngModel)]="clienteNatural.numCliente" required/>
+                    <div [hidden]="!(editForm.controls.numCliente?.dirty && editForm.controls.numCliente?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.numCliente?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.numCliente?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteNatural.flgEmpleado" for="field_flgEmpleado" [ngbTooltip]="'desgloseApp.clienteNatural.help.flgEmpleado' | translate">Flg Empleado</label>
+                    <input type="text" class="form-control" name="flgEmpleado" id="field_flgEmpleado"
+                        [(ngModel)]="clienteNatural.flgEmpleado" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteNatural.nomPaterno" for="field_nomPaterno" [ngbTooltip]="'desgloseApp.clienteNatural.help.nomPaterno' | translate">Nom Paterno</label>
+                    <input type="text" class="form-control" name="nomPaterno" id="field_nomPaterno"
+                        [(ngModel)]="clienteNatural.nomPaterno" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteNatural.nomMaterno" for="field_nomMaterno" [ngbTooltip]="'desgloseApp.clienteNatural.help.nomMaterno' | translate">Nom Materno</label>
+                    <input type="text" class="form-control" name="nomMaterno" id="field_nomMaterno"
+                        [(ngModel)]="clienteNatural.nomMaterno" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteNatural.nomNombres" for="field_nomNombres" [ngbTooltip]="'desgloseApp.clienteNatural.help.nomNombres' | translate">Nom Nombres</label>
+                    <input type="text" class="form-control" name="nomNombres" id="field_nomNombres"
+                        [(ngModel)]="clienteNatural.nomNombres" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteNatural.nomNickname" for="field_nomNickname" [ngbTooltip]="'desgloseApp.clienteNatural.help.nomNickname' | translate">Nom Nickname</label>
+                    <input type="text" class="form-control" name="nomNickname" id="field_nomNickname"
+                        [(ngModel)]="clienteNatural.nomNickname" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteNatural.codNacion" for="field_codNacion" [ngbTooltip]="'desgloseApp.clienteNatural.help.codNacion' | translate">Cod Nacion</label>
+                    <input type="text" class="form-control" name="codNacion" id="field_codNacion"
+                        [(ngModel)]="clienteNatural.codNacion" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteNatural.codResidencia" for="field_codResidencia" [ngbTooltip]="'desgloseApp.clienteNatural.help.codResidencia' | translate">Cod Residencia</label>
+                    <input type="text" class="form-control" name="codResidencia" id="field_codResidencia"
+                        [(ngModel)]="clienteNatural.codResidencia" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteNatural.codProfesion" for="field_codProfesion" [ngbTooltip]="'desgloseApp.clienteNatural.help.codProfesion' | translate">Cod Profesion</label>
+                    <input type="number" class="form-control" name="codProfesion" id="field_codProfesion"
+                        [(ngModel)]="clienteNatural.codProfesion" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteNatural.fecNacim" for="field_fecNacim" [ngbTooltip]="'desgloseApp.clienteNatural.help.fecNacim' | translate">Fec Nacim</label>
+                    <div class="input-group">
+                        <input id="field_fecNacim" type="text" class="form-control" name="fecNacim" ngbDatepicker  #fecNacimDp="ngbDatepicker" [(ngModel)]="clienteNatural.fecNacim"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecNacimDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteNatural.codSexo" for="field_codSexo" [ngbTooltip]="'desgloseApp.clienteNatural.help.codSexo' | translate">Cod Sexo</label>
+                    <input type="text" class="form-control" name="codSexo" id="field_codSexo"
+                        [(ngModel)]="clienteNatural.codSexo" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteNatural.codNivEducac" for="field_codNivEducac" [ngbTooltip]="'desgloseApp.clienteNatural.help.codNivEducac' | translate">Cod Niv Educac</label>
+                    <input type="number" class="form-control" name="codNivEducac" id="field_codNivEducac"
+                        [(ngModel)]="clienteNatural.codNivEducac" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteNatural.codEstcivil" for="field_codEstcivil" [ngbTooltip]="'desgloseApp.clienteNatural.help.codEstcivil' | translate">Cod Estcivil</label>
+                    <input type="text" class="form-control" name="codEstcivil" id="field_codEstcivil"
+                        [(ngModel)]="clienteNatural.codEstcivil" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteNatural.codSepBienes" for="field_codSepBienes" [ngbTooltip]="'desgloseApp.clienteNatural.help.codSepBienes' | translate">Cod Sep Bienes</label>
+                    <input type="text" class="form-control" name="codSepBienes" id="field_codSepBienes"
+                        [(ngModel)]="clienteNatural.codSepBienes" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteNatural.numCargas" for="field_numCargas" [ngbTooltip]="'desgloseApp.clienteNatural.help.numCargas' | translate">Num Cargas</label>
+                    <input type="number" class="form-control" name="numCargas" id="field_numCargas"
+                        [(ngModel)]="clienteNatural.numCargas" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteNatural.fecAntigViv" for="field_fecAntigViv" [ngbTooltip]="'desgloseApp.clienteNatural.help.fecAntigViv' | translate">Fec Antig Viv</label>
+                    <div class="input-group">
+                        <input id="field_fecAntigViv" type="text" class="form-control" name="fecAntigViv" ngbDatepicker  #fecAntigVivDp="ngbDatepicker" [(ngModel)]="clienteNatural.fecAntigViv"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecAntigVivDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteNatural.fecDefuncion" for="field_fecDefuncion" [ngbTooltip]="'desgloseApp.clienteNatural.help.fecDefuncion' | translate">Fec Defuncion</label>
+                    <div class="input-group">
+                        <input id="field_fecDefuncion" type="text" class="form-control" name="fecDefuncion" ngbDatepicker  #fecDefuncionDp="ngbDatepicker" [(ngModel)]="clienteNatural.fecDefuncion"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecDefuncionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteNatural.fecCertEcivi" for="field_fecCertEcivi" [ngbTooltip]="'desgloseApp.clienteNatural.help.fecCertEcivi' | translate">Fec Cert Ecivi</label>
+                    <div class="input-group">
+                        <input id="field_fecCertEcivi" type="text" class="form-control" name="fecCertEcivi" ngbDatepicker  #fecCertEciviDp="ngbDatepicker" [(ngModel)]="clienteNatural.fecCertEcivi"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecCertEciviDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteNatural.codRegStatus" for="field_codRegStatus" [ngbTooltip]="'desgloseApp.clienteNatural.help.codRegStatus' | translate">Cod Reg Status</label>
+                    <input type="number" class="form-control" name="codRegStatus" id="field_codRegStatus"
+                        [(ngModel)]="clienteNatural.codRegStatus" required/>
+                    <div [hidden]="!(editForm.controls.codRegStatus?.dirty && editForm.controls.codRegStatus?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codRegStatus?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.codRegStatus?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteNatural.codRegLog" for="field_codRegLog" [ngbTooltip]="'desgloseApp.clienteNatural.help.codRegLog' | translate">Cod Reg Log</label>
+                    <input type="number" class="form-control" name="codRegLog" id="field_codRegLog"
+                        [(ngModel)]="clienteNatural.codRegLog" required/>
+                    <div [hidden]="!(editForm.controls.codRegLog?.dirty && editForm.controls.codRegLog?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codRegLog?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.codRegLog?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

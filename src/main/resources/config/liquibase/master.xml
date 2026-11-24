@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181011140714_added_entity_Desglose.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181011140716_added_entity_Periodo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181011140717_added_entity_ValPeriodoDesglose.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181011140718_added_entity_ValPeriodoDesgImpr.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181011140719_added_entity_EmpresaConsolidada.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181011140720_added_entity_ConceptoImpresion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181011140721_added_entity_PeriodoDesgConsol.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181011140722_added_entity_PeriodoDesgImpresion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181011140723_added_entity_DesgloseImpresion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181011140724_added_entity_DesgloseRevision.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181011140725_added_entity_DesgloseFirma.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181011140726_added_entity_DesgloseGrupo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181011140727_added_entity_DesgloseReemplazo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181011140728_added_entity_DesgloseMensaje.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181011140729_added_entity_DesgloseAuditoria.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181011140730_added_entity_ClienteSinRut.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181011140731_added_entity_DesgloseChequeoLog.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181011140732_added_entity_DesgloseChequeoInfo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181011140733_added_entity_DesgloseRevisionLog.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181011140734_added_entity_Cuadre.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181011140735_added_entity_Concepto.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181022151459_added_entity_ClienteBasico.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181022151500_added_entity_ClienteNatural.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181022151501_added_entity_IdentificacionCliente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181022151502_added_entity_ClienteJuridico.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181022174822_added_entity_TurbineRole.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181022174823_added_entity_TurbineGroup.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181022174824_added_entity_TurbinePermission.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181022174825_added_entity_TurbineUser.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181022174826_added_entity_TurbineRolePermission.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181022174827_added_entity_TurbineUserGroupRole.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181031203312_added_entity_DescripcionCodigo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181031203313_added_entity_RelacionTabla.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181031203314_added_entity_TablaValor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181031203315_added_entity_TablaServicioMail.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181031203316_added_entity_TablaServMailDest.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190215152205_added_entity_SfStfOperator.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190608200116_added_entity_UniqueSessionControl.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190609185352_added_entity_BlackListJwt.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20181022174826_added_entity_constraints_TurbineRolePermission.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181022174827_added_entity_constraints_TurbineUserGroupRole.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

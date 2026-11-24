@@ -1,0 +1,92 @@
+{
+    "name": "DesgloseRevisionLog",
+    "fields": [
+        {
+            "fieldName": "fecEvent",
+            "javadoc": "Fecha y hora de evento.",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numLineaLog",
+            "javadoc": "Número de linea.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codCliente",
+            "javadoc": "Rut de cliente.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codTipoDes",
+            "javadoc": "Tipo de desglose.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codSubtipoDes",
+            "javadoc": "Subtipo de desglose.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codMoneda",
+            "javadoc": "Código de moneda.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numRolEmpleado",
+            "javadoc": "Rol empleado.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codEstado",
+            "javadoc": "Estado nuevo.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codEstadoOld",
+            "javadoc": "Estado antiguo.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numRolEmpReem",
+            "javadoc": "Rol empleado reemplazado.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "glsComentarios",
+            "javadoc": "Comentarios.",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181011140733",
+    "javadoc": "Representa la tabla \"DESGLO_REV_LOG\" que contiene los logs de flujo de desglose. Pertenece al esquema CIF_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "desglose_revision_log",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

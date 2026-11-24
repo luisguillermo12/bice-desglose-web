@@ -1,0 +1,123 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="periodo">
+            <h2><span jhiTranslate="desgloseApp.periodo.detail.title">Periodo</span> {{periodo.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.periodo.codCliente" [ngbTooltip]="'desgloseApp.periodo.help.codCliente' | translate">Cod Cliente</span></dt>
+                <dd>
+                    <span>{{periodo.codCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.codTipoDes" [ngbTooltip]="'desgloseApp.periodo.help.codTipoDes' | translate">Cod Tipo Des</span></dt>
+                <dd>
+                    <span>{{periodo.codTipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.codSubtipoDes" [ngbTooltip]="'desgloseApp.periodo.help.codSubtipoDes' | translate">Cod Subtipo Des</span></dt>
+                <dd>
+                    <span>{{periodo.codSubtipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.codMoneda" [ngbTooltip]="'desgloseApp.periodo.help.codMoneda' | translate">Cod Moneda</span></dt>
+                <dd>
+                    <span>{{periodo.codMoneda}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.fecPeriodo" [ngbTooltip]="'desgloseApp.periodo.help.fecPeriodo' | translate">Fec Periodo</span></dt>
+                <dd>
+                    <span>{{periodo.fecPeriodo}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.numMeses" [ngbTooltip]="'desgloseApp.periodo.help.numMeses' | translate">Num Meses</span></dt>
+                <dd>
+                    <span>{{periodo.numMeses}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.valDeflacPrd" [ngbTooltip]="'desgloseApp.periodo.help.valDeflacPrd' | translate">Val Deflac Prd</span></dt>
+                <dd>
+                    <span>{{periodo.valDeflacPrd}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.codAuditor" [ngbTooltip]="'desgloseApp.periodo.help.codAuditor' | translate">Cod Auditor</span></dt>
+                <dd>
+                    <span>{{periodo.codAuditor}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.glsOtrosAudit" [ngbTooltip]="'desgloseApp.periodo.help.glsOtrosAudit' | translate">Gls Otros Audit</span></dt>
+                <dd>
+                    <span>{{periodo.glsOtrosAudit}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.codEstadoPrd" [ngbTooltip]="'desgloseApp.periodo.help.codEstadoPrd' | translate">Cod Estado Prd</span></dt>
+                <dd>
+                    <span>{{periodo.codEstadoPrd}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.codEstadoAudi" [ngbTooltip]="'desgloseApp.periodo.help.codEstadoAudi' | translate">Cod Estado Audi</span></dt>
+                <dd>
+                    <span>{{periodo.codEstadoAudi}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.mtoSbifDdVig" [ngbTooltip]="'desgloseApp.periodo.help.mtoSbifDdVig' | translate">Mto Sbif Dd Vig</span></dt>
+                <dd>
+                    <span>{{periodo.mtoSbifDdVig}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.mtoSbifDdMor" [ngbTooltip]="'desgloseApp.periodo.help.mtoSbifDdMor' | translate">Mto Sbif Dd Mor</span></dt>
+                <dd>
+                    <span>{{periodo.mtoSbifDdMor}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.mtoSbifDdVen" [ngbTooltip]="'desgloseApp.periodo.help.mtoSbifDdVen' | translate">Mto Sbif Dd Ven</span></dt>
+                <dd>
+                    <span>{{periodo.mtoSbifDdVen}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.mtoSbifDdCas" [ngbTooltip]="'desgloseApp.periodo.help.mtoSbifDdCas' | translate">Mto Sbif Dd Cas</span></dt>
+                <dd>
+                    <span>{{periodo.mtoSbifDdCas}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.mtoSbifDiVig" [ngbTooltip]="'desgloseApp.periodo.help.mtoSbifDiVig' | translate">Mto Sbif Di Vig</span></dt>
+                <dd>
+                    <span>{{periodo.mtoSbifDiVig}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.mtoSbifDiVen" [ngbTooltip]="'desgloseApp.periodo.help.mtoSbifDiVen' | translate">Mto Sbif Di Ven</span></dt>
+                <dd>
+                    <span>{{periodo.mtoSbifDiVen}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.mtoSbifDiCas" [ngbTooltip]="'desgloseApp.periodo.help.mtoSbifDiCas' | translate">Mto Sbif Di Cas</span></dt>
+                <dd>
+                    <span>{{periodo.mtoSbifDiCas}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.nomUserCrea" [ngbTooltip]="'desgloseApp.periodo.help.nomUserCrea' | translate">Nom User Crea</span></dt>
+                <dd>
+                    <span>{{periodo.nomUserCrea}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.fecUserCrea" [ngbTooltip]="'desgloseApp.periodo.help.fecUserCrea' | translate">Fec User Crea</span></dt>
+                <dd>
+                    <span>{{periodo.fecUserCrea}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.nomUserModif" [ngbTooltip]="'desgloseApp.periodo.help.nomUserModif' | translate">Nom User Modif</span></dt>
+                <dd>
+                    <span>{{periodo.nomUserModif}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.fecUserModif" [ngbTooltip]="'desgloseApp.periodo.help.fecUserModif' | translate">Fec User Modif</span></dt>
+                <dd>
+                    <span>{{periodo.fecUserModif}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.fecInformSbif" [ngbTooltip]="'desgloseApp.periodo.help.fecInformSbif' | translate">Fec Inform Sbif</span></dt>
+                <dd>
+                    <span>{{periodo.fecInformSbif}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.valTipoCambio" [ngbTooltip]="'desgloseApp.periodo.help.valTipoCambio' | translate">Val Tipo Cambio</span></dt>
+                <dd>
+                    <span>{{periodo.valTipoCambio}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodo.mtoSbifImp90179" [ngbTooltip]="'desgloseApp.periodo.help.mtoSbifImp90179' | translate">Mto Sbif Imp 90179</span></dt>
+                <dd>
+                    <span>{{periodo.mtoSbifImp90179}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/periodo', periodo.codCliente, periodo.codTipoDes, periodo.codSubtipoDes, periodo.codMoneda, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

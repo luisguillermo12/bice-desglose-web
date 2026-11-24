@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="turbineRole">
+            <h2><span jhiTranslate="desgloseApp.turbineRole.detail.title">Turbine Role</span> {{turbineRole.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.turbineRole.roleId">Role Id</span></dt>
+                <dd>
+                    <span>{{turbineRole.roleId}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.turbineRole.roleName">Role Name</span></dt>
+                <dd>
+                    <span>{{turbineRole.roleName}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.turbineRole.objectdata">Objectdata</span></dt>
+                <dd>
+                    <div *ngIf="turbineRole.objectdata">
+                        <a (click)="openFile(turbineRole.objectdataContentType, turbineRole.objectdata)" jhiTranslate="entity.action.open">open</a>
+                        {{turbineRole.objectdataContentType}}, {{byteSize(turbineRole.objectdata)}}
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/turbine-role', turbineRole.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

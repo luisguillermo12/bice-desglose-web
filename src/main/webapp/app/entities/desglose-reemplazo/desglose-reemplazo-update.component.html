@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-desglose-reemplazo-heading" jhiTranslate="desgloseApp.desgloseReemplazo.home.createOrEditLabel">Create or edit a Desglose Reemplazo</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!desgloseReemplazo.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="desgloseReemplazo.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseReemplazo.codCargo" for="field_codCargo" [ngbTooltip]="'desgloseApp.desgloseReemplazo.help.codCargo' | translate">Cod Cargo</label>
+                    <input type="text" class="form-control" name="codCargo" id="field_codCargo"
+                        [(ngModel)]="desgloseReemplazo.codCargo" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseReemplazo.numRolEmpleado" for="field_numRolEmpleado" [ngbTooltip]="'desgloseApp.desgloseReemplazo.help.numRolEmpleado' | translate">Num Rol Empleado</label>
+                    <input type="text" class="form-control" name="numRolEmpleado" id="field_numRolEmpleado"
+                        [(ngModel)]="desgloseReemplazo.numRolEmpleado" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseReemplazo.desCodCargo" for="field_desCodCargo" [ngbTooltip]="'desgloseApp.desgloseReemplazo.help.desCodCargo' | translate">Des Cod Cargo</label>
+                    <input type="text" class="form-control" name="desCodCargo" id="field_desCodCargo"
+                        [(ngModel)]="desgloseReemplazo.desCodCargo" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseReemplazo.desNumRolEmpleado" for="field_desNumRolEmpleado" [ngbTooltip]="'desgloseApp.desgloseReemplazo.help.desNumRolEmpleado' | translate">Des Num Rol Empleado</label>
+                    <input type="text" class="form-control" name="desNumRolEmpleado" id="field_desNumRolEmpleado"
+                        [(ngModel)]="desgloseReemplazo.desNumRolEmpleado" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseReemplazo.fecReemplazo" for="field_fecReemplazo" [ngbTooltip]="'desgloseApp.desgloseReemplazo.help.fecReemplazo' | translate">Fec Reemplazo</label>
+                    <div class="input-group">
+                        <input id="field_fecReemplazo" type="text" class="form-control" name="fecReemplazo" ngbDatepicker  #fecReemplazoDp="ngbDatepicker" [(ngModel)]="desgloseReemplazo.fecReemplazo"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecReemplazoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseReemplazo.fecElimReemplazo" for="field_fecElimReemplazo" [ngbTooltip]="'desgloseApp.desgloseReemplazo.help.fecElimReemplazo' | translate">Fec Elim Reemplazo</label>
+                    <div class="input-group">
+                        <input id="field_fecElimReemplazo" type="text" class="form-control" name="fecElimReemplazo" ngbDatepicker  #fecElimReemplazoDp="ngbDatepicker" [(ngModel)]="desgloseReemplazo.fecElimReemplazo"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecElimReemplazoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseReemplazo.numRolEmpleadoCrea" for="field_numRolEmpleadoCrea" [ngbTooltip]="'desgloseApp.desgloseReemplazo.help.numRolEmpleadoCrea' | translate">Num Rol Empleado Crea</label>
+                    <input type="text" class="form-control" name="numRolEmpleadoCrea" id="field_numRolEmpleadoCrea"
+                        [(ngModel)]="desgloseReemplazo.numRolEmpleadoCrea" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseReemplazo.numRolEmpleadoElim" for="field_numRolEmpleadoElim" [ngbTooltip]="'desgloseApp.desgloseReemplazo.help.numRolEmpleadoElim' | translate">Num Rol Empleado Elim</label>
+                    <input type="text" class="form-control" name="numRolEmpleadoElim" id="field_numRolEmpleadoElim"
+                        [(ngModel)]="desgloseReemplazo.numRolEmpleadoElim" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseReemplazo.codRegStatus" for="field_codRegStatus" [ngbTooltip]="'desgloseApp.desgloseReemplazo.help.codRegStatus' | translate">Cod Reg Status</label>
+                    <input type="number" class="form-control" name="codRegStatus" id="field_codRegStatus"
+                        [(ngModel)]="desgloseReemplazo.codRegStatus" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

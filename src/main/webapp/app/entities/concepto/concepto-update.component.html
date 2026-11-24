@@ -1,0 +1,440 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;
+        </button>
+    </div>
+    <div class="modal-body">
+        <h2 id="jhi-concepto-heading" jhiTranslate="desgloseApp.concepto.home.createOrEditLabel">Create or edit a Concepto</h2>
+        <div>
+            <jhi-alert-error></jhi-alert-error>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.tipoPlantilla" for="field_tipoPlantilla"> Tipo de Plantilla</label>
+                <select class="form-control" name="tipoPlantilla" id="field_tipoPlantilla"
+                        [(ngModel)]="concepto.codTipoPlantilla">
+                    <option *ngFor="let item of (simpleComboBoxTypes | filterDescripcionCodigo:CODTABLA_TIPO_PLANTILLAS_DESGLOSE)" [value]="item.codGenerico">
+                        {{item.glsGenericalarga}}
+                    </option>
+                    <option *ngFor="let item of (simpleComboBoxTypes | filterDescripcionCodigo:CODTABLA_TIPO_PLANTILLAS_PROYECCION)" [value]="item.codGenerico">
+                        {{item.glsGenericalarga}}
+                    </option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.codTipoConcep" for="field_codTipoConcep"
+                       [ngbTooltip]="'desgloseApp.concepto.help.codTipoConcep' | translate">Cod Tipo Concep</label>
+                <input type="text" class="form-control" name="codTipoConcep" id="field_codTipoConcep"
+                       [(ngModel)]="concepto.codTipoConcep" required/>
+                <div [hidden]="!(editForm.controls.codTipoConcep?.dirty && editForm.controls.codTipoConcep?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.codTipoConcep?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.codConcepto" for="field_codConcepto"
+                       [ngbTooltip]="'desgloseApp.concepto.help.codConcepto' | translate">Cod Concepto</label>
+                <input type="text" class="form-control" name="codConcepto" id="field_codConcepto"
+                       [(ngModel)]="concepto.codConcepto" required/>
+                <div [hidden]="!(editForm.controls.codConcepto?.dirty && editForm.controls.codConcepto?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.codConcepto?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.glsConcepto" for="field_glsConcepto"
+                       [ngbTooltip]="'desgloseApp.concepto.help.glsConcepto' | translate">Gls Concepto</label>
+                <input type="text" class="form-control" name="glsConcepto" id="field_glsConcepto"
+                       [(ngModel)]="concepto.glsConcepto" required/>
+                <div [hidden]="!(editForm.controls.glsConcepto?.dirty && editForm.controls.glsConcepto?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.glsConcepto?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.numSecuencia" for="field_numSecuencia"
+                       [ngbTooltip]="'desgloseApp.concepto.help.numSecuencia' | translate">Num Secuencia</label>
+                <input type="number" class="form-control" name="numSecuencia" id="field_numSecuencia"
+                       [(ngModel)]="concepto.numSecuencia" required/>
+                <div [hidden]="!(editForm.controls.numSecuencia?.dirty && editForm.controls.numSecuencia?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.numSecuencia?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.numSecuencia?.errors?.number" jhiTranslate="entity.validation.number">
+                        This field should be a number.
+                    </small>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.numLvlIndent" for="field_numLvlIndent"
+                       [ngbTooltip]="'desgloseApp.concepto.help.numLvlIndent' | translate">Num Lvl Indent</label>
+                <input type="number" class="form-control" name="numLvlIndent" id="field_numLvlIndent"
+                       [(ngModel)]="concepto.numLvlIndent"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.codTipoRegis" for="field_codTipoRegis"
+                       [ngbTooltip]="'desgloseApp.concepto.help.codTipoRegis' | translate">Cod Tipo Regis</label>
+                <select class="form-control" name="tiposRegistros" id="field_codTipoRegis" [(ngModel)]="concepto.codTipoRegis" required>
+                    <option *ngFor="let item of (simpleComboBoxTypes | filterDescripcionCodigo:CODTABLA_TIPO_REGISTRO)" [value]="item.glsGenericacorta">
+                        {{item.glsGenericalarga}}
+                    </option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.flgIsPrinted" for="field_flgIsPrinted"
+                    [ngbTooltip]="'desgloseApp.concepto.help.flgIsPrinted' | translate">Flg Is Printed</label>
+                <select class="form-control" name="flgIsPrinted" id="field_flgIsPrinted" [(ngModel)] = "concepto.flgIsPrinted">
+                    <option value='0'>0</option>
+                    <option value='1'>1</option>
+                    <option value='2'>2</option>
+                </select>
+                <div [hidden]="!(editForm.controls.flgIsPrinted?.dirty && editForm.controls.flgIsPrinted?.invalid)">
+                    <small class="form-text text-danger" [hidden]="!editForm.controls.flgIsPrinted?.errors?.required"
+                        jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <!-- <div class="col-md-6">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.glsFormulaVal" for="field_glsFormulaVal"
+                       [ngbTooltip]="'desgloseApp.concepto.help.glsFormulaVal' | translate">Gls Formula Val</label>
+                <input type="text" class="form-control" name="glsFormulaVal" id="field_glsFormulaVal"
+                       [(ngModel)]="concepto.glsFormulaVal"/>
+            </div> -->
+        </div>
+        <!-- <div class="row">
+            <div class="col-md-6">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.glsFormulaPrc" for="field_glsFormulaPrc"
+                       [ngbTooltip]="'desgloseApp.concepto.help.glsFormulaPrc' | translate">Gls Formula Prc</label>
+                <input type="text" class="form-control" name="glsFormulaPrc" id="field_glsFormulaPrc"
+                       [(ngModel)]="concepto.glsFormulaPrc"/>
+            </div>
+            <div class="col-md-6">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.glsFormulaDef" for="field_glsFormulaDef"
+                       [ngbTooltip]="'desgloseApp.concepto.help.glsFormulaDef' | translate">Gls Formula Def</label>
+                <input type="text" class="form-control" name="glsFormulaDef" id="field_glsFormulaDef"
+                       [(ngModel)]="concepto.glsFormulaDef"/>
+            </div>
+        </div> -->
+        <!--  INI  -->
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-control-label" *ngIf="!isProyec" jhiTranslate="desgloseApp.concepto.glsFormulaVal" for="field_glsFormulaVal"
+                       [ngbTooltip]="'desgloseApp.concepto.help.glsFormulaVal' | translate">Gls Formula Val</label>
+                <label class="form-control-label" *ngIf="isProyec" jhiTranslate="desgloseApp.concepto.glsFormulaValPry" for="field_glsFormulaVal"
+                       [ngbTooltip]="'desgloseApp.concepto.help.glsFormulaVal' | translate">Gls Formula Val</label>
+                <input type="text" class="form-control" name="glsFormulaVal" id="field_glsFormulaVal"
+                       [(ngModel)]="concepto.glsFormulaVal"/>
+            </div>
+            <!-- NEW -->
+            <div class="col-md-6">
+                <label class="form-control-label" *ngIf="!isProyec" jhiTranslate="desgloseApp.concepto.glsFormulaValWeb" for="field_glsFormulaVal"
+                       [ngbTooltip]="'desgloseApp.concepto.help.glsFormulaValWeb' | translate">Gls Formula Val</label>
+                <label class="form-control-label" *ngIf="isProyec" jhiTranslate="desgloseApp.concepto.glsFormulaValPryWeb" for="field_glsFormulaVal"
+                       [ngbTooltip]="'desgloseApp.concepto.help.glsFormulaValWeb' | translate">Gls Formula Val</label>
+                <input type="text" class="form-control" name="glsFormulaValWeb" id="field_glsFormulaValWeb"
+                       [(ngModel)]="concepto.glsFormulaValWeb"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-control-label" *ngIf="!isProyec" jhiTranslate="desgloseApp.concepto.glsFormulaDef" for="field_glsFormulaDef"
+                       [ngbTooltip]="'desgloseApp.concepto.help.glsFormulaDef' | translate">Gls Formula Def</label>
+                <label class="form-control-label" *ngIf="isProyec" jhiTranslate="desgloseApp.concepto.glsFormulaDefPry" for="field_glsFormulaDef"
+                       [ngbTooltip]="'desgloseApp.concepto.help.glsFormulaDef' | translate">Gls Formula Def</label>
+                <input type="text" class="form-control" name="glsFormulaDef" id="field_glsFormulaDef"
+                       [(ngModel)]="concepto.glsFormulaDef"/>
+            </div>
+            <!-- NEW -->
+            <div class="col-md-6">
+                <label class="form-control-label" *ngIf="!isProyec" jhiTranslate="desgloseApp.concepto.glsFormulaDefWeb" for="field_glsFormulaDef"
+                       [ngbTooltip]="'desgloseApp.concepto.help.glsFormulaDefWeb' | translate">Gls Formula Def</label>
+                <label class="form-control-label" *ngIf="isProyec" jhiTranslate="desgloseApp.concepto.glsFormulaDefPryWeb" for="field_glsFormulaDef"
+                       [ngbTooltip]="'desgloseApp.concepto.help.glsFormulaDefWeb' | translate">Gls Formula Def</label>
+                <input type="text" class="form-control" name="glsFormulaDefWeb" id="field_glsFormulaDefWeb"
+                       [(ngModel)]="concepto.glsFormulaDefWeb"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-control-label"  *ngIf="!isProyec" jhiTranslate="desgloseApp.concepto.glsFormulaPrc" for="field_glsFormulaPrc"
+                       [ngbTooltip]="'desgloseApp.concepto.help.glsFormulaPrc' | translate">Gls Formula Prc</label>
+                <label class="form-control-label"  *ngIf="isProyec" jhiTranslate="desgloseApp.concepto.glsFormulaPrcPry" for="field_glsFormulaPrc"
+                       [ngbTooltip]="'desgloseApp.concepto.help.glsFormulaPrc' | translate">Gls Formula Prc</label>
+                <input type="text" class="form-control" name="glsFormulaPrc" id="field_glsFormulaPrc"
+                       [(ngModel)]="concepto.glsFormulaPrc"/>
+            </div>
+            <!-- NEW -->
+            <div class="col-md-6">
+                <label class="form-control-label" *ngIf="!isProyec" jhiTranslate="desgloseApp.concepto.glsFormulaPrcWeb" for="field_glsFormulaPrc"
+                       [ngbTooltip]="'desgloseApp.concepto.help.glsFormulaPrcWeb' | translate">Gls Formula Prc</label>
+                <label class="form-control-label" *ngIf="isProyec" jhiTranslate="desgloseApp.concepto.glsFormulaPrcPryWeb" for="field_glsFormulaPrc"
+                       [ngbTooltip]="'desgloseApp.concepto.help.glsFormulaPrcWeb' | translate">Gls Formula Prc</label>
+                <input type="text" class="form-control" name="glsFormulaPrcWeb" id="field_glsFormulaPrcWeb"
+                       [(ngModel)]="concepto.glsFormulaPrcWeb"/>
+            </div>
+        </div>
+        <!-- FIN -->
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-control-label" *ngIf="!isProyec" jhiTranslate="desgloseApp.concepto.expValidacionVal" for="field_expValidacionVal"
+                       [ngbTooltip]="'desgloseApp.concepto.help.expValidacionVal' | translate">expValidacionVal</label>
+                <label class="form-control-label" *ngIf="isProyec" jhiTranslate="desgloseApp.concepto.expValidacionValPry" for="field_expValidacionVal"
+                       [ngbTooltip]="'desgloseApp.concepto.help.expValidacionVal' | translate">expValidacionVal</label>
+                <input type="text" class="form-control" name="expValidacionVal" id="field_expValidacionVal"
+                       [(ngModel)]="concepto.expValidacionVal"/>
+            </div>
+            <div class="col-md-6">
+                <label class="form-control-label" *ngIf="!isProyec" jhiTranslate="desgloseApp.concepto.msgErrValidacionVal" for="field_msgErrValidacionVal"
+                       [ngbTooltip]="'desgloseApp.concepto.help.msgErrValidacionVal' | translate">Gls Formula Def</label>
+                <label class="form-control-label" *ngIf="isProyec" jhiTranslate="desgloseApp.concepto.msgErrValidacionValPry" for="field_msgErrValidacionVal"
+                       [ngbTooltip]="'desgloseApp.concepto.help.msgErrValidacionVal' | translate">Gls Formula Def</label>
+                <input type="text" class="form-control" name="msgErrValidacionVal" id="field_msgErrValidacionVal"
+                       [(ngModel)]="concepto.msgErrValidacionVal"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-control-label" *ngIf="!isProyec" jhiTranslate="desgloseApp.concepto.expValidacionPrc" for="field_expValidacionPrc"
+                       [ngbTooltip]="'desgloseApp.concepto.help.expValidacionPrc' | translate">expValidacionPrc</label>
+                <label class="form-control-label" *ngIf="isProyec" jhiTranslate="desgloseApp.concepto.expValidacionPrcPry" for="field_expValidacionPrc"
+                       [ngbTooltip]="'desgloseApp.concepto.help.expValidacionPrc' | translate">expValidacionPrc</label>
+                <input type="text" class="form-control" name="expValidacionPrc" id="field_expValidacionPrc"
+                       [(ngModel)]="concepto.expValidacionPrc"/>
+            </div>
+            <div class="col-md-6">
+                <label class="form-control-label" *ngIf="!isProyec" jhiTranslate="desgloseApp.concepto.msgErrValidacionPrc" for="field_msgErrValidacionPrc"
+                       [ngbTooltip]="'desgloseApp.concepto.help.msgErrValidacionPrc' | translate">Gls Formula Def</label>
+                <label class="form-control-label" *ngIf="isProyec" jhiTranslate="desgloseApp.concepto.msgErrValidacionPrcPry" for="field_msgErrValidacionPrc"
+                       [ngbTooltip]="'desgloseApp.concepto.help.msgErrValidacionPrc' | translate">Gls Formula Def</label>
+                <input type="text" class="form-control" name="msgErrValidacionPrc" id="field_msgErrValidacionPrc"
+                       [(ngModel)]="concepto.msgErrValidacionPrc"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-control-label"  *ngIf="!isProyec" jhiTranslate="desgloseApp.concepto.expValidacionDef" for="field_expValidacionDef"
+                       [ngbTooltip]="'desgloseApp.concepto.help.expValidacionDef' | translate">expValidacionDef</label>
+                <label class="form-control-label"  *ngIf="isProyec" jhiTranslate="desgloseApp.concepto.expValidacionDefPry" for="field_expValidacionDef"
+                       [ngbTooltip]="'desgloseApp.concepto.help.expValidacionDef' | translate">expValidacionDef</label>
+                <input type="text" class="form-control" name="expValidacionDef" id="field_expValidacionDef"
+                       [(ngModel)]="concepto.expValidacionDef"/>
+            </div>
+            <div class="col-md-6">
+                <label class="form-control-label" *ngIf="!isProyec" jhiTranslate="desgloseApp.concepto.msgErrValidacionDef" for="field_msgErrValidacionDef"
+                       [ngbTooltip]="'desgloseApp.concepto.help.msgErrValidacionDef' | translate">Gls Formula Def</label>
+                <label class="form-control-label" *ngIf="isProyec" jhiTranslate="desgloseApp.concepto.msgErrValidacionDefPry" for="field_msgErrValidacionDef"
+                       [ngbTooltip]="'desgloseApp.concepto.help.msgErrValidacionDef' | translate">Gls Formula Def</label>
+                <input type="text" class="form-control" name="msgErrValidacionDef" id="field_msgErrValidacionDef"
+                       [(ngModel)]="concepto.msgErrValidacionDef"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.numDecPrint" for="field_numDecPrint"
+                       [ngbTooltip]="'desgloseApp.concepto.help.numDecPrint' | translate">Num Secuencia</label>
+                <input type="number" class="form-control" name="numDecPrint" id="field_numDecPrint"
+                       [(ngModel)]="concepto.numDecPrint" required/>
+                <div [hidden]="!(editForm.controls.numDecPrint?.dirty && editForm.controls.numDecPrint?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.numDecPrint?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.numDecPrint?.errors?.number" jhiTranslate="entity.validation.number">
+                        This field should be a number.
+                    </small>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.numDecimales" for="field_numDecimales"
+                       [ngbTooltip]="'desgloseApp.concepto.help.numDecimales' | translate">Num Lvl Indent</label>
+                <input type="number" class="form-control" name="numDecimales" id="field_numDecimales"
+                       [(ngModel)]="concepto.numDecimales"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.flgIsTotal" for="field_flgIsTotal"
+                       [ngbTooltip]="'desgloseApp.concepto.help.flgIsTotal' | translate">Flg Is Total</label>
+            </div>
+            <div class="col-md-1">
+                <br/>
+                <input type="checkbox" name="flgIsTotal" id="field_flgIsTotal"
+                       [(ngModel)]="concepto.flgIsTotal"/>
+                <div [hidden]="!(editForm.controls.flgIsTotal?.dirty && editForm.controls.flgIsTotal?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.flgIsTotal?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.flgUserModif" for="field_flgUserModif"
+                       [ngbTooltip]="'desgloseApp.concepto.help.flgUserModif' | translate">Flg User Modif</label>
+            </div>
+            <div class="col-md-1">
+                <br/>
+                <input type="checkbox" name="flgUserModif" id="field_flgUserModif"
+                       [(ngModel)]="concepto.flgUserModif"/>
+                <div [hidden]="!(editForm.controls.flgUserModif?.dirty && editForm.controls.flgUserModif?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.flgUserModif?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.flgConActivo" for="field_flgConActivo"
+                       [ngbTooltip]="'desgloseApp.concepto.help.flgConActivo' | translate">Flg Con Activo</label>
+            </div>
+            <div class="col-md-1">
+                <br/>
+                <input type="checkbox" name="flgConActivo" id="field_flgConActivo"
+                       [(ngModel)]="concepto.flgConActivo"/>
+                <div [hidden]="!(editForm.controls.flgConActivo?.dirty && editForm.controls.flgConActivo?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.flgConActivo?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.flgIsEnclosed" for="field_flgIsEnclosed"
+                       [ngbTooltip]="'desgloseApp.concepto.help.flgIsEnclosed' | translate">Flg Is Enclosed</label>
+            </div>
+            <div class="col-md-1">
+                <br/>
+                <input type="checkbox" name="flgIsEnclosed" id="field_flgIsEnclosed"
+                       [(ngModel)]="concepto.flgIsEnclosed"/>
+                <div [hidden]="!(editForm.controls.flgIsEnclosed?.dirty && editForm.controls.flgIsEnclosed?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.flgIsEnclosed?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+
+            <!--div class="col-md-3">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.numDecimales" for="field_numDecimales"
+                       [ngbTooltip]="'desgloseApp.concepto.help.numDecimales' | translate">Num Decimales</label>
+                <input type="checkbox" class="form-control" name="numDecimales" id="field_numDecimales"
+                       [(ngModel)]="concepto.numDecimales"/>
+            </div-->
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.flgHaceAjust" for="field_flgHaceAjust"
+                       [ngbTooltip]="'desgloseApp.concepto.help.flgHaceAjust' | translate">Flg Hace Ajust</label>
+            </div>
+            <div class="col-md-1">
+            <br/>
+                <input type="checkbox" name="flgHaceAjust" id="field_flgHaceAjust"
+                       [(ngModel)]="concepto.flgHaceAjust"/>
+                <div [hidden]="!(editForm.controls.flgHaceAjust?.dirty && editForm.controls.flgHaceAjust?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.flgHaceAjust?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.flgIsBold" for="field_flgIsBold"
+                       [ngbTooltip]="'desgloseApp.concepto.help.flgIsBold' | translate">Flg Is Bold</label>
+            </div>
+            <div class="col-md-1">
+              <br/>
+                <input type="checkbox" name="flgIsBold" id="field_flgIsBold"
+                       [(ngModel)]="concepto.flgIsBold"/>
+                <div [hidden]="!(editForm.controls.flgIsBold?.dirty && editForm.controls.flgIsBold?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.flgIsBold?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.flgIsUcase" for="field_flgIsUcase"
+                       [ngbTooltip]="'desgloseApp.concepto.help.flgIsUcase' | translate">Flg Is Ucase</label>
+            </div>
+            <div class="col-md-1">
+                <br/>
+                <input type="checkbox" name="flgIsUcase" id="field_flgIsUcase"
+                       [(ngModel)]="concepto.flgIsUcase"/>
+                <div [hidden]="!(editForm.controls.flgIsUcase?.dirty && editForm.controls.flgIsUcase?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.flgIsUcase?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!--div class="col-md-3">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.numDecPrint" for="field_numDecPrint"
+                       [ngbTooltip]="'desgloseApp.concepto.help.numDecPrint' | translate">Num Dec Print</label>
+                <input type="checkbox" class="form-control" name="numDecPrint" id="field_numDecPrint"
+                       [(ngModel)]="concepto.numDecPrint"/>
+                <div [hidden]="!(editForm.controls.numDecPrint?.dirty && editForm.controls.numDecPrint?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.numDecPrint?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div-->
+            <div class="col-md-2">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.flgNonegativ" for="field_flgNonegativ"
+                       [ngbTooltip]="'desgloseApp.concepto.help.flgNonegativ' | translate">Flg Nonegativ</label>
+            </div>
+            <div class="col-md-1">
+                <br/>
+                <input type="checkbox" name="flgNonegativ" id="field_flgNonegativ"
+                       [(ngModel)]="concepto.flgNonegativ"/>
+                <div [hidden]="!(editForm.controls.flgNonegativ?.dirty && editForm.controls.flgNonegativ?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.flgNonegativ?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label class="form-control-label" jhiTranslate="desgloseApp.concepto.flgAfterspace" for="field_flgAfterspace"
+                       [ngbTooltip]="'desgloseApp.concepto.help.flgAfterspace' | translate">Flg Afterspace</label>
+            </div>
+            <div class="col-md-1">
+                <br/>
+                <input type="checkbox" name="flgAfterspace" id="field_flgAfterspace"
+                       [(ngModel)]="concepto.flgAfterspace"/>
+                <div [hidden]="!(editForm.controls.flgAfterspace?.dirty && editForm.controls.flgAfterspace?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.flgAfterspace?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" id="cancel-save" class="btn btn-default" (click)="clear()">
+            <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,469 @@
+<!doctype html>
+<html class="no-js" lang="es" dir="ltr">
+<head>
+    <base href="./"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>desglose</title>
+    <meta name="description" content="">
+    <meta name="google" value="notranslate">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <meta >
+    <link rel="shortcut icon" href="bice.ico"/>
+    <link rel="manifest" href="manifest.webapp"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->
+
+</head>
+<body>
+<!--[if lt IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<jhi-main></jhi-main>
+<noscript>
+    <h1>You must enable javascript to view this page.</h1>
+</noscript>
+<!-- uncomment this for adding service worker
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(function () {
+                        console.log('Service Worker Registered');
+                    });
+            });
+        }
+    </script>
+-->
+<!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
+<script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='//www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-XXXXX-X');ga('send','pageview');
+</script>-->
+</body>
+</html>
+<style>
+    sticky-scroll-element {
+        position: -webkit-sticky; /* Safari */
+        position: sticky;
+        top: 0;
+        background-color: yellow;
+    }
+
+    tree-viewport {
+        height: 85% !important;
+    }
+
+    /*input button select label {
+        height: 75% !important;
+    }*/
+    .btn {
+        font-size: 12px;
+    }
+
+    .btn-load {
+        font-size: 10px !important;
+    }
+
+    /* Quitando estilo de borde del banco*/
+    .btn.disabled, .btn:disabled {
+        background-color: #e9ecef !important;
+        opacity: 1 !important;
+        border: 1px solid #ced4da !important;
+    }
+
+    .max-height-date-btn {
+        max-height: 31px;
+    }
+
+    div.form-group.row.col-sm-6 {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .table th, .table td {
+        padding: 0.25rem;
+        vertical-align: baseline;
+    }
+
+    .botones-font-size {
+        font-size: 12px !important;
+    }
+
+    /*.datatable-checkbox input[type=checkbox]:before {
+        border: 1px solid rgba(2, 91, 151, 0.30);
+    }
+
+    .ngx-datatable.material .datatable-body .datatable-body-row .datatable-body-cell {
+        padding: .2rem .2rem .2rem .6rem;
+    }
+
+    .ngx-datatable.material .datatable-header .datatable-header-cell {
+        padding: .2rem .2rem .2rem .6rem;
+    }*/
+
+    div.datatable-row-center.datatable-row-group {
+        align-items: center;
+    }
+
+    .mfb-component__button--main {
+        background-color: rgba(0, 0, 0, 0) !important;
+    }
+
+    ng2-floating-action-menu {
+        z-index: 10000;
+        color: #025b97;
+    }
+
+    .mfb-component__main-icon--resting {
+        color: #025b97;
+    }
+
+    @media (min-width: 576px) {
+        .form-inline .form-group {
+            margin-bottom: 0.25rem;
+        }
+    }
+
+    .form-group {
+        margin-bottom: 0.25rem;
+    }
+
+    .form-inline {
+        display: block;
+    }
+
+    .border-default {
+        color: #025b97;
+    }
+
+    label {
+        margin-bottom: 0rem !important;
+    }
+
+    label, .form-inline label {
+        justify-content: left;
+        font-size: 12px !important;
+    }
+
+    .card-body {
+        padding: 0.5rem;
+    }
+
+    .btn-default {
+        background: #025b97;
+        color: #ffffff;
+    }
+
+    .ngx-datatable.material .datatable-header .datatable-header-cell {
+        font-size: 12px !important;
+    }
+
+    .swal2-popup .swal2-title {
+        font-size: 1.25em;
+    }
+
+    .swal2-icon {
+        width: 4em;
+        height: 4em;
+        line-height: 4em;
+        margin: auto;
+    }
+
+    .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right] {
+        right: 0.5em;
+    }
+
+    .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left] {
+        left: 0.5em;
+    }
+
+    .swal2-icon.swal2-error [class^=swal2-x-mark-line] {
+        top: 1.8em;
+        width: 3em;
+    }
+
+    .swal2-icon.swal2-success [class^=swal2-success-line][class$=tip] {
+        top: 2.5em !important;
+        left: 0.3em !important;
+    }
+
+    .swal2-icon.swal2-success [class^=swal2-success-line][class$=long] {
+        top: 2em !important;
+        right: 0em !important;
+    }
+
+    .swal2-icon-text {
+        font-size: 2.0em;
+    }
+
+    .swal2-popup .swal2-content {
+        font-size: 15px;
+        font-weight: normal;
+    }
+
+    button.swal2-confirm.swal2-styled {
+        font-weight: normal;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        border-radius: 0.1rem;
+    }
+
+    .swal2-popup .swal2-styled.swal2-confirm {
+        font-size: 15px;
+        font-weight: normal;
+    }
+
+    select.form-control.form-control-sm {
+        font-size: 12px;
+    }
+
+    .form-control {
+        font-size: 12px;
+    }
+
+    .hand-pointer {
+        cursor: pointer;
+    }
+
+    .card-header {
+        padding: 0rem;
+        color: #ffffff;
+        background: #025b97;
+    }
+    button, html [type=button], [type=reset], [type=submit] {
+        font-size: 12px;
+    }
+
+    div.card-header > div > span {
+        font-size: 12px;
+    }
+
+    .modal-header h4, .h4 {
+        /*font-size: 1.25rem;*/
+        font-size: 12px;
+    }
+
+    .header-group-renderer {
+        color: #d6ffff !important;
+        background-color: #025b97 !important;
+        font-weight: bold !important;
+    }
+    .header-group-renderer-zeros {
+        color: #025b97 !important;
+        background-color: #025b97 !important;
+        font-weight: bold !important;
+    }
+    .header-total-renderer {
+        color: #000000 !important;
+        background-color: #c0c0c0 !important;
+        font-weight: bold !important;
+    }
+    .header-total-renderer-numeric {
+        color: #000000 !important;
+        background-color: #c0c0c0 !important;
+        font-weight: bold !important;
+        text-align: right !important;
+    }
+    .header-no-total-renderer-numeric {
+        color: #000000 !important;
+        background-color: #c0c0c0 !important;
+        font-weight: bold !important;
+        text-align: right !important;
+    }
+    .header-total-renderer_zeros {
+        color: #c0c0c0 !important;
+        background-color: #c0c0c0 !important;
+        font-weight: bold !important;
+    }
+    .header-no-total-number-renderer {
+        color: #ffffff !important;
+        background-color: #ffffff !important;
+        font-weight: bold !important;
+        text-align: right !important;
+    }
+
+    .header-total-number-renderer-error {
+        color: #c0c0c0 !important;
+        background-color: #c0c0c0 !important;
+        font-weight: bold !important;
+        text-align: right !important;
+    }
+
+    .header-info-renderer {
+        color: #d6ffff !important;
+        background-color: #FF0000 !important;
+        font-weight: bold !important;
+    }
+
+    .make-me-white {
+        color: #ffffff;
+        text-align: right;
+    }
+
+    .make-me-heredado {
+        color: #777;
+        text-align: right;
+    }
+
+    .make-me-error {
+        color: red;
+    }
+
+    .table td, .table th {
+        font-size: 12px;
+        color: #231f1f;
+    }
+
+    body {
+        zoom: 75% !important;
+        background: #eee;
+        color: #326295;
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 12px;
+        display: contents !important;
+    }
+
+    .btn-primary, .badge-primary, .bg-primary {
+        background: #3a71ac;
+        border-color: #3a71ac;
+    }
+
+    .btn.disabled, .btn:disabled {
+        color: #000000;
+        background-color: #e9ecef;
+        border-color: #f1f3f5;
+        cursor: not-allowed;
+    }
+    .modal-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1040;
+        width: 100%!important;
+        height: 100% !important;
+        background-color: #000;
+    }
+    .not-allowed {
+        cursor: not-allowed !important;
+        pointer-events: none !important;
+    }
+
+    .btn-default {
+        background: #ffffff;
+        color: #588EC6;
+        border-color: #588EC6;
+    }
+
+    .btn-primary:hover, .badge-primary:hover, .bg-primary:hover {
+        background: #304b7c;
+        border-color: #304b7c;
+    }
+
+    .btn-danger, .alert-danger, .bg-danger {
+        background: #f9e7e7;
+        border-color: #b34e33;
+        color: #A72B2A;
+        font-size: 12px;
+    }
+
+    /*.alert-danger {
+        color: #fff;
+    }*/
+
+    .btn-danger:hover, .bg-danger:hover {
+        background: #b33a20;
+        border-color: #b33a20;
+    }
+
+    .swal2-modal {
+        min-height: 300px;
+    }
+
+    .text-primary-sccm {
+        color: #333366;
+    }
+
+    .btn-warning, .badge-warning {
+        background: #C5D0DB;
+        border-color: #C5D0DB;
+    }
+
+    .btn-warning:hover, .badge-warning:hover {
+        border-color: #afbac5;
+        background: #afbac5;
+    }
+
+    .spinner img {
+        top: 43%;
+        left: 47%;
+        width: 8%;
+        opacity: 1;
+    }
+
+    .btn-success {
+        background: #017321;
+        border-color: #017321;;
+    }
+
+    .btn-success:hover {
+        background: #003F12;
+        border-color: #003F12;
+    }
+
+    .badge-success {
+        background: #017321;
+        border-color: #017321;
+    }
+
+    footer {
+        background-color: #C5D0DB;
+        color: #231f1f;
+    }
+
+    .badge-primary {
+        width: 100%;
+    }
+
+    .datatable-body-cell {
+        overflow-x: visible !important;
+    }
+
+    .datatable-body {
+        min-height: 250px;
+    }
+
+    .custom-small-btn {
+        font-size: 0.75rem;
+        line-height: 1.0;
+    }
+
+    .mfb-component__button--main[_ngcontent-c31], .mfb-component__button--child {
+        background-color: silver;
+    }
+
+    .datatable-body-cell-label {
+        overflow: hidden !important;
+    }
+    .handsontable td.htInvalid {
+        background-color: #c0c0c0 !important;
+        color: #c0c0c0 !important;
+    }
+    .handsontable table.htCore {
+        font-size: 16px !important;
+    }
+    .nav-justified .nav-item {
+        flex-basis: auto !important;
+        flex-grow: unset !important;
+        text-align: center !important;
+        font-size: 16px !important;
+    }
+
+</style>
+

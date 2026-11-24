@@ -1,0 +1,25 @@
+{
+    "replacement": {
+        "title": "Configuración de reemplazos",
+        "subtitle": "Reemplazos",
+        "detalle": "Detalle de reemplazos",
+        "cargo": "Cargo",
+        "miembroReemplazar": "Miembro a reemplazar",
+        "miembroReemplazo": "Miembro en reemplazo",
+        "agregarReemplazo": "Agregar reemplazo",
+        "eliminarReemplazo": "Eliminar reemplazo",
+        "seleccioneCargo": "Seleccione un cargo",
+        "seleccioneReemplazar": "Seleccione miembro a reemplazar",
+        "seleccioneReemplazo": "Seleccione miembro en reemplazo",
+        "aviso": "¡Aviso!",
+        "error": "Error",
+        "aceptar": "Aceptar",
+        "cancelar": "Cancelar",
+        "mensaje": "",
+        "valida2Firma": "Usuario reempleado es 2da. Firma del reemplazante, por lo tanto, no es posible realizar este reemplazo...",
+        "reemplazar": "¿Está seguro de reemplazar a {{persona1}} por {{persona2}}?",
+        "alertaGrabar":"Debe seleccionar cargo, miembro a reemplazar y miembro en reemplazo...",
+        "alertaEliminar": "¿Está seguro de remover reemplazos seleccionados?",
+        "alertaSeleccionEliminar": "Debe seleccionar reemplazos a eliminar"
+    }
+}

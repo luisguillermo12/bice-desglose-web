@@ -1,0 +1,62 @@
+/**
+ * Representa la tabla "DESCOD". Contiene parametros general. Pertenece al esquema BCTADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity Tablas {
+	/**
+	 * 
+	 */
+	codTabla String required,
+	/**
+	 * 
+	 */
+	glsDescripcion String,
+	/**
+	 * 
+	 */
+	fecActualiz LocalDate,
+	/**
+	 * 
+	 */
+	codDepartamento Integer,
+	/**
+	 * 
+	 */
+	codEmpleado String,
+	/**
+	 * 
+	 */
+	numRolEmpleado String,
+	/**
+	 * 
+	 */
+	glsNomtabla String,
+	/**
+	 * 
+	 */
+	codTipoprm String,
+	/**
+	 * 
+	 */
+	numLenprm Integer,
+	/**
+	 * 
+	 */
+	glsTabval String,
+	/**
+	 * 
+	 */
+	codRegStatus Integer required,
+	/**
+	 * 
+	 */
+	codRegLog Integer
+}
+// Create Unique Index Idx_Tablas On Tablas (Cod_Tabla Asc, Cod_Reg_Log Asc) 
+
+// Set pagination options
+paginate * with pagination
+// Set service options
+service * with serviceClass
+// Set mapping options
+dto * with mapstruct

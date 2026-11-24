@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="identificacionCliente">
+            <h2><span jhiTranslate="desgloseApp.identificacionCliente.detail.title">Identificacion Cliente</span> {{identificacionCliente.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.identificacionCliente.numCliente" [ngbTooltip]="'desgloseApp.identificacionCliente.help.numCliente' | translate">Num Cliente</span></dt>
+                <dd>
+                    <span>{{identificacionCliente.numCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.identificacionCliente.codTipoIden" [ngbTooltip]="'desgloseApp.identificacionCliente.help.codTipoIden' | translate">Cod Tipo Iden</span></dt>
+                <dd>
+                    <span>{{identificacionCliente.codTipoIden}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.identificacionCliente.numIden" [ngbTooltip]="'desgloseApp.identificacionCliente.help.numIden' | translate">Num Iden</span></dt>
+                <dd>
+                    <span>{{identificacionCliente.numIden}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.identificacionCliente.fecCreacion" [ngbTooltip]="'desgloseApp.identificacionCliente.help.fecCreacion' | translate">Fec Creacion</span></dt>
+                <dd>
+                    <span>{{identificacionCliente.fecCreacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.identificacionCliente.codRegStatus" [ngbTooltip]="'desgloseApp.identificacionCliente.help.codRegStatus' | translate">Cod Reg Status</span></dt>
+                <dd>
+                    <span>{{identificacionCliente.codRegStatus}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.identificacionCliente.codRegLog" [ngbTooltip]="'desgloseApp.identificacionCliente.help.codRegLog' | translate">Cod Reg Log</span></dt>
+                <dd>
+                    <span>{{identificacionCliente.codRegLog}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/identificacion-cliente', identificacionCliente.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

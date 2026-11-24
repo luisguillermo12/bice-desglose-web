@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="desgloseImpresion">
+            <h2><span jhiTranslate="desgloseApp.desgloseImpresion.detail.title">Desglose Impresion</span> {{desgloseImpresion.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.desgloseImpresion.codCliente" [ngbTooltip]="'desgloseApp.desgloseImpresion.help.codCliente' | translate">Cod Cliente</span></dt>
+                <dd>
+                    <span>{{desgloseImpresion.codCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseImpresion.codTipoDes" [ngbTooltip]="'desgloseApp.desgloseImpresion.help.codTipoDes' | translate">Cod Tipo Des</span></dt>
+                <dd>
+                    <span>{{desgloseImpresion.codTipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseImpresion.codSubtipoDes" [ngbTooltip]="'desgloseApp.desgloseImpresion.help.codSubtipoDes' | translate">Cod Subtipo Des</span></dt>
+                <dd>
+                    <span>{{desgloseImpresion.codSubtipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseImpresion.codMoneda" [ngbTooltip]="'desgloseApp.desgloseImpresion.help.codMoneda' | translate">Cod Moneda</span></dt>
+                <dd>
+                    <span>{{desgloseImpresion.codMoneda}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseImpresion.codMonedaImp" [ngbTooltip]="'desgloseApp.desgloseImpresion.help.codMonedaImp' | translate">Cod Moneda Imp</span></dt>
+                <dd>
+                    <span>{{desgloseImpresion.codMonedaImp}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseImpresion.valDeflacBase" [ngbTooltip]="'desgloseApp.desgloseImpresion.help.valDeflacBase' | translate">Val Deflac Base</span></dt>
+                <dd>
+                    <span>{{desgloseImpresion.valDeflacBase}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseImpresion.fecCreacion" [ngbTooltip]="'desgloseApp.desgloseImpresion.help.fecCreacion' | translate">Fec Creacion</span></dt>
+                <dd>
+                    <span>{{desgloseImpresion.fecCreacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseImpresion.fecDeflacBase" [ngbTooltip]="'desgloseApp.desgloseImpresion.help.fecDeflacBase' | translate">Fec Deflac Base</span></dt>
+                <dd>
+                    <span>{{desgloseImpresion.fecDeflacBase}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseImpresion.corImpreso" [ngbTooltip]="'desgloseApp.desgloseImpresion.help.corImpreso' | translate">Cor Impreso</span></dt>
+                <dd>
+                    <span>{{desgloseImpresion.corImpreso}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/desglose-impresion', desgloseImpresion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

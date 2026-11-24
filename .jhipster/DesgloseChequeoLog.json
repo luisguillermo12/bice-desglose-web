@@ -1,0 +1,51 @@
+{
+    "name": "DesgloseChequeoLog",
+    "fields": [
+        {
+            "fieldName": "codTipoProceso",
+            "javadoc": "Identifica tipo de proceso en LOG.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codCliente",
+            "javadoc": "Rut de cliente.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codTipoDes",
+            "javadoc": "Tipo de desglose.",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codSubtipoDes",
+            "javadoc": "Subtipo de desglose.",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codMoneda",
+            "javadoc": "Codigo de moneda.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fecLog",
+            "javadoc": "Fecha y hora de LOG.",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "glsLog",
+            "javadoc": "Descripcion del LOG.",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181011140731",
+    "javadoc": "Representa la tabla \"DGL_CHK_LOG_WK\" que contiene información de auditoría de desgloses. Pertenece al esquema CIF_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "desglose_chequeo_log",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,37 @@
+
+{
+    "desgloseApp": {
+        "relacionTabla" : {
+            "home": {
+                "title": "Relacion Tablas",
+                "createLabel": "Create a new Relacion Tabla",
+                "createOrEditLabel": "Create or edit a Relacion Tabla"
+            },
+            "created": "A new Relacion Tabla is created with identifier {{ param }}",
+            "updated": "A Relacion Tabla is updated with identifier {{ param }}",
+            "deleted": "A Relacion Tabla is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Relacion Tabla {{ id }}?"
+            },
+            "detail": {
+                "title": "Relacion Tabla"
+            },
+            "numCorRegistro": "Num Cor Registro",
+            "codTabla1": "Cod Tabla 1",
+            "codTabla2": "Cod Tabla 2",
+            "codGenerico1": "Cod Generico 1",
+            "codGenerico2": "Cod Generico 2",
+            "codRegStatus": "Cod Reg Status",
+            "codRegLog": "Cod Reg Log",
+            "help": {
+                "numCorRegistro": "Id correlativo.",
+                "codTabla1": "Código de tabla 1 del concepto.",
+                "codTabla2": "Código de tabla 2 del concepto.",
+                "codGenerico1": "Código genérico 1 asociado al código de tabla.",
+                "codGenerico2": "Código genérico 2 asociado al código de tabla.",
+                "codRegStatus": "Código de vigencia del registro.",
+                "codRegLog": "Código de modificación del registro."
+            }
+        }
+    }
+}

@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="valPeriodoDesglose">
+            <h2><span jhiTranslate="desgloseApp.valPeriodoDesglose.detail.title">Val Periodo Desglose</span> {{valPeriodoDesglose.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.valPeriodoDesglose.codCliente" [ngbTooltip]="'desgloseApp.valPeriodoDesglose.help.codCliente' | translate">Cod Cliente</span></dt>
+                <dd>
+                    <span>{{valPeriodoDesglose.codCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.valPeriodoDesglose.codTipoDes" [ngbTooltip]="'desgloseApp.valPeriodoDesglose.help.codTipoDes' | translate">Cod Tipo Des</span></dt>
+                <dd>
+                    <span>{{valPeriodoDesglose.codTipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.valPeriodoDesglose.codSubtipoDes" [ngbTooltip]="'desgloseApp.valPeriodoDesglose.help.codSubtipoDes' | translate">Cod Subtipo Des</span></dt>
+                <dd>
+                    <span>{{valPeriodoDesglose.codSubtipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.valPeriodoDesglose.codMoneda" [ngbTooltip]="'desgloseApp.valPeriodoDesglose.help.codMoneda' | translate">Cod Moneda</span></dt>
+                <dd>
+                    <span>{{valPeriodoDesglose.codMoneda}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.valPeriodoDesglose.fecPeriodo" [ngbTooltip]="'desgloseApp.valPeriodoDesglose.help.fecPeriodo' | translate">Fec Periodo</span></dt>
+                <dd>
+                    <span>{{valPeriodoDesglose.fecPeriodo}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.valPeriodoDesglose.codTipoConcep" [ngbTooltip]="'desgloseApp.valPeriodoDesglose.help.codTipoConcep' | translate">Cod Tipo Concep</span></dt>
+                <dd>
+                    <span>{{valPeriodoDesglose.codTipoConcep}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.valPeriodoDesglose.corConcepto" [ngbTooltip]="'desgloseApp.valPeriodoDesglose.help.corConcepto' | translate">Cor Concepto</span></dt>
+                <dd>
+                    <span>{{valPeriodoDesglose.corConcepto}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.valPeriodoDesglose.corValor" [ngbTooltip]="'desgloseApp.valPeriodoDesglose.help.corValor' | translate">Cor Valor</span></dt>
+                <dd>
+                    <span>{{valPeriodoDesglose.corValor}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.valPeriodoDesglose.valConcepto" [ngbTooltip]="'desgloseApp.valPeriodoDesglose.help.valConcepto' | translate">Val Concepto</span></dt>
+                <dd>
+                    <span>{{valPeriodoDesglose.valConcepto}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.valPeriodoDesglose.glsFrmlConcep" [ngbTooltip]="'desgloseApp.valPeriodoDesglose.help.glsFrmlConcep' | translate">Gls Frml Concep</span></dt>
+                <dd>
+                    <span>{{valPeriodoDesglose.glsFrmlConcep}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.valPeriodoDesglose.glsConcepto" [ngbTooltip]="'desgloseApp.valPeriodoDesglose.help.glsConcepto' | translate">Gls Concepto</span></dt>
+                <dd>
+                    <span>{{valPeriodoDesglose.glsConcepto}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.valPeriodoDesglose.valPrcConcep" [ngbTooltip]="'desgloseApp.valPeriodoDesglose.help.valPrcConcep' | translate">Val Prc Concep</span></dt>
+                <dd>
+                    <span>{{valPeriodoDesglose.valPrcConcep}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/val-periodo-desglose', valPeriodoDesglose.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

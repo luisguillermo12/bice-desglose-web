@@ -1,0 +1,637 @@
+{
+    "actividad": "AFP",
+    "actualizadoAl": "12-01-2019",
+    "auditor1": "Magril",
+    "auditor2": "Antonio Marrero Palomino",
+    "auditor3": "Wacamol",
+    "auditor4": "DET",
+    "calificacion1": "NO",
+    "calificacion2": "SI",
+    "calificacion3": "SI",
+    "calificacion4": "NO",
+    "codCliente": "12221312-k",
+    "codMoneda": "13",
+    "codSubtipoDes": "1",
+    "codTipoDes": "1",
+    "codTipoPlantilla": "0",
+    "datosBalance": [
+        {
+            "corConcept": "1",
+            "conceptName": "Efectivo y Equivalentes a Efectivo",
+            "period1Percent": "12",
+            "period1Value": "11",
+            "period2Percent": "12",
+            "period2Value": "44",
+            "period3Percent": "4",
+            "period3Value": "33",
+            "period4Percent": "6",
+            "period4Value": "45"
+        }, {
+            "corConcept": "1.1",
+            "conceptName": "Caja y Bancos",
+            "period1Percent": "12",
+            "period1Value": "131",
+            "period2Percent": "12",
+            "period2Value": "434",
+            "period3Percent": "4",
+            "period3Value": "333",
+            "period4Percent": "36",
+            "period4Value": "445"
+        }, {
+            "conceptName": "Fondos Mutuos",
+            "period1Percent": "12",
+            "period1Value": "611",
+            "period2Percent": "12",
+            "period2Value": "144",
+            "period3Percent": "4",
+            "period3Value": "393",
+            "period4Percent": "6",
+            "period4Value": "245"
+        }, {
+            "conceptName": "Productos en Proceso",
+            "period1Percent": "12",
+            "period1Value": "11",
+            "period2Percent": "12",
+            "period2Value": "44",
+            "period3Percent": "4",
+            "period3Value": "33",
+            "period4Percent": "6",
+            "period4Value": "45"
+        }, {
+            "conceptName": "Caja y Bancos",
+            "period1Percent": "12",
+            "period1Value": "131",
+            "period2Percent": "12",
+            "period2Value": "434",
+            "period3Percent": "4",
+            "period3Value": "333",
+            "period4Percent": "36",
+            "period4Value": "445"
+        }, {
+            "conceptName": "Fondos Mutuos",
+            "period1Percent": "12",
+            "period1Value": "611",
+            "period2Percent": "12",
+            "period2Value": "144",
+            "period3Percent": "4",
+            "period3Value": "393",
+            "period4Percent": "6",
+            "period4Value": "245"
+        }, {
+            "conceptName": "Productos en Proceso",
+            "period1Percent": "12",
+            "period1Value": "11",
+            "period2Percent": "12",
+            "period2Value": "44",
+            "period3Percent": "4",
+            "period3Value": "33",
+            "period4Percent": "6",
+            "period4Value": "45"
+        }, {
+            "conceptName": "Impuestos x Recuperar",
+            "period1Percent": "132",
+            "period1Value": "3",
+            "period2Percent": "12",
+            "period2Value": "424",
+            "period3Percent": "24",
+            "period3Value": "467",
+            "period4Percent": "2",
+            "period4Value": "899"
+        }, {
+            "conceptName": "Caja y Bancos",
+            "period1Percent": "12",
+            "period1Value": "131",
+            "period2Percent": "12",
+            "period2Value": "434",
+            "period3Percent": "4",
+            "period3Value": "333",
+            "period4Percent": "36",
+            "period4Value": "445"
+        }, {
+            "conceptName": "Caja y Bancos",
+            "period1Percent": "12",
+            "period1Value": "131",
+            "period2Percent": "12",
+            "period2Value": "434",
+            "period3Percent": "4",
+            "period3Value": "333",
+            "period4Percent": "36",
+            "period4Value": "445"
+        }, {
+            "conceptName": "Fondos Mutuos",
+            "period1Percent": "12",
+            "period1Value": "611",
+            "period2Percent": "12",
+            "period2Value": "144",
+            "period3Percent": "4",
+            "period3Value": "393",
+            "period4Percent": "6",
+            "period4Value": "245"
+        }, {
+            "conceptName": "Productos en Proceso",
+            "period1Percent": "12",
+            "period1Value": "11",
+            "period2Percent": "12",
+            "period2Value": "44",
+            "period3Percent": "4",
+            "period3Value": "33",
+            "period4Percent": "6",
+            "period4Value": "45"
+        }
+    ],
+    "datosEmpresasConsolidan": [
+        {
+            "companyName": "Inversiones Alcalá S.A.",
+            "period1Value": "45%",
+            "period2Value": "23%"
+        }, {
+            "companyName": "Servicios Financieros Uno S.A.",
+            "period1Value": "12%",
+            "period2Value": "100%"
+        }, {
+            "companyName": "Quintec Colombia S.A.",
+            "period1Value": "12%",
+            "period2Value": "100%"
+        }, {
+            "companyName": "Cred., Organizacion y Finanzas S.A.",
+            "period1Value": "12%",
+            "period2Value": "100%"
+        }, {
+            "companyName": "Escuela de Conductores Inacap S.A.",
+            "period1Value": "12%",
+            "period2Value": "100%"
+        }, {
+            "companyName": "Sepsa S.A.",
+            "period1Value": "12%",
+            "period2Value": "100%"
+        }, {
+            "companyName": "Kaigane Productos",
+            "period1Value": "12%",
+            "period2Value": "100%"
+        }, {
+            "companyName": "Sudamericana, Ag. Aéreas y Marítim ",
+            "period1Value": "12%",
+            "period2Value": "100%"
+        }, {
+            "companyName": "SB Berries S.A.",
+            "period1Value": "12%",
+            "period2Value": "100%"
+        }, {
+            "companyName": "Aeropuerto Chacalluta Soc Conces",
+            "period1Value": "100%",
+            "period2Value": "100%"
+        }
+    ],
+    "datosEstadoResultado": [
+        {
+            "corConcept": "1",
+            "conceptName": "Efectivo y Equivalentes a Efectivo",
+            "period1Percent": "12",
+            "period1Value": "11",
+            "period2Percent": "12",
+            "period2Value": "44",
+            "period3Percent": "4",
+            "period3Value": "33",
+            "period4Percent": "6",
+            "period4Value": "45"
+        }, {
+            "conceptName": "Productos en Proceso",
+            "period1Percent": "12",
+            "period1Value": "11",
+            "period2Percent": "12",
+            "period2Value": "44",
+            "period3Percent": "4",
+            "period3Value": "33",
+            "period4Percent": "6",
+            "period4Value": "45"
+        }, {
+            "conceptName": "Impuestos x Recuperar",
+            "period1Percent": "132",
+            "period1Value": "3",
+            "period2Percent": "12",
+            "period2Value": "424",
+            "period3Percent": "24",
+            "period3Value": "467",
+            "period4Percent": "2",
+            "period4Value": "899"
+        }, {
+            "conceptName": "Caja y Bancos",
+            "period1Percent": "12",
+            "period1Value": "131",
+            "period2Percent": "12",
+            "period2Value": "434",
+            "period3Percent": "4",
+            "period3Value": "333",
+            "period4Percent": "36",
+            "period4Value": "445"
+        }, {
+            "conceptName": "Fondos Mutuos",
+            "period1Percent": "12",
+            "period1Value": "611",
+            "period2Percent": "12",
+            "period2Value": "144",
+            "period3Percent": "4",
+            "period3Value": "393",
+            "period4Percent": "6",
+            "period4Value": "245"
+        }, {
+            "conceptName": "Productos en Proceso",
+            "period1Percent": "12",
+            "period1Value": "11",
+            "period2Percent": "12",
+            "period2Value": "44",
+            "period3Percent": "4",
+            "period3Value": "33",
+            "period4Percent": "6",
+            "period4Value": "45"
+        }, {
+            "conceptName": "Caja y Bancos",
+            "period1Percent": "12",
+            "period1Value": "131",
+            "period2Percent": "12",
+            "period2Value": "434",
+            "period3Percent": "4",
+            "period3Value": "333",
+            "period4Percent": "36",
+            "period4Value": "445"
+        }, {
+            "conceptName": "Fondos Mutuos",
+            "period1Percent": "12",
+            "period1Value": "611",
+            "period2Percent": "12",
+            "period2Value": "144",
+            "period3Percent": "4",
+            "period3Value": "393",
+            "period4Percent": "6",
+            "period4Value": "245"
+        }, {
+            "conceptName": "Productos en Proceso",
+            "period1Percent": "12",
+            "period1Value": "11",
+            "period2Percent": "12",
+            "period2Value": "44",
+            "period3Percent": "4",
+            "period3Value": "33",
+            "period4Percent": "6",
+            "period4Value": "45"
+        }, {
+            "conceptName": "Impuestos x Recuperar",
+            "period1Percent": "132",
+            "period1Value": "3",
+            "period2Percent": "12",
+            "period2Value": "424",
+            "period3Percent": "24",
+            "period3Value": "467",
+            "period4Percent": "2",
+            "period4Value": "899"
+        }, {
+            "conceptName": "Caja y Bancos",
+            "period1Percent": "12",
+            "period1Value": "131",
+            "period2Percent": "12",
+            "period2Value": "434",
+            "period3Percent": "4",
+            "period3Value": "333",
+            "period4Percent": "36",
+            "period4Value": "445"
+        }, {
+            "conceptName": "Fondos Mutuos",
+            "period1Percent": "12",
+            "period1Value": "611",
+            "period2Percent": "12",
+            "period2Value": "144",
+            "period3Percent": "4",
+            "period3Value": "393",
+            "period4Percent": "6",
+            "period4Value": "245"
+        }, {
+            "conceptName": "Productos en Proceso",
+            "period1Percent": "12",
+            "period1Value": "11",
+            "period2Percent": "12",
+            "period2Value": "44",
+            "period3Percent": "4",
+            "period3Value": "33",
+            "period4Percent": "6",
+            "period4Value": "45"
+        }, {
+            "conceptName": "Impuestos x Recuperar",
+            "period1Percent": "132",
+            "period1Value": "3",
+            "period2Percent": "12",
+            "period2Value": "424",
+            "period3Percent": "24",
+            "period3Value": "467",
+            "period4Percent": "2",
+            "period4Value": "899"
+        }, {
+            "conceptName": "Caja y Bancos",
+            "period1Percent": "12",
+            "period1Value": "131",
+            "period2Percent": "12",
+            "period2Value": "434",
+            "period3Percent": "4",
+            "period3Value": "333",
+            "period4Percent": "36",
+            "period4Value": "445"
+        }, {
+            "conceptName": "Fondos Mutuos",
+            "period1Percent": "12",
+            "period1Value": "611",
+            "period2Percent": "12",
+            "period2Value": "144",
+            "period3Percent": "4",
+            "period3Value": "393",
+            "period4Percent": "6",
+            "period4Value": "245"
+        }, {
+            "conceptName": "Productos en Proceso",
+            "period1Percent": "12",
+            "period1Value": "11",
+            "period2Percent": "12",
+            "period2Value": "44",
+            "period3Percent": "4",
+            "period3Value": "33",
+            "period4Percent": "6",
+            "period4Value": "45"
+        }, {
+            "conceptName": "Impuestos x Recuperar",
+            "period1Percent": "132",
+            "period1Value": "3",
+            "period2Percent": "12",
+            "period2Value": "424",
+            "period3Percent": "24",
+            "period3Value": "467",
+            "period4Percent": "2",
+            "period4Value": "899"
+        }
+    ],
+    "datosGenFondFlujEfectivo": [
+        {
+            "corConcept": "1",
+            "conceptName": "Efectivo y Equivalentes a Efectivo",
+            "period1Percent": "12",
+            "period1Value": "11",
+            "period2Percent": "12",
+            "period2Value": "44",
+            "period3Percent": "4",
+            "period3Value": "33",
+            "period4Percent": "6",
+            "period4Value": "45"
+        }, {
+            "corConcept": "1.1",
+            "conceptName": "Caja y Bancos",
+            "period1Percent": "12",
+            "period1Value": "131",
+            "period2Percent": "12",
+            "period2Value": "434",
+            "period3Percent": "4",
+            "period3Value": "333",
+            "period4Percent": "36",
+            "period4Value": "445"
+        }, {
+            "conceptName": "Fondos Mutuos",
+            "period1Percent": "12",
+            "period1Value": "611",
+            "period2Percent": "12",
+            "period2Value": "144",
+            "period3Percent": "4",
+            "period3Value": "393",
+            "period4Percent": "6",
+            "period4Value": "245"
+        }, {
+            "conceptName": "Productos en Proceso",
+            "period1Percent": "12",
+            "period1Value": "11",
+            "period2Percent": "12",
+            "period2Value": "44",
+            "period3Percent": "4",
+            "period3Value": "33",
+            "period4Percent": "6",
+            "period4Value": "45"
+        }, {
+            "conceptName": "Impuestos x Recuperar",
+            "period1Percent": "132",
+            "period1Value": "3",
+            "period2Percent": "12",
+            "period2Value": "424",
+            "period3Percent": "24",
+            "period3Value": "467",
+            "period4Percent": "2",
+            "period4Value": "899"
+        }, {
+            "conceptName": "Caja y Bancos",
+            "period1Percent": "12",
+            "period1Value": "131",
+            "period2Percent": "12",
+            "period2Value": "434",
+            "period3Percent": "4",
+            "period3Value": "333",
+            "period4Percent": "36",
+            "period4Value": "445"
+        }, {
+            "conceptName": "Fondos Mutuos",
+            "period1Percent": "12",
+            "period1Value": "611",
+            "period2Percent": "12",
+            "period2Value": "144",
+            "period3Percent": "4",
+            "period3Value": "393",
+            "period4Percent": "6",
+            "period4Value": "245"
+        }, {
+            "conceptName": "Productos en Proceso",
+            "period1Percent": "12",
+            "period1Value": "11",
+            "period2Percent": "12",
+            "period2Value": "44",
+            "period3Percent": "4",
+            "period3Value": "33",
+            "period4Percent": "6",
+            "period4Value": "45"
+        }, {
+            "conceptName": "Impuestos x Recuperar",
+            "period1Percent": "132",
+            "period1Value": "3",
+            "period2Percent": "12",
+            "period2Value": "424",
+            "period3Percent": "24",
+            "period3Value": "467",
+            "period4Percent": "2",
+            "period4Value": "899"
+        }, {
+            "conceptName": "Caja y Bancos",
+            "period1Percent": "12",
+            "period1Value": "131",
+            "period2Percent": "12",
+            "period2Value": "434",
+            "period3Percent": "4",
+            "period3Value": "333",
+            "period4Percent": "36",
+            "period4Value": "445"
+        }, {
+            "conceptName": "Fondos Mutuos",
+            "period1Percent": "12",
+            "period1Value": "611",
+            "period2Percent": "12",
+            "period2Value": "144",
+            "period3Percent": "4",
+            "period3Value": "393",
+            "period4Percent": "6",
+            "period4Value": "245"
+        }, {
+            "conceptName": "Productos en Proceso",
+            "period1Percent": "12",
+            "period1Value": "11",
+            "period2Percent": "12",
+            "period2Value": "44",
+            "period3Percent": "4",
+            "period3Value": "33",
+            "period4Percent": "6",
+            "period4Value": "45"
+        }, {
+            "conceptName": "Impuestos x Recuperar",
+            "period1Percent": "132",
+            "period1Value": "3",
+            "period2Percent": "12",
+            "period2Value": "424",
+            "period3Percent": "24",
+            "period3Value": "467",
+            "period4Percent": "2",
+            "period4Value": "899"
+        }
+    ],
+    "datosIndicadorFinanciero": [
+        {
+            "conceptName": "Impuestos x Recuperar",
+            "period1Percent": "132",
+            "period1Value": "3",
+            "period2Percent": "12",
+            "period2Value": "424",
+            "period3Percent": "24",
+            "period3Value": "467",
+            "period4Percent": "2",
+            "period4Value": "899"
+        }, {
+            "conceptName": "Caja y Bancos",
+            "period1Percent": "12",
+            "period1Value": "131",
+            "period2Percent": "12",
+            "period2Value": "434",
+            "period3Percent": "4",
+            "period3Value": "333",
+            "period4Percent": "36",
+            "period4Value": "445"
+        }, {
+            "conceptName": "Fondos Mutuos",
+            "period1Percent": "12",
+            "period1Value": "611",
+            "period2Percent": "12",
+            "period2Value": "144",
+            "period3Percent": "4",
+            "period3Value": "393",
+            "period4Percent": "6",
+            "period4Value": "245"
+        }, {
+            "conceptName": "Productos en Proceso",
+            "period1Percent": "12",
+            "period1Value": "11",
+            "period2Percent": "12",
+            "period2Value": "44",
+            "period3Percent": "4",
+            "period3Value": "33",
+            "period4Percent": "6",
+            "period4Value": "45"
+        }, {
+            "conceptName": "Impuestos x Recuperar",
+            "period1Percent": "132",
+            "period1Value": "3",
+            "period2Percent": "12",
+            "period2Value": "424",
+            "period3Percent": "24",
+            "period3Value": "467",
+            "period4Percent": "2",
+            "period4Value": "899"
+        }, {
+            "conceptName": "Caja y Bancos",
+            "period1Percent": "12",
+            "period1Value": "131",
+            "period2Percent": "12",
+            "period2Value": "434",
+            "period3Percent": "4",
+            "period3Value": "333",
+            "period4Percent": "36",
+            "period4Value": "445"
+        }, {
+            "conceptName": "Fondos Mutuos",
+            "period1Percent": "12",
+            "period1Value": "611",
+            "period2Percent": "12",
+            "period2Value": "144",
+            "period3Percent": "4",
+            "period3Value": "393",
+            "period4Percent": "6",
+            "period4Value": "245"
+        }
+    ],
+    "datosNotasDesglose": [
+        {
+            "corConcept": "(1)",
+            "conceptName": "Fondos Mutuos",
+            "header": true,
+            "period1Value": "-122.444",
+            "period2Value": "454.440",
+            "total": true
+        }, {
+            "corConcept": "(1)",
+            "conceptName": "Fondos Mutuos",
+            "header": true,
+            "period1Value": "-122.444",
+            "period2Value": "454.440",
+            "total": true
+        }, {
+            "conceptName": "Existencias",
+            "header": true,
+            "period1Value": "22.000",
+            "period2Value": "2212.120",
+            "total": true
+        }, {
+            "corConcept": "(1)",
+            "conceptName": "Fondos Mutuos",
+            "header": true,
+            "period1Value": "-122.444",
+            "period2Value": "454.440",
+            "total": true
+        }
+    ],
+    "datosObservaciones": [
+        {
+            "value": "Observacion 1"
+        }, {
+            "value": "Observacion 2 Observacion 2"
+        }, {
+            "value": "Observacion 3 Observacion 3 Observacion 3"
+        }
+    ],
+    "fecPerido1": "31-12-2016",
+    "fecPerido2": "31-12-2017",
+    "fecPerido3": "31-12-2018",
+    "fecPerido4": "31-12-2019",
+    "fileName": "informe-resumen-desglose-balance",
+    "iva": "12",
+    "moneda": "Dolar",
+    "montosEn": "Millones",
+    "nombreCliente": "Empresa Tutorial SA",
+    "numMeses1": "12",
+    "numMeses2": "12",
+    "numMeses3": "12",
+    "numMeses4": "2",
+    "rutCliente": "12221312-k",
+    "sector": "Desconocido",
+    "subSector": "Malls",
+    "subTipoDesglose": "Otra moneda",
+    "tipoDesglose": "Consolidado",
+    "tipoPlantillaDesglose": "Base BICE",
+    "nombreUsuario": "KIMONO KINDER",
+    "fechaModificacion": "31-12-2018"
+}

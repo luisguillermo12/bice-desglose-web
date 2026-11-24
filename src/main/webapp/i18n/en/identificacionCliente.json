@@ -1,0 +1,35 @@
+
+{
+    "desgloseApp": {
+        "identificacionCliente" : {
+            "home": {
+                "title": "Identificacion Clientes",
+                "createLabel": "Create a new Identificacion Cliente",
+                "createOrEditLabel": "Create or edit a Identificacion Cliente"
+            },
+            "created": "A new Identificacion Cliente is created with identifier {{ param }}",
+            "updated": "A Identificacion Cliente is updated with identifier {{ param }}",
+            "deleted": "A Identificacion Cliente is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Identificacion Cliente {{ id }}?"
+            },
+            "detail": {
+                "title": "Identificacion Cliente"
+            },
+            "numCliente": "Num Cliente",
+            "codTipoIden": "Cod Tipo Iden",
+            "numIden": "Num Iden",
+            "fecCreacion": "Fec Creacion",
+            "codRegStatus": "Cod Reg Status",
+            "codRegLog": "Cod Reg Log",
+            "help": {
+                "numCliente": "Número del cliente.",
+                "codTipoIden": "Tipo de identificación del cliente.",
+                "numIden": "Rut del cliente.",
+                "fecCreacion": "Fecha de creación.",
+                "codRegStatus": "Código de vigencia del registro.",
+                "codRegLog": "Código de modificación del registro."
+            }
+        }
+    }
+}

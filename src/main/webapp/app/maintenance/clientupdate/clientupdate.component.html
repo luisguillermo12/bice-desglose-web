@@ -1,0 +1,94 @@
+<div class="container">
+    <div class="card-header hand-pointer" (click)="isCollapsedDataPanel = !isCollapsedDataPanel" [attr.aria-expanded]="!isCollapsedDataPanel" aria-controls="collapsedDataPanel">
+        <div class="row">
+            <span class="col-sm-11" jhiTranslate="clientupdate.title"></span>
+            <span class="col-sm-1">
+                <fa-icon class="float-sm-right fa-sm" [icon]="isCollapsedDataPanel ? ICON_CARD_OPEN : ICON_CARD_CLOSE"></fa-icon>
+            </span>
+        </div>
+    </div>
+    <div class="card-body" [ngbCollapse]="isCollapsedDataPanel" id="collapsedDataPanel">
+        <form   novalidate="" class="form-inline">
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label class="col-sm-4 col-form-label col-form-label-sm" jhiTranslate="clientupdate.nombre" for="field_nombre"></label>
+                <input type="text"  class="form-control form-control-sm col-sm-6"  id="field_nombre" (keyup)='filterDatatableName($event)'>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="col-sm-4 col-form-label col-form-label-sm" jhiTranslate="clientupdate.apellidoPaterno" for="field_apellidoPaterno"></label>
+                <input type="text" class="form-control form-control-sm col-sm-6"  id="field_apellidoPaterno"
+                       (keyup)='filterDatatableApellidoP($event)'/>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="col-sm-4 col-form-label col-form-label-sm" jhiTranslate="clientupdate.apellidoMaterno" for="field_apellidoMaterno"></label>
+                <input type="text" class="form-control form-control-sm col-sm-6"  id="field_apellidoMaterno"
+                       (keyup)='filterDatatableApellidoM($event)'/>
+            </div>
+        </div>
+        </form>
+        <ngx-datatable
+            #table
+            [messages]="{emptyMessage: 'footer.emptyMessage' | translate, selectedMessage: 'footer.selected' | translate, totalMessage: 'footer.total' | translate}"
+            style="width: 100%"
+            class="material"
+            [rows]="data"
+            [columnMode]="'force'"
+            [footerHeight]="50"
+            [rowHeight]="'auto'"
+            [limit]="10">
+            <!-- <ngx-datatable-column>
+                 <ng-template let-column="column" ngx-datatable-header-template>
+                     Codigo Cliente
+                 </ng-template>
+                 <ng-template let-row="row" ngx-datatable-cell-template>
+                     {{row.codCliente}}
+                 </ng-template>
+             </ngx-datatable-column>-->
+            <ngx-datatable-column>
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    Nombre Cliente
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.nomCliente}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column>
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    Apellido Paterno
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.nomPaterno}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column>
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    Apellido Materno
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.nomMaterno}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column>
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    Actividad
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.actividad}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column>
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    Editar
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    <button type="submit"
+                            [routerLink]="['/clientupdate',row.codCliente, 'edit']"
+                            class="btn btn-primary btn-sm">
+                        <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                        <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                    </button>
+                </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
+    </div>
+</div>

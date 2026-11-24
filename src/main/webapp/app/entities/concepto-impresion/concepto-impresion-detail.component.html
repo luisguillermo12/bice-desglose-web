@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="conceptoImpresion">
+            <h2><span jhiTranslate="desgloseApp.conceptoImpresion.detail.title">Concepto Impresion</span></h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.conceptoImpresion.codCliente" [ngbTooltip]="'desgloseApp.conceptoImpresion.help.codCliente' | translate">Cod Cliente</span></dt>
+                <dd>
+                    <span>{{conceptoImpresion.codCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.conceptoImpresion.codTipoDes" [ngbTooltip]="'desgloseApp.conceptoImpresion.help.codTipoDes' | translate">Cod Tipo Des</span>
+                </dt>
+                <dd>
+                    <span>{{conceptoImpresion.codTipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.conceptoImpresion.codSubtipoDes"
+                          [ngbTooltip]="'desgloseApp.conceptoImpresion.help.codSubtipoDes' | translate">Cod Subtipo Des</span></dt>
+                <dd>
+                    <span>{{conceptoImpresion.codSubtipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.conceptoImpresion.codMoneda" [ngbTooltip]="'desgloseApp.conceptoImpresion.help.codMoneda' | translate">Cod Moneda</span></dt>
+                <dd>
+                    <span>{{conceptoImpresion.codMoneda}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.conceptoImpresion.codTipoConcep"
+                          [ngbTooltip]="'desgloseApp.conceptoImpresion.help.codTipoConcep' | translate">Cod Tipo Concep</span></dt>
+                <dd>
+                    <span>{{conceptoImpresion.codTipoConcep}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.conceptoImpresion.corConcepto" [ngbTooltip]="'desgloseApp.conceptoImpresion.help.corConcepto' | translate">Cor Concepto</span>
+                </dt>
+                <dd>
+                    <span>{{conceptoImpresion.corConcepto}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/concepto-impresion', conceptoImpresion.codCliente, conceptoImpresion.codTipoDes, conceptoImpresion.codSubtipoDes, conceptoImpresion.codMoneda,
+                    conceptoImpresion.codTipoConcep, conceptoImpresion.corConcepto, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

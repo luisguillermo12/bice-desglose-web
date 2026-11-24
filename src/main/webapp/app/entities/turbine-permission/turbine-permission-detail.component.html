@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="turbinePermission">
+            <h2><span jhiTranslate="desgloseApp.turbinePermission.detail.title">Turbine Permission</span> {{turbinePermission.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.turbinePermission.permissionId">Permission Id</span></dt>
+                <dd>
+                    <span>{{turbinePermission.permissionId}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.turbinePermission.permissionName">Permission Name</span></dt>
+                <dd>
+                    <span>{{turbinePermission.permissionName}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.turbinePermission.objectdata">Objectdata</span></dt>
+                <dd>
+                    <div *ngIf="turbinePermission.objectdata">
+                        <a (click)="openFile(turbinePermission.objectdataContentType, turbinePermission.objectdata)" jhiTranslate="entity.action.open">open</a>
+                        {{turbinePermission.objectdataContentType}}, {{byteSize(turbinePermission.objectdata)}}
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/turbine-permission', turbinePermission.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="desgloseChequeoLog">
+            <h2><span jhiTranslate="desgloseApp.desgloseChequeoLog.detail.title">Desglose Chequeo Log</span> {{desgloseChequeoLog.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoLog.codTipoProceso" [ngbTooltip]="'desgloseApp.desgloseChequeoLog.help.codTipoProceso' | translate">Cod Tipo Proceso</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoLog.codTipoProceso}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoLog.codCliente" [ngbTooltip]="'desgloseApp.desgloseChequeoLog.help.codCliente' | translate">Cod Cliente</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoLog.codCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoLog.codTipoDes" [ngbTooltip]="'desgloseApp.desgloseChequeoLog.help.codTipoDes' | translate">Cod Tipo Des</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoLog.codTipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoLog.codSubtipoDes" [ngbTooltip]="'desgloseApp.desgloseChequeoLog.help.codSubtipoDes' | translate">Cod Subtipo Des</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoLog.codSubtipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoLog.codMoneda" [ngbTooltip]="'desgloseApp.desgloseChequeoLog.help.codMoneda' | translate">Cod Moneda</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoLog.codMoneda}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoLog.fecLog" [ngbTooltip]="'desgloseApp.desgloseChequeoLog.help.fecLog' | translate">Fec Log</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoLog.fecLog}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseChequeoLog.glsLog" [ngbTooltip]="'desgloseApp.desgloseChequeoLog.help.glsLog' | translate">Gls Log</span></dt>
+                <dd>
+                    <span>{{desgloseChequeoLog.glsLog}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/desglose-chequeo-log', desgloseChequeoLog.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

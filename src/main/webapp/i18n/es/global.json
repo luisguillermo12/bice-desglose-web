@@ -1,0 +1,223 @@
+{
+    "global": {
+        "applicationTitle": "Plataforma de Desglose de Balance",
+        "title": "Desglose",
+        "version": "Versión: ",
+        "browsehappy": "Está usando un navegador <strong>no actualizado</strong>. Por favor, <a href=\"http://browsehappy.com/?locale=en\">actualice su navegador</a> para mejorar su experiencia.",
+        "menu": {
+            "home": "Inicio",
+            "breakdown": "Desglose",
+            "query": "Consulta",
+            "revision": "Revisión",
+            "projections": "Proyecciones",
+            "maintenance": {
+                "main": "Mantenimiento",
+                "replacement": "Reemplazos",
+                "positionConfig": "Configuración de cargos",
+                "groupConfig": "Configuración de grupos",
+                "reviserConfig": "Configuración de revisores",
+                "updateClientNoRutInfo": "Actualización info. cliente sin rut",
+                "templateDesglo": "Plantillas de desglose",
+                "templateProyect": "Plantillas de Proyecciones",
+                "Log": "Log de Servidor"
+            },
+            "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
+            "entities": {
+                "main": "Entidades",
+                "desglose": "Desglose",
+                "periodo": "Periodo",
+                "valPeriodoDesglose": "Val Periodo Desglose",
+                "valPeriodoDesgImpr": "Val Periodo Desg Impr",
+                "empresaConsolidada": "Empresa Consolidada",
+                "conceptoImpresion": "Concepto Impresion",
+                "periodoDesgConsol": "Periodo Desg Consol",
+                "periodoDesgImpresion": "Periodo Desg Impresion",
+                "desgloseImpresion": "Desglose Impresion",
+                "desgloseRevision": "Desglose Revision",
+                "desgloseFirma": "Desglose Firma",
+                "desgloseGrupo": "Desglose Grupo",
+                "desgloseReemplazo": "Desglose Reemplazo",
+                "desgloseMensaje": "Desglose Mensaje",
+                "desgloseAuditoria": "Desglose Auditoria",
+                "clienteSinRut": "Cliente Sin Rut",
+                "desgloseChequeoLog": "Desglose Chequeo Log",
+                "desgloseChequeoInfo": "Desglose Chequeo Info",
+                "desgloseRevisionLog": "Desglose Revision Log",
+                "cuadre": "Cuadre",
+                "concepto": "Concepto",
+                "clienteBasico": "Cliente Basico",
+                "clienteNatural": "Cliente Natural",
+                "identificacionCliente": "Identificacion Cliente",
+                "clienteJuridico": "Cliente Juridico",
+                "turbineRole": "Turbine Role",
+                "turbineGroup": "Turbine Group",
+                "turbinePermission": "Turbine Permission",
+                "turbineUser": "Turbine User",
+                "turbineRolePermission": "Turbine Role Permission",
+                "turbineUserGroupRole": "Turbine User Group Role",
+                "descripcionCodigo": "Mantenedor Codigos",
+                "relacionTabla": "Relacion Tabla",
+                "tablaValor": "Tabla Valor",
+                "tablaServicioMail": "Tabla Servicio Mail",
+                "tablaServMailDest": "Tabla Serv Mail Dest",
+                "sfStfOperator": "Sf Stf Operator",
+                "uniqueSessionControl": "Control de sesión única",
+                "blackListJwt": "Lista negra de tokens JWT",
+                "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+            },
+            "account": {
+                "main": "Cuenta",
+                "settings": "Ajustes",
+                "password": "Contraseña",
+                "sessions": "Sesiones",
+                "login": "Iniciar sesión",
+                "logout": "Cerrar la sesión",
+                "register": "Crear una cuenta"
+            },
+            "admin": {
+                "main": "Administración",
+                "userManagement": "Gestión de usuarios",
+                "tracker": "Registro de los usuarios",
+                "metrics": "Métricas",
+                "health": "Salud",
+                "configuration": "Configuración",
+                "logs": "Logs",
+                "audits": "Auditorías",
+                "apidocs": "API",
+                "database": "Base de datos",
+                "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
+            },
+            "language": "Idioma"
+        },
+        "form": {
+            "username": "Usuario:",
+            "username.placeholder": "Nombre de usuario",
+            "currentpassword": "Current password",
+            "currentpassword.placeholder": "Current password",
+            "newpassword": "Nueva contraseña",
+            "newpassword.placeholder": "Nueva contraseña",
+            "confirmpassword": "Confirmación de la nueva contraseña",
+            "confirmpassword.placeholder": "Confirmación de la nueva contraseña",
+            "email": "Correo electrónico",
+            "email.placeholder": "Su correo electrónico",
+            "accept": "Aceptar",
+            "close": "Cerrar",
+            "cancel": "Cancelar",
+            "selectAll": "Sel. todo",
+            "breakdownCurrency": "Moneda de desglose",
+            "printCurrency": "Moneda de impreso",
+            "date": "Fecha",
+            "baseDeflator": "Deflactor base",
+            "currency": "Moneda",
+            "monetaryUnit": "Unidad monetaria",
+            "next": "Siguiente",
+            "yes": "Si",
+            "no": "No",
+            "previous": "Anterior"
+        },
+        "messages": {
+            "info": {
+                "authenticated": {
+                    "prefix": "Si desea ",
+                    "link": "iniciar una sesión",
+                    "suffix": ", puede intentar con las cuentas predeterminadas:<br/>- Administrator (usuario=\"admin\" y contraseña=\"admin\") <br/>- Usuario (usuario=\"user\" y contraseña=\"user\")."
+                },
+                "register": {
+                    "noaccount": "¿No tienes una cuenta todavía?",
+                    "link": "Crea una cuenta"
+                }
+            },
+            "error": {
+                "dontmatch": "¡La contraseña y la confirmación de contraseña no coinciden!"
+            },
+            "validate": {
+                "newpassword": {
+                    "required": "Se requiere que ingrese una contraseña.",
+                    "minlength": "Se requiere que su contraseña tenga por lo menos 5 caracteres",
+                    "maxlength": "Su contraseña no puede tener más de 50 caracteres",
+                    "strength": "Seguridad de la contraseña:"
+                },
+                "confirmpassword": {
+                    "required": "Se requiere que confirme la contraseña.",
+                    "minlength": "Se requiere que su contraseña de confirmación tenga por lo menos 5 caracteres",
+                    "maxlength": "Su contraseña de confirmación no puede tener más de 50 caracteres"
+                },
+                "email": {
+                    "required": "Se requiere un correo electrónico.",
+                    "invalid": "Su correo electrónico no es válido.",
+                    "minlength": "Se requiere que su correo electrónico tenga por lo menos 5 caracteres",
+                    "maxlength": "Su correo electrónico no puede tener más de 50 caracteres"
+                }
+            }
+        },
+        "field": {
+            "id": "ID"
+        },
+        "ribbon": {
+            "dev": "Development"
+        },
+        "item-count": "Monstrando {{first}} - {{second}} de {{total}} artículos."
+    },
+    "entity": {
+        "action": {
+            "addblob": "Añadir fichero",
+            "addimage": "Añadir imagen",
+            "back": "Volver",
+            "cancel": "Cancelar",
+            "delete": "Eliminar",
+            "edit": "Editar",
+            "open": "Open",
+            "save": "Guardar",
+            "view": "Vista"
+        },
+        "detail": {
+            "field": "Campo",
+            "value": "Valor"
+        },
+        "delete": {
+            "title": "Confirmar operación de borrado"
+        },
+        "validation": {
+            "required": "Este campo es obligatorio.",
+            "minlength": "Este campo requiere al menos {{min}} caracteres.",
+            "maxlength": "Este campo no puede superar más de {{max}} caracteres.",
+            "min": "Este campo debe ser mayor que {{min}}.",
+            "max": "Este campo no puede ser mayor que {{max}}.",
+            "minbytes": "Este campo debe tener como mínimo {{min}} bytes.",
+            "maxbytes": "Este campo no puede tener más de {{max}} bytes.",
+            "pattern": "Este campo debe seguir el patrón {{pattern}}.",
+            "patternname": "El campo contiene caracteres que no son válidos.",
+            "patternrut": "El campo contiene caracteres que no son válidos.",
+            "patternDeflactor": "El campo deflactor no es válido.",
+            "number": "Este campo debe ser un número.",
+            "datetimelocal": "Este campo debe ser una fecha y hora."
+        }
+    },
+    "error": {
+        "breakdownAlreadyExists": "Ya existe un desglose con los datos seleccionados.",
+        "theFieldNameIsEmpty": "El campo nombre no puede ser vacío.",
+        "internalServerError": "Ha ocurrido un error inesperado. Por favor intente otra vez. Si el error persiste contacte al administrador.",
+        "server.not.reachable": "Servidor no accesible",
+        "url.not.found": "Not found",
+        "NotNull": "¡El campo {{fieldName}} no puede estar vacío!",
+        "Size": "¡El campo {{fieldName}} no cumple con los requisitos de tamaño mínimo/máximo!",
+        "userexists": "Login name already used!",
+        "emailexists": "Email is already in use!",
+        "idexists": "A new {{entityName}} cannot already have an ID",
+        "idnull": "Invalid ID",
+        "notValidId": "A new {{entityName}} must have an valid ID",
+        "idNotFound": "ID inválido. No se encontraron resultados para el ID brindado."
+    },
+    "footer": {
+        "total": "total",
+        "selected": "seleccionado",
+        "tittle": "pie de página",
+        "emptyMessage": "No hay datos para mostrar",
+        "footerUserRole": "[Revisor vinculado es {{reviewerName}}]"
+    },
+    "info": {
+        "title": "Información",
+        "sessionExpired": "Su sesión ha expirado.",
+        "sessionWillBeClosed": "Su sesión será cerrada automáticamente en {{ countdown }} segundos ¿Desea continuar trabajando?"
+    }
+}

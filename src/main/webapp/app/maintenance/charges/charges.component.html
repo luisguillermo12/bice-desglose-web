@@ -1,0 +1,157 @@
+<div class="container">
+    <!--<div class="card">-->
+    <div class="card-header hand-pointer" (click)="isCollapsedDataPanel = !isCollapsedDataPanel" [attr.aria-expanded]="!isCollapsedDataPanel"
+         aria-controls="collapsedDataPanel">
+        <div class="row">
+            <span class="col-sm-11" jhiTranslate="charges.title"></span>
+            <span class="col-sm-1">
+                <fa-icon class="float-sm-right fa-sm" [icon]="isCollapsedDataPanel ? ICON_CARD_OPEN : ICON_CARD_CLOSE"></fa-icon>
+            </span>
+        </div>
+    </div>
+    <div class="card-body" [ngbCollapse]="isCollapsedDataPanel" id="collapsedDataPanel">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="row">
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-10 card">
+                        <div class="card-body" style="padding: 0">
+                            <p jhiTranslate="charges.boss"></p>
+                            <ngx-datatable
+                                [messages]="{emptyMessage: 'footer.emptyMessage' | translate, selectedMessage: 'footer.selected' | translate, totalMessage: 'footer.total' | translate}"
+                                *ngIf="jefes?.length > 0"
+                                class="material"
+                                [rows]="jefes"
+                                [columnMode]="'force'"
+                                [footerHeight]="50"
+                                [rowHeight]="'auto'"
+                                [limit]="10"
+                                [selected]="selectedJefes"
+                                [selectionType]="'single'"
+                                (select)='onSelectJefes($event)'>
+                                <ngx-datatable-column>
+                                    <ng-template let-column="column" ngx-datatable-header-template>
+                                        <span>Login</span>
+                                    </ng-template>
+                                    <ng-template let-row="row" ngx-datatable-cell-template>
+                                        {{row.loginName}}
+                                    </ng-template>
+                                </ngx-datatable-column>
+                                <ngx-datatable-column name="Nombre"></ngx-datatable-column>
+                            </ngx-datatable>
+                        </div>
+                    </div>
+                    <div class="col-md-2" style="text-align: center">
+                        <button class="btn btn-primary btn-block btn-sm" (click)="onClickAsociarJefe($event)">
+                            <fa-icon [icon]="'angle-left'"></fa-icon>
+                        </button>
+                        <button class="btn btn-primary btn-block btn-sm" (click)="onClickEliminarJefe($event)">
+                            <fa-icon [icon]="'angle-right'"></fa-icon>
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 card">
+                        <div class="card-body" style="padding: 0">
+                            <p jhiTranslate="charges.reviewer"></p>
+                            <ngx-datatable
+                                [messages]="{emptyMessage: 'footer.emptyMessage' | translate, selectedMessage: 'footer.selected' | translate, totalMessage: 'footer.total' | translate}"
+                                *ngIf="revisores?.length > 0"
+                                class="material"
+                                [rows]="revisores"
+                                [columnMode]="'force'"
+                                [footerHeight]="50"
+                                [rowHeight]="'auto'"
+                                [limit]="10"
+                                [selected]="selectedRevisores"
+                                [selectionType]="'single'"
+                                (select)='onSelectRevisores($event)'>
+                                <ngx-datatable-column>
+                                    <ng-template let-column="column" ngx-datatable-header-template>
+                                        <span>Login</span>
+                                    </ng-template>
+                                    <ng-template let-row="row" ngx-datatable-cell-template>
+                                        {{row.loginName}}
+                                    </ng-template>
+                                </ngx-datatable-column>
+                                <ngx-datatable-column name="Nombre"></ngx-datatable-column>
+                            </ngx-datatable>
+                        </div>
+                    </div>
+                    <div class="col-md-2" style="text-align: center">
+                        <button class="btn btn-primary btn-block btn-sm" (click)="onClickAsociarRevisor($event)">
+                            <fa-icon [icon]="'angle-left'"></fa-icon>
+                        </button>
+                        <button class="btn btn-primary btn-block btn-sm" (click)="onClickEliminarRevisor($event)">
+                            <fa-icon [icon]="'angle-right'"></fa-icon>
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 card">
+                        <div class="card-body" style="padding: 0">
+                            <p jhiTranslate="charges.executor"></p>
+                            <ngx-datatable
+                                [messages]="{emptyMessage: 'footer.emptyMessage' | translate, selectedMessage: 'footer.selected' | translate, totalMessage: 'footer.total' | translate}"
+                                *ngIf="ejecutores?.length > 0"
+                                class="material"
+                                [rows]="ejecutores"
+                                [columnMode]="'force'"
+                                [footerHeight]="50"
+                                [rowHeight]="'auto'"
+                                [limit]="10"
+                                [selected]="selectedEjecutores"
+                                [selectionType]="'single'"
+                                (select)='onSelectEjecutores($event)'>
+                                <ngx-datatable-column>
+                                    <ng-template let-column="column" ngx-datatable-header-template>
+                                        <span>Login</span>
+                                    </ng-template>
+                                    <ng-template let-row="row" ngx-datatable-cell-template>
+                                        {{row.loginName}}
+                                    </ng-template>
+                                </ngx-datatable-column>
+                                <ngx-datatable-column name="Nombre"></ngx-datatable-column>
+                            </ngx-datatable>
+                        </div>
+                    </div>
+                    <div class="col-md-2" style="text-align: center">
+                        <button class="btn btn-primary btn-block btn-sm" (click)="onClickAsociarEjecutor($event)">
+                            <fa-icon [icon]="'angle-left'"></fa-icon>
+                        </button>
+                        <button class="btn btn-primary btn-block btn-sm" (click)="onClickEliminarEjecutor($event)">
+                            <fa-icon [icon]="'angle-right'"></fa-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 card">
+                <div class="card-body">
+                    <ngx-datatable
+                        [messages]="{emptyMessage: 'footer.emptyMessage' | translate, selectedMessage: 'footer.selected' | translate, totalMessage: 'footer.total' | translate}"
+                        *ngIf="usuarios?.length > 0"
+                        class="material sticky-scroll-element"
+                        [rows]="usuarios"
+                        [columnMode]="'force'"
+                        [footerHeight]="50"
+                        [rowHeight]="'auto'"
+                        [limit]="30"
+                        [selected]="selectedUsuarios"
+                        [selectionType]="'single'"
+                        (select)='onSelectUsuarios($event)'>
+                        <ngx-datatable-column>
+                            <ng-template let-column="column" ngx-datatable-header-template>
+                                <span>Login</span>
+                            </ng-template>
+                            <ng-template let-row="row" ngx-datatable-cell-template>
+                                {{row.loginName}}
+                            </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="Nombre"></ngx-datatable-column>
+                    </ngx-datatable>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--</div>-->
+</div>

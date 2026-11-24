@@ -1,0 +1,112 @@
+<div class="modal-header">
+    <h4 class="modal-title"><span jhiTranslate="{{'breakdown.newClient.title' + (withRut ? 'WithRut' : 'NoRut')}}"></span></h4>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            (click)="closeModal()">&times;
+    </button>
+</div>
+<div class="modal-body">
+    <jhi-alert></jhi-alert>
+    <jhi-alert-error></jhi-alert-error>
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <form name="newClientDataForm" role="form" novalidate #newClientDataForm="ngForm" id="newClientDataForm">
+                <div class="form-group row">
+                    <label for="field_clientType" class="col-sm-3 col-form-label" jhiTranslate="breakdown.newClient.clientType"></label>
+                    <div class="col-sm-9">
+                        <select class="form-control form-control-sm" id="field_clientType" name="clientType" [(ngModel)]="newClient.clientType" ngbAutofocus
+                                (change)="onClientTypeChange($event.target.value)">
+                            <!--<option [ngValue]="annoTributaOption.id === ahorro.annoTributa?.id ? ahorro.annoTributa : annoTributaOption" *ngFor="let el of activities;">{{el}}-->
+                            <option [ngValue]="el.codGenerico" *ngFor="let el of (simpleComboboxTypes | filterDescripcionCodigo:CODTABLA_TIPO_CLIENTE)">{{ el.glsGenericalarga }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row disabled" *ngIf="withRut">
+                    <label for="field_rut" class="col-sm-3 col-form-label" jhiTranslate="breakdown.newClient.rut"></label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control form-control-sm text-uppercase" name="rut" id="field_rut" disabled
+                               value="{{newClient.rut + '' + newClient.rutVerificationNumber}}"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="field_name" class="col-sm-3 col-form-label" jhiTranslate="{{'breakdown.newClient.' + (isCompany ? 'nameCompany' : 'name')}}"></label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control form-control-sm text-uppercase" name="name" id="field_name" [(ngModel)]="newClient.name" required maxlength="40"/>
+                        <div [hidden]="!(newClientDataForm.controls.name?.dirty && newClientDataForm.controls.name?.invalid)">
+                            <small class="form-text text-danger" [hidden]="!newClientDataForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required"></small>
+                            <small class="form-text text-danger" [hidden]="!newClientDataForm.controls.name?.errors?.pattern" jhiTranslate="entity.validation.patternname"></small>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row" *ngIf="!isCompany">
+                    <label for="field_fatherLastName" class="col-sm-3 col-form-label" jhiTranslate="breakdown.newClient.fatherLastName"></label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control form-control-sm text-uppercase" name="fatherLastName" id="field_fatherLastName" required maxlength="20"
+                               [(ngModel)]="newClient.fatherLastName"/>
+                        <div [hidden]="!(newClientDataForm.controls.fatherLastName?.dirty && newClientDataForm.controls.fatherLastName?.invalid)">
+                            <small class="form-text text-danger" [hidden]="!newClientDataForm.controls.fatherLastName?.errors?.required"
+                                   jhiTranslate="entity.validation.required"></small>
+                            <small class="form-text text-danger" [hidden]="!newClientDataForm.controls.fatherLastName?.errors?.pattern"
+                                   jhiTranslate="entity.validation.patternname"></small>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row" *ngIf="!isCompany">
+                    <label for="field_motherLastName" class="col-sm-3 col-form-label" jhiTranslate="breakdown.newClient.motherLastName"></label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control form-control-sm text-uppercase" name="motherLastName" id="field_motherLastName" required maxlength="20"
+                               [(ngModel)]="newClient.motherLastName"/>
+                        <div [hidden]="!(newClientDataForm.controls.motherLastName?.dirty && newClientDataForm.controls.motherLastName?.invalid)">
+                            <small class="form-text text-danger" [hidden]="!newClientDataForm.controls.motherLastName?.errors?.required"
+                                   jhiTranslate="entity.validation.required"></small>
+                            <small class="form-text text-danger" [hidden]="!newClientDataForm.controls.motherLastName?.errors?.pattern"
+                                   jhiTranslate="entity.validation.patternname"></small>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row" *ngIf="isCompany">
+                    <label for="field_sector" class="col-sm-3 col-form-label" jhiTranslate="breakdown.newClient.sector"></label>
+                    <div class="col-sm-9">
+                        <select class="form-control form-control-sm" id="field_sector" name="sector" [(ngModel)]="sector"
+                                (change)="onSubSectorChange($event)" (change)="onActividadEconomicaChange($event)">
+                            <!--<option [ngValue]="annoTributaOption.id === ahorro.annoTributa?.id ? ahorro.annoTributa : annoTributaOption" *ngFor="let el of activities;">{{el}}-->
+                            <option [ngValue]="el.codSector" *ngFor="let el of sectorTypes;">{{el.glsSector}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row" *ngIf="isCompany">
+                    <label for="field_subSector" class="col-sm-3 col-form-label" jhiTranslate="breakdown.newClient.subSector"></label>
+                    <div class="col-sm-9">
+                        <select class="form-control form-control-sm" id="field_subSector" name="subSector" [(ngModel)]="newClient.subSector">
+                            <!--<option [ngValue]="annoTributaOption.id === ahorro.annoTributa?.id ? ahorro.annoTributa : annoTributaOption" *ngFor="let el of activities;">{{el}}-->
+                            <option [ngValue]="el.codSubSector" *ngFor="let el of subSectorTypes;">{{el.glsSubSector}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row" *ngIf="isCompany">
+                    <label for="field_activity" class="col-sm-3 col-form-label" jhiTranslate="breakdown.newClient.economicActivity"></label>
+                    <div class="col-sm-9">
+                        <select class="form-control form-control-sm" id="field_activity" name="activity" [(ngModel)]="newClient.activity">
+                            <option [ngValue]="-1"></option>
+                            <!--<option [ngValue]="annoTributaOption.id === ahorro.annoTributa?.id ? ahorro.annoTributa : annoTributaOption" *ngFor="let el of activities;">{{el}}-->
+                            <option [ngValue]="el.codActividad" *ngFor="let el of economicActivities">{{ el.glsActividad }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-8"></div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-default btn-block btn-custom-font-size-1" (click)="onClickCancel()">
+                            <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="global.form.cancel"></span>
+                        </button>
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-primary btn-block btn-custom-font-size-1" (click)="onClickSaveClient()" [disabled]="newClientDataForm.form.invalid || isSaving">
+                            <fa-icon [icon]="'check'"></fa-icon>&nbsp;<span jhiTranslate="global.form.accept"></span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

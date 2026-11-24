@@ -1,0 +1,24 @@
+
+{
+    "desgloseApp": {
+        "turbineGroup" : {
+            "home": {
+                "title": "Turbine Groups",
+                "createLabel": "Create a new Turbine Group",
+                "createOrEditLabel": "Create or edit a Turbine Group"
+            },
+            "created": "A new Turbine Group is created with identifier {{ param }}",
+            "updated": "A Turbine Group is updated with identifier {{ param }}",
+            "deleted": "A Turbine Group is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Turbine Group {{ id }}?"
+            },
+            "detail": {
+                "title": "Turbine Group"
+            },
+            "groupId": "Group Id",
+            "groupName": "Group Name",
+            "objectdata": "Objectdata"
+        }
+    }
+}

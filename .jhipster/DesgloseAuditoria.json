@@ -1,0 +1,109 @@
+{
+    "name": "DesgloseAuditoria",
+    "fields": [
+        {
+            "fieldName": "codCliente",
+            "javadoc": "Rut de cliente.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codTipoDes",
+            "javadoc": "Tipo de desglose.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codSubtipoDes",
+            "javadoc": "Subtipo de desglose.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codMoneda",
+            "javadoc": "Código de moneda.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fecEvento",
+            "javadoc": "Fecha de ocurrencia de evento.",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numLinea",
+            "javadoc": "Numero de línea.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codEvento",
+            "javadoc": "Cambio estado - Reemplazo - Validación - Desvinculación digitador.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rolEmpleadoAccion",
+            "javadoc": "Rol empleado que realiza la acción.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "glsRol",
+            "javadoc": "Rol de quien realiza la acción (Digitador - Revisor).",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codEstadoOri",
+            "javadoc": "Estado original o anterior.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codEstadoNvo",
+            "javadoc": "Nuevo estado.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rolEmpleadoOri",
+            "javadoc": "Rol empleado original.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rolEmpleadoNvo",
+            "javadoc": "Rol empleado nuevo.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "flgResultValid",
+            "javadoc": "OK - NOK.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "glsComentario",
+            "javadoc": "Comentario asociado.",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181011140729",
+    "javadoc": "Representa la tabla \"DESGLO_AUDIT_WK\" que contiene información de auditoría de desgloses. Pertenece al esquema CIF_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "desglose_auditoria",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

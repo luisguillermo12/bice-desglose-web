@@ -1,0 +1,89 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-identificacion-cliente-heading" jhiTranslate="desgloseApp.identificacionCliente.home.createOrEditLabel">Create or edit a Identificacion Cliente</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!identificacionCliente.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="identificacionCliente.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.identificacionCliente.numCliente" for="field_numCliente" [ngbTooltip]="'desgloseApp.identificacionCliente.help.numCliente' | translate">Num Cliente</label>
+                    <input type="number" class="form-control" name="numCliente" id="field_numCliente"
+                        [(ngModel)]="identificacionCliente.numCliente" required/>
+                    <div [hidden]="!(editForm.controls.numCliente?.dirty && editForm.controls.numCliente?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.numCliente?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.numCliente?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.identificacionCliente.codTipoIden" for="field_codTipoIden" [ngbTooltip]="'desgloseApp.identificacionCliente.help.codTipoIden' | translate">Cod Tipo Iden</label>
+                    <input type="number" class="form-control" name="codTipoIden" id="field_codTipoIden"
+                        [(ngModel)]="identificacionCliente.codTipoIden" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.identificacionCliente.numIden" for="field_numIden" [ngbTooltip]="'desgloseApp.identificacionCliente.help.numIden' | translate">Num Iden</label>
+                    <input type="text" class="form-control" name="numIden" id="field_numIden"
+                        [(ngModel)]="identificacionCliente.numIden" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.identificacionCliente.fecCreacion" for="field_fecCreacion" [ngbTooltip]="'desgloseApp.identificacionCliente.help.fecCreacion' | translate">Fec Creacion</label>
+                    <div class="input-group">
+                        <input id="field_fecCreacion" type="text" class="form-control" name="fecCreacion" ngbDatepicker  #fecCreacionDp="ngbDatepicker" [(ngModel)]="identificacionCliente.fecCreacion"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecCreacionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.identificacionCliente.codRegStatus" for="field_codRegStatus" [ngbTooltip]="'desgloseApp.identificacionCliente.help.codRegStatus' | translate">Cod Reg Status</label>
+                    <input type="number" class="form-control" name="codRegStatus" id="field_codRegStatus"
+                        [(ngModel)]="identificacionCliente.codRegStatus" required/>
+                    <div [hidden]="!(editForm.controls.codRegStatus?.dirty && editForm.controls.codRegStatus?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codRegStatus?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.codRegStatus?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.identificacionCliente.codRegLog" for="field_codRegLog" [ngbTooltip]="'desgloseApp.identificacionCliente.help.codRegLog' | translate">Cod Reg Log</label>
+                    <input type="number" class="form-control" name="codRegLog" id="field_codRegLog"
+                        [(ngModel)]="identificacionCliente.codRegLog" required/>
+                    <div [hidden]="!(editForm.controls.codRegLog?.dirty && editForm.controls.codRegLog?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codRegLog?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.codRegLog?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+
+{
+    "desgloseApp": {
+        "clienteJuridico" : {
+            "home": {
+                "title": "Cliente Juridicos",
+                "createLabel": "Create a new Cliente Juridico",
+                "createOrEditLabel": "Create or edit a Cliente Juridico"
+            },
+            "created": "A new Cliente Juridico is created with identifier {{ param }}",
+            "updated": "A Cliente Juridico is updated with identifier {{ param }}",
+            "deleted": "A Cliente Juridico is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Cliente Juridico {{ id }}?"
+            },
+            "detail": {
+                "title": "Cliente Juridico"
+            },
+            "numCliente": "Num Cliente",
+            "glsRazonSoci": "Gls Razon Soci",
+            "nomFantasia": "Nom Fantasia",
+            "codGrupoEcon": "Cod Grupo Econ",
+            "fecConstitucion": "Fec Constitucion",
+            "codTipoCliempresa": "Cod Tipo Cliempresa",
+            "glsWeb": "Gls Web",
+            "codRegStatus": "Cod Reg Status",
+            "codRegLog": "Cod Reg Log",
+            "glsRazonSocialLegal": "Gls Razon Social Legal",
+            "help": {
+                "numCliente": "Número del cliente.",
+                "glsRazonSoci": "Razon social.",
+                "nomFantasia": "Nombre de fantasia.",
+                "codGrupoEcon": "Grupo económico.",
+                "fecConstitucion": "Fecha de constitución.",
+                "codTipoCliempresa": "Tipo cliente empresa.",
+                "glsWeb": "URL de la web de la empresa.",
+                "codRegStatus": "Código de vigencia del registro.",
+                "codRegLog": "Código de modificacion del registro.",
+                "glsRazonSocialLegal": "Razón social legal."
+            }
+        }
+    }
+}

@@ -1,0 +1,114 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-tabla-servicio-mail-heading" jhiTranslate="desgloseApp.tablaServicioMail.home.createOrEditLabel">Create or edit a Tabla Servicio Mail</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!tablaServicioMail.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="tablaServicioMail.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.tablaServicioMail.codSistema" for="field_codSistema" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.codSistema' | translate">Cod Sistema</label>
+                    <input type="text" class="form-control" name="codSistema" id="field_codSistema"
+                        [(ngModel)]="tablaServicioMail.codSistema" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.tablaServicioMail.numSolicitud" for="field_numSolicitud" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.numSolicitud' | translate">Num Solicitud</label>
+                    <input type="number" class="form-control" name="numSolicitud" id="field_numSolicitud"
+                        [(ngModel)]="tablaServicioMail.numSolicitud" required/>
+                    <div [hidden]="!(editForm.controls.numSolicitud?.dirty && editForm.controls.numSolicitud?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.numSolicitud?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.numSolicitud?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.tablaServicioMail.fecSolicitud" for="field_fecSolicitud" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.fecSolicitud' | translate">Fec Solicitud</label>
+                    <div class="input-group">
+                        <input id="field_fecSolicitud" type="text" class="form-control" name="fecSolicitud" ngbDatepicker  #fecSolicitudDp="ngbDatepicker" [(ngModel)]="tablaServicioMail.fecSolicitud"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecSolicitudDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.tablaServicioMail.numTrxSistema" for="field_numTrxSistema" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.numTrxSistema' | translate">Num Trx Sistema</label>
+                    <input type="number" class="form-control" name="numTrxSistema" id="field_numTrxSistema"
+                        [(ngModel)]="tablaServicioMail.numTrxSistema" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.tablaServicioMail.glsFromNombre" for="field_glsFromNombre" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.glsFromNombre' | translate">Gls From Nombre</label>
+                    <input type="text" class="form-control" name="glsFromNombre" id="field_glsFromNombre"
+                        [(ngModel)]="tablaServicioMail.glsFromNombre" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.tablaServicioMail.glsFromMail" for="field_glsFromMail" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.glsFromMail' | translate">Gls From Mail</label>
+                    <input type="text" class="form-control" name="glsFromMail" id="field_glsFromMail"
+                        [(ngModel)]="tablaServicioMail.glsFromMail" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.tablaServicioMail.glsAsunto" for="field_glsAsunto" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.glsAsunto' | translate">Gls Asunto</label>
+                    <input type="text" class="form-control" name="glsAsunto" id="field_glsAsunto"
+                        [(ngModel)]="tablaServicioMail.glsAsunto" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.tablaServicioMail.glsMensaje" for="field_glsMensaje" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.glsMensaje' | translate">Gls Mensaje</label>
+                    <input type="number" class="form-control" name="glsMensaje" id="field_glsMensaje"
+                        [(ngModel)]="tablaServicioMail.glsMensaje" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.tablaServicioMail.fecEnvMail" for="field_fecEnvMail" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.fecEnvMail' | translate">Fec Env Mail</label>
+                    <div class="input-group">
+                        <input id="field_fecEnvMail" type="text" class="form-control" name="fecEnvMail" ngbDatepicker  #fecEnvMailDp="ngbDatepicker" [(ngModel)]="tablaServicioMail.fecEnvMail"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecEnvMailDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.tablaServicioMail.numIntento" for="field_numIntento" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.numIntento' | translate">Num Intento</label>
+                    <input type="number" class="form-control" name="numIntento" id="field_numIntento"
+                        [(ngModel)]="tablaServicioMail.numIntento" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.tablaServicioMail.numMaxReintento" for="field_numMaxReintento" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.numMaxReintento' | translate">Num Max Reintento</label>
+                    <input type="number" class="form-control" name="numMaxReintento" id="field_numMaxReintento"
+                        [(ngModel)]="tablaServicioMail.numMaxReintento" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.tablaServicioMail.codEstado" for="field_codEstado" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.codEstado' | translate">Cod Estado</label>
+                    <input type="text" class="form-control" name="codEstado" id="field_codEstado"
+                        [(ngModel)]="tablaServicioMail.codEstado" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.tablaServicioMail.glsDetRespuesta" for="field_glsDetRespuesta" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.glsDetRespuesta' | translate">Gls Det Respuesta</label>
+                    <input type="text" class="form-control" name="glsDetRespuesta" id="field_glsDetRespuesta"
+                        [(ngModel)]="tablaServicioMail.glsDetRespuesta" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.tablaServicioMail.glsContentType" for="field_glsContentType" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.glsContentType' | translate">Gls Content Type</label>
+                    <input type="text" class="form-control" name="glsContentType" id="field_glsContentType"
+                        [(ngModel)]="tablaServicioMail.glsContentType" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

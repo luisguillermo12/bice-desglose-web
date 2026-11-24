@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="desgloseGrupo">
+            <h2><span jhiTranslate="desgloseApp.desgloseGrupo.detail.title">Desglose Grupo</span> {{desgloseGrupo.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.desgloseGrupo.codCargo" [ngbTooltip]="'desgloseApp.desgloseGrupo.help.codCargo' | translate">Cod Cargo</span></dt>
+                <dd>
+                    <span>{{desgloseGrupo.codCargo}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseGrupo.numRolEmpleado" [ngbTooltip]="'desgloseApp.desgloseGrupo.help.numRolEmpleado' | translate">Num Rol Empleado</span></dt>
+                <dd>
+                    <span>{{desgloseGrupo.numRolEmpleado}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseGrupo.desCodCargo" [ngbTooltip]="'desgloseApp.desgloseGrupo.help.desCodCargo' | translate">Des Cod Cargo</span></dt>
+                <dd>
+                    <span>{{desgloseGrupo.desCodCargo}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseGrupo.desNumRolEmpleado" [ngbTooltip]="'desgloseApp.desgloseGrupo.help.desNumRolEmpleado' | translate">Des Num Rol Empleado</span></dt>
+                <dd>
+                    <span>{{desgloseGrupo.desNumRolEmpleado}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/desglose-grupo', desgloseGrupo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

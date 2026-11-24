@@ -1,0 +1,67 @@
+
+{
+    "desgloseApp": {
+        "concepto" : {
+            "home": {
+                "title": "Conceptos",
+                "createLabel": "Create a new Concepto",
+                "createOrEditLabel": "Create or edit a Concepto"
+            },
+            "created": "A new Concepto is created with identifier {{ param }}",
+            "updated": "A Concepto is updated with identifier {{ param }}",
+            "deleted": "A Concepto is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Concepto {{ id }}?"
+            },
+            "detail": {
+                "title": "Concepto"
+            },
+            "codTipoConcep": "Cod Tipo Concep",
+            "corConcepto": "Cor Concepto",
+            "codConcepto": "Cod Concepto",
+            "glsConcepto": "Gls Concepto",
+            "numSecuencia": "Num Secuencia",
+            "numLvlIndent": "Num Lvl Indent",
+            "codTipoRegis": "Cod Tipo Regis",
+            "glsFormulaVal": "Gls Formula Val",
+            "glsFormulaPrc": "Gls Formula Prc",
+            "glsFormulaDef": "Gls Formula Def",
+            "flgIsTotal": "Flg Is Total",
+            "flgUserModif": "Flg User Modif",
+            "flgConActivo": "Flg Con Activo",
+            "numDecimales": "Num Decimales",
+            "flgHaceAjust": "Flg Hace Ajust",
+            "flgIsBold": "Flg Is Bold",
+            "flgIsUcase": "Flg Is Ucase",
+            "flgIsEnclosed": "Flg Is Enclosed",
+            "flgIsPrinted": "Flg Is Printed",
+            "numDecPrint": "Num Dec Print",
+            "flgNonegativ": "Flg Nonegativ",
+            "flgAfterspace": "Flg Afterspace",
+            "help": {
+                "codTipoConcep": "Tipo de concepto. Posibles permitidos ('BALANCE','EST_RESULT','GEN_FONDOS','IND_FINAN','DEUDA_SBIF','PROY_DM').",
+                "corConcepto": "Correlativo de concepto.",
+                "codConcepto": "Código de cuenta.",
+                "glsConcepto": "Decripción de concepto o cuenta.",
+                "numSecuencia": "Secuencia.",
+                "numLvlIndent": "Nivel de identación.",
+                "codTipoRegis": "Tipo registro. Posibles permitidos (TITULO, NORMAL, MULTIREGISTRO).",
+                "glsFormulaVal": "Fórmula de evaluación de concepto.",
+                "glsFormulaPrc": "Fórmula de evaluación totales porcentuales.",
+                "glsFormulaDef": "Fórmuala conceptual de deflactación.",
+                "flgIsTotal": "Señala si concepto es de total o no.",
+                "flgUserModif": "Señala si concepto en desglose puede ser modificado por el usuario.",
+                "flgConActivo": "Señala si concepto en desglose está activo o no.",
+                "numDecimales": "Cantidad de decimales.",
+                "flgHaceAjust": "Señala si concepto se ajusta o no (redondeo).",
+                "flgIsBold": "Señala si se muestra con negritas o no.",
+                "flgIsUcase": "Señala si se muestra en mayúscula o no.",
+                "flgIsEnclosed": "Señala que es adjunto y hereda formato de concepto padre.",
+                "flgIsPrinted": "Señala si concepto se imprime en reporte o no.",
+                "numDecPrint": "Señala cantidad de decimales que se imprimen en reporte.",
+                "flgNonegativ": "Señala si concepto puede ser negativo o no.",
+                "flgAfterspace": "Señala si imprime espacio después de concepto."
+            }
+        }
+    }
+}

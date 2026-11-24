@@ -1,0 +1,57 @@
+{
+    "name": "RelacionTabla",
+    "fields": [
+        {
+            "fieldName": "numCorRegistro",
+            "javadoc": "Id correlativo.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codTabla1",
+            "javadoc": "Código de tabla 1 del concepto.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codTabla2",
+            "javadoc": "Código de tabla 2 del concepto.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codGenerico1",
+            "javadoc": "Código genérico 1 asociado al código de tabla.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codGenerico2",
+            "javadoc": "Código genérico 2 asociado al código de tabla.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codRegStatus",
+            "javadoc": "Código de vigencia del registro.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codRegLog",
+            "javadoc": "Código de modificación del registro.",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181031203313",
+    "javadoc": "Representa la tabla \"RELTAB\". Contiene la relación de conceptos definidos en DESCOD. Pertenece al esquema BCT_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "relacion_tabla",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

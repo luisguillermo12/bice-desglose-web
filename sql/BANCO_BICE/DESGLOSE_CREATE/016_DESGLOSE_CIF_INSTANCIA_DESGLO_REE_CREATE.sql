@@ -1,0 +1,32 @@
+--------------------------------------------------------
+--  File created - Monday-March-11-2019   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table DESGLO_REE
+--------------------------------------------------------
+
+  CREATE TABLE "DGL_ADMIN"."DESGLO_REE" 
+   (	"COD_CARGO" VARCHAR2(20 BYTE), 
+	"NUM_ROL_EMPLEADO" VARCHAR2(7 BYTE), 
+	"DES_COD_CARGO" VARCHAR2(20 BYTE), 
+	"DES_NUM_ROL_EMPLEADO" VARCHAR2(7 BYTE), 
+	"FEC_REEMPLAZO" DATE, 
+	"FEC_ELIM_REEMPLAZO" DATE, 
+	"NUM_ROL_EMPLEADO_CREA" VARCHAR2(7 BYTE), 
+	"NUM_ROL_EMPLEADO_ELIM" VARCHAR2(7 BYTE), 
+	"COD_REG_STATUS" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  ;
+
+   COMMENT ON COLUMN "DGL_ADMIN"."DESGLO_REE"."COD_CARGO" IS 'Codigo cargo 1-Subgte 2-Jefe Grupo 3-Analista';
+   COMMENT ON COLUMN "DGL_ADMIN"."DESGLO_REE"."NUM_ROL_EMPLEADO" IS 'Rol de usuario asociado al cargo';
+   COMMENT ON COLUMN "DGL_ADMIN"."DESGLO_REE"."DES_COD_CARGO" IS 'Codigo cargo 1-Subgte 2-Jefe Grupo 3-Analista';
+   COMMENT ON COLUMN "DGL_ADMIN"."DESGLO_REE"."DES_NUM_ROL_EMPLEADO" IS 'Rol de usuario asociado al cargo';
+   COMMENT ON COLUMN "DGL_ADMIN"."DESGLO_REE"."FEC_REEMPLAZO" IS 'Fecha del reemplazo';
+   COMMENT ON COLUMN "DGL_ADMIN"."DESGLO_REE"."FEC_ELIM_REEMPLAZO" IS 'Fecha de eliminacion del reemplazo';
+   COMMENT ON COLUMN "DGL_ADMIN"."DESGLO_REE"."NUM_ROL_EMPLEADO_CREA" IS 'Rol de quien crea el reemplazo';
+   COMMENT ON COLUMN "DGL_ADMIN"."DESGLO_REE"."NUM_ROL_EMPLEADO_ELIM" IS 'Rol de quien elimina el reemplazo';
+   COMMENT ON TABLE "DGL_ADMIN"."DESGLO_REE"  IS 'Definicion de Grupos';

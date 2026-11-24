@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subrpt_tbl_emp_consol" pageWidth="230" pageHeight="1008" columnWidth="230" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="771e77e1-b584-46ee-b640-5a6861e6b1b2">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.report.description" value=""/>
+	<property name="net.sf.jasperreports.awt.ignore.missing.font" value="true"/>
+	<property name="net.sf.jasperreports.default.font.name" value="Lucida Sans"/>
+	<style name="TittleHeaderCss_T3" fill="Solid" hTextAlign="Left" vTextAlign="Middle" fontName="Times New Roman" fontSize="6" isBold="true" pdfFontName="Times-Bold">
+		<box topPadding="3" leftPadding="3" bottomPadding="3" rightPadding="3"/>
+	</style>
+	<style name="row_style" vTextAlign="Middle" fontName="Times New Roman" fontSize="6" pdfFontName="Times-Roman">
+		<pen lineWidth="0.25" lineColor="#8A8888"/>
+		<box padding="3">
+			<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="row_style_number" hTextAlign="Right" vTextAlign="Middle" fontName="Times New Roman" fontSize="6">
+		<pen lineWidth="0.25" lineColor="#8A8888"/>
+		<box padding="3">
+			<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="header_style" mode="Transparent" forecolor="#000000" backcolor="#FFFFFF" hTextAlign="Right" vTextAlign="Middle" fontName="Times New Roman" fontSize="6" isBold="false">
+		<box>
+			<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="tableDataSource" uuid="88c495c8-c3db-49e8-88af-a623603e5472">
+		<parameter name="fechaNotasPeriodo1" class="java.lang.String"/>
+		<parameter name="fechaNotasPeriodo2" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="companyName" class="java.lang.String">
+			<fieldDescription><![CDATA[companyName]]></fieldDescription>
+		</field>
+		<field name="period1Value" class="java.math.BigDecimal">
+			<fieldDescription><![CDATA[period1Value]]></fieldDescription>
+		</field>
+		<field name="period2Value" class="java.math.BigDecimal">
+			<fieldDescription><![CDATA[period2Value]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="tituloTabla" class="java.lang.String"/>
+	<parameter name="fechaNotasPeriodo1" class="java.lang.String"/>
+	<parameter name="fechaNotasPeriodo2" class="java.lang.String"/>
+	<parameter name="subReportPath" class="java.lang.String"/>
+	<parameter name="dataSource" class="java.util.Collection"/>
+	<parameter name="tituloTablaComplemento" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<summary>
+		<band height="40">
+			<textField isBlankWhenNull="true">
+				<reportElement style="TittleHeaderCss_T3" x="0" y="7" width="230" height="12" uuid="82f0184a-fb00-4db4-b5c8-f41631da6046"/>
+				<box topPadding="0" bottomPadding="0"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tituloTabla}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="3" y="19" width="227" height="16" uuid="ab92ed90-4d09-41c3-a8ee-698f4b5a559f">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="net.sf.jasperreports.export.headertoolbar.table.name" value="tableConsolCompanies"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="tableDataSource" uuid="0ec41c9b-a9da-4729-af02-db60ae856b57">
+						<datasetParameter name="fechaNotasPeriodo1">
+							<datasetParameterExpression><![CDATA[$P{fechaNotasPeriodo1}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="fechaNotasPeriodo2">
+							<datasetParameterExpression><![CDATA[$P{fechaNotasPeriodo2}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{dataSource})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="130" uuid="ddf7ae0d-ddda-4ede-bf8b-499c6e18700d">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader height="8" rowSpan="1">
+							<box>
+								<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+						</jr:columnHeader>
+						<jr:columnFooter height="1" rowSpan="1">
+							<box>
+								<pen lineWidth="0.0" lineStyle="Solid"/>
+								<topPen lineWidth="0.25"/>
+							</box>
+						</jr:columnFooter>
+						<jr:detailCell height="8">
+							<box>
+								<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement style="row_style" x="0" y="0" width="130" height="8" uuid="ff3dc74b-74a8-40cf-b548-60b6592f6a41"/>
+								<box topPadding="0" bottomPadding="0">
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement>
+									<font fontName="Times New Roman"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{companyName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="50" uuid="2df9d5ef-d7a7-43cf-9cdb-0696501734c0">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<printWhenExpression><![CDATA[$P{fechaNotasPeriodo1}!=null]]></printWhenExpression>
+						<jr:columnHeader height="8" rowSpan="1">
+							<box>
+								<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField isBlankWhenNull="true">
+								<reportElement style="row_style" x="0" y="0" width="50" height="8" uuid="bdbd6970-e4a2-4ed0-8a8a-dcce833fee47"/>
+								<box topPadding="0" leftPadding="3" bottomPadding="0" rightPadding="3">
+									<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Right">
+									<font fontName="Times New Roman" size="6"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{fechaNotasPeriodo1}]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:columnFooter height="1" rowSpan="1">
+							<box>
+								<pen lineWidth="0.0" lineStyle="Solid"/>
+								<topPen lineWidth="0.25"/>
+							</box>
+						</jr:columnFooter>
+						<jr:detailCell height="8">
+							<box>
+								<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField pattern="#,##0.###;-#,##0.###" isBlankWhenNull="true">
+								<reportElement style="row_style_number" x="0" y="0" width="50" height="8" uuid="1061cc6e-1a06-43e6-b0fe-b73f72587d16"/>
+								<box topPadding="0" bottomPadding="0">
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement>
+									<font fontName="Times New Roman" size="6"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{period1Value}.setScale(2, RoundingMode.UP)+" %"]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="50" uuid="0cb6e4f2-09a0-42a1-bfee-a6cc046774db">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<printWhenExpression><![CDATA[$P{fechaNotasPeriodo2}!=null]]></printWhenExpression>
+						<jr:columnHeader height="8" rowSpan="1">
+							<box>
+								<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField isBlankWhenNull="true">
+								<reportElement style="row_style" x="0" y="0" width="50" height="8" uuid="a15b6213-d766-4a4e-8640-b55860d09def"/>
+								<box topPadding="0" leftPadding="3" bottomPadding="0" rightPadding="3">
+									<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Right">
+									<font fontName="Times New Roman" size="6"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{fechaNotasPeriodo2}]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:columnFooter height="1" rowSpan="1">
+							<box>
+								<pen lineWidth="0.0"/>
+								<topPen lineWidth="0.25" lineStyle="Solid"/>
+							</box>
+						</jr:columnFooter>
+						<jr:detailCell height="8">
+							<box>
+								<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField pattern="#,##0.###;-#,##0.###" isBlankWhenNull="true">
+								<reportElement key="" style="row_style_number" x="0" y="0" width="50" height="8" uuid="5e34b06c-72e7-4412-b6ab-d7ee0fa15332"/>
+								<box topPadding="0" bottomPadding="0">
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement>
+									<font fontName="Times New Roman" size="6"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{period2Value}.setScale(2, RoundingMode.UP)+" %"]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,53 @@
+
+{
+    "desgloseApp": {
+        "desgloseAuditoria" : {
+            "home": {
+                "title": "Desglose Auditorias",
+                "createLabel": "Crear nuevo Desglose Auditoria",
+                "createOrEditLabel": "Crear o editar Desglose Auditoria"
+            },
+            "created": "Un nuevo Desglose Auditoria ha sido creado con el identificador {{ param }}",
+            "updated": "Un Desglose Auditoria ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Desglose Auditoria ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Desglose Auditoria {{ id }}?"
+            },
+            "detail": {
+                "title": "Desglose Auditoria"
+            },
+            "codCliente": "Cod Cliente",
+            "codTipoDes": "Cod Tipo Des",
+            "codSubtipoDes": "Cod Subtipo Des",
+            "codMoneda": "Cod Moneda",
+            "fecEvento": "Fec Evento",
+            "numLinea": "Num Linea",
+            "codEvento": "Cod Evento",
+            "rolEmpleadoAccion": "Rol Empleado Accion",
+            "glsRol": "Gls Rol",
+            "codEstadoOri": "Cod Estado Ori",
+            "codEstadoNvo": "Cod Estado Nvo",
+            "rolEmpleadoOri": "Rol Empleado Ori",
+            "rolEmpleadoNvo": "Rol Empleado Nvo",
+            "flgResultValid": "Flg Result Valid",
+            "glsComentario": "Gls Comentario",
+            "help": {
+                "codCliente": "Rut de cliente.",
+                "codTipoDes": "Tipo de desglose.",
+                "codSubtipoDes": "Subtipo de desglose.",
+                "codMoneda": "Código de moneda.",
+                "fecEvento": "Fecha de ocurrencia de evento.",
+                "numLinea": "Numero de línea.",
+                "codEvento": "Cambio estado - Reemplazo - Validación - Desvinculación digitador.",
+                "rolEmpleadoAccion": "Rol empleado que realiza la acción.",
+                "glsRol": "Rol de quien realiza la acción (Digitador - Revisor).",
+                "codEstadoOri": "Estado original o anterior.",
+                "codEstadoNvo": "Nuevo estado.",
+                "rolEmpleadoOri": "Rol empleado original.",
+                "rolEmpleadoNvo": "Rol empleado nuevo.",
+                "flgResultValid": "OK - NOK.",
+                "glsComentario": "Comentario asociado."
+            }
+        }
+    }
+}

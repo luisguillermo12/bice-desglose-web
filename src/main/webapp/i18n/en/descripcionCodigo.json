@@ -1,0 +1,35 @@
+
+{
+    "desgloseApp": {
+        "descripcionCodigo" : {
+            "home": {
+                "title": "Descripcion Codigos",
+                "createLabel": "Create Nueva Plantilla",
+                "createOrEditLabel": "Create or edit a Descripcion Codigo"
+            },
+            "created": "A new Descripcion Codigo is created with identifier {{ param }}",
+            "updated": "A Descripcion Codigo is updated with identifier {{ param }}",
+            "deleted": "A Descripcion Codigo is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Descripcion Codigo {{ id }}?"
+            },
+            "detail": {
+                "title": "Descripcion Codigo"
+            },
+            "codTabla": "Cod Tabla",
+            "codGenerico": "Cod Generico",
+            "glsGenericacorta": "Gls Genericacorta",
+            "glsGenericalarga": "Gls Genericalarga",
+            "codRegStatus": "Cod Reg Status",
+            "codRegLog": "Cod Reg Log",
+            "help": {
+                "codTabla": "Código de tabla del concepto.",
+                "codGenerico": "Código genérico asociado al código de tabla.",
+                "glsGenericacorta": "Descripción corta.",
+                "glsGenericalarga": "Descripción larga.",
+                "codRegStatus": "Código de vigencia del registro.",
+                "codRegLog": "Código de modificación del registro."
+            }
+        }
+    }
+}

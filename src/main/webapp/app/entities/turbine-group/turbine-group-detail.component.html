@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="turbineGroup">
+            <h2><span jhiTranslate="desgloseApp.turbineGroup.detail.title">Turbine Group</span> {{turbineGroup.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.turbineGroup.groupId">Group Id</span></dt>
+                <dd>
+                    <span>{{turbineGroup.groupId}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.turbineGroup.groupName">Group Name</span></dt>
+                <dd>
+                    <span>{{turbineGroup.groupName}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.turbineGroup.objectdata">Objectdata</span></dt>
+                <dd>
+                    <div *ngIf="turbineGroup.objectdata">
+                        <a (click)="openFile(turbineGroup.objectdataContentType, turbineGroup.objectdata)" jhiTranslate="entity.action.open">open</a>
+                        {{turbineGroup.objectdataContentType}}, {{byteSize(turbineGroup.objectdata)}}
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/turbine-group', turbineGroup.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

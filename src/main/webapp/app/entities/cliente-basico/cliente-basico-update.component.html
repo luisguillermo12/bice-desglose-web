@@ -1,0 +1,239 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-cliente-basico-heading" jhiTranslate="desgloseApp.clienteBasico.home.createOrEditLabel">Create or edit a Cliente Basico</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!clienteBasico.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="clienteBasico.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.numCliente" for="field_numCliente" [ngbTooltip]="'desgloseApp.clienteBasico.help.numCliente' | translate">Num Cliente</label>
+                    <input type="number" class="form-control" name="numCliente" id="field_numCliente"
+                        [(ngModel)]="clienteBasico.numCliente" required/>
+                    <div [hidden]="!(editForm.controls.numCliente?.dirty && editForm.controls.numCliente?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.numCliente?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.numCliente?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.numRolEmpleado" for="field_numRolEmpleado" [ngbTooltip]="'desgloseApp.clienteBasico.help.numRolEmpleado' | translate">Num Rol Empleado</label>
+                    <input type="text" class="form-control" name="numRolEmpleado" id="field_numRolEmpleado"
+                        [(ngModel)]="clienteBasico.numRolEmpleado" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.codTipoJuridi" for="field_codTipoJuridi">Cod Tipo Juridi</label>
+                    <input type="number" class="form-control" name="codTipoJuridi" id="field_codTipoJuridi"
+                        [(ngModel)]="clienteBasico.codTipoJuridi" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.codSucursal" for="field_codSucursal" [ngbTooltip]="'desgloseApp.clienteBasico.help.codSucursal' | translate">Cod Sucursal</label>
+                    <input type="number" class="form-control" name="codSucursal" id="field_codSucursal"
+                        [(ngModel)]="clienteBasico.codSucursal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.codCliente" for="field_codCliente">Cod Cliente</label>
+                    <input type="text" class="form-control" name="codCliente" id="field_codCliente"
+                        [(ngModel)]="clienteBasico.codCliente" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.codTipoCliente" for="field_codTipoCliente">Cod Tipo Cliente</label>
+                    <input type="number" class="form-control" name="codTipoCliente" id="field_codTipoCliente"
+                        [(ngModel)]="clienteBasico.codTipoCliente" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.codSectorEconom" for="field_codSectorEconom">Cod Sector Econom</label>
+                    <input type="number" class="form-control" name="codSectorEconom" id="field_codSectorEconom"
+                        [(ngModel)]="clienteBasico.codSectorEconom" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.fecCliente" for="field_fecCliente">Fec Cliente</label>
+                    <div class="input-group">
+                        <input id="field_fecCliente" type="text" class="form-control" name="fecCliente" ngbDatepicker  #fecClienteDp="ngbDatepicker"
+                               [(ngModel)]="clienteBasico.fecCliente"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecClienteDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.numCorDomlegal" for="field_numCorDomlegal">Num Cor Domlegal</label>
+                    <input type="number" class="form-control" name="numCorDomlegal" id="field_numCorDomlegal"
+                        [(ngModel)]="clienteBasico.numCorDomlegal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.codActividad" for="field_codActividad" [ngbTooltip]="'desgloseApp.clienteBasico.help.codActividad' | translate">Cod Actividad</label>
+                    <input type="number" class="form-control" name="codActividad" id="field_codActividad"
+                        [(ngModel)]="clienteBasico.codActividad" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.codSector" for="field_codSector">Cod Sector</label>
+                    <input type="number" class="form-control" name="codSector" id="field_codSector"
+                        [(ngModel)]="clienteBasico.codSector" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.codCatdeu" for="field_codCatdeu">Cod Catdeu</label>
+                    <input type="number" class="form-control" name="codCatdeu" id="field_codCatdeu"
+                        [(ngModel)]="clienteBasico.codCatdeu" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.codRelaBice" for="field_codRelaBice">Cod Rela Bice</label>
+                    <input type="number" class="form-control" name="codRelaBice" id="field_codRelaBice"
+                        [(ngModel)]="clienteBasico.codRelaBice" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.codGrupRela" for="field_codGrupRela">Cod Grup Rela</label>
+                    <input type="number" class="form-control" name="codGrupRela" id="field_codGrupRela"
+                        [(ngModel)]="clienteBasico.codGrupRela" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.codEstaDeud" for="field_codEstaDeud">Cod Esta Deud</label>
+                    <input type="number" class="form-control" name="codEstaDeud" id="field_codEstaDeud"
+                        [(ngModel)]="clienteBasico.codEstaDeud" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.numCarpeta" for="field_numCarpeta">Num Carpeta</label>
+                    <input type="number" class="form-control" name="numCarpeta" id="field_numCarpeta"
+                        [(ngModel)]="clienteBasico.numCarpeta" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.numCasiInte" for="field_numCasiInte">Num Casi Inte</label>
+                    <input type="number" class="form-control" name="numCasiInte" id="field_numCasiInte"
+                        [(ngModel)]="clienteBasico.numCasiInte" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.glsSinoSbif" for="field_glsSinoSbif">Gls Sino Sbif</label>
+                    <input type="text" class="form-control" name="glsSinoSbif" id="field_glsSinoSbif"
+                        [(ngModel)]="clienteBasico.glsSinoSbif" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.fecDeclJurada" for="field_fecDeclJurada">Fec Decl Jurada</label>
+                    <div class="input-group">
+                        <input id="field_fecDeclJurada" type="text" class="form-control" name="fecDeclJurada" ngbDatepicker  #fecDeclJuradaDp="ngbDatepicker" [(ngModel)]="clienteBasico.fecDeclJurada"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecDeclJuradaDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.fecVerifDomlegal" for="field_fecVerifDomlegal">Fec Verif Domlegal</label>
+                    <div class="input-group">
+                        <input id="field_fecVerifDomlegal" type="text" class="form-control" name="fecVerifDomlegal" ngbDatepicker  #fecVerifDomlegalDp="ngbDatepicker" [(ngModel)]="clienteBasico.fecVerifDomlegal"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecVerifDomlegalDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.codRegStatus" for="field_codRegStatus" [ngbTooltip]="'desgloseApp.clienteBasico.help.codRegStatus' | translate">Cod Reg Status</label>
+                    <input type="number" class="form-control" name="codRegStatus" id="field_codRegStatus"
+                        [(ngModel)]="clienteBasico.codRegStatus" required/>
+                    <div [hidden]="!(editForm.controls.codRegStatus?.dirty && editForm.controls.codRegStatus?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codRegStatus?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.codRegStatus?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.codRegLog" for="field_codRegLog" [ngbTooltip]="'desgloseApp.clienteBasico.help.codRegLog' | translate">Cod Reg Log</label>
+                    <input type="number" class="form-control" name="codRegLog" id="field_codRegLog"
+                        [(ngModel)]="clienteBasico.codRegLog" required/>
+                    <div [hidden]="!(editForm.controls.codRegLog?.dirty && editForm.controls.codRegLog?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codRegLog?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.codRegLog?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.flgFirmaCobprejud" for="field_flgFirmaCobprejud">Flg Firma Cobprejud</label>
+                    <input type="text" class="form-control" name="flgFirmaCobprejud" id="field_flgFirmaCobprejud"
+                        [(ngModel)]="clienteBasico.flgFirmaCobprejud" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.fecFirmaCobprejud" for="field_fecFirmaCobprejud">Fec Firma Cobprejud</label>
+                    <div class="input-group">
+                        <input id="field_fecFirmaCobprejud" type="text" class="form-control" name="fecFirmaCobprejud" ngbDatepicker  #fecFirmaCobprejudDp="ngbDatepicker" [(ngModel)]="clienteBasico.fecFirmaCobprejud"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecFirmaCobprejudDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.numTaxId" for="field_numTaxId">Num Tax Id</label>
+                    <input type="text" class="form-control" name="numTaxId" id="field_numTaxId"
+                        [(ngModel)]="clienteBasico.numTaxId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.codSiiExeimp" for="field_codSiiExeimp">Cod Sii Exeimp</label>
+                    <input type="text" class="form-control" name="codSiiExeimp" id="field_codSiiExeimp"
+                        [(ngModel)]="clienteBasico.codSiiExeimp" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.flgSiiContprimeracat" for="field_flgSiiContprimeracat">Flg Sii Contprimeracat</label>
+                    <input type="text" class="form-control" name="flgSiiContprimeracat" id="field_flgSiiContprimeracat"
+                        [(ngModel)]="clienteBasico.flgSiiContprimeracat" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.codTipoAlerta" for="field_codTipoAlerta">Cod Tipo Alerta</label>
+                    <input type="text" class="form-control" name="codTipoAlerta" id="field_codTipoAlerta"
+                        [(ngModel)]="clienteBasico.codTipoAlerta" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.fecAlerta" for="field_fecAlerta">Fec Alerta</label>
+                    <div class="input-group">
+                        <input id="field_fecAlerta" type="text" class="form-control" name="fecAlerta" ngbDatepicker  #fecAlertaDp="ngbDatepicker" [(ngModel)]="clienteBasico.fecAlerta"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecAlertaDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.flgMandatoInv" for="field_flgMandatoInv">Flg Mandato Inv</label>
+                    <input type="text" class="form-control" name="flgMandatoInv" id="field_flgMandatoInv"
+                        [(ngModel)]="clienteBasico.flgMandatoInv" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.codGirosii" for="field_codGirosii" [ngbTooltip]="'desgloseApp.clienteBasico.help.codGirosii' | translate">Cod Girosii</label>
+                    <input type="number" class="form-control" name="codGirosii" id="field_codGirosii"
+                        [(ngModel)]="clienteBasico.codGirosii" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteBasico.codAlertaFrd" for="field_codAlertaFrd" [ngbTooltip]="'desgloseApp.clienteBasico.help.codAlertaFrd' | translate">Cod Alerta Frd</label>
+                    <input type="text" class="form-control" name="codAlertaFrd" id="field_codAlertaFrd"
+                        [(ngModel)]="clienteBasico.codAlertaFrd" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

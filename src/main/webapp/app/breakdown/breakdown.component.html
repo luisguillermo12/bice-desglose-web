@@ -1,0 +1,814 @@
+<form class="form-inline" role="form" novalidate>
+    <!-- PRUEBA CELDA -->
+    <div class="form-row">
+        <div class="form-group col-sm-9">
+        </div>
+        <div class="form-group col-sm-3">
+            <input type="text" readonly disabled
+                   class="form-control-plaintext form-control-sm col-sm-3 text-uppercase"
+                   name="firstState" id="field_firstState"
+                   [(ngModel)]="state.state"/>
+            <button type="button" [class]="'btn btn-' + state.stateClass + ' btn-block  col-sm-3'"></button>
+            <strong><label class="col-sm-4 col-form-label" jhiTranslate="breakdown.state.tittle" for="field_state" style="color:black"></label></strong>
+            <input type="text" readonly disabled
+                   class="form-control-plaintext form-control-sm col-sm-3 text-uppercase"
+                   name="state" id="field_state"
+                   [(ngModel)]="breakdown.glsEstado" style="font-size: 12px !important; text-align: right; font-weight: bold;"/>
+        </div>
+    </div>
+</form>
+<div class="col-lg-12">
+    <jhi-alert></jhi-alert>
+    <jhi-alert-error id = "alert-error"></jhi-alert-error>
+    <div class="card" id = "bloque1">
+        <!-- BLOQUE DATOS CLIENTE -->
+        <div class="card-header hand-pointer" (click)="isCollapsedClientDataPanel = !isCollapsedClientDataPanel" [attr.aria-expanded]="!isCollapsedClientDataPanel"
+             aria-controls="collapseClientDataPanel">
+            <div class="row">
+                <span class="col-sm-11" jhiTranslate="breakdown.clientData"></span>
+                <span class="col-sm-1">
+                    <fa-icon class="float-sm-right fa-sm" [icon]="isCollapsedClientDataPanel ? ICON_CARD_OPEN : ICON_CARD_CLOSE"></fa-icon>
+                </span>
+            </div>
+        </div>
+        <div class="card-body" [ngbCollapse]="isCollapsedClientDataPanel" id="collapseClientDataPanel">
+            <form name="clientDataForm" role="form" novalidate #clientDataForm="ngForm" id="clientDataForm">
+                <div class="form-inline" #clientDataDiv>
+                    <div class="form-row">
+                        <div class="col-sm-2">
+                            <div class="form-row">
+                                <label class="col-form-label ml-3" for="field_rut" jhiTranslate="breakdown.rut"></label>
+                                <input type="text" class="col-sm-6 form-control form-control-sm ml-2" name="rut" id="field_rut" [(ngModel)]="client.rut"
+                                       [pattern]="RUT_VALIDATION_PATTERN" #fieldRut  (keyup)="clientRutKeyUp($event)"
+                                       (keydown.enter)="clientRutKeyDownOnEnter($event)"/>
+                                <input type="text" class="col-sm-2 form-control form-control-sm text-uppercase ml-1" name="rutVerificationNumber" id="field_rutVerificationNumber"
+                                       [(ngModel)]="client.rutVerificationNumber" [pattern]="RUT_VERIFICATION_NUMBER_VALIDATION_PATTERN" #fieldRutVerificationNumber
+                                       (blur)="clientRutOnBlur(clientDataForm)"  (keydown.enter)="clientRutOnBlur(clientDataForm)" (keyup)="clientRutKeyUp($event)" minlength="1" maxlength="1" disabled/>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-row">
+                                <label class="col-form-label ml-3" jhiTranslate="breakdown.name" for="field_name"></label>
+                                <input type="text" class="col-sm-8 form-control form-control-sm text-uppercase ml-2" name="name" id="field_name" [(ngModel)]="client.name"
+                                       [pattern]="NAME_VALIDATION_PATTERN" #fieldName (keydown.enter)="clientNameKeyDownOnEnter($event)" (blur)="clientNameOnBlur(clientDataForm)"
+                                       (keyup)="clientNameKeyUp($event)"/>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-row">
+                                <label class="col-form-label" jhiTranslate="breakdown.activity" for="field_activity"></label>
+                                <select class="col-sm-4 form-control form-control-sm ml-2" id="field_activity" name="activity" [(ngModel)]="client.activity" #fieldActivity>
+                                    <option [ngValue]="null"></option>
+                                    <option [ngValue]="el.codActividad" *ngFor="let el of economicActivities">{{ el.glsActividad }}</option>
+                                </select>
+                                <label class="form-control-label col-sm-1" jhiTranslate="breakdown.executor" for="field_executor"></label>
+                                <input type="text" class="form-control form-control-sm col-sm-3 ml-3 text-capitalize" name="executor" id="field_executor"
+                                       [(ngModel)]="breakdown.nomUserAnalis"/>
+                                <button type="button" class="col-sm-1 btn btn-primary btn-sm btn-custom-font-size-x ml-1" id="button_searchClient"
+                                        (click)="onClickSearchBreakdown()" #buttonSearchClient title="{{'breakdown.searchButtonTittle' | translate}}">
+                                    <fa-icon [icon]="'search'"></fa-icon>
+                                </button>
+                                <button type="button" [disabled]="isHiddenMensajes" class="col-sm-1 btn btn-primary btn-sm btn-custom-font-size-x ml-2" id="button_verMensaje"
+                                        (click)="viewMessagesOnClick()">
+                                    <fa-icon [icon]="'comment'"></fa-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group row col-sm-3 ml-1">
+                        <div [hidden]="!(clientDataForm.controls.rut?.dirty && clientDataForm.controls.rut?.invalid)">
+                            <small class="form-text text-danger" [hidden]="!clientDataForm.controls.rut?.errors?.required" jhiTranslate="entity.validation.required"></small>
+                            <small class="form-text text-danger" [hidden]="!clientDataForm.controls.rut?.errors?.pattern" jhiTranslate="entity.validation.patternrut"></small>
+                        </div>
+                        <div [hidden]="!(clientDataForm.controls.rutVerificationNumber?.dirty && clientDataForm.controls.rutVerificationNumber?.invalid)">
+                            <small class="form-text text-danger" [hidden]="!clientDataForm.controls.rutVerificationNumber?.errors?.minlength"
+                                   jhiTranslate="entity.validation.minlength" translateValues="{ min: 1 }">This field is required to be at least 1 characters.
+                            </small>
+                            <small class="form-text text-danger" [hidden]="!clientDataForm.controls.rutVerificationNumber?.errors?.maxlength"
+                                   jhiTranslate="entity.validation.maxlength" translateValues="{ max: 1 }">This field cannot be longer than 1 characters.
+                            </small>
+                            <small class="form-text text-danger" [hidden]="!clientDataForm.controls.rutVerificationNumber?.errors?.pattern"
+                                   jhiTranslate="entity.validation.patternrut"></small>
+                        </div>
+                    </div>
+                    <div class="form-group row col-sm-3 ml-1">
+                        <div [hidden]="!(clientDataForm.controls.name?.dirty && clientDataForm.controls.name?.invalid)">
+                            <small class="form-text text-danger" [hidden]="!clientDataForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required"></small>
+                            <small class="form-text text-danger" [hidden]="!clientDataForm.controls.name?.errors?.pattern" jhiTranslate="entity.validation.patternname"></small>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- BLOQUE DATOS DESGLOSE -->
+        <div class="card-header hand-pointer" (click)="isCollapsedBreakdownDataPanel = !isCollapsedBreakdownDataPanel" [attr.aria-expanded]="!isCollapsedBreakdownDataPanel"
+             aria-controls="collapsedBreakdownDataPanel">
+            <div class="row">
+                <span class="col-sm-11" jhiTranslate="breakdown.breakdownData"></span>
+                <span class="col-sm-1">
+                    <fa-icon class="float-sm-right fa-sm" [icon]="isCollapsedBreakdownDataPanel ? ICON_CARD_OPEN : ICON_CARD_CLOSE"></fa-icon>
+                </span>
+            </div>
+        </div>
+        <div class="card-body" [ngbCollapse]="isCollapsedBreakdownDataPanel" id="collapsedBreakdownDataPanel">
+            <form class="form-inline" name="breakdownDataForm" role="form" novalidate #breakdownDataForm="ngForm" id="breakdownDataForm">
+                <!-- PRUEBA CELDA -->
+                <div class="form-row">
+                    <div class="form-group col-sm-2">
+                        <label class="col-sm-5 col-form-label" jhiTranslate="breakdown.breakdownTemplateType" for="field_breakdownTemplateType"></label>
+                        <select class="form-control form-control-sm col-sm-6" id="field_breakdownTemplateType" name="breakdownTemplateType" [(ngModel)]="breakdown.codPlantilla"
+                                #fieldBreakdownTemplateType (change)="onBreakdownTemplateTypeChange()">
+                            <option [ngValue]="el.codGenerico" *ngFor="let el of (simpleComboboxTypes | filterDescripcionCodigo:CODTABLA_TIPO_PLANTILLAS_DESGLOSE)">
+                                {{el.glsGenericalarga }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-2">
+                        <label class="col-sm-5 col-form-label" jhiTranslate="breakdown.breakdownType" for="field_breakdownType"></label>
+                        <div class="col-sm-3"  style="padding: 0px;">
+                            <select class="form-control form-control-sm col-sm-12" id="field_breakdownType" name="breakdownType"
+                                [(ngModel)]="breakdown.codTipoDes" #selectedBreakdownType (change)="onBreakdownTypeChange()">
+                                <option [ngValue]="el.codGenerico"
+                                    *ngFor="let el of (simpleComboboxTypes | filterDescripcionCodigo:CODTABLA_TIPO_DESGLOSE)">
+                                    {{el.glsGenericalarga }}
+                                </option>
+                            </select>
+                        </div>
+                        <!-- <div class="form-group col-sm-4 btn-no-right-marg"> -->
+                        <!--<label class="col-sm-5 col-form-label">&nbsp;</label>-->
+                        <div class="col-sm-4">
+                            <button type="button" class="btn col-sm-12 btn-primary btn-block btn-sm" (click)="onClickConsolidated()"
+                                id="buttonConsolidated" #buttonConsolidated>
+                                <fa-icon [icon]="'thumbs-up'"></fa-icon>&nbsp;<span jhiTranslate="breakdown.consolidatedBtn"></span>
+                            </button>
+                        </div>
+                        <!-- </div> -->
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label class="col-sm-3 col-form-label" jhiTranslate="breakdown.breakdownSubType" for="field_breakdownSubType"></label>
+                        <select class="form-control form-control-sm col-sm-4" id="field_breakdownSubType" name="breakdownSubType" [(ngModel)]="breakdown.codSubtipoDes"
+                                (change)="onBreakdownSubTypeChange($event)">
+                            <option [ngValue]="el.codGenerico" *ngFor="let el of (simpleComboboxTypes | filterDescripcionCodigo:CODTABLA_SUBTIPO_DESGLOSE)">
+                                {{el.glsGenericalarga}}
+                            </option>
+                        </select>
+                        <div class="form-group col-sm-5">
+                            <!--<label class="col-sm-4 col-form-label" for="field_breakdownSubTypeDesc">&nbsp;</label>-->
+                            <input type="text" class="form-control form-control-sm col-sm-12" name="breakdownSubTypeDesc" id="field_breakdownSubTypeDesc" #fieldBreakdownSubTypeDesc
+                                   [(ngModel)]="breakdown.glsSubtipoDes"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-2">
+                        <label class="col-sm-3 col-form-label" jhiTranslate="global.form.currency" for="field_currency"></label>
+                        <select class="form-control form-control-sm col-sm-6" id="field_currency" name="currency" [(ngModel)]="breakdown.codMoneda" #selectedCurrency
+                                (change)="onCurrencyChange()">
+                            <option [ngValue]="el.codGenerico" *ngFor="let el of (simpleComboboxTypes | filterDescripcionCodigo:CODTABLA_TIPO_MONEDAS)">
+                                {{el.glsGenericalarga }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-2">
+                        <label class="col-sm-4 col-form-label" jhiTranslate="breakdown.monetaryUnit" for="field_monetaryUnit"></label>
+                        <select class="form-control form-control-sm col-sm-6" id="field_monetaryUnit" name="monetaryUnit" [(ngModel)]="breakdown.codUnidMoneda"
+                                #selectedMonetaryUnit>
+                            <option [ngValue]="el.codGenerico" *ngFor="let el of (simpleComboboxTypes | filterDescripcionCodigo:CODTABLA_UNIDAD_MONETARIA)">
+                                {{el.glsGenericalarga}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-1">
+                        <label class="col-sm-4 col-form-label" jhiTranslate="breakdown.iva" for="field_iva"></label>
+                        <input type="text" class="form-control form-control-sm col-sm-6" name="iva" id="field_iva" [(ngModel)]="breakdown.valIva" (change)="onIvaChange()" (keydown.enter)="onIvaKeyDownOnEnter($event)"/>
+                    </div>
+                </div>
+                <!-- FIN PRUEBA CELDA -->
+                <!-- PRUEBA CELDA 2 CORRIDA -->
+                <div class="form-row">
+                    <div class="form-group col-sm-2">
+
+                    </div>
+                    <div class="form-group col-sm-2">
+                    </div>
+                   
+                    <div class="form-group col-sm-2">
+                            <div class="col-sm-4"></div>
+                            <div class="form-group  col-sm-7">
+                            <button type="button" class="btn btn-primary btn-block col-sm-12" (click)="onClickOtherData()" id="buttonOtherData" #otherData>
+                                <fa-icon [icon]="'cogs'"></fa-icon>&nbsp;<span jhiTranslate="breakdown.otherData"></span>
+                            </button>
+                            </div>
+                    </div>
+                  <!--  botones de accion-->
+                        <div class="form-group col-sm-6">
+                            <div class="form-row ml-1" >
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-sm btn-primary btn-block" (click)="clearButtonOnClick()" id="buttonClear" #buttonClear>
+                                        <!--<fa-icon [icon]="'broom'"></fa-icon> -->
+                                        <span jhiTranslate="breakdown.clear" class="botones-font-size"></span>
+                                    </button>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <button  type="button" class="btn btn-sm btn-primary btn-block" (click)="recoverButtonOnClick()" id="buttonRecover" #buttonRecover>
+                                        <!--<fa-icon [icon]="'exchange-alt'"></fa-icon> -->
+                                        <span jhiTranslate="breakdown.recover" class="botones-font-size"></span>
+                                    </button>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <button  type="button"  class="btn btn-sm btn-primary btn-block" (click)="buttonInProcessOnClick()" id="buttonInProcess" #buttonProcess
+                                              [disabled] ="(breakdownDataForm.controls.baseDeflator?.invalid) ||
+                                                       (periodsDataForm.controls.deflatorPeriod1?.invalid) ||
+                                                       (periodsDataForm.controls.deflatorPeriod2?.invalid) ||
+                                                       (periodsDataForm.controls.deflatorPeriod3?.invalid) ||
+                                                       (periodsDataForm.controls.deflatorPeriod4?.invalid) ||
+                                                       (periodsDataForm.controls.monthsPeriod1?.invalid) ||
+                                                       (periodsDataForm.controls.monthsPeriod2?.invalid) ||
+                                                       (periodsDataForm.controls.monthsPeriod3?.invalid) ||
+                                                       (periodsDataForm.controls.monthsPeriod4?.invalid)
+                                            ">
+                                        <!--<fa-icon [icon]="'microchip'"></fa-icon> -->
+                                        <span jhiTranslate="breakdown.inProcess" class="botones-font-size"></span>
+                                    </button>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <button  type="button" class="btn btn-sm btn-primary btn-block" (click)="buttonSaveOnClick()" id="buttonSave" #buttonSave
+                                            [disabled] ="(breakdownDataForm.controls.baseDeflator?.invalid)||
+                                         (periodsDataForm.controls.deflatorPeriod1?.invalid) ||
+                                         (periodsDataForm.controls.deflatorPeriod2?.invalid) ||
+                                         (periodsDataForm.controls.deflatorPeriod3?.invalid) ||
+                                         (periodsDataForm.controls.deflatorPeriod4?.invalid) ||
+                                         (periodsDataForm.controls.monthsPeriod1?.invalid) ||
+                                         (periodsDataForm.controls.monthsPeriod2?.invalid) ||
+                                         (periodsDataForm.controls.monthsPeriod3?.invalid) ||
+                                         (periodsDataForm.controls.monthsPeriod4?.invalid)
+                                    ">
+                                        <!--<fa-icon [icon]="'save'"></fa-icon> -->
+                                        <span jhiTranslate="breakdown.save" class="botones-font-size"></span>
+                                    </button>
+                                </div>
+                                <div class="form-group ml-1" #SendToReview>
+                                    <button type="button" class="btn btn-sm btn-primary btn-block" (click)="sendToReviewOnClick()" id="buttonSendToReview" #buttonSendToReview>
+                                        <!--<fa-icon [icon]="'share-square'"></fa-icon> -->
+                                        <span jhiTranslate="breakdown.sendToReview" class="botones-font-size"></span>
+                                    </button>
+                                </div>
+                                <div class="form-group ml-1" #ApproveBreakdown>
+                                    <button type="button" class="btn btn-sm btn-primary btn-block" (click)="buttonApproveOnClick()" id="buttonApproveBreakdown" #buttonApproveBreakdown>
+                                        <!--&nbsp;<fa-icon [icon]="'check'"></fa-icon> -->
+                                        <span jhiTranslate="breakdown.approveBreakdown" class="botones-font-size"></span>
+                                    </button>
+                                </div>
+                                <div class="form-group ml-1" #SendToExecutor>
+                                    <button type="button" class="btn btn-sm btn-primary btn-block" (click)="sendBackToExecutorOnClick()" id="buttonSendToExecutor" #buttonSendToExecutor>
+                                        <!--<fa-icon [icon]="'share-square'"></fa-icon> -->
+                                        <span jhiTranslate="breakdown.sendToExecutor" class="botones-font-size"></span>
+                                    </button>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <button type="button" class="btn btn-sm btn-primary btn-block" (click)="onClickGeneratePrint()" id="buttonGeneratePrint" #buttonGeneratePrint>
+                                        <!--<fa-icon [icon]="'print'"></fa-icon> -->
+                                        <span jhiTranslate="breakdown.generatePrint" class="botones-font-size"></span>
+                                    </button>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <button type="button" class="btn btn-sm btn-primary btn-block" (click)="onClickPrint()" id="buttonPrint" #buttonPrint>
+                                        <!--<fa-icon [icon]="'print'"></fa-icon> -->
+                                        <span jhiTranslate="breakdown.print" class="botones-font-size"></span>
+                                    </button>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <button  type="button" class="btn btn-sm btn-primary btn-block" (click)="onClickClone()" id="buttonClone" #buttonClone>
+                                        <!--<fa-icon [icon]="'clone'"></fa-icon> -->
+                                        <span jhiTranslate="breakdown.clone" class="botones-font-size"></span>
+                                    </button>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <button type="button" class="btn btn-sm btn-primary btn-block" (click)="freeBreakdownOnClick()" id="buttonLiberar" #buttonLiberar>
+                                        <!--<fa-icon [icon]="'share-square'"></fa-icon> -->
+                                        <span jhiTranslate="breakdown.liberar" class="botones-font-size"></span>
+                                    </button>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <button  type="button" class="btn btn-sm btn-primary btn-block" (click)="onClickDeleteBreakdown()" id="buttonDelete" #buttonDelete>
+                                        <!--<fa-icon [icon]="'trash-alt'"></fa-icon> -->
+                                        <span jhiTranslate="breakdown.delete" class="botones-font-size"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                        
+                </div>
+                <!-- FIN PRUEBA CELDA 2 -->
+            </form>
+        </div>
+    </div>
+    <!-- BLOQUE PERIODOS -->
+    <div class="card" id = "bloque2">
+        <div class="card-header hand-pointer" (click)="isCollapsedPeriodsPanel = !isCollapsedPeriodsPanel" aria-controls="collapsedPeriodsPanel"
+             [attr.aria-expanded]="!isCollapsedPeriodsPanel">
+            <div class="row">
+                <span class="col-sm-11" jhiTranslate="breakdown.periods"></span>
+                <span class="col-sm-1">
+                    <fa-icon class="float-sm-right fa-sm" [icon]="isCollapsedPeriodsPanel ? ICON_CARD_OPEN : ICON_CARD_CLOSE"></fa-icon>
+                </span>
+            </div>
+        </div>
+        <div class="card-body" [ngbCollapse]="isCollapsedPeriodsPanel" id="collapsedPeriodsPanel">
+            <form name="periodsForm" role="form" novalidate #periodsDataForm="ngForm" id="periodsForm">
+                <div class="form-row pr-4">
+                    <div class="form-group col-md-2 border-right">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <label class="col-sm-5 col-form-label" jhiTranslate="breakdown.baseDeflactor"
+                                       for="field_baseDeflator"></label>
+                                <input type="text" class="form-control form-control-sm col-sm-2" name="baseDeflator"
+                                       id="field_baseDeflator"
+                                       (change)="onDeflactorChange(0)"
+                                       [(ngModel)]="breakdown.valDeflacBaseStr" #field_baseDeflator maxlength="7"
+                                       jhiThreeDigitDecimalNumber autocomplete="off"
+                                       pattern="^(\d{1,3})([\.|,](\d{1,3}))?$" (keyup)="replaceDotByComma($event, 0)"
+                                       required/>
+                                <div class="form-group row col-sm-5 ml-1">
+                                    <div
+                                        [hidden]="!(breakdownDataForm.controls.baseDeflator?.dirty && breakdownDataForm.controls.baseDeflator?.invalid)">
+                                        <small class="form-text text-danger"
+                                               [hidden]="!breakdownDataForm.controls.baseDeflator?.errors?.pattern"
+                                               jhiTranslate="entity.validation.patternDeflactor"></small>
+                                    </div>
+                                    <div
+                                        [hidden]="!(breakdownDataForm.controls.baseDeflator?.dirty && breakdownDataForm.controls.baseDeflator?.invalid)">
+                                        <small class="form-text text-danger"
+                                               [hidden]="!breakdownDataForm.controls.baseDeflator?.errors?.required"
+                                               jhiTranslate="entity.validation.required">
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="form-group col-md-2" id="divSizeReference" style="margin-right: -40px;">
+                        <label class="form-control-label  ml-3" jhiTranslate="breakdown.monthsNumberSlashPeriodDeflator"></label>
+                    </div>
+                    <div class="form-group col-md-1 border-left border-default">
+                        <div class="input-group">
+                            <input id="field_fecPeriodo1Rpt" type="text" required class="form-control form-control-sm" name="fecPeriodo1Rpt" ngbDatepicker
+                                   #fecPeriodo1Rpt="ngbDatepicker"
+                                   [(ngModel)]="extraDataDesglose.fecPeriodo[activePeriodsIndexes[0]]" [disabled]="isBlockPeriodsDataDisabled || !btnEdit1.disabled"
+                                   (blur)="onPeriodDateChange1($event)" (change)="onPeriodDateChange1($event)"/>
+
+                            <span class="input-group-append">
+                                <button type="button" class="btn btn-default btn-sm" (click)="fecPeriodo1Rpt.toggle()" [disabled]="isBlockPeriodsDataDisabled ||
+                                !btnEdit1.disabled">
+                                    <fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-1 ">
+                        <div class="input-group">
+                            <input type="text" class="form-control form-control-sm col-sm-4" name="monthsPeriod1" id="field_monthsPeriod1" maxlength="2" max="12" min="1"
+                                   required maxlength="2" max="12" min="1"
+                                   [(ngModel)]="extraDataDesglose.monthsPeriod[activePeriodsIndexes[0]]" jhiThreeDigitDecimalNumber autocomplete="off"
+                                   [disabled]="isBlockPeriodsDataDisabled || extraDataDesglose.fecPeriodo[activePeriodsIndexes[0]] === null
+                               || extraDataDesglose.fecPeriodo[activePeriodsIndexes[0]] === undefined || !btnEdit1.disabled" (change)="onMonthNumberChange(1)"/>
+                               <div>&nbsp;</div>
+                            <input type="text" class="form-control form-control-sm col-sm-8" name="deflatorPeriod1" id="field_deflatorPeriod1" required minlength="1"
+                                   maxlength="7"
+                                   [(ngModel)]="extraDataDesglose.deflatorPeriodStr[activePeriodsIndexes[0]]" jhiThreeDigitDecimalNumber autocomplete="off"
+                                   [disabled]="isBlockPeriodsDataDisabled || extraDataDesglose.fecPeriodo[activePeriodsIndexes[0]] === null
+                               || extraDataDesglose.fecPeriodo[activePeriodsIndexes[0]] === undefined || !btnEdit1.disabled
+                               || (this.breakdown.codMoneda !== COD_TIPO_MONEDA_PESOS)" (change)="onDeflactorChange(1)"
+                                  (keyup)="replaceDotByComma($event, 1)"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-1 border-left  border-default">
+                        <div class="input-group">
+                            <input id="field_fecPeriodo2Rpt" type="text" required class="form-control form-control-sm" name="fecPeriodo2Rpt" ngbDatepicker #fecPeriodo2Rpt="ngbDatepicker"
+                                   [(ngModel)]="extraDataDesglose.fecPeriodo[activePeriodsIndexes[1]]" [disabled]="isBlockPeriodsDataDisabled || !btnEdit2.disabled"
+                                   (blur)="onPeriodDateChange2($event)" (change)="onPeriodDateChange2($event)"/>
+                            <span class="input-group-append">
+                                <button type="button" class="btn btn-default btn-sm" (click)="fecPeriodo2Rpt.toggle()" [disabled]="isBlockPeriodsDataDisabled ||
+                                !btnEdit2.disabled">
+                                    <fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-1  ">
+                        <div class="input-group">
+                            <input type="text" class="form-control form-control-sm col-sm-4" name="monthsPeriod2" id="field_monthsPeriod2" required maxlength="2" max="12" min="1"
+                                   [(ngModel)]="extraDataDesglose.monthsPeriod[activePeriodsIndexes[1]]" jhiThreeDigitDecimalNumber autocomplete="off"
+                                   [disabled]="isBlockPeriodsDataDisabled || extraDataDesglose.fecPeriodo[activePeriodsIndexes[1]] === null
+                               || extraDataDesglose.fecPeriodo[activePeriodsIndexes[1]] === undefined || !btnEdit2.disabled " (change)="onMonthNumberChange(2)"/>
+                               <div>&nbsp;</div>
+                            <input type="text" class="form-control form-control-sm col-sm-8" name="deflatorPeriod2" id="field_deflatorPeriod2" required minlength="1" maxlength="7"
+                                   [(ngModel)]="extraDataDesglose.deflatorPeriodStr[activePeriodsIndexes[1]]" jhiThreeDigitDecimalNumber autocomplete="off"
+                                   [disabled]="isBlockPeriodsDataDisabled || extraDataDesglose.fecPeriodo[activePeriodsIndexes[1]] === null
+                               || extraDataDesglose.fecPeriodo[activePeriodsIndexes[1]] === undefined || !btnEdit2.disabled
+                               || (this.breakdown.codMoneda !== COD_TIPO_MONEDA_PESOS)" (change)="onDeflactorChange(2)"
+                                    (keyup)="replaceDotByComma($event, 2)"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-1 border-left  border-default">
+                        <div class="input-group">
+                            <input id="field_fecPeriodo3Rpt" type="text" required class="form-control form-control-sm" name="fecPeriodo3Rpt" ngbDatepicker #fecPeriodo3Rpt="ngbDatepicker"
+                                   [(ngModel)]="extraDataDesglose.fecPeriodo[activePeriodsIndexes[2]]" [disabled]="isBlockPeriodsDataDisabled || !btnEdit3.disabled"
+                                   (blur)="onPeriodDateChange3($event)" (change)="onPeriodDateChange3($event)"/>
+                            <span class="input-group-append">
+                                <button type="button" class="btn btn-default btn-sm" (click)="fecPeriodo3Rpt.toggle()" [disabled]="isBlockPeriodsDataDisabled ||
+                                !btnEdit3.disabled">
+                                    <fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-1 ">
+                        <div class="input-group">
+                            <input type="text" class="form-control form-control-sm col-sm-4" name="monthsPeriod3" id="field_monthsPeriod3" required maxlength="2" max="12" min="1"
+                                   [(ngModel)]="extraDataDesglose.monthsPeriod[activePeriodsIndexes[2]]" jhiThreeDigitDecimalNumber autocomplete="off"
+                                   [disabled]="isBlockPeriodsDataDisabled || extraDataDesglose.fecPeriodo[activePeriodsIndexes[2]] === null
+                               || extraDataDesglose.fecPeriodo[activePeriodsIndexes[2]] === undefined || !btnEdit3.disabled" (change)="onMonthNumberChange(3)"/>
+                               <div>&nbsp;</div>
+                            <input type="text" class="form-control form-control-sm col-sm-8" name="deflatorPeriod3" id="field_deflatorPeriod3" required minlength="1" maxlength="7"
+                                   [(ngModel)]="extraDataDesglose.deflatorPeriodStr[activePeriodsIndexes[2]]" jhiThreeDigitDecimalNumber autocomplete="off"
+                                   [disabled]="isBlockPeriodsDataDisabled || extraDataDesglose.fecPeriodo[activePeriodsIndexes[2]] === null
+                               || extraDataDesglose.fecPeriodo[activePeriodsIndexes[2]] === undefined || !btnEdit3.disabled
+                               || (this.breakdown.codMoneda !== COD_TIPO_MONEDA_PESOS)" (change)="onDeflactorChange(3)"
+                                    (keyup)="replaceDotByComma($event, 3)"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-1 border-left  border-default">
+                        <div class="input-group">
+                            <input id="field_fecPeriodo4Rpt" type="text" required class="form-control form-control-sm " name="fecPeriodo4Rpt" ngbDatepicker
+                                   #fecPeriodo4Rpt="ngbDatepicker"
+                                   [(ngModel)]="extraDataDesglose.fecPeriodo[activePeriodsIndexes[3]]" [disabled]="isBlockPeriodsDataDisabled || !btnEdit4.disabled"
+                                   (blur)="onPeriodDateChange4($event)" (change)="onPeriodDateChange4($event)"/>
+                            <span class="input-group-append">
+                                <button type="button" class="btn btn-default btn-sm" (click)="fecPeriodo4Rpt.toggle()" [disabled]="isBlockPeriodsDataDisabled ||
+                                !btnEdit4.disabled">
+                                    <fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-1 border-right border-default">
+                        <div class="input-group">
+                            <input type="text" class="form-control form-control-sm col-sm-4" name="monthsPeriod4" id="field_monthsPeriod4" required maxlength="2" max="12" min="1"
+                                   [(ngModel)]="extraDataDesglose.monthsPeriod[activePeriodsIndexes[3]]" jhiThreeDigitDecimalNumber autocomplete="off"
+                                   [disabled]="isBlockPeriodsDataDisabled || extraDataDesglose.fecPeriodo[activePeriodsIndexes[3]] === null
+                               || extraDataDesglose.fecPeriodo[activePeriodsIndexes[3]] === undefined || !btnEdit4.disabled" (change)="onMonthNumberChange(4)"/>
+                               <div>&nbsp;</div>
+                            <input type="text" class="form-control form-control-sm col-sm-8" name="deflatorPeriod4" id="field_deflatorPeriod4" required minlength="1" maxlength="7"
+                                   [(ngModel)]="extraDataDesglose.deflatorPeriodStr[activePeriodsIndexes[3]]" jhiThreeDigitDecimalNumber autocomplete="off"
+                                   [disabled]="isBlockPeriodsDataDisabled || extraDataDesglose.fecPeriodo[activePeriodsIndexes[3]] === null
+                               || extraDataDesglose.fecPeriodo[activePeriodsIndexes[3]] === undefined || !btnEdit4.disabled
+                               || (this.breakdown.codMoneda !== COD_TIPO_MONEDA_PESOS)" (change)="onDeflactorChange(4)"
+                                   (keyup)="replaceDotByComma($event, 4)"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row pr-4">
+                    <div class="form-group col-md-2 border-right">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <label class="col-sm-5 col-form-label" jhiTranslate="breakdown.date"
+                                       for="field_baseDeflator"></label>
+                                <div class="input-group col-sm-5 btn-both-marg">
+                                    <div>&nbsp;</div>
+                                    <input id="field_fecDeflacBase" type="text" class="form-control form-control-sm"
+                                           required name="fecDeflacBase" ngbDatepicker #fecDeflacBase="ngbDatepicker"
+                                           [(ngModel)]="breakdown.fecDeflacBase"
+                                           (blur)="onPeriodBaseDateChange($event)"
+                                           (change)="onPeriodBaseDateChange($event)" #field_fecDeflacBase/>
+
+                                    <span class="input-group-append">
+                                        <button type="button" class="btn btn-default btn-sm col-sm-12"
+                                         (click)="fecDeflacBase.toggle()" id="field_fecDeflacBaseBtn"
+                                            #field_fecDeflacBaseBtn>
+                                         <fa-icon [icon]="'calendar-alt'"></fa-icon>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="form-group col-md-2" style="margin-right: -40px;">
+                        <label class="form-control-label  ml-3" jhiTranslate="breakdown.auditorSlashQualified"></label>
+                    </div>
+                    <div class="btn-group col-md-1 border-left ">
+                        <div class="input-group">
+                            <button type="button" class="form-control form-control-sm btn btn-primary col-sm-12 btn-block" (click)="buttonSelectAuditorOnClick(activePeriodsIndexes[0])"
+                                    [disabled]="isBlockPeriodsDataDisabled || extraDataDesglose.fecPeriodo[activePeriodsIndexes[0]] === null ||
+                                extraDataDesglose.fecPeriodo[activePeriodsIndexes[0]] === undefined || !btnEdit1.disabled">
+                                <!-- <fa-icon [icon]="'user-check'"></fa-icon>-->&nbsp;<span jhiTranslate="breakdown.auditor" class="botones-font-size"></span>
+                            </button>
+                            
+                        </div>
+                    </div>
+                    <div class="btn-group col-md-1  border-right border-default">
+                        <div class="input-group">
+                            <select class="form-control form-control-sm col-sm-12" id="field_period1Rating" name="period1Rating"
+                                    [(ngModel)]="extraDataDesglose.periodRating[activePeriodsIndexes[0]]"
+                                    #selectedPeriod1Rating [disabled]="isBlockPeriodsDataDisabled || extraDataDesglose.fecPeriodo[activePeriodsIndexes[0]] === null
+                                || extraDataDesglose.fecPeriodo[activePeriodsIndexes[0]] === undefined || !btnEdit1.disabled" [compareWith]="compareFnPeriodRating">
+                                <option [ngValue]="null"></option>
+                                <option [ngValue]="el.codGenerico" *ngFor="let el of (simpleComboboxTypes | filterDescripcionCodigo:CODTABLA_TIPO_RESPUESTA_AUDITOR)">
+                                    {{el.glsGenericalarga }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-group col-md-1 ">
+                            <button type="button" class="form-control form-control-sm btn btn-primary col-sm-12 btn-block" (click)="buttonSelectAuditorOnClick(activePeriodsIndexes[1])"
+                                    [disabled]="isBlockPeriodsDataDisabled || extraDataDesglose.fecPeriodo[activePeriodsIndexes[1]] === null ||
+                                extraDataDesglose.fecPeriodo[activePeriodsIndexes[1]] === undefined || !btnEdit1.disabled">
+                                <!--<fa-icon [icon]="'user-check'"></fa-icon>-->&nbsp;<span jhiTranslate="breakdown.auditor" class="botones-font-size"></span>
+                            </button>
+                    </div>
+                           
+                    <div class="btn-group col-md-1 border-right">
+                        <select class="form-control form-control-sm col-sm-12" id="field_period2Rating" name="period2Rating" #selectedPeriod2Rating
+                                [(ngModel)]="extraDataDesglose.periodRating[activePeriodsIndexes[1]]"
+                                [disabled]="isBlockPeriodsDataDisabled || extraDataDesglose.fecPeriodo[activePeriodsIndexes[1]] === null
+                                || extraDataDesglose.fecPeriodo[activePeriodsIndexes[1]] === undefined || !btnEdit2.disabled" [compareWith]="compareFnPeriodRating">
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="el.codGenerico" *ngFor="let el of (simpleComboboxTypes | filterDescripcionCodigo:CODTABLA_TIPO_RESPUESTA_AUDITOR)">
+                                {{el.glsGenericalarga }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="btn-group col-md-1 ">
+                            <button type="button" class="form-control form-control-sm btn btn-primary col-sm-12 btn-block" (click)="buttonSelectAuditorOnClick(activePeriodsIndexes[2])"
+                                    [disabled]="isBlockPeriodsDataDisabled || extraDataDesglose.fecPeriodo[activePeriodsIndexes[2]] === null ||
+                                extraDataDesglose.fecPeriodo[activePeriodsIndexes[2]] === undefined || !btnEdit3.disabled">
+                                <!--<fa-icon [icon]="'user-check'"></fa-icon>-->&nbsp;<span jhiTranslate="breakdown.auditor" class="botones-font-size"></span>
+                            </button>
+                        </div>
+                            
+                    <div class="btn-group col-md-1 border-right">
+                        <select class="form-control form-control-sm" id="field_period3Rating col-sm-12" name="period3Rating" #selectedPeriod3Rating
+                                [(ngModel)]="extraDataDesglose.periodRating[activePeriodsIndexes[2]]"
+                                [disabled]="isBlockPeriodsDataDisabled || extraDataDesglose.fecPeriodo[activePeriodsIndexes[2]] === null
+                                || extraDataDesglose.fecPeriodo[activePeriodsIndexes[2]] === undefined || !btnEdit3.disabled" [compareWith]="compareFnPeriodRating">
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="el.codGenerico" *ngFor="let el of (simpleComboboxTypes | filterDescripcionCodigo:CODTABLA_TIPO_RESPUESTA_AUDITOR)">
+                                {{el.glsGenericalarga }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="btn-group col-md-1">
+                            <button type="button" class="form-control form-control-sm btn btn-primary col-sm-12 btn-block" (click)="buttonSelectAuditorOnClick(activePeriodsIndexes[3])"
+                                    [disabled]="isBlockPeriodsDataDisabled || extraDataDesglose.fecPeriodo[activePeriodsIndexes[3]] === null ||
+                                extraDataDesglose.fecPeriodo[activePeriodsIndexes[3]] === undefined || !btnEdit4.disabled">
+                                <!--<fa-icon [icon]="'user-check'"></fa-icon>&nbsp;--><span jhiTranslate="breakdown.auditor" class="botones-font-size"></span>
+                            </button>
+                    </div>
+                    <div class="btn-group col-md-1 border-right border-default">
+                        <select class="form-control form-control-sm" id="field_period4Rating col-sm-12" name="period4Rating" #selectedPeriod4Rating
+                                [(ngModel)]="extraDataDesglose.periodRating[activePeriodsIndexes[3]]"
+                                [disabled]="isBlockPeriodsDataDisabled || extraDataDesglose.fecPeriodo[activePeriodsIndexes[3]] === null
+                                || extraDataDesglose.fecPeriodo[activePeriodsIndexes[3]] === undefined || !btnEdit4.disabled" [compareWith]="compareFnPeriodRating">
+                            <option [ngValue]="null"></option>
+                            <!--<option [ngValue]="annoTributaOption.id === ahorro.annoTributa?.id ? ahorro.annoTributa : annoTributaOption" *ngFor="let el of activities;">{{el}}-->
+                            <option [ngValue]="el.codGenerico" *ngFor="let el of (simpleComboboxTypes | filterDescripcionCodigo:CODTABLA_TIPO_RESPUESTA_AUDITOR)">
+                                {{el.glsGenericalarga }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row pr-4">
+                    <div class="form-group col-md-2 border-right" >
+                    </div>
+                    <div class="form-group col-md-2" style="margin-right: -40px;">
+                        <!--<label class="form-control-label" jhiTranslate="global.form.date"></label>-->
+                    </div>
+                    <div class="form-group col-md-1 border-left border-default " id='divSizeReference1'>
+                        <input type="text" class="form-control  form-control-sm" name="period1Extra" id="field_period1Extra" [(ngModel)]="auditorNames[activePeriodsIndexes[0]]"
+                               [disabled]="alwaysDisabled" style="margin-bottom: 3px !important;"/>
+                    </div>
+                    <div class="form-group col-md-1 border-right border-default">
+                        <button type="button" class="btn btn-sm btn-primary btn-block" (click)="onClickEditButton(0)" id="buttonEdit1" #buttonEdit1>
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="breakdown.edit" class="botones-font-size"></span>
+                        </button>
+                    </div>
+                    <div class="form-group col-md-1  border-default">
+                        <input type="text" class="form-control form-control-sm" name="period2Extra" id="field_period2Extra" [(ngModel)]="auditorNames[activePeriodsIndexes[1]]"
+                               [disabled]="alwaysDisabled" style="margin-bottom: 3px !important;" />
+                    </div>
+                    <div class="form-group col-md-1 border-right border-default">
+                        <button type="button" class="btn btn-sm btn-primary btn-block" (click)="onClickEditButton(1)" id="buttonEdit2" #buttonEdit2>
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="breakdown.edit" class="botones-font-size"></span>
+                        </button>
+                    </div>
+                    <div class="form-group col-md-1  border-default">
+                        <input type="text" class="form-control form-control-sm" name="period3Extra" id="field_period3Extra" [(ngModel)]="auditorNames[activePeriodsIndexes[2]]"
+                               [disabled]="alwaysDisabled" style="margin-bottom: 3px !important;"/>
+                    </div>
+                    <div class="form-group col-md-1 border-right border-default">
+                        <button type="button" class="btn btn-sm btn-primary btn-block" (click)="onClickEditButton(2)" id="buttonEdit3" #buttonEdit3>
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="breakdown.edit" class="botones-font-size"></span>
+                        </button>
+                    </div>
+                    <div class="form-group col-md-1  border-default">
+                        <input type="text" class="form-control form-control-sm" name="period4Extra" id="field_period4Extra" [(ngModel)]="auditorNames[activePeriodsIndexes[3]]"
+                               [disabled]="alwaysDisabled" style="margin-bottom: 2px !important;" />
+                    </div>
+                    <div class="form-group col-md-1 border-right border-default">
+                        <button type="button" class="btn btn-sm btn-primary btn-block" (click)="onClickEditButton(3)" id="buttonEdit4" #buttonEdit4>
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="breakdown.edit" class="botones-font-size"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-row pr-4">
+                    <div class="form-group col-md-2 border-right" >
+                    </div>
+                    <div class="form-group col-md-2" style="margin-right: -40px;">
+                        <!--<label class="form-control-label" jhiTranslate="global.form.date"></label>-->
+                    </div>
+                    <div class="form-group col-md-1 border-left border-default ">
+                        <button type="button" class="form-control  btn btn-primary col-sm-12 " (click)="deletePeriod(activePeriodsIndexes[0], 0)"
+                                [disabled]="isBlockPeriodsDataDisabled || extraDataDesglose.fecPeriodo[activePeriodsIndexes[0]] === null
+                                            || extraDataDesglose.fecPeriodo[activePeriodsIndexes[0]] === undefined || !btnEdit1.disabled">
+                            <span jhiTranslate="breakdown.delete" class="botones-font-size"></span>
+                        </button>
+                    </div>
+                    <div div class="btn-group col-md-1 border-right">
+                        <button type="button" class="form-control btn btn-primary col-sm-12" *ngIf="(this.breakdown.codPlantilla === COD_TIPO_DESG_BASE_NUEVA) &&
+                        (this.breakdown.codTipoDes !== COD_TIPO_DESG_CONSOLIDADO) && (this.breakdown.codEstado === ESTADO_DEFINITIVO || this.breakdown.codEstado === ESTADO_CORREGIDO )"
+                                (click)="onClicktoProject(0)"
+                                [disabled]="extraDataDesglose.fecPeriodo[activePeriodsIndexes[0]] === null
+                                            || extraDataDesglose.fecPeriodo[activePeriodsIndexes[0]] === undefined " id = "project1">
+                            <span jhiTranslate="breakdown.toProject" class="botones-font-size" ></span>
+                        </button>
+                    </div>
+                    <div class="form-group col-md-1 ">
+                        <button type="button" class="form-control btn btn-primary col-sm-12 " (click)="deletePeriod(activePeriodsIndexes[1], 1)"
+                                [disabled]="isBlockPeriodsDataDisabled || extraDataDesglose.fecPeriodo[activePeriodsIndexes[1]] === null
+                                            || extraDataDesglose.fecPeriodo[activePeriodsIndexes[1]] === undefined || !btnEdit1.disabled">
+                            <span jhiTranslate="breakdown.delete" class="botones-font-size"></span>
+                        </button>
+                    </div>
+                    <div div class="btn-group col-md-1 border-right">
+                        <button type="button" class="form-control btn btn-primary col-sm-12 " *ngIf="(this.breakdown.codPlantilla === COD_TIPO_DESG_BASE_NUEVA) &&
+                        (this.breakdown.codTipoDes !== COD_TIPO_DESG_CONSOLIDADO) &&  (this.breakdown.codEstado === ESTADO_DEFINITIVO || this.breakdown.codEstado === ESTADO_CORREGIDO )" (click)="onClicktoProject(1)"
+                                [disabled]="extraDataDesglose.fecPeriodo[activePeriodsIndexes[1]] === null
+                                            || extraDataDesglose.fecPeriodo[activePeriodsIndexes[1]] === undefined " id = "project2">
+                            <span jhiTranslate="breakdown.toProject" class="botones-font-size"></span>
+                        </button>
+                    </div>
+                    <div class="form-group col-md-1 ">
+                        <button type="button" class="form-control btn btn-primary  col-sm-12" (click)="deletePeriod(activePeriodsIndexes[2], 2)"
+                                [disabled]="isBlockPeriodsDataDisabled || extraDataDesglose.fecPeriodo[activePeriodsIndexes[2]] === null
+                                            || extraDataDesglose.fecPeriodo[activePeriodsIndexes[2]] === undefined || !btnEdit1.disabled">
+                            <span jhiTranslate="breakdown.delete" class="botones-font-size"></span>
+                        </button>
+                    </div>
+                    <div div class="btn-group col-md-1 border-right">
+                        <button  type="button" class="form-control btn btn-primary  col-sm-12" *ngIf="(this.breakdown.codPlantilla === COD_TIPO_DESG_BASE_NUEVA) &&
+                        (this.breakdown.codTipoDes !== COD_TIPO_DESG_CONSOLIDADO) &&  (this.breakdown.codEstado === ESTADO_DEFINITIVO || this.breakdown.codEstado === ESTADO_CORREGIDO )" (click)="onClicktoProject(2)"
+                                 [disabled]="extraDataDesglose.fecPeriodo[activePeriodsIndexes[2]] === null
+                                            || extraDataDesglose.fecPeriodo[activePeriodsIndexes[2]] === undefined " id = "project3">
+                            <span jhiTranslate="breakdown.toProject" class="botones-font-size"></span>
+                        </button>
+                    </div>
+                    <div class="form-group col-md-1 ">
+                        <button type="button" class="form-control btn btn-primary   col-sm-12" (click)="deletePeriod(activePeriodsIndexes[3], 3)"
+                                [disabled]="isBlockPeriodsDataDisabled || extraDataDesglose.fecPeriodo[activePeriodsIndexes[3]] === null
+                                            || extraDataDesglose.fecPeriodo[activePeriodsIndexes[3]] === undefined || !btnEdit1.disabled">
+                            <span jhiTranslate="breakdown.delete" class="botones-font-size"></span>
+                        </button>
+                    </div>
+                    <div div class="btn-group col-md-1 border-right">
+                        <button type="button" class="form-control btn btn-primary  col-sm-12" *ngIf="(this.breakdown.codPlantilla === COD_TIPO_DESG_BASE_NUEVA) &&
+                        (this.breakdown.codTipoDes !== COD_TIPO_DESG_CONSOLIDADO) &&  (this.breakdown.codEstado === ESTADO_DEFINITIVO || this.breakdown.codEstado === ESTADO_CORREGIDO )" (click)="onClicktoProject(3)"
+                                [disabled]="extraDataDesglose.fecPeriodo[activePeriodsIndexes[3]] === null
+                                            || extraDataDesglose.fecPeriodo[activePeriodsIndexes[3]] === undefined " id = "project4">
+                            <span jhiTranslate="breakdown.toProject" class="botones-font-size"></span>
+                        </button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header hand-pointer" (click)="isCollapsedDataPanel = !isCollapsedDataPanel" [attr.aria-expanded]="!isCollapsedDataPanel" aria-controls="collapseDataPanel">
+            <div class="row">
+                <span class="col-sm-11" jhiTranslate="breakdown.data"></span>
+                <span class="col-sm-1">
+                    <fa-icon class="float-sm-right fa-sm" [icon]="isCollapsedDataPanel ? ICON_CARD_OPEN : ICON_CARD_CLOSE"></fa-icon>
+                </span>
+            </div>
+        </div>
+        <div class="card-body" [ngbCollapse]="isCollapsedDataPanel" id="collapseDataPanel">
+            <ngb-tabset [justify]="currentJustify" [destroyOnHide]="currentDestroyOnHide" (tabChange)="beforeChange($event)">
+                <ngb-tab [id]="tabBreakdownDetailId" >
+                    <ng-template ngbTabTitle>{{"breakdown.detail" | translate}}</ng-template>
+                    <ng-template ngbTabContent id="tab1">
+                        <hot-table
+                            [licenseKey]="HANDS_ON_TABLE_LICENSE_KEY"
+                            [hotId]="handOnTableDetailInstanceId"
+                            #dataTableTab1
+                            [data]="data1"
+                            [colHeaders]="colHeaders"
+                            [columns]="columns"
+                            [colWidths]="colWidths"
+                            [settings]="options"
+                            [formulas]="true"
+                            [rowHeaders]="true"
+                            [afterLoadData]="afterLoadDataMethod"
+                            [observeChanges]="true"
+                            [afterSelection]="afterSelectionMethod">
+                        </hot-table>
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab [id]="tabGenFondIndFinId">
+                    <ng-template ngbTabTitle><span>{{"breakdown.fundsGenerationAndFinancialIndicators" | translate}}</span></ng-template>
+                    <ng-template ngbTabContent id="tab2">
+                        <hot-table
+                            [licenseKey]="HANDS_ON_TABLE_LICENSE_KEY"
+                            [hotId]="handOnTableGenFonInstanceId"
+                            #dataTableTab2
+                            [data]="data"
+                            [colHeaders]="colHeaders"
+                            [columns]="columns"
+                            [colWidths]="colWidths"
+                            [settings]="options1"
+                            [rowHeaders]="true"
+                            [formulas]="true"
+                            [afterLoadData]="afterLoadDataMethod"
+                            [observeChanges]="true"
+                            [afterSelection]="afterSelectionMethod">
+                        </hot-table>
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab [id]="tabPrintId">
+                    <ng-template ngbTabTitle>{{"breakdown.printed" | translate}}</ng-template>
+                    <ng-template ngbTabContent id="tab3">
+                        <hot-table
+                            [licenseKey]="HANDS_ON_TABLE_LICENSE_KEY"
+                            [hotId]="handOnTableImpreInstanceId"
+                            #dataTableTab3
+                            [data]="data2"
+                            [rowHeaders]="true"
+                            [colHeaders]="colHeaders1"
+                            [columns]="columns1"
+                            [colWidths]="colWidths"
+                            [settings]="options"
+                            [readOnly]="true"
+                            [formulas]="false"
+                            [afterSelection]="afterSelectionMethod2"
+                            [observeChanges]="false"
+                            [afterLoadData]="afterLoadDataMethod2">
+                        </hot-table>
+                    </ng-template>
+                </ngb-tab>
+            </ngb-tabset>
+            <div class="form-row"></div>
+            <div class="form-group row p-1" [hidden]="isDivFormulaValueHidden">
+                <div class="col-sm-1">
+                    <button type="button" class="btn btn-sm btn-primary btn-block" id="agregarMultiregistro" [disabled]="isButtonMultiregistroDisabled">
+                        <fa-icon [icon]="'plus'"></fa-icon>&nbsp;
+                    </button>
+                </div>
+                <div class="col-sm-1">
+                    <button type="button" class="btn btn-sm btn-primary btn-block" id="quitarMultiregistro" [disabled]="isButtonMultiregistroDisabled">
+                        <fa-icon [icon]="'minus'"></fa-icon>&nbsp;
+                    </button>
+                </div>
+                <div class="col-sm-6">
+                    <div id="selectedCellValueContainerId">
+                        <ngb-alert [dismissible]="false" class="cell-value-excel">
+                            <span class="label label-primary" id="selectedCellValueId">&emsp;</span>
+                        </ngb-alert>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-sm btn-primary btn-block" (click)="onClickPreviousPeriod()" [disabled]="isButtonPreviousDisabled" >
+                        <fa-icon [icon]="'angle-left'"></fa-icon>&nbsp;<span jhiTranslate="global.form.previous"></span>
+                    </button>
+                </div>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-sm btn-primary btn-block" (click)="onClickNextPeriod()" [disabled]="isButtonNextDisabled" >
+                        <span jhiTranslate="global.form.next"></span>&nbsp;<fa-icon [icon]="'angle-right'"></fa-icon>
+                    </button>
+                </div>
+
+            </div>
+            <div class="form-group row p-1" [hidden]="!isDivFormulaValueHidden">
+                <div class="col-sm-10"></div>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-primary btn-block btn-custom-font-size-1" (click)="onClickPrintTabPrint()" [disabled]="isButtonImprime">
+                        <fa-icon [icon]="'print'"></fa-icon>&nbsp;<span jhiTranslate="breakdown.print"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

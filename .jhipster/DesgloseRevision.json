@@ -1,0 +1,81 @@
+{
+    "name": "DesgloseRevision",
+    "fields": [
+        {
+            "fieldName": "codCliente",
+            "javadoc": "Rut de cliente.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codTipoDes",
+            "javadoc": "Tipo de desglose.",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codSubtipoDes",
+            "javadoc": "Sub Tipo de desglose.",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codMoneda",
+            "javadoc": "Código de moneda.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rolDigitador",
+            "javadoc": "Rol empleado digitador de quien envia a revisión.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rolRevisor",
+            "javadoc": "Rol empleado revisor que está asignado para revisión segun RELTAB.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rolRevisorReem",
+            "javadoc": "Rol empleado revisor reemplazado.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "glsNotificacion",
+            "javadoc": "Mensaje de notificación.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "flgNotificado",
+            "javadoc": "Señala si se notificó al revisor.",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "fecEnvioRevision",
+            "javadoc": "Fecha de envío a revisión.",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fecEnRevision",
+            "javadoc": "Fecha cuando es tomada para revisión.",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fecTerminoRevision",
+            "javadoc": "Fecha cuando se termina revisión.",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "codRegStatus",
+            "javadoc": "Código de vigencia del registro.",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181011140724",
+    "javadoc": "Representa la tabla \"DESGLO_REV\" que contiene las notificaciones de desgloses producto de los envíos a revisión. Pertenece al esquema CIF_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "desglose_revision",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

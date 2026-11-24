@@ -1,0 +1,109 @@
+<p>
+<div class="modal-header">
+    <h4 class="modal-title"><span jhiTranslate="breakdown.clientList"></span></h4>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal()">&times;</button>
+</div>
+<div class="modal-body">
+    <jhi-alert-error></jhi-alert-error>
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header hand-pointer" jhiTranslate="breakdown.bankClientsCompany" (click)="isCollapsedBankClientsCompanyPanel = !isCollapsedBankClientsCompanyPanel"
+                 [attr.aria-expanded]="!isCollapsedBankClientsCompanyPanel" aria-controls="collapseBankClientsCompanyPanel"></div>
+            <div class="card-body" [ngbCollapse]="isCollapsedBankClientsCompanyPanel" id="collapseBankClientsCompanyPanel">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th><span jhiTranslate="breakdown.search.tableHeaders.clientName"></span></th>
+                            <th><span jhiTranslate="breakdown.search.tableHeaders.rut"></span></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let client of clients | filterClientsRutNoRutPipe:RUT_COMPANY; index as i">
+                            <td>{{i + 1}}</td>
+                            <td>{{client.name}}</td>
+                            <td>{{client.rut}}</td>
+                            <td class="text-center">
+                                <div class="btn-group flex-btn-group-container">
+                                    <button type="submit" (click)="triggerOnSelectItemEvent(client)" class="btn btn-primary btn-block btn-sm">
+                                        <fa-icon [icon]="'upload'"></fa-icon>
+                                        <span class="d-none d-md-inline" jhiTranslate="breakdown.search.load"></span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header hand-pointer" jhiTranslate="breakdown.bankClientsPerson" (click)="isCollapsedBankClientsPersonPanel = !isCollapsedBankClientsPersonPanel"
+                 [attr.aria-expanded]="!isCollapsedBankClientsPersonPanel" aria-controls="collapseBankClientsPersonPanel"></div>
+            <div class="card-body" [ngbCollapse]="isCollapsedBankClientsPersonPanel" id="collapseBankClientsPersonPanel">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th><span jhiTranslate="breakdown.search.tableHeaders.clientName"></span></th>
+                            <th><span jhiTranslate="breakdown.search.tableHeaders.rut"></span></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let client of clients | filterClientsRutNoRutPipe:RUT_PERSON; index as i">
+                            <td>{{i + 1}}</td>
+                            <td>{{client.name}}</td>
+                            <td>{{client.rut}}</td>
+                            <td class="text-center">
+                                <div class="btn-group flex-btn-group-container">
+                                    <button type="submit" (click)="triggerOnSelectItemEvent(client)" class="btn btn-primary btn-block btn-sm">
+                                        <fa-icon [icon]="'upload'"></fa-icon>
+                                        <span class="d-none d-md-inline" jhiTranslate="breakdown.search.load"></span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header hand-pointer" jhiTranslate="breakdown.clientsNoRut" (click)="isCollapsedDataNoRutPanel = !isCollapsedDataNoRutPanel"
+                 [attr.aria-expanded]="!isCollapsedDataNoRutPanel" aria-controls="collapseDataPanelNoRut"></div>
+            <div class="card-body" [ngbCollapse]="isCollapsedDataNoRutPanel" id="collapseDataPanelNoRut">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th><span jhiTranslate="breakdown.search.tableHeaders.clientName"></span></th>
+                            <th><span jhiTranslate="breakdown.search.tableHeaders.rut"></span></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let client of clients | filterClientsRutNoRutPipe:NO_RUT; index as i">
+                            <td>{{i + 1}}</td>
+                            <td>{{client.name}}</td>
+                            <td>{{client.rut}}</td>
+                            <td class="text-center">
+                                <div class="btn-group flex-btn-group-container">
+                                    <button type="submit" (click)="triggerOnSelectItemEvent(client)" class="btn btn-primary btn-block btn-sm">
+                                        <fa-icon [icon]="'upload'"></fa-icon>
+                                        <span class="d-none d-md-inline" jhiTranslate="breakdown.search.load"></span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-concepto-impresion-heading" jhiTranslate="desgloseApp.conceptoImpresion.home.createOrEditLabel">Create or edit a Concepto Impresion</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.conceptoImpresion.codCliente" for="field_codCliente"
+                           [ngbTooltip]="'desgloseApp.conceptoImpresion.help.codCliente' | translate">Cod Cliente</label>
+                    <input type="text" class="form-control" name="codCliente" id="field_codCliente"
+                           [(ngModel)]="conceptoImpresion.codCliente" required [readonly]="conceptoImpresion.codCliente !== undefined && conceptoImpresion.codCliente !== null"/>
+                    <div [hidden]="!(editForm.controls.codCliente?.dirty && editForm.controls.codCliente?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.codCliente?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.conceptoImpresion.codTipoDes" for="field_codTipoDes"
+                           [ngbTooltip]="'desgloseApp.conceptoImpresion.help.codTipoDes' | translate">Cod Tipo Des</label>
+                    <input type="number" class="form-control" name="codTipoDes" id="field_codTipoDes"
+                           [(ngModel)]="conceptoImpresion.codTipoDes" required [readonly]="conceptoImpresion.codTipoDes !== undefined && conceptoImpresion.codTipoDes !== null"/>
+                    <div [hidden]="!(editForm.controls.codTipoDes?.dirty && editForm.controls.codTipoDes?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.codTipoDes?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.codTipoDes?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.conceptoImpresion.codSubtipoDes" for="field_codSubtipoDes"
+                           [ngbTooltip]="'desgloseApp.conceptoImpresion.help.codSubtipoDes' | translate">Cod Subtipo Des</label>
+                    <input type="number" class="form-control" name="codSubtipoDes" id="field_codSubtipoDes"
+                           [(ngModel)]="conceptoImpresion.codSubtipoDes" required
+                           [readonly]="conceptoImpresion.codSubtipoDes !== undefined && conceptoImpresion.codSubtipoDes !== null"/>
+                    <div [hidden]="!(editForm.controls.codSubtipoDes?.dirty && editForm.controls.codSubtipoDes?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.codSubtipoDes?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.codSubtipoDes?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.conceptoImpresion.codMoneda" for="field_codMoneda"
+                           [ngbTooltip]="'desgloseApp.conceptoImpresion.help.codMoneda' | translate">Cod Moneda</label>
+                    <input type="text" class="form-control" name="codMoneda" id="field_codMoneda"
+                           [(ngModel)]="conceptoImpresion.codMoneda" required [readonly]="conceptoImpresion.codMoneda !== undefined && conceptoImpresion.codMoneda !== null"/>
+                    <div [hidden]="!(editForm.controls.codMoneda?.dirty && editForm.controls.codMoneda?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.codMoneda?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.conceptoImpresion.codTipoConcep" for="field_codTipoConcep"
+                           [ngbTooltip]="'desgloseApp.conceptoImpresion.help.codTipoConcep' | translate">Cod Tipo Concep</label>
+                    <input type="text" class="form-control" name="codTipoConcep" id="field_codTipoConcep"
+                           [(ngModel)]="conceptoImpresion.codTipoConcep" required
+                           [readonly]="conceptoImpresion.codTipoConcep !== undefined && conceptoImpresion.codTipoConcep !== null"/>
+                    <div [hidden]="!(editForm.controls.codTipoConcep?.dirty && editForm.controls.codTipoConcep?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.codTipoConcep?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.conceptoImpresion.corConcepto" for="field_corConcepto"
+                           [ngbTooltip]="'desgloseApp.conceptoImpresion.help.corConcepto' | translate">Cor Concepto</label>
+                    <input type="number" class="form-control" name="corConcepto" id="field_corConcepto"
+                           [(ngModel)]="conceptoImpresion.corConcepto" required [readonly]="conceptoImpresion.corConcepto !== undefined && conceptoImpresion.corConcepto !== null"/>
+                    <div [hidden]="!(editForm.controls.corConcepto?.dirty && editForm.controls.corConcepto?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.corConcepto?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.corConcepto?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

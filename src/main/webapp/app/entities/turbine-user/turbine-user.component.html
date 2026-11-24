@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="desgloseApp.turbineUser.home.title">Turbine Users</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-turbine-user" [routerLink]="['/turbine-user/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="desgloseApp.turbineUser.home.createLabel">
+            Create new Turbine User
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="turbineUsers">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="userId"><span jhiTranslate="desgloseApp.turbineUser.userId">User Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="loginName"><span jhiTranslate="desgloseApp.turbineUser.loginName">Login Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="passwordValue"><span jhiTranslate="desgloseApp.turbineUser.passwordValue">Password Value</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="firstName"><span jhiTranslate="desgloseApp.turbineUser.firstName">First Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="lastName"><span jhiTranslate="desgloseApp.turbineUser.lastName">Last Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="email"><span jhiTranslate="desgloseApp.turbineUser.email">Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="confirmValue"><span jhiTranslate="desgloseApp.turbineUser.confirmValue">Confirm Value</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="modified"><span jhiTranslate="desgloseApp.turbineUser.modified">Modified</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="created"><span jhiTranslate="desgloseApp.turbineUser.created">Created</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="lastLogin"><span jhiTranslate="desgloseApp.turbineUser.lastLogin">Last Login</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="expire"><span jhiTranslate="desgloseApp.turbineUser.expire">Expire</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="expirePassword"><span jhiTranslate="desgloseApp.turbineUser.expirePassword">Expire Password</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="objectdata"><span jhiTranslate="desgloseApp.turbineUser.objectdata">Objectdata</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let turbineUser of turbineUsers ;trackBy: trackId">
+                <td><a [routerLink]="['/turbine-user', turbineUser.id, 'view' ]">{{turbineUser.id}}</a></td>
+                <td>{{turbineUser.userId}}</td>
+                <td>{{turbineUser.loginName}}</td>
+                <td>{{turbineUser.passwordValue}}</td>
+                <td>{{turbineUser.firstName}}</td>
+                <td>{{turbineUser.lastName}}</td>
+                <td>{{turbineUser.email}}</td>
+                <td>{{turbineUser.confirmValue}}</td>
+                <td>{{turbineUser.modified | date:'mediumDate'}}</td>
+                <td>{{turbineUser.created | date:'mediumDate'}}</td>
+                <td>{{turbineUser.lastLogin | date:'mediumDate'}}</td>
+                <td>{{turbineUser.expire | date:'mediumDate'}}</td>
+                <td>{{turbineUser.expirePassword | date:'mediumDate'}}</td>
+                <td>
+                    <a *ngIf="turbineUser.objectdata" (click)="openFile(turbineUser.objectdataContentType, turbineUser.objectdata)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="turbineUser.objectdata">{{turbineUser.objectdataContentType}}, {{byteSize(turbineUser.objectdata)}}</span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/turbine-user', turbineUser.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/turbine-user', turbineUser.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'turbine-user/'+ turbineUser.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="turbineUsers && turbineUsers.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

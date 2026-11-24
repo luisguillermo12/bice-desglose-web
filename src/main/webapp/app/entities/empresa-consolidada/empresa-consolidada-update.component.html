@@ -1,0 +1,102 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-empresa-consolidada-heading" jhiTranslate="desgloseApp.empresaConsolidada.home.createOrEditLabel">Create or edit a Empresa Consolidada</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!empresaConsolidada.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="empresaConsolidada.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.empresaConsolidada.codCliente" for="field_codCliente" [ngbTooltip]="'desgloseApp.empresaConsolidada.help.codCliente' | translate">Cod Cliente</label>
+                    <input type="text" class="form-control" name="codCliente" id="field_codCliente"
+                        [(ngModel)]="empresaConsolidada.codCliente" required/>
+                    <div [hidden]="!(editForm.controls.codCliente?.dirty && editForm.controls.codCliente?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codCliente?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.empresaConsolidada.codTipoDes" for="field_codTipoDes" [ngbTooltip]="'desgloseApp.empresaConsolidada.help.codTipoDes' | translate">Cod Tipo Des</label>
+                    <input type="number" class="form-control" name="codTipoDes" id="field_codTipoDes"
+                        [(ngModel)]="empresaConsolidada.codTipoDes" required/>
+                    <div [hidden]="!(editForm.controls.codTipoDes?.dirty && editForm.controls.codTipoDes?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codTipoDes?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.codTipoDes?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.empresaConsolidada.codSubtipoDes" for="field_codSubtipoDes" [ngbTooltip]="'desgloseApp.empresaConsolidada.help.codSubtipoDes' | translate">Cod Subtipo Des</label>
+                    <input type="number" class="form-control" name="codSubtipoDes" id="field_codSubtipoDes"
+                        [(ngModel)]="empresaConsolidada.codSubtipoDes" required/>
+                    <div [hidden]="!(editForm.controls.codSubtipoDes?.dirty && editForm.controls.codSubtipoDes?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codSubtipoDes?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.codSubtipoDes?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.empresaConsolidada.codMoneda" for="field_codMoneda" [ngbTooltip]="'desgloseApp.empresaConsolidada.help.codMoneda' | translate">Cod Moneda</label>
+                    <input type="text" class="form-control" name="codMoneda" id="field_codMoneda"
+                        [(ngModel)]="empresaConsolidada.codMoneda" required/>
+                    <div [hidden]="!(editForm.controls.codMoneda?.dirty && editForm.controls.codMoneda?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codMoneda?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.empresaConsolidada.corEmpresa" for="field_corEmpresa" [ngbTooltip]="'desgloseApp.empresaConsolidada.help.corEmpresa' | translate">Cor Empresa</label>
+                    <input type="number" class="form-control" name="corEmpresa" id="field_corEmpresa"
+                        [(ngModel)]="empresaConsolidada.corEmpresa" required/>
+                    <div [hidden]="!(editForm.controls.corEmpresa?.dirty && editForm.controls.corEmpresa?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.corEmpresa?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.corEmpresa?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.empresaConsolidada.nomEmpresa" for="field_nomEmpresa" [ngbTooltip]="'desgloseApp.empresaConsolidada.help.nomEmpresa' | translate">Nom Empresa</label>
+                    <input type="text" class="form-control" name="nomEmpresa" id="field_nomEmpresa"
+                        [(ngModel)]="empresaConsolidada.nomEmpresa" required/>
+                    <div [hidden]="!(editForm.controls.nomEmpresa?.dirty && editForm.controls.nomEmpresa?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nomEmpresa?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

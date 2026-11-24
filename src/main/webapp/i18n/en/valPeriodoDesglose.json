@@ -1,0 +1,47 @@
+
+{
+    "desgloseApp": {
+        "valPeriodoDesglose" : {
+            "home": {
+                "title": "Val Periodo Desgloses",
+                "createLabel": "Create a new Val Periodo Desglose",
+                "createOrEditLabel": "Create or edit a Val Periodo Desglose"
+            },
+            "created": "A new Val Periodo Desglose is created with identifier {{ param }}",
+            "updated": "A Val Periodo Desglose is updated with identifier {{ param }}",
+            "deleted": "A Val Periodo Desglose is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Val Periodo Desglose {{ id }}?"
+            },
+            "detail": {
+                "title": "Val Periodo Desglose"
+            },
+            "codCliente": "Cod Cliente",
+            "codTipoDes": "Cod Tipo Des",
+            "codSubtipoDes": "Cod Subtipo Des",
+            "codMoneda": "Cod Moneda",
+            "fecPeriodo": "Fec Periodo",
+            "codTipoConcep": "Cod Tipo Concep",
+            "corConcepto": "Cor Concepto",
+            "corValor": "Cor Valor",
+            "valConcepto": "Val Concepto",
+            "glsFrmlConcep": "Gls Frml Concep",
+            "glsConcepto": "Gls Concepto",
+            "valPrcConcep": "Val Prc Concep",
+            "help": {
+                "codCliente": "Rut de cliente.",
+                "codTipoDes": "Tipo de desglose.",
+                "codSubtipoDes": "Subtipo de desglose.",
+                "codMoneda": "Código de moneda.",
+                "fecPeriodo": "Fecha para el período.",
+                "codTipoConcep": "Tipo de concepto.",
+                "corConcepto": "Correlativo para concepto.",
+                "corValor": "Correlativo que aplica para multiregistro, de lo contrario siempre es cero.",
+                "valConcepto": "Valor asociado al concepto o cuenta. Precisión 17, escala 3.",
+                "glsFrmlConcep": "Fórmula asociada a la celda, solo cuando se ingresa valor expresado en fórmula.",
+                "glsConcepto": "Descripción del concepto que aplica para los multiregistros.",
+                "valPrcConcep": "Valor porcentual asociado a la cuenta. Precisión 4, escala 3."
+            }
+        }
+    }
+}

@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="informe_de_ingreso_A4" pageWidth="1008" pageHeight="612" orientation="Landscape" columnWidth="988" leftMargin="10" rightMargin="10" topMargin="10" bottomMargin="10" uuid="9b2dd446-c3eb-4330-b2e4-63a3fed7ee69">
+	<property name="com.jaspersoft.studio.data.sql.tables" value="IkNVU1RPTUVSIiBBUyAsMTEsMTgsM2RlMGFiYzEtYmE4Ny00ZTI2LTg1NjgtMzAxNjRiNTg5MzFhOw=="/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.report.description" value=""/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="452"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="534"/>
+	<property name="net.sf.jasperreports.awt.ignore.missing.font" value="true"/>
+	<property name="net.sf.jasperreports.default.font.name" value="Lucida Sans"/>
+	<style name="footer_css" forecolor="#AB10E3" hTextAlign="Center" vTextAlign="Middle" fontSize="8"/>
+	<style name="row_style" vTextAlign="Middle" fontName="SansSerif" fontSize="6">
+		<pen lineWidth="1.0" lineColor="#8A8888"/>
+		<box padding="3">
+			<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="row_style_number" hTextAlign="Right" vTextAlign="Middle" fontName="SansSerif" fontSize="8">
+		<pen lineWidth="1.0" lineColor="#8A8888"/>
+		<box padding="3">
+			<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="header_style" mode="Transparent" forecolor="#000000" backcolor="#FFFFFF" hTextAlign="Center" vTextAlign="Middle" fontSize="8" isBold="false">
+		<box>
+			<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="TittleHeaderCss" fill="Solid" hTextAlign="Center" vTextAlign="Middle" fontSize="8" isBold="true"/>
+	<subDataset name="tableDataSet" uuid="54ecb0c3-aef0-42ac-bf74-42ac43a4b8da">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<parameter name="dataSource" class="cl.tutorial.desglose.service.dto.report.PdfProyectionReportDTO"/>
+	<parameter name="periodHistoryFecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getPeriodHistoryFecha()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="subReportPath" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="period1Fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getPeriod1Fecha()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="period2Fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getPeriod2Fecha()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="period3Fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getPeriod3Fecha()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="period4Fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getPeriod4Fecha()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="period5Fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getPeriod5Fecha()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="period6Fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getPeriod6Fecha()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="period7Fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getPeriod7Fecha()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="period8Fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getPeriod8Fecha()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="period9Fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getPeriod9Fecha()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="period10Fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getPeriod10Fecha()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="period11Fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getPeriod11Fecha()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="period12Fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getPeriod12Fecha()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="period13Fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getPeriod13Fecha()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="period14Fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getPeriod14Fecha()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="period15Fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getPeriod15Fecha()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="period16Fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getPeriod16Fecha()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="period17Fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getPeriod17Fecha()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="period18Fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getPeriod18Fecha()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="period19Fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getPeriod19Fecha()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="period20Fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getPeriod20Fecha()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="reporteSeleccionado" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dataSource}.getReporteSeleccionado()]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<title>
+		<band height="19">
+			<staticText>
+				<reportElement x="90" y="0" width="110" height="10" uuid="daae0cba-e132-4ce6-8abe-f90e9ea5b8fe"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<text><![CDATA[DATOS DE PROYECCIONES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="203" y="0" width="42" height="10" uuid="bdbf125b-50d1-4cdf-ad8b-22aa34e0786f"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<text><![CDATA[NOMBRE:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="245" y="0" width="100" height="10" uuid="d93ea77a-0fb3-4e37-986a-8f299ff76bab"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dataSource}.getNombreCliente()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="345" y="0" width="20" height="10" uuid="4a321151-a5da-4da9-9944-1e9a74f21c21"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<text><![CDATA[RUT:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="366" y="0" width="100" height="10" uuid="ec752f95-b441-4472-bf50-f8d8501865da"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dataSource}.getCodCliente()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="468" y="0" width="30" height="10" uuid="b6def79a-e07b-4574-a7fb-2a2cffb3a443"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<text><![CDATA[AÑO BASE:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="499" y="0" width="70" height="10" uuid="51159ac8-d8b5-4e0a-9072-509b2e109816"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dataSource}.getYearBase()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="571" y="0" width="70" height="10" uuid="44cd69b9-cd55-43c3-92ff-23745778a4b3"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<text><![CDATA[AÑOS PROYECTADOS:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="640" y="0" width="90" height="10" uuid="72537a62-906b-44f3-98f6-60287ea5cc24"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dataSource}.getProjectionYears()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="0" width="90" height="10" uuid="8e6dfd0d-a214-464f-b5b4-620d0a7c8396"/>
+				<imageExpression><![CDATA[$P{dataSource}.getImgLogoBancoBice()]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="845" y="0" width="145" height="10" uuid="1465dc90-2b42-4f0b-ba5a-3453dec06961"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy HH:mm:ss",new Locale("es", "CL") ).format(new Date())
+
+
+
+]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="31">
+			<subreport>
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="980" height="20" isPrintWhenDetailOverflows="true" uuid="5bef33d7-aa89-4a75-bcf7-164517ef2ebf">
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER}==1]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="tituloTabla">
+					<subreportParameterExpression><![CDATA["BALANCE GENERAL"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dataSource">
+					<subreportParameterExpression><![CDATA[($P{dataSource}.getDatosProyecciones())]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subReportPath">
+					<subreportParameterExpression><![CDATA[$P{subReportPath}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period1Fecha">
+					<subreportParameterExpression><![CDATA[$P{period1Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period2Fecha">
+					<subreportParameterExpression><![CDATA[$P{period2Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period3Fecha">
+					<subreportParameterExpression><![CDATA[$P{period3Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period4Fecha">
+					<subreportParameterExpression><![CDATA[$P{period4Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period5Fecha">
+					<subreportParameterExpression><![CDATA[$P{period5Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period6Fecha">
+					<subreportParameterExpression><![CDATA[$P{period6Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period7Fecha">
+					<subreportParameterExpression><![CDATA[$P{period7Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period8Fecha">
+					<subreportParameterExpression><![CDATA[$P{period8Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period9Fecha">
+					<subreportParameterExpression><![CDATA[$P{period9Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period10Fecha">
+					<subreportParameterExpression><![CDATA[$P{period10Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period11Fecha">
+					<subreportParameterExpression><![CDATA[$P{period11Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period12Fecha">
+					<subreportParameterExpression><![CDATA[$P{period12Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period13Fecha">
+					<subreportParameterExpression><![CDATA[$P{period13Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period14Fecha">
+					<subreportParameterExpression><![CDATA[$P{period14Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period15Fecha">
+					<subreportParameterExpression><![CDATA[$P{period15Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period16Fecha">
+					<subreportParameterExpression><![CDATA[$P{period16Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period17Fecha">
+					<subreportParameterExpression><![CDATA[$P{period17Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period18Fecha">
+					<subreportParameterExpression><![CDATA[$P{period18Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period19Fecha">
+					<subreportParameterExpression><![CDATA[$P{period19Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period20Fecha">
+					<subreportParameterExpression><![CDATA[$P{period20Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="periodHistoryFecha">
+					<subreportParameterExpression><![CDATA[$P{periodHistoryFecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="numeroPagina">
+					<subreportParameterExpression><![CDATA[1]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{dataSource}.getDatosProyecciones())]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subReportPath} + $P{reporteSeleccionado}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="34">
+			<subreport>
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="6" width="980" height="20" isPrintWhenDetailOverflows="true" uuid="836e0086-f5e8-456a-9944-f0516fe871ad"/>
+				<subreportParameter name="tituloTabla">
+					<subreportParameterExpression><![CDATA["FLUJO DE CAJA"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dataSource">
+					<subreportParameterExpression><![CDATA[($P{dataSource}.getDatosProyeccionesFlujoCaja())]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subReportPath">
+					<subreportParameterExpression><![CDATA[$P{subReportPath}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period1Fecha">
+					<subreportParameterExpression><![CDATA[$P{period1Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period2Fecha">
+					<subreportParameterExpression><![CDATA[$P{period2Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period3Fecha">
+					<subreportParameterExpression><![CDATA[$P{period3Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period4Fecha">
+					<subreportParameterExpression><![CDATA[$P{period4Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period5Fecha">
+					<subreportParameterExpression><![CDATA[$P{period5Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period6Fecha">
+					<subreportParameterExpression><![CDATA[$P{period6Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period7Fecha">
+					<subreportParameterExpression><![CDATA[$P{period7Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period8Fecha">
+					<subreportParameterExpression><![CDATA[$P{period8Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period9Fecha">
+					<subreportParameterExpression><![CDATA[$P{period9Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period10Fecha">
+					<subreportParameterExpression><![CDATA[$P{period10Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period11Fecha">
+					<subreportParameterExpression><![CDATA[$P{period11Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period12Fecha">
+					<subreportParameterExpression><![CDATA[$P{period12Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period13Fecha">
+					<subreportParameterExpression><![CDATA[$P{period13Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period14Fecha">
+					<subreportParameterExpression><![CDATA[$P{period14Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period15Fecha">
+					<subreportParameterExpression><![CDATA[$P{period15Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period16Fecha">
+					<subreportParameterExpression><![CDATA[$P{period16Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period17Fecha">
+					<subreportParameterExpression><![CDATA[$P{period17Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period18Fecha">
+					<subreportParameterExpression><![CDATA[$P{period18Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period19Fecha">
+					<subreportParameterExpression><![CDATA[$P{period19Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period20Fecha">
+					<subreportParameterExpression><![CDATA[$P{period20Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="periodHistoryFecha">
+					<subreportParameterExpression><![CDATA[$P{periodHistoryFecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="numeroPagina">
+					<subreportParameterExpression><![CDATA[2]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{dataSource}.getDatosProyeccionesFlujoCaja())]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subReportPath} + $P{reporteSeleccionado}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="33">
+			<subreport>
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="4" width="980" height="20" isPrintWhenDetailOverflows="true" uuid="fc24e4cc-4faf-476b-b20f-8d51f6dac125"/>
+				<subreportParameter name="tituloTabla">
+					<subreportParameterExpression><![CDATA["ESTADO RESULTADOS"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dataSource">
+					<subreportParameterExpression><![CDATA[($P{dataSource}.getDatosProyeccionesEstadoResultado())]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subReportPath">
+					<subreportParameterExpression><![CDATA[$P{subReportPath}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period1Fecha">
+					<subreportParameterExpression><![CDATA[$P{period1Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period2Fecha">
+					<subreportParameterExpression><![CDATA[$P{period2Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period3Fecha">
+					<subreportParameterExpression><![CDATA[$P{period3Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period4Fecha">
+					<subreportParameterExpression><![CDATA[$P{period4Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period5Fecha">
+					<subreportParameterExpression><![CDATA[$P{period5Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period6Fecha">
+					<subreportParameterExpression><![CDATA[$P{period6Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period7Fecha">
+					<subreportParameterExpression><![CDATA[$P{period7Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period8Fecha">
+					<subreportParameterExpression><![CDATA[$P{period8Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period9Fecha">
+					<subreportParameterExpression><![CDATA[$P{period9Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period10Fecha">
+					<subreportParameterExpression><![CDATA[$P{period10Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period11Fecha">
+					<subreportParameterExpression><![CDATA[$P{period11Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period12Fecha">
+					<subreportParameterExpression><![CDATA[$P{period12Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period13Fecha">
+					<subreportParameterExpression><![CDATA[$P{period13Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period14Fecha">
+					<subreportParameterExpression><![CDATA[$P{period14Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period15Fecha">
+					<subreportParameterExpression><![CDATA[$P{period15Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period16Fecha">
+					<subreportParameterExpression><![CDATA[$P{period16Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period17Fecha">
+					<subreportParameterExpression><![CDATA[$P{period17Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period18Fecha">
+					<subreportParameterExpression><![CDATA[$P{period18Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period19Fecha">
+					<subreportParameterExpression><![CDATA[$P{period19Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="period20Fecha">
+					<subreportParameterExpression><![CDATA[$P{period20Fecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="periodHistoryFecha">
+					<subreportParameterExpression><![CDATA[$P{periodHistoryFecha}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="numeroPagina">
+					<subreportParameterExpression><![CDATA[3]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{dataSource}.getDatosProyeccionesEstadoResultado())]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subReportPath} + $P{reporteSeleccionado}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="35">
+			<textField>
+				<reportElement style="footer_css" stretchType="RelativeToTallestObject" x="870" y="3" width="55" height="16" forecolor="#000000" uuid="7b1e2d18-514d-4b77-9c2e-bfae5edde7c6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="footer_css" stretchType="RelativeToTallestObject" x="925" y="3" width="55" height="16" forecolor="#000000" uuid="2cc90845-06f5-4f11-89a1-00ba6de588e3"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="295" height="12" uuid="76345b84-d31a-4e32-9042-da12e678f5d5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dataSource}.getEjecutor()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="550" y="0" width="295" height="12" uuid="fb5ac83e-fe0f-43ef-9f6d-c01ee03dd798"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dataSource}.getRevisor()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="12" width="295" height="23" uuid="d6cd53e4-0a44-40ef-a47d-e785f1d8419d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{dataSource}.getEjecutorFechaModificacion()!=null ?"Fecha Modificación: " + $P{dataSource}.getEjecutorFechaModificacion():null)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="550" y="10" width="295" height="15" uuid="22d8fdb6-a8fb-4788-b20f-1773212cd5e2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{dataSource}.getRevisorFechaModificacion()!=null ?"Fecha Modificación: " + $P{dataSource}.getRevisorFechaModificacion():null)]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

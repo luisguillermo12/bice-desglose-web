@@ -1,0 +1,429 @@
+<div class="modal-header">
+    <h4 class="modal-title form-group row col-sm-12">
+        <div class="form-row form-group row col-sm-12">
+            <div class="form-group row col-sm-10">
+                <span jhiTranslate="breakdown.search.title"></span>
+            </div>
+            <div class="form-group row col-sm-2 a-la-derecha">
+                <div *ngIf="!revision; then subTitleRevisor else subTitleConsulta"></div>
+                <ng-template #subTitleRevisor>
+                    <span jhiTranslate="breakdown.breakdownSearchTitleConsulta"></span>
+                </ng-template>
+                <ng-template #subTitleConsulta>
+                    <span jhiTranslate="breakdown.breakdownSearchTitleRevision"></span>
+                </ng-template>
+            </div>
+        </div>
+    </h4>
+    <!-- *ngIf="revision; then subTitleRevisor else subTitleConsulta"
+        <ng-template #subTitleRevisor> </ng-template> -->
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" *ngIf="!isExternal"
+            (click)="closeModal()">&times;
+    </button>
+</div>
+<div class="modal-body">
+    <jhi-alert></jhi-alert>
+    <jhi-alert-error></jhi-alert-error>
+    <div class="row justify-content-center">
+        <div class="col-12 mt-2">
+            <form name="clientDataForm" role="form" novalidate #clientDataForm="ngForm" id="clientDataForm">
+
+                <!-- RUT AND NAME -->
+                <div class="form-row">
+                    <div class="form-group row col-sm-6">
+                        <label for="field_rut" class="col-sm-4 col-form-label" jhiTranslate="breakdown.search.rut"></label>
+                        <input type="text" class="form-control form-control-sm col-sm-3" name="rut" id="field_rut" [(ngModel)]="breakdownFilterRequestDTO.rut" #fieldRut
+                               [pattern]="RUT_VALIDATION_PATTERN" (blur)="searchRutOnBlur(clientDataForm)" ngbAutofocus/>
+                        <div [hidden]="!(clientDataForm.controls.rut?.dirty && clientDataForm.controls.rut?.invalid)" class="col-sm-3">
+                            <small class="form-text text-danger" [hidden]="!clientDataForm.controls.rut?.errors?.pattern" jhiTranslate="entity.validation.patternrut"></small>
+                        </div>
+                        <input type="text" class="form-control form-control-sm col-sm-1 ml-1 text-uppercase" name="rutVerificationNumber" id="field_rutVerificationNumber" disabled
+                               [(ngModel)]="breakdownFilterRequestDTO.rutVerificationNumber"/>
+                    </div>
+                    <div class="form-group row col-sm-6">
+                        <label for="field_name" class="col-sm-3 col-form-label" jhiTranslate="breakdown.search.name"></label>
+                        <input type="text" class="form-control form-control-sm text-uppercase col-sm-6" name="name" id="field_name" [(ngModel)]="breakdownFilterRequestDTO.nombre"
+                               #fieldName [pattern]="NAME_VALIDATION_PATTERN"/>
+                        <div [hidden]="!(clientDataForm.controls.name?.dirty && clientDataForm.controls.name?.invalid)" class="col-sm-3">
+                            <small class="form-text text-danger" [hidden]="!clientDataForm.controls.name?.errors?.pattern" jhiTranslate="entity.validation.patternname"></small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TIPO PLANTILLA AND TIPO DESGLOSE -->
+                <div class="form-row">
+                    <div class="form-group row col-sm-6">
+                        <label for="field_breakdownTemplateType" class="col-sm-4 col-form-label" jhiTranslate="breakdown.search.breakdownTemplateType"></label>
+                        <select class="form-control form-control-sm col-sm-6" id="field_breakdownTemplateType" name="breakdownTemplateType"
+                                [(ngModel)]="breakdownFilterRequestDTO.tipoPlantillaDesglose">
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="el.codGenerico" *ngFor="let el of (simpleComboBoxTypes | filterDescripcionCodigo:CODTABLA_TIPO_PLANTILLAS_DESGLOSE)">
+                                {{el.glsGenericalarga }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group row col-sm-6">
+                        <label for="field_breakdownType" class="col-sm-3 col-form-label" jhiTranslate="breakdown.search.breakdownType"></label>
+                        <select class="form-control form-control-sm col-sm-6" id="field_breakdownType" name="breakdownType" [(ngModel)]="breakdownFilterRequestDTO.tipoDesglose">
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="el.codGenerico" *ngFor="let el of (simpleComboBoxTypes | filterDescripcionCodigo:CODTABLA_TIPO_DESGLOSE)">{{el.glsGenericalarga }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- SUBTIPO DESGLOSE Y  -->
+                <div class="form-row" [hidden]="tiposSubtipoDesglose">
+                    <!-- <div class="form-group row col-sm-6">
+                        <label for="field_breakdownType" class="col-sm-4 col-form-label" jhiTranslate="breakdown.search.breakdownType"></label>
+                        <select class="form-control form-control-sm col-sm-6" id="field_breakdownType" name="breakdownType" [(ngModel)]="breakdownFilterRequestDTO.tipoDesglose">
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="el.codGenerico" *ngFor="let el of (simpleComboBoxTypes | filterDescripcionCodigo:CODTABLA_TIPO_DESGLOSE)">{{el.glsGenericalarga }}
+                            </option>
+                        </select>
+                    </div> -->
+                    <div class="form-group row col-sm-6">
+                        <label for="field_breakdownSubType" class="col-sm-4 col-form-label" jhiTranslate="breakdown.search.breakdownSubType"></label>
+                        <select class="form-control form-control-sm col-sm-6" id="field_breakdownSubType" name="breakdownSubType"
+                                [(ngModel)]="breakdownFilterRequestDTO.subTipoDesglose"
+                                (change)="eventoSeleccion($event)">
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="el.codGenerico" *ngFor="let el of (simpleComboBoxTypes | filterDescripcionCodigo:CODTABLA_SUBTIPO_DESGLOSE)">
+                                {{el.glsGenericalarga }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group row col-sm-6" *ngIf="!isExternal">
+                        <label for="field_breakdownSubTypeExtra" class="col-sm-3 col-form-label" jhiTranslate="breakdown.search.breakdownSubTypeDescripcion1"></label>
+                        <input type="text" class="form-control form-control-sm col-sm-6" name="breakdownSubTypeExtra" id="field_breakdownSubTypeExtra"
+                               [(ngModel)]="breakdownFilterRequestDTO.subTipoDesgloseDesc" [disabled]="disabledOtros"/>
+                    </div>
+                </div>
+
+                <!-- MONEDA Y ESTADO  -->
+                <div class="form-row">
+                    <div class="form-group row col-sm-6" [hidden]="moneda">
+                        <label for="field_currency" class="col-sm-4 col-form-label" jhiTranslate="global.form.currency"></label>
+                        <select class="form-control form-control-sm col-sm-6" id="field_currency" name="currency" [(ngModel)]="breakdownFilterRequestDTO.moneda">
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="el.codGenerico" *ngFor="let el of (simpleComboBoxTypes | filterDescripcionCodigo:CODTABLA_TIPO_MONEDAS)">
+                                {{el.glsGenericalarga }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group row col-sm-6">
+                        <label for="field_modificationDateFrom" class="col-sm-3 col-form-label" jhiTranslate="breakdown.search.modificationDate"></label>
+                        <div class="input-group col-sm-3 pl-0">
+                            <input id="field_modificationDateFrom" type="text" class="form-control form-control-sm" name="modificationDateFrom" ngbDatepicker
+                                   #modificationDateFrom="ngbDatepicker" [(ngModel)]="breakdownFilterRequestDTO.fecCrea1"/>
+                            <span class="input-group-append">
+                                <button type="button" class="btn btn-default btn-sm" (click)="modificationDateFrom.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                            </span>
+                        </div>
+                        <label for="field_modificationDateTo" class="col-sm-0 col-form-label" jhiTranslate="breakdown.search.to"></label>
+                        <div class="input-group col-sm-3 pl-1 pr-2">
+                            <input id="field_modificationDateTo" type="text" class="form-control form-control-sm" name="modificationDateTo" ngbDatepicker
+                                   #modificationDateTo="ngbDatepicker" [(ngModel)]="breakdownFilterRequestDTO.fecCrea2"/>
+                            <span class="input-group-append">
+                                <button type="button" class="btn btn-default btn-sm" (click)="modificationDateTo.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group row col-sm-6">
+                       <label for="field_breakdownDateFrom" class="col-sm-4 col-form-label" jhiTranslate="breakdown.search.breakdownDate"></label>
+                        <div class="input-group col-sm-3 pl-0">
+                            <input id="field_breakdownDateFrom" type="text" class="form-control form-control-sm" name="breakdownDateFrom" ngbDatepicker
+                                   #breakdownDateFrom="ngbDatepicker" [(ngModel)]="breakdownFilterRequestDTO.fecDef1"/>
+                            <span class="input-group-append">
+                                <button type="button" class="btn btn-default btn-sm" (click)="breakdownDateFrom.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                            </span>
+                        </div>
+                        <label for="field_breakdownDateTo" class="col-sm-0 col-form-label" jhiTranslate="breakdown.search.to"></label>
+                        <div class="input-group col-sm-3 pl-1 pr-2">
+                            <input id="field_breakdownDateTo" type="text" class="form-control form-control-sm" name="breakdownDateTo" ngbDatepicker
+                                   #breakdownDateTo="ngbDatepicker" [(ngModel)]="breakdownFilterRequestDTO.fecDef2"/>
+                            <span class="input-group-append">
+                                <button type="button" class="btn btn-default btn-sm" (click)="breakdownDateTo.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                            </span>
+                        </div>
+
+                    </div>
+                    <div class="form-group row col-sm-6">
+                        <div *ngIf="revision; then revisor else notRevision"></div>
+                        <ng-template #revisor>
+                            <label for="field_executor" class="col-sm-3 col-form-label" jhiTranslate="breakdown.search.executor"></label>
+                            <select class="form-control form-control-sm col-sm-6" id="field_executor" name="executor" [(ngModel)]="breakdownFilterRequestDTO.nomAnalista">
+                                <option [ngValue]="el.operatorCode" *ngFor="let el of ejecutores;">{{el.nombre}}</option>
+                            </select>
+                        </ng-template>
+                        <ng-template #notRevision>
+                            <label for="field_executor1" class="col-sm-3 col-form-label" jhiTranslate="breakdown.search.executor"></label>
+                            <select class="form-control form-control-sm col-sm-6" id="field_executor1" name="executor" [(ngModel)]="breakdownFilterRequestDTO.nomAnalista">
+                                <option [ngValue]="null"></option>
+                                <option [ngValue]="el.loginName" *ngFor="let el of ejecutores;">{{el.nombre}}</option>
+                            </select>
+                        </ng-template>
+                    </div>
+                </div>
+
+                <!-- EJECUTOR AND SECTOR -->
+                <div class="form-row" [hidden]="ejecutor">
+                    <!-- <div class="form-group row col-sm-6">
+                        <div *ngIf="revision; then revisor else notRevision"></div>
+                        <ng-template #revisor>
+                            <label for="field_executor" class="col-sm-4 col-form-label" jhiTranslate="breakdown.search.executor"></label>
+                            <select class="form-control form-control-sm col-sm-6" id="field_executor" name="executor" [(ngModel)]="breakdownFilterRequestDTO.nomAnalista">
+                                <option [ngValue]="el.operatorCode" *ngFor="let el of ejecutores;">{{el.nombre}}</option>
+                            </select>
+                        </ng-template>
+                        <ng-template #notRevision>
+                            <label for="field_executor1" class="col-sm-4 col-form-label" jhiTranslate="breakdown.search.executor"></label>
+                            <select class="form-control form-control-sm col-sm-6" id="field_executor1" name="executor" [(ngModel)]="breakdownFilterRequestDTO.nomAnalista">
+                                <option [ngValue]="null"></option>
+                                <option [ngValue]="el.nombre" *ngFor="let el of ejecutores;">{{el.nombre}}</option>
+                            </select>
+                        </ng-template>
+                    </div> -->
+                    <div class="form-group row col-sm-6" [hidden]="isExternal">
+                        <label for="field_sector" class="col-sm-4 col-form-label" jhiTranslate="breakdown.search.sector"></label>
+                        <select class="form-control form-control-sm col-sm-6" id="field_sector" name="sector" [(ngModel)]="breakdownFilterRequestDTO.sector">
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="el.codSector" *ngFor="let el of sectorTypes;">{{el.glsSector}}</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <div class="form-group col-sm-8"></div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-default btn-block btn-custom-font-size-1" (click)="onClickCancel()" [hidden]="isExternal">
+                            <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="global.form.cancel"></span>
+                        </button>
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-primary btn-block btn-custom-font-size-1" (click)="onClickSearchBreakdown()" [disabled]="clientDataForm.form.invalid">
+                            <fa-icon [icon]="'search'"></fa-icon>&nbsp;<span jhiTranslate="breakdown.search.search"></span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-12">
+            <ngx-datatable
+                [messages]="{emptyMessage: 'footer.emptyMessage' | translate, selectedMessage: 'footer.selected' | translate, totalMessage: 'footer.total' | translate}"
+                #table
+                class="material"
+                [rows]="desgloses"
+                [columnMode]="'force'"
+                [footerHeight]="50"
+                [rowHeight]="'auto'"
+                [limit]="10"
+                [scrollbarH]="true">
+                <!-- SEL -->
+                <ngx-datatable-column [width]="COLUMN_SIZES[0]">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        <span jhiTranslate="breakdown.search.tableHeaders.id"></span>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        <div *ngIf="!isProjectionSearch; else selectPeriodButton">
+                            <div *ngIf="isExternal; then Externo else Interno"></div>
+                            <ng-template #Interno>
+                                <button type="submit" (click)="triggerOnSelectItemEvent(row)" class="btn btn-primary btn-block btn-sm btn-load" style="width: auto;">
+                                    <fa-icon [icon]="'upload'"></fa-icon>
+                                    <span class="d-none d-md-inline" jhiTranslate="breakdown.search.load"></span>
+                                </button>
+                            </ng-template>
+                            <ng-template #Externo>
+                                <div class="btn-group">
+                                    <button (click)="triggerOnMarcarItemEvent(row)" class="btn btn-primary btn-sm" *ngIf="revision == true &&
+                                    (row.codEstado === ESTADO_DEFINITIVO || row.codEstado === ESTADO_CORREGIDO ) && row.rolEmpleadoDefEnvPdf===null">
+                                        <fa-icon [icon]="'check'"></fa-icon>
+                                        <span class="d-none d-md-inline" jhiTranslate="breakdown.search.marcar"></span>
+                                    </button>
+                                    <button class="btn btn-primary btn-block btn-sm" *ngIf="revision == true &&
+                                    (row.codEstado === ESTADO_DEFINITIVO || row.codEstado === ESTADO_CORREGIDO ) && row.rolEmpleadoDefEnvPdf!==null" disabled>
+                                        <fa-icon [icon]="'check'"></fa-icon>
+                                        <span class="d-none d-md-inline" jhiTranslate="breakdown.search.marcar"></span>
+                                    </button>
+                                    <button type="submit" (click)="triggerOnSelectItemEvent(row)" class="btn btn-primary btn-sm btn-load">
+                                        <fa-icon [icon]="'upload'"></fa-icon>
+                                        <span class="d-none d-md-inline" jhiTranslate="breakdown.search.load"></span>
+                                    </button>
+                                </div>
+                            </ng-template>
+                        </div>
+                        <ng-template #selectPeriodButton>
+                            <div ngbDropdown class="d-inline-block btn-group flex-btn-group-container">
+                                <button class="btn btn-primary btn-block btn-sm custom-small-btn" id="dropdownBasic1" ngbDropdownToggle>
+                                    <span class="d-none d-md-inline" jhiTranslate="breakdown.search.period"></span>
+                                </button>
+                                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                    <button class="dropdown-item custom-small-btn" *ngFor="let item of row.fechaPeriodos" (click)="onClickSelectBreakdownPeriod(row, item)">
+                                        {{item | date: DATE_FORMAT_PERIOD_ES_UI_HEADER}}
+                                    </button>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ng-template>
+                </ngx-datatable-column>
+                <!-- RUT -->
+                <ngx-datatable-column [width]="COLUMN_SIZES[1]">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        <span jhiTranslate="breakdown.search.tableHeaders.rut">Rut</span>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.codClienteFormatted}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <!-- NOM CLIENTE -->
+                <ngx-datatable-column [width]="COLUMN_SIZES[2]">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        <span jhiTranslate="breakdown.search.tableHeaders.clientName">Cliente</span>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.nomCliente}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <!-- TIPO -->
+                <ngx-datatable-column [width]="COLUMN_SIZES[3]">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        <span jhiTranslate="breakdown.search.tableHeaders.type">Tipo</span>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.glsTipoDes}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <!-- SUBTIPO -->
+                <ngx-datatable-column [width]="COLUMN_SIZES[4]">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        <span jhiTranslate="breakdown.search.tableHeaders.subType"></span>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.glsSubTipoDes}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <!-- MONEDA -->
+                <ngx-datatable-column [width]="COLUMN_SIZES[5]">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        <span jhiTranslate="global.form.currency"></span>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.glsMoneda}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <!-- SECTOR -->
+                <ngx-datatable-column [width]="COLUMN_SIZES[6]">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        <span jhiTranslate="breakdown.search.tableHeaders.sector"></span>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.glsSector}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <!-- FECHA MOD -->
+                <ngx-datatable-column [width]="COLUMN_SIZES[7]" *ngIf="!revision">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        <span jhiTranslate="breakdown.search.tableHeaders.modificationDate"></span>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.fechaLastUpdate | date: DATE_TIME_FORMAT_ES_UI}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <!-- EJECUTOR -->
+                <ngx-datatable-column [width]="COLUMN_SIZES[8]">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        <span jhiTranslate="breakdown.search.tableHeaders.executor"></span>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.nombreAnalista}}
+                    </ng-template>
+                </ngx-datatable-column>
+
+                <!-- UNIDAD MONEDA -->
+                <!-- <ngx-datatable-column>
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        <span jhiTranslate="breakdown.search.tableHeaders.unidadMon"></span>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.glsUnidadMon}}
+                    </ng-template>
+                </ngx-datatable-column> -->
+                <!-- ESTADO -->
+                <ngx-datatable-column [width]="COLUMN_SIZES[2]">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        <span jhiTranslate="breakdown.search.tableHeaders.state"></span>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.glsEstado}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <!-- PLANTILLA -->
+                <ngx-datatable-column [width]="COLUMN_SIZES[10]">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        <span jhiTranslate="breakdown.search.tableHeaders.tipoPlantilla">Tipo Plantilla</span>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.glsPlantillaDesglose}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <!-- FEC ENVÍO REV -->
+                <ngx-datatable-column [width]="COLUMN_SIZES[2]" *ngIf="revision">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        <span jhiTranslate="breakdown.search.tableHeaders.fechaEnvioRevision"></span>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.fechaEnvioRevision | date: DATE_TIME_FORMAT_ES_UI}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <!-- FEC ACTUALIZACION USUARIO -->
+                <ngx-datatable-column [width]="COLUMN_SIZES[4]" *ngIf="!revision">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        <span jhiTranslate="breakdown.search.tableHeaders.updateUser"></span>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.nombreUserUpdate}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <!-- FEC REVISION -->
+                <ngx-datatable-column [width]="COLUMN_SIZES[2]">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        <span jhiTranslate="breakdown.search.tableHeaders.fechaRevision"></span>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.fechaDesgloDef | date: DATE_TIME_FORMAT_ES_UI}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <!-- USUARIO APROVADO -->
+                <ngx-datatable-column [width]="COLUMN_SIZES[4]" *ngIf="!revision">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        <span jhiTranslate="breakdown.search.tableHeaders.approveUser"></span>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.nombreRevisorDef}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <!-- ACTUALIZACION USUARIO -->
+                <ngx-datatable-column [width]="COLUMN_SIZES[6]" *ngIf="!revision">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        <span jhiTranslate="breakdown.search.tableHeaders.reviewerUpdateUser"></span>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.nombreRevisorModif}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <!-- REVISOR -->
+                <ngx-datatable-column [width]="COLUMN_SIZES[9]" *ngIf="revision">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        <span jhiTranslate="breakdown.search.tableHeaders.nombreRevisor"></span>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.nombreRevisor}}
+                    </ng-template>
+                </ngx-datatable-column>
+            </ngx-datatable>
+        </div>
+    </div>
+</div>

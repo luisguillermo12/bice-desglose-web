@@ -1,0 +1,223 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="desglose">
+            <h2><span jhiTranslate="desgloseApp.desglose.detail.title">Desglose</span></h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.desglose.codCliente" [ngbTooltip]="'desgloseApp.desglose.help.codCliente' | translate">Cod Cliente</span></dt>
+                <dd>
+                    <span>{{desglose.codCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.codTipoDes" [ngbTooltip]="'desgloseApp.desglose.help.codTipoDes' | translate">Cod Tipo Des</span></dt>
+                <dd>
+                    <span>{{desglose.codTipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.codSubtipoDes" [ngbTooltip]="'desgloseApp.desglose.help.codSubtipoDes' | translate">Cod Subtipo Des</span></dt>
+                <dd>
+                    <span>{{desglose.codSubtipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.codMoneda" [ngbTooltip]="'desgloseApp.desglose.help.codMoneda' | translate">Cod Moneda</span></dt>
+                <dd>
+                    <span>{{desglose.codMoneda}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.codUnidMoneda" [ngbTooltip]="'desgloseApp.desglose.help.codUnidMoneda' | translate">Cod Unid Moneda</span></dt>
+                <dd>
+                    <span>{{desglose.codUnidMoneda}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.glsSubtipoDes" [ngbTooltip]="'desgloseApp.desglose.help.glsSubtipoDes' | translate">Gls Subtipo Des</span></dt>
+                <dd>
+                    <span>{{desglose.glsSubtipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.valDeflacBase" [ngbTooltip]="'desgloseApp.desglose.help.valDeflacBase' | translate">Val Deflac Base</span></dt>
+                <dd>
+                    <span>{{desglose.valDeflacBase}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.valIva" [ngbTooltip]="'desgloseApp.desglose.help.valIva' | translate">Val Iva</span></dt>
+                <dd>
+                    <span>{{desglose.valIva}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.nomUserAnalis" [ngbTooltip]="'desgloseApp.desglose.help.nomUserAnalis' | translate">Nom User Analis</span></dt>
+                <dd>
+                    <span>{{desglose.nomUserAnalis}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.glsObservacion" [ngbTooltip]="'desgloseApp.desglose.help.glsObservacion' | translate">Gls Observacion</span></dt>
+                <dd>
+                    <span>{{desglose.glsObservacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.nomUserCrea" [ngbTooltip]="'desgloseApp.desglose.help.nomUserCrea' | translate">Nom User Crea</span></dt>
+                <dd>
+                    <span>{{desglose.nomUserCrea}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.fecUserCrea" [ngbTooltip]="'desgloseApp.desglose.help.fecUserCrea' | translate">Fec User Crea</span></dt>
+                <dd>
+                    <span>{{desglose.fecUserCrea}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.nomUserModif" [ngbTooltip]="'desgloseApp.desglose.help.nomUserModif' | translate">Nom User Modif</span></dt>
+                <dd>
+                    <span>{{desglose.nomUserModif}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.fecUserModif" [ngbTooltip]="'desgloseApp.desglose.help.fecUserModif' | translate">Fec User Modif</span></dt>
+                <dd>
+                    <span>{{desglose.fecUserModif}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.fecDeflacBase" [ngbTooltip]="'desgloseApp.desglose.help.fecDeflacBase' | translate">Fec Deflac Base</span></dt>
+                <dd>
+                    <span>{{desglose.fecDeflacBase}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.nomUserOpen" [ngbTooltip]="'desgloseApp.desglose.help.nomUserOpen' | translate">Nom User Open</span></dt>
+                <dd>
+                    <span>{{desglose.nomUserOpen}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.flgIsTemporal" [ngbTooltip]="'desgloseApp.desglose.help.flgIsTemporal' | translate">Flg Is Temporal</span></dt>
+                <dd>
+                    <span>{{desglose.flgIsTemporal}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.codMonedaImp" [ngbTooltip]="'desgloseApp.desglose.help.codMonedaImp' | translate">Cod Moneda Imp</span></dt>
+                <dd>
+                    <span>{{desglose.codMonedaImp}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.fecHraOpen" [ngbTooltip]="'desgloseApp.desglose.help.fecHraOpen' | translate">Fec Hra Open</span></dt>
+                <dd>
+                    <span>{{desglose.fecHraOpen}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.nomUser" [ngbTooltip]="'desgloseApp.desglose.help.nomUser' | translate">Nom User</span></dt>
+                <dd>
+                    <span>{{desglose.nomUser}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.flgValidacion" [ngbTooltip]="'desgloseApp.desglose.help.flgValidacion' | translate">Flg Validacion</span></dt>
+                <dd>
+                    <span>{{desglose.flgValidacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.flgRevision" [ngbTooltip]="'desgloseApp.desglose.help.flgRevision' | translate">Flg Revision</span></dt>
+                <dd>
+                    <span>{{desglose.flgRevision}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.glsComentValid" [ngbTooltip]="'desgloseApp.desglose.help.glsComentValid' | translate">Gls Coment Valid</span></dt>
+                <dd>
+                    <span>{{desglose.glsComentValid}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.codEstado" [ngbTooltip]="'desgloseApp.desglose.help.codEstado' | translate">Cod Estado</span></dt>
+                <dd>
+                    <span>{{desglose.codEstado}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.rolEmpleadoDesDef" [ngbTooltip]="'desgloseApp.desglose.help.rolEmpleadoDesDef' | translate">Rol Empleado Des Def</span>
+                </dt>
+                <dd>
+                    <span>{{desglose.rolEmpleadoDesDef}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.nomRevisorDef" [ngbTooltip]="'desgloseApp.desglose.help.nomRevisorDef' | translate">Nom Revisor Def</span></dt>
+                <dd>
+                    <span>{{desglose.nomRevisorDef}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.fecDesgloDef" [ngbTooltip]="'desgloseApp.desglose.help.fecDesgloDef' | translate">Fec Desglo Def</span></dt>
+                <dd>
+                    <span>{{desglose.fecDesgloDef}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.rolEmpleadoRevMod" [ngbTooltip]="'desgloseApp.desglose.help.rolEmpleadoRevMod' | translate">Rol Empleado Rev Mod</span>
+                </dt>
+                <dd>
+                    <span>{{desglose.rolEmpleadoRevMod}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.rolEmpleadoDefEnvPdf" [ngbTooltip]="'desgloseApp.desglose.help.rolEmpleadoDefEnvPdf' | translate">Rol Empleado Def Env Pdf</span>
+                </dt>
+                <dd>
+                    <span>{{desglose.rolEmpleadoDefEnvPdf}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.fecDesgloEnvPdf" [ngbTooltip]="'desgloseApp.desglose.help.fecDesgloEnvPdf' | translate">Fec Desglo Env Pdf</span></dt>
+                <dd>
+                    <span>{{desglose.fecDesgloEnvPdf}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.codMonedaRpt" [ngbTooltip]="'desgloseApp.desglose.help.codMonedaRpt' | translate">Cod Moneda Rpt</span></dt>
+                <dd>
+                    <span>{{desglose.codMonedaRpt}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.corImpresionRpt" [ngbTooltip]="'desgloseApp.desglose.help.corImpresionRpt' | translate">Cor Impresion Rpt</span></dt>
+                <dd>
+                    <span>{{desglose.corImpresionRpt}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.flgEjeFactoringRpt"
+                          [ngbTooltip]="'desgloseApp.desglose.help.flgEjeFactoringRpt' | translate">Flg Eje Factoring Rpt</span></dt>
+                <dd>
+                    <span>{{desglose.flgEjeFactoringRpt}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.fecPeriodo1Rpt" [ngbTooltip]="'desgloseApp.desglose.help.fecPeriodo1Rpt' | translate">Fec Periodo 1 Rpt</span></dt>
+                <dd>
+                    <span>{{desglose.fecPeriodo1Rpt}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.fecPeriodo2Rpt" [ngbTooltip]="'desgloseApp.desglose.help.fecPeriodo2Rpt' | translate">Fec Periodo 2 Rpt</span></dt>
+                <dd>
+                    <span>{{desglose.fecPeriodo2Rpt}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.fecPeriodo3Rpt" [ngbTooltip]="'desgloseApp.desglose.help.fecPeriodo3Rpt' | translate">Fec Periodo 3 Rpt</span></dt>
+                <dd>
+                    <span>{{desglose.fecPeriodo3Rpt}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.fecPeriodo4Rpt" [ngbTooltip]="'desgloseApp.desglose.help.fecPeriodo4Rpt' | translate">Fec Periodo 4 Rpt</span></dt>
+                <dd>
+                    <span>{{desglose.fecPeriodo4Rpt}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.fecPerConsol1Rpt" [ngbTooltip]="'desgloseApp.desglose.help.fecPerConsol1Rpt' | translate">Fec Per Consol 1 Rpt</span>
+                </dt>
+                <dd>
+                    <span>{{desglose.fecPerConsol1Rpt}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.fecPerConsol2Rpt" [ngbTooltip]="'desgloseApp.desglose.help.fecPerConsol2Rpt' | translate">Fec Per Consol 2 Rpt</span>
+                </dt>
+                <dd>
+                    <span>{{desglose.fecPerConsol2Rpt}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.fecUlt1Rpt" [ngbTooltip]="'desgloseApp.desglose.help.fecUlt1Rpt' | translate">Fec Ult 1 Rpt</span></dt>
+                <dd>
+                    <span>{{desglose.fecUlt1Rpt}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.fecUlt2Rpt" [ngbTooltip]="'desgloseApp.desglose.help.fecUlt2Rpt' | translate">Fec Ult 2 Rpt</span></dt>
+                <dd>
+                    <span>{{desglose.fecUlt2Rpt}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.fecUserModifRpt" [ngbTooltip]="'desgloseApp.desglose.help.fecUserModifRpt' | translate">Fec User Modif Rpt</span></dt>
+                <dd>
+                    <span>{{desglose.fecUserModifRpt}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.nomUserModifRpt" [ngbTooltip]="'desgloseApp.desglose.help.nomUserModifRpt' | translate">Nom User Modif Rpt</span></dt>
+                <dd>
+                    <span>{{desglose.nomUserModifRpt}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.numReporteRpt" [ngbTooltip]="'desgloseApp.desglose.help.numReporteRpt' | translate">Num Reporte Rpt</span></dt>
+                <dd>
+                    <span>{{desglose.numReporteRpt}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.fecGeneracionRpt" [ngbTooltip]="'desgloseApp.desglose.help.fecGeneracionRpt' | translate">Fec Generacion Rpt</span>
+                </dt>
+                <dd>
+                    <span>{{desglose.fecGeneracionRpt}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.numDevolEjecutor" [ngbTooltip]="'desgloseApp.desglose.help.numDevolEjecutor' | translate">Num Devol Ejecutor</span>
+                </dt>
+                <dd>
+                    <span>{{desglose.numDevolEjecutor}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.numRolChgEstado" [ngbTooltip]="'desgloseApp.desglose.help.numRolChgEstado' | translate">Num Rol Chg Estado</span></dt>
+                <dd>
+                    <span>{{desglose.numRolChgEstado}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desglose.flgReq2firma" [ngbTooltip]="'desgloseApp.desglose.help.flgReq2firma' | translate">Flg Req 2 Firma</span></dt>
+                <dd>
+                    <span>{{desglose.flgReq2firma}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/desglose', desglose.codCliente, desglose.codTipoDes, desglose.codSubtipoDes, desglose.codMoneda, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

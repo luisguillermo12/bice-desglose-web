@@ -1,0 +1,111 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="concepto">
+            <h2><span jhiTranslate="desgloseApp.concepto.detail.title">Concepto</span></h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.concepto.codTipoConcep" [ngbTooltip]="'desgloseApp.concepto.help.codTipoConcep' | translate">Cod Tipo Concep</span></dt>
+                <dd>
+                    <span>{{concepto.codTipoConcep}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.concepto.corConcepto" [ngbTooltip]="'desgloseApp.concepto.help.corConcepto' | translate">Cor Concepto</span></dt>
+                <dd>
+                    <span>{{concepto.corConcepto}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.concepto.codConcepto" [ngbTooltip]="'desgloseApp.concepto.help.codConcepto' | translate">Cod Concepto</span></dt>
+                <dd>
+                    <span>{{concepto.codConcepto}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.concepto.glsConcepto" [ngbTooltip]="'desgloseApp.concepto.help.glsConcepto' | translate">Gls Concepto</span></dt>
+                <dd>
+                    <span>{{concepto.glsConcepto}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.concepto.numSecuencia" [ngbTooltip]="'desgloseApp.concepto.help.numSecuencia' | translate">Num Secuencia</span></dt>
+                <dd>
+                    <span>{{concepto.numSecuencia}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.concepto.numLvlIndent" [ngbTooltip]="'desgloseApp.concepto.help.numLvlIndent' | translate">Num Lvl Indent</span></dt>
+                <dd>
+                    <span>{{concepto.numLvlIndent}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.concepto.codTipoRegis" [ngbTooltip]="'desgloseApp.concepto.help.codTipoRegis' | translate">Cod Tipo Regis</span></dt>
+                <dd>
+                    <span>{{concepto.codTipoRegis}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.concepto.glsFormulaVal" [ngbTooltip]="'desgloseApp.concepto.help.glsFormulaVal' | translate">Gls Formula Val</span></dt>
+                <dd>
+                    <span>{{concepto.glsFormulaVal}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.concepto.glsFormulaPrc" [ngbTooltip]="'desgloseApp.concepto.help.glsFormulaPrc' | translate">Gls Formula Prc</span></dt>
+                <dd>
+                    <span>{{concepto.glsFormulaPrc}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.concepto.glsFormulaDef" [ngbTooltip]="'desgloseApp.concepto.help.glsFormulaDef' | translate">Gls Formula Def</span></dt>
+                <dd>
+                    <span>{{concepto.glsFormulaDef}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.concepto.flgIsTotal" [ngbTooltip]="'desgloseApp.concepto.help.flgIsTotal' | translate">Flg Is Total</span></dt>
+                <dd>
+                    <span>{{concepto.flgIsTotal}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.concepto.flgUserModif" [ngbTooltip]="'desgloseApp.concepto.help.flgUserModif' | translate">Flg User Modif</span></dt>
+                <dd>
+                    <span>{{concepto.flgUserModif}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.concepto.flgConActivo" [ngbTooltip]="'desgloseApp.concepto.help.flgConActivo' | translate">Flg Con Activo</span></dt>
+                <dd>
+                    <span>{{concepto.flgConActivo}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.concepto.numDecimales" [ngbTooltip]="'desgloseApp.concepto.help.numDecimales' | translate">Num Decimales</span></dt>
+                <dd>
+                    <span>{{concepto.numDecimales}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.concepto.flgHaceAjust" [ngbTooltip]="'desgloseApp.concepto.help.flgHaceAjust' | translate">Flg Hace Ajust</span></dt>
+                <dd>
+                    <span>{{concepto.flgHaceAjust}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.concepto.flgIsBold" [ngbTooltip]="'desgloseApp.concepto.help.flgIsBold' | translate">Flg Is Bold</span></dt>
+                <dd>
+                    <span>{{concepto.flgIsBold}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.concepto.flgIsUcase" [ngbTooltip]="'desgloseApp.concepto.help.flgIsUcase' | translate">Flg Is Ucase</span></dt>
+                <dd>
+                    <span>{{concepto.flgIsUcase}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.concepto.flgIsEnclosed" [ngbTooltip]="'desgloseApp.concepto.help.flgIsEnclosed' | translate">Flg Is Enclosed</span></dt>
+                <dd>
+                    <span>{{concepto.flgIsEnclosed}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.concepto.flgIsPrinted" [ngbTooltip]="'desgloseApp.concepto.help.flgIsPrinted' | translate">Flg Is Printed</span></dt>
+                <dd>
+                    <span>{{concepto.flgIsPrinted}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.concepto.numDecPrint" [ngbTooltip]="'desgloseApp.concepto.help.numDecPrint' | translate">Num Dec Print</span></dt>
+                <dd>
+                    <span>{{concepto.numDecPrint}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.concepto.flgNonegativ" [ngbTooltip]="'desgloseApp.concepto.help.flgNonegativ' | translate">Flg Nonegativ</span></dt>
+                <dd>
+                    <span>{{concepto.flgNonegativ}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.concepto.flgAfterspace" [ngbTooltip]="'desgloseApp.concepto.help.flgAfterspace' | translate">Flg Afterspace</span></dt>
+                <dd>
+                    <span>{{concepto.flgAfterspace}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/concepto', concepto.codTipoConcep, concepto.corConcepto, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

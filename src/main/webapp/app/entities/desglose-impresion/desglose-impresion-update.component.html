@@ -1,0 +1,149 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-desglose-impresion-heading" jhiTranslate="desgloseApp.desgloseImpresion.home.createOrEditLabel">Create or edit a Desglose Impresion</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!desgloseImpresion.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="desgloseImpresion.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseImpresion.codCliente" for="field_codCliente" [ngbTooltip]="'desgloseApp.desgloseImpresion.help.codCliente' | translate">Cod Cliente</label>
+                    <input type="text" class="form-control" name="codCliente" id="field_codCliente"
+                        [(ngModel)]="desgloseImpresion.codCliente" required/>
+                    <div [hidden]="!(editForm.controls.codCliente?.dirty && editForm.controls.codCliente?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codCliente?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseImpresion.codTipoDes" for="field_codTipoDes" [ngbTooltip]="'desgloseApp.desgloseImpresion.help.codTipoDes' | translate">Cod Tipo Des</label>
+                    <input type="number" class="form-control" name="codTipoDes" id="field_codTipoDes"
+                        [(ngModel)]="desgloseImpresion.codTipoDes" required/>
+                    <div [hidden]="!(editForm.controls.codTipoDes?.dirty && editForm.controls.codTipoDes?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codTipoDes?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.codTipoDes?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseImpresion.codSubtipoDes" for="field_codSubtipoDes" [ngbTooltip]="'desgloseApp.desgloseImpresion.help.codSubtipoDes' | translate">Cod Subtipo Des</label>
+                    <input type="number" class="form-control" name="codSubtipoDes" id="field_codSubtipoDes"
+                        [(ngModel)]="desgloseImpresion.codSubtipoDes" required/>
+                    <div [hidden]="!(editForm.controls.codSubtipoDes?.dirty && editForm.controls.codSubtipoDes?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codSubtipoDes?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.codSubtipoDes?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseImpresion.codMoneda" for="field_codMoneda" [ngbTooltip]="'desgloseApp.desgloseImpresion.help.codMoneda' | translate">Cod Moneda</label>
+                    <input type="text" class="form-control" name="codMoneda" id="field_codMoneda"
+                        [(ngModel)]="desgloseImpresion.codMoneda" required/>
+                    <div [hidden]="!(editForm.controls.codMoneda?.dirty && editForm.controls.codMoneda?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codMoneda?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseImpresion.codMonedaImp" for="field_codMonedaImp" [ngbTooltip]="'desgloseApp.desgloseImpresion.help.codMonedaImp' | translate">Cod Moneda Imp</label>
+                    <input type="text" class="form-control" name="codMonedaImp" id="field_codMonedaImp"
+                        [(ngModel)]="desgloseImpresion.codMonedaImp" required/>
+                    <div [hidden]="!(editForm.controls.codMonedaImp?.dirty && editForm.controls.codMonedaImp?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codMonedaImp?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseImpresion.valDeflacBase" for="field_valDeflacBase" [ngbTooltip]="'desgloseApp.desgloseImpresion.help.valDeflacBase' | translate">Val Deflac Base</label>
+                    <input type="number" class="form-control" name="valDeflacBase" id="field_valDeflacBase"
+                        [(ngModel)]="desgloseImpresion.valDeflacBase" required/>
+                    <div [hidden]="!(editForm.controls.valDeflacBase?.dirty && editForm.controls.valDeflacBase?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.valDeflacBase?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.valDeflacBase?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseImpresion.fecCreacion" for="field_fecCreacion" [ngbTooltip]="'desgloseApp.desgloseImpresion.help.fecCreacion' | translate">Fec Creacion</label>
+                    <div class="input-group">
+                        <input id="field_fecCreacion" type="text" class="form-control" name="fecCreacion" ngbDatepicker  #fecCreacionDp="ngbDatepicker" [(ngModel)]="desgloseImpresion.fecCreacion"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecCreacionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.fecCreacion?.dirty && editForm.controls.fecCreacion?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.fecCreacion?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseImpresion.fecDeflacBase" for="field_fecDeflacBase" [ngbTooltip]="'desgloseApp.desgloseImpresion.help.fecDeflacBase' | translate">Fec Deflac Base</label>
+                    <div class="input-group">
+                        <input id="field_fecDeflacBase" type="text" class="form-control" name="fecDeflacBase" ngbDatepicker  #fecDeflacBaseDp="ngbDatepicker" [(ngModel)]="desgloseImpresion.fecDeflacBase"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecDeflacBaseDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.fecDeflacBase?.dirty && editForm.controls.fecDeflacBase?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.fecDeflacBase?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseImpresion.corImpreso" for="field_corImpreso" [ngbTooltip]="'desgloseApp.desgloseImpresion.help.corImpreso' | translate">Cor Impreso</label>
+                    <input type="number" class="form-control" name="corImpreso" id="field_corImpreso"
+                        [(ngModel)]="desgloseImpresion.corImpreso" required/>
+                    <div [hidden]="!(editForm.controls.corImpreso?.dirty && editForm.controls.corImpreso?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.corImpreso?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.corImpreso?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

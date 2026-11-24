@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="uniqueSessionControl">
+            <h2><span jhiTranslate="desgloseApp.uniqueSessionControl.detail.title">Unique Session Control</span> {{uniqueSessionControl.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.uniqueSessionControl.loginName">Login Name</span></dt>
+                <dd>
+                    <span>{{uniqueSessionControl.loginName}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.uniqueSessionControl.sessionCheckTime">Session Check Time</span></dt>
+                <dd>
+                    <span>{{uniqueSessionControl.sessionCheckTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.uniqueSessionControl.sessionEndTime">Session End Time</span></dt>
+                <dd>
+                    <span>{{uniqueSessionControl.sessionEndTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.uniqueSessionControl.jwt">Jwt</span></dt>
+                <dd>
+                    <span>{{uniqueSessionControl.jwt}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/unique-session-control', uniqueSessionControl.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

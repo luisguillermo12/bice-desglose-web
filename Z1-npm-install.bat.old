@@ -1,0 +1,5 @@
+@echo off
+title generacion de war
+set MIRUTA=%~dp0
+cd  %MIRUTA%
+npm install

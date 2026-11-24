@@ -1,0 +1,44 @@
+<div class="modal-header">
+    <h4 class="modal-title"><span jhiTranslate="breakdown.messages.title"></span></h4>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            (click)="closeModal()">&times;
+    </button>
+</div>
+<div class="modal-body">
+    <jhi-alert></jhi-alert>
+    <jhi-alert-error></jhi-alert-error>
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <form role="form">
+                <div class="form-row">
+                    <div class="form-row col-sm-12">
+                        <div class="col-sm-12" style="margin-bottom: 10px;">
+                            <textarea type="text" class="form-control form-control-sm text-uppercase" disabled name="mensajeSoloLectura" id="field_mensajes" rows="6"
+                                      [(ngModel)]="mensaje">{{mensaje}}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-row col-sm-12" [hidden]="isHiddenEscritura">
+                        <div class="col-sm-12" style="margin-bottom: 10px;">
+                            <textarea type="text" class="form-control form-control-sm text-uppercase" name="mensajeEscritura" id="field_nuevoMensaje" rows="6"
+                                      [(ngModel)]="mensajeEscritura"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row col-sm-12">
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-3" [hidden]="!isHiddenEscritura"></div>
+                        <div class="col-sm-3" [hidden]="isHiddenEscritura">
+                            <button class="btn btn-primary btn-block btn-custom-font-size-1" (click)="onClickAceptar()">
+                                <fa-icon [icon]="'check'"></fa-icon>&nbsp;<span jhiTranslate="global.form.accept"></span>
+                            </button>
+                        </div>
+                        <div class="col-sm-3">
+                            <button class="btn btn-default btn-block btn-custom-font-size-1" (click)="onClickCancel()" ngbAutofocus>
+                                <fa-icon [icon]="'times'"></fa-icon>&nbsp;<span jhiTranslate="global.form.close"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <RollingFile name="RollingFile" filePattern="target/desglose-%d{yyyy-MM-dd-HH}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>%d $${ctx:loginId} %p %c [%tid] %M[%L] %m %throwable{short.message} %n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval = "6" modulate = "true" />
+                <SizeBasedTriggeringPolicy size = "250 MB" />
+            </Policies>
+        </RollingFile>
+    </Appenders>
+</Configuration>

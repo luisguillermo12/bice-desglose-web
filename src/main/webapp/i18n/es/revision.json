@@ -1,0 +1,14 @@
+{
+  "revision": {
+      "title": "Desgloses para Revisión",
+      "subtitle": "Criterios de Búsqueda",
+      "ejecutor": "Ejecutor",
+      "rut": "Rut",
+      "nombre": "Nombre",
+      "estadoDesglose": "Estado Desglose",
+      "fechaEnvioRevision": "Fecha Envió para Revisión",
+      "fechaRevision": "Fecha Revisión",
+      "detalleConsulta": "Detalle de Consulta",
+      "buscar": "Buscar"
+  }
+}

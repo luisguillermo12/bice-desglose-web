@@ -1,0 +1,184 @@
+--------------------------------------------------------
+--  DDL for Procedure CIF_SP_DEL_VALPRD
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE PROCEDURE "CIF_SP_DEL_VALPRD" 
+/***********************************************************************************
+------ DATOS DE CREACION ---
+Nombre Logico     :CIF_SP_DEL_VALPRD
+Fecha             :05/12/2005
+Autor             :Rodrigo Gonz lez K.
+Descripcion       :Elimina un Valor de Detalle de Periodo en el sistema de Desglose
+Sub_procesos asociados.
+------ DATOS ULTIMA MODIFICACION
+Fecha       : 22/03/2019
+Responsable : Antonio Marrero Palomino
+Descripcion : Se actualiza la firma, incorporando el parámetro "COD_PLANTILLA"
+***********************************************************************************/ (
+    P_COD_CLIENTE       IN VALPRD.COD_CLIENTE%TYPE,
+    P_COD_TIPO_DES      IN VALPRD.COD_TIPO_DES%TYPE,
+    P_COD_SUBTIPO_DES   IN VALPRD.COD_SUBTIPO_DES%TYPE,
+    P_COD_MONEDA        IN VALPRD.COD_MONEDA%TYPE,
+    P_FEC_PERIODO       IN VALPRD.FEC_PERIODO%TYPE,
+    P_COD_TIPO_CONCEP   IN VALPRD.COD_TIPO_CONCEP%TYPE,
+    P_COR_CONCEPTO      IN VALPRD.COR_CONCEPTO%TYPE,
+    P_COR_VALOR         IN VALPRD.COR_VALOR%TYPE,
+    P_RETORNO           OUT NUMBER,
+    P_GLOSA             OUT VARCHAR2,
+    P_COD_PLANTILLA     IN VALPRD.COD_PLANTILLA%TYPE DEFAULT 0
+) IS
+   -- Variables Generales
+
+    EXCP_NO_EXISTE_CODCLI EXCEPTION;
+    EXCP_NO_EXISTE_TIPDES EXCEPTION;
+    EXCP_NO_EXISTE_STPDES EXCEPTION;
+    EXCP_NO_EXISTE_MONEDA EXCEPTION;
+    EXCP_NO_EXISTE_PLANTILLA EXCEPTION;
+    EXCP_OPCION_NO_VALIDA EXCEPTION;
+    V_COR_VALOR   VALPRD.COR_VALOR%TYPE;
+BEGIN
+    P_RETORNO := 0;
+    P_GLOSA := '';
+    V_COR_VALOR := P_COR_VALOR;
+
+   /*** VALIDA DATOS NOT NULL***/
+    IF LTRIM(RTRIM(P_COD_CLIENTE) ) IS NULL THEN
+        RAISE EXCP_NO_EXISTE_CODCLI;
+    END IF;
+    IF P_COD_TIPO_DES IS NULL THEN
+        RAISE EXCP_NO_EXISTE_TIPDES;
+    END IF;
+    IF P_COD_SUBTIPO_DES IS NULL THEN
+        RAISE EXCP_NO_EXISTE_STPDES;
+    END IF;
+    IF LTRIM(RTRIM(P_COD_MONEDA) ) IS NULL THEN
+        RAISE EXCP_NO_EXISTE_MONEDA;
+    END IF;
+    IF LTRIM(RTRIM(P_COD_PLANTILLA) ) IS NULL THEN
+        RAISE EXCP_NO_EXISTE_PLANTILLA;
+    END IF;
+  /*IF ltrim(rtrim(p_cod_tipo_concep)) <> 'MULTIREGISTRO' AND p_cor_valor IS NOT NULL THEN
+      v_cor_valor := 0;
+   END IF;*/
+
+   /** ELIMINA EL VALOR DE DETALLE PARA EL PERIODO DEL DESGLOSE (VALPRD) **/
+    IF P_FEC_PERIODO IS NULL AND LTRIM(RTRIM(P_COD_TIPO_CONCEP) ) IS NULL AND P_COR_CONCEPTO IS NULL AND P_COR_VALOR IS NULL THEN
+        DELETE VALIMP
+        WHERE
+            COD_CLIENTE = P_COD_CLIENTE
+            AND COD_TIPO_DES = P_COD_TIPO_DES
+            AND COD_SUBTIPO_DES = P_COD_SUBTIPO_DES
+            AND COD_MONEDA = P_COD_MONEDA
+            AND COD_PLANTILLA = P_COD_PLANTILLA;
+
+        DELETE VALPRD
+        WHERE
+            COD_CLIENTE = P_COD_CLIENTE
+            AND COD_TIPO_DES = P_COD_TIPO_DES
+            AND COD_SUBTIPO_DES = P_COD_SUBTIPO_DES
+            AND COD_MONEDA = P_COD_MONEDA
+            AND COD_PLANTILLA = P_COD_PLANTILLA;
+
+    ELSIF P_FEC_PERIODO IS NOT NULL AND LTRIM(RTRIM(P_COD_TIPO_CONCEP) ) IS NULL AND P_COR_CONCEPTO IS NULL AND P_COR_VALOR IS NULL
+
+    THEN
+        DELETE VALIMP
+        WHERE
+            COD_CLIENTE = P_COD_CLIENTE
+            AND COD_TIPO_DES = P_COD_TIPO_DES
+            AND COD_SUBTIPO_DES = P_COD_SUBTIPO_DES
+            AND COD_MONEDA = P_COD_MONEDA
+            AND FEC_PERIODO = P_FEC_PERIODO
+            AND COD_PLANTILLA = P_COD_PLANTILLA;
+
+        DELETE VALPRD
+        WHERE
+            COD_CLIENTE = P_COD_CLIENTE
+            AND COD_TIPO_DES = P_COD_TIPO_DES
+            AND COD_SUBTIPO_DES = P_COD_SUBTIPO_DES
+            AND COD_MONEDA = P_COD_MONEDA
+            AND FEC_PERIODO = P_FEC_PERIODO
+            AND COD_PLANTILLA = P_COD_PLANTILLA;
+
+    ELSIF P_FEC_PERIODO IS NOT NULL AND LTRIM(RTRIM(P_COD_TIPO_CONCEP) ) IS NOT NULL AND P_COR_CONCEPTO IS NOT NULL AND P_COR_VALOR
+
+    IS NULL THEN
+        DELETE VALIMP
+        WHERE
+            COD_CLIENTE = P_COD_CLIENTE
+            AND COD_TIPO_DES = P_COD_TIPO_DES
+            AND COD_SUBTIPO_DES = P_COD_SUBTIPO_DES
+            AND COD_MONEDA = P_COD_MONEDA
+            AND FEC_PERIODO = P_FEC_PERIODO
+            AND COD_TIPO_CONCEP = P_COD_TIPO_CONCEP
+            AND COR_CONCEPTO = P_COR_CONCEPTO
+            AND COD_PLANTILLA = P_COD_PLANTILLA;
+
+        DELETE VALPRD
+        WHERE
+            COD_CLIENTE = P_COD_CLIENTE
+            AND COD_TIPO_DES = P_COD_TIPO_DES
+            AND COD_SUBTIPO_DES = P_COD_SUBTIPO_DES
+            AND COD_MONEDA = P_COD_MONEDA
+            AND FEC_PERIODO = P_FEC_PERIODO
+            AND COD_TIPO_CONCEP = P_COD_TIPO_CONCEP
+            AND COR_CONCEPTO = P_COR_CONCEPTO
+            AND COD_PLANTILLA = P_COD_PLANTILLA;
+
+    ELSIF P_FEC_PERIODO IS NOT NULL AND LTRIM(RTRIM(P_COD_TIPO_CONCEP) ) IS NOT NULL AND P_COR_CONCEPTO IS NOT NULL AND P_COR_VALOR
+
+    IS NOT NULL THEN
+        DELETE VALIMP
+        WHERE
+            COD_CLIENTE = P_COD_CLIENTE
+            AND COD_TIPO_DES = P_COD_TIPO_DES
+            AND COD_SUBTIPO_DES = P_COD_SUBTIPO_DES
+            AND COD_MONEDA = P_COD_MONEDA
+            AND FEC_PERIODO = P_FEC_PERIODO
+            AND COD_TIPO_CONCEP = P_COD_TIPO_CONCEP
+            AND COR_CONCEPTO = P_COR_CONCEPTO
+            AND COR_VALOR = V_COR_VALOR
+            AND COD_PLANTILLA = P_COD_PLANTILLA;
+
+        DELETE VALPRD
+        WHERE
+            COD_CLIENTE = P_COD_CLIENTE
+            AND COD_TIPO_DES = P_COD_TIPO_DES
+            AND COD_SUBTIPO_DES = P_COD_SUBTIPO_DES
+            AND COD_MONEDA = P_COD_MONEDA
+            AND FEC_PERIODO = P_FEC_PERIODO
+            AND COD_TIPO_CONCEP = P_COD_TIPO_CONCEP
+            AND COR_CONCEPTO = P_COR_CONCEPTO
+            AND COR_VALOR = V_COR_VALOR
+            AND COD_PLANTILLA = P_COD_PLANTILLA;
+
+    ELSE
+        RAISE EXCP_OPCION_NO_VALIDA;
+    END IF;
+
+EXCEPTION
+    WHEN EXCP_NO_EXISTE_CODCLI THEN
+        P_RETORNO :=-1;
+        P_GLOSA := 'El cliente es un parametro obligatorio';
+    WHEN EXCP_NO_EXISTE_TIPDES THEN
+        P_RETORNO :=-2;
+        P_GLOSA := 'Debe especificar el Tipo de Desglose';
+    WHEN EXCP_NO_EXISTE_STPDES THEN
+        P_RETORNO :=-3;
+        P_GLOSA := 'Debe especificar el SubTipo de Desglose';
+    WHEN EXCP_NO_EXISTE_MONEDA THEN
+        P_RETORNO :=-4;
+        P_GLOSA := 'Debe especificar la Moneda del Desglose';
+    WHEN EXCP_OPCION_NO_VALIDA THEN
+        P_RETORNO :=-5;
+        P_GLOSA := 'Debe especificar una opcion de eliminacion valida';
+    WHEN EXCP_NO_EXISTE_PLANTILLA THEN
+        P_RETORNO :=-5;
+        P_GLOSA := 'Debe especificar el Codigo de Plantilla';
+    WHEN OTHERS THEN
+        P_RETORNO :=-99;
+        P_GLOSA := SQLERRM;
+END CIF_SP_DEL_VALPRD;
+
+/

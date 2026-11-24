@@ -1,0 +1,29 @@
+
+{
+    "desgloseApp": {
+        "desgloseFirma" : {
+            "home": {
+                "title": "Desglose Firmas",
+                "createLabel": "Create a new Desglose Firma",
+                "createOrEditLabel": "Create or edit a Desglose Firma"
+            },
+            "created": "A new Desglose Firma is created with identifier {{ param }}",
+            "updated": "A Desglose Firma is updated with identifier {{ param }}",
+            "deleted": "A Desglose Firma is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Desglose Firma {{ id }}?"
+            },
+            "detail": {
+                "title": "Desglose Firma"
+            },
+            "codCargo": "Cod Cargo",
+            "numRolEmpleado": "Num Rol Empleado",
+            "numRolEmpleado2fir": "Num Rol Empleado 2 Fir",
+            "help": {
+                "codCargo": "Código cargo. Posibles permitidos (001-Subgte, 002-Jefe Grupo y 003-Analista).",
+                "numRolEmpleado": "Rol empleado de primera firma.",
+                "numRolEmpleado2fir": "Rol empleado de segunda firma."
+            }
+        }
+    }
+}

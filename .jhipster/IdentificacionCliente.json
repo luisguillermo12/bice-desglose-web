@@ -1,0 +1,55 @@
+{
+    "name": "IdentificacionCliente",
+    "fields": [
+        {
+            "fieldName": "numCliente",
+            "javadoc": "Número del cliente.",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codTipoIden",
+            "javadoc": "Tipo de identificación del cliente.",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numIden",
+            "javadoc": "Rut del cliente.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fecCreacion",
+            "javadoc": "Fecha de creación.",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "codRegStatus",
+            "javadoc": "Código de vigencia del registro.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codRegLog",
+            "javadoc": "Código de modificación del registro.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181022151501",
+    "javadoc": "Representa la tabla \"IDECLI\" que contiene la relación rut cliente versus número de cliente. Pertenece al esquema CIF_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "identificacion_cliente",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

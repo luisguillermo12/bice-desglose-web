@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-desglose-chequeo-log-heading" jhiTranslate="desgloseApp.desgloseChequeoLog.home.createOrEditLabel">Create or edit a Desglose Chequeo Log</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!desgloseChequeoLog.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="desgloseChequeoLog.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoLog.codTipoProceso" for="field_codTipoProceso" [ngbTooltip]="'desgloseApp.desgloseChequeoLog.help.codTipoProceso' | translate">Cod Tipo Proceso</label>
+                    <input type="text" class="form-control" name="codTipoProceso" id="field_codTipoProceso"
+                        [(ngModel)]="desgloseChequeoLog.codTipoProceso" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoLog.codCliente" for="field_codCliente" [ngbTooltip]="'desgloseApp.desgloseChequeoLog.help.codCliente' | translate">Cod Cliente</label>
+                    <input type="text" class="form-control" name="codCliente" id="field_codCliente"
+                        [(ngModel)]="desgloseChequeoLog.codCliente" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoLog.codTipoDes" for="field_codTipoDes" [ngbTooltip]="'desgloseApp.desgloseChequeoLog.help.codTipoDes' | translate">Cod Tipo Des</label>
+                    <input type="number" class="form-control" name="codTipoDes" id="field_codTipoDes"
+                        [(ngModel)]="desgloseChequeoLog.codTipoDes" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoLog.codSubtipoDes" for="field_codSubtipoDes" [ngbTooltip]="'desgloseApp.desgloseChequeoLog.help.codSubtipoDes' | translate">Cod Subtipo Des</label>
+                    <input type="number" class="form-control" name="codSubtipoDes" id="field_codSubtipoDes"
+                        [(ngModel)]="desgloseChequeoLog.codSubtipoDes" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoLog.codMoneda" for="field_codMoneda" [ngbTooltip]="'desgloseApp.desgloseChequeoLog.help.codMoneda' | translate">Cod Moneda</label>
+                    <input type="text" class="form-control" name="codMoneda" id="field_codMoneda"
+                        [(ngModel)]="desgloseChequeoLog.codMoneda" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoLog.fecLog" for="field_fecLog" [ngbTooltip]="'desgloseApp.desgloseChequeoLog.help.fecLog' | translate">Fec Log</label>
+                    <div class="d-flex">
+                        <input id="field_fecLog" type="datetime-local" class="form-control" name="fecLog" [(ngModel)]="fecLog"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseChequeoLog.glsLog" for="field_glsLog" [ngbTooltip]="'desgloseApp.desgloseChequeoLog.help.glsLog' | translate">Gls Log</label>
+                    <input type="text" class="form-control" name="glsLog" id="field_glsLog"
+                        [(ngModel)]="desgloseChequeoLog.glsLog" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

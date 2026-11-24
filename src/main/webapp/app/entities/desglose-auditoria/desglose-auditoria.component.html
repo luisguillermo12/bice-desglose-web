@@ -1,0 +1,90 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="desgloseApp.desgloseAuditoria.home.title">Desglose Auditorias</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-desglose-auditoria" [routerLink]="['/desglose-auditoria/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="desgloseApp.desgloseAuditoria.home.createLabel">
+            Create new Desglose Auditoria
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="desgloseAuditorias">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codCliente"><span jhiTranslate="desgloseApp.desgloseAuditoria.codCliente">Cod Cliente</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codTipoDes"><span jhiTranslate="desgloseApp.desgloseAuditoria.codTipoDes">Cod Tipo Des</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codSubtipoDes"><span jhiTranslate="desgloseApp.desgloseAuditoria.codSubtipoDes">Cod Subtipo Des</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codMoneda"><span jhiTranslate="desgloseApp.desgloseAuditoria.codMoneda">Cod Moneda</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecEvento"><span jhiTranslate="desgloseApp.desgloseAuditoria.fecEvento">Fec Evento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numLinea"><span jhiTranslate="desgloseApp.desgloseAuditoria.numLinea">Num Linea</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codEvento"><span jhiTranslate="desgloseApp.desgloseAuditoria.codEvento">Cod Evento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="rolEmpleadoAccion"><span jhiTranslate="desgloseApp.desgloseAuditoria.rolEmpleadoAccion">Rol Empleado Accion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="glsRol"><span jhiTranslate="desgloseApp.desgloseAuditoria.glsRol">Gls Rol</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codEstadoOri"><span jhiTranslate="desgloseApp.desgloseAuditoria.codEstadoOri">Cod Estado Ori</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codEstadoNvo"><span jhiTranslate="desgloseApp.desgloseAuditoria.codEstadoNvo">Cod Estado Nvo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="rolEmpleadoOri"><span jhiTranslate="desgloseApp.desgloseAuditoria.rolEmpleadoOri">Rol Empleado Ori</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="rolEmpleadoNvo"><span jhiTranslate="desgloseApp.desgloseAuditoria.rolEmpleadoNvo">Rol Empleado Nvo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="flgResultValid"><span jhiTranslate="desgloseApp.desgloseAuditoria.flgResultValid">Flg Result Valid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="glsComentario"><span jhiTranslate="desgloseApp.desgloseAuditoria.glsComentario">Gls Comentario</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let desgloseAuditoria of desgloseAuditorias ;trackBy: trackId">
+                <td><a [routerLink]="['/desglose-auditoria', desgloseAuditoria.id, 'view' ]">{{desgloseAuditoria.id}}</a></td>
+                <td>{{desgloseAuditoria.codCliente}}</td>
+                <td>{{desgloseAuditoria.codTipoDes}}</td>
+                <td>{{desgloseAuditoria.codSubtipoDes}}</td>
+                <td>{{desgloseAuditoria.codMoneda}}</td>
+                <td>{{desgloseAuditoria.fecEvento | date:'mediumDate'}}</td>
+                <td>{{desgloseAuditoria.numLinea}}</td>
+                <td>{{desgloseAuditoria.codEvento}}</td>
+                <td>{{desgloseAuditoria.rolEmpleadoAccion}}</td>
+                <td>{{desgloseAuditoria.glsRol}}</td>
+                <td>{{desgloseAuditoria.codEstadoOri}}</td>
+                <td>{{desgloseAuditoria.codEstadoNvo}}</td>
+                <td>{{desgloseAuditoria.rolEmpleadoOri}}</td>
+                <td>{{desgloseAuditoria.rolEmpleadoNvo}}</td>
+                <td>{{desgloseAuditoria.flgResultValid}}</td>
+                <td>{{desgloseAuditoria.glsComentario}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/desglose-auditoria', desgloseAuditoria.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/desglose-auditoria', desgloseAuditoria.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'desglose-auditoria/'+ desgloseAuditoria.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="desgloseAuditorias && desgloseAuditorias.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

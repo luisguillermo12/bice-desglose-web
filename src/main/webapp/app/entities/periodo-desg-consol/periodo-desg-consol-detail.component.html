@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="periodoDesgConsol">
+            <h2><span jhiTranslate="desgloseApp.periodoDesgConsol.detail.title">Periodo Desg Consol</span> {{periodoDesgConsol.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.periodoDesgConsol.codCliente" [ngbTooltip]="'desgloseApp.periodoDesgConsol.help.codCliente' | translate">Cod Cliente</span></dt>
+                <dd>
+                    <span>{{periodoDesgConsol.codCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodoDesgConsol.codTipoDes" [ngbTooltip]="'desgloseApp.periodoDesgConsol.help.codTipoDes' | translate">Cod Tipo Des</span></dt>
+                <dd>
+                    <span>{{periodoDesgConsol.codTipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodoDesgConsol.codSubtipoDes" [ngbTooltip]="'desgloseApp.periodoDesgConsol.help.codSubtipoDes' | translate">Cod Subtipo Des</span></dt>
+                <dd>
+                    <span>{{periodoDesgConsol.codSubtipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodoDesgConsol.codMoneda" [ngbTooltip]="'desgloseApp.periodoDesgConsol.help.codMoneda' | translate">Cod Moneda</span></dt>
+                <dd>
+                    <span>{{periodoDesgConsol.codMoneda}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodoDesgConsol.corEmpresa" [ngbTooltip]="'desgloseApp.periodoDesgConsol.help.corEmpresa' | translate">Cor Empresa</span></dt>
+                <dd>
+                    <span>{{periodoDesgConsol.corEmpresa}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodoDesgConsol.fecPeriodo" [ngbTooltip]="'desgloseApp.periodoDesgConsol.help.fecPeriodo' | translate">Fec Periodo</span></dt>
+                <dd>
+                    <span>{{periodoDesgConsol.fecPeriodo}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodoDesgConsol.valPrcConsol" [ngbTooltip]="'desgloseApp.periodoDesgConsol.help.valPrcConsol' | translate">Val Prc Consol</span></dt>
+                <dd>
+                    <span>{{periodoDesgConsol.valPrcConsol}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/periodo-desg-consol', periodoDesgConsol.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

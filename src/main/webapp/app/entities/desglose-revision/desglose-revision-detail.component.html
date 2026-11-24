@@ -1,0 +1,75 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="desgloseRevision">
+            <h2><span jhiTranslate="desgloseApp.desgloseRevision.detail.title">Desglose Revision</span> {{desgloseRevision.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.desgloseRevision.codCliente" [ngbTooltip]="'desgloseApp.desgloseRevision.help.codCliente' | translate">Cod Cliente</span></dt>
+                <dd>
+                    <span>{{desgloseRevision.codCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseRevision.codTipoDes" [ngbTooltip]="'desgloseApp.desgloseRevision.help.codTipoDes' | translate">Cod Tipo Des</span></dt>
+                <dd>
+                    <span>{{desgloseRevision.codTipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseRevision.codSubtipoDes" [ngbTooltip]="'desgloseApp.desgloseRevision.help.codSubtipoDes' | translate">Cod Subtipo Des</span></dt>
+                <dd>
+                    <span>{{desgloseRevision.codSubtipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseRevision.codMoneda" [ngbTooltip]="'desgloseApp.desgloseRevision.help.codMoneda' | translate">Cod Moneda</span></dt>
+                <dd>
+                    <span>{{desgloseRevision.codMoneda}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseRevision.rolDigitador" [ngbTooltip]="'desgloseApp.desgloseRevision.help.rolDigitador' | translate">Rol Digitador</span></dt>
+                <dd>
+                    <span>{{desgloseRevision.rolDigitador}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseRevision.rolRevisor" [ngbTooltip]="'desgloseApp.desgloseRevision.help.rolRevisor' | translate">Rol Revisor</span></dt>
+                <dd>
+                    <span>{{desgloseRevision.rolRevisor}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseRevision.rolRevisorReem" [ngbTooltip]="'desgloseApp.desgloseRevision.help.rolRevisorReem' | translate">Rol Revisor Reem</span></dt>
+                <dd>
+                    <span>{{desgloseRevision.rolRevisorReem}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseRevision.glsNotificacion" [ngbTooltip]="'desgloseApp.desgloseRevision.help.glsNotificacion' | translate">Gls Notificacion</span></dt>
+                <dd>
+                    <span>{{desgloseRevision.glsNotificacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseRevision.flgNotificado" [ngbTooltip]="'desgloseApp.desgloseRevision.help.flgNotificado' | translate">Flg Notificado</span></dt>
+                <dd>
+                    <span>{{desgloseRevision.flgNotificado}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseRevision.fecEnvioRevision" [ngbTooltip]="'desgloseApp.desgloseRevision.help.fecEnvioRevision' | translate">Fec Envio Revision</span></dt>
+                <dd>
+                    <span>{{desgloseRevision.fecEnvioRevision}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseRevision.fecEnRevision" [ngbTooltip]="'desgloseApp.desgloseRevision.help.fecEnRevision' | translate">Fec En Revision</span></dt>
+                <dd>
+                    <span>{{desgloseRevision.fecEnRevision}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseRevision.fecTerminoRevision" [ngbTooltip]="'desgloseApp.desgloseRevision.help.fecTerminoRevision' | translate">Fec Termino Revision</span></dt>
+                <dd>
+                    <span>{{desgloseRevision.fecTerminoRevision}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseRevision.codRegStatus" [ngbTooltip]="'desgloseApp.desgloseRevision.help.codRegStatus' | translate">Cod Reg Status</span></dt>
+                <dd>
+                    <span>{{desgloseRevision.codRegStatus}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/desglose-revision', desgloseRevision.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

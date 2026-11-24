@@ -1,0 +1,104 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-desglose-revision-heading" jhiTranslate="desgloseApp.desgloseRevision.home.createOrEditLabel">Create or edit a Desglose Revision</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!desgloseRevision.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="desgloseRevision.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseRevision.codCliente" for="field_codCliente" [ngbTooltip]="'desgloseApp.desgloseRevision.help.codCliente' | translate">Cod Cliente</label>
+                    <input type="text" class="form-control" name="codCliente" id="field_codCliente"
+                        [(ngModel)]="desgloseRevision.codCliente" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseRevision.codTipoDes" for="field_codTipoDes" [ngbTooltip]="'desgloseApp.desgloseRevision.help.codTipoDes' | translate">Cod Tipo Des</label>
+                    <input type="number" class="form-control" name="codTipoDes" id="field_codTipoDes"
+                        [(ngModel)]="desgloseRevision.codTipoDes" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseRevision.codSubtipoDes" for="field_codSubtipoDes" [ngbTooltip]="'desgloseApp.desgloseRevision.help.codSubtipoDes' | translate">Cod Subtipo Des</label>
+                    <input type="number" class="form-control" name="codSubtipoDes" id="field_codSubtipoDes"
+                        [(ngModel)]="desgloseRevision.codSubtipoDes" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseRevision.codMoneda" for="field_codMoneda" [ngbTooltip]="'desgloseApp.desgloseRevision.help.codMoneda' | translate">Cod Moneda</label>
+                    <input type="text" class="form-control" name="codMoneda" id="field_codMoneda"
+                        [(ngModel)]="desgloseRevision.codMoneda" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseRevision.rolDigitador" for="field_rolDigitador" [ngbTooltip]="'desgloseApp.desgloseRevision.help.rolDigitador' | translate">Rol Digitador</label>
+                    <input type="text" class="form-control" name="rolDigitador" id="field_rolDigitador"
+                        [(ngModel)]="desgloseRevision.rolDigitador" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseRevision.rolRevisor" for="field_rolRevisor" [ngbTooltip]="'desgloseApp.desgloseRevision.help.rolRevisor' | translate">Rol Revisor</label>
+                    <input type="text" class="form-control" name="rolRevisor" id="field_rolRevisor"
+                        [(ngModel)]="desgloseRevision.rolRevisor" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseRevision.rolRevisorReem" for="field_rolRevisorReem" [ngbTooltip]="'desgloseApp.desgloseRevision.help.rolRevisorReem' | translate">Rol Revisor Reem</label>
+                    <input type="text" class="form-control" name="rolRevisorReem" id="field_rolRevisorReem"
+                        [(ngModel)]="desgloseRevision.rolRevisorReem" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseRevision.glsNotificacion" for="field_glsNotificacion" [ngbTooltip]="'desgloseApp.desgloseRevision.help.glsNotificacion' | translate">Gls Notificacion</label>
+                    <input type="text" class="form-control" name="glsNotificacion" id="field_glsNotificacion"
+                        [(ngModel)]="desgloseRevision.glsNotificacion" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseRevision.flgNotificado" for="field_flgNotificado" [ngbTooltip]="'desgloseApp.desgloseRevision.help.flgNotificado' | translate">Flg Notificado</label>
+                    <input type="checkbox" class="form-control" name="flgNotificado" id="field_flgNotificado"
+                        [(ngModel)]="desgloseRevision.flgNotificado" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseRevision.fecEnvioRevision" for="field_fecEnvioRevision" [ngbTooltip]="'desgloseApp.desgloseRevision.help.fecEnvioRevision' | translate">Fec Envio Revision</label>
+                    <div class="input-group">
+                        <input id="field_fecEnvioRevision" type="text" class="form-control" name="fecEnvioRevision" ngbDatepicker  #fecEnvioRevisionDp="ngbDatepicker" [(ngModel)]="desgloseRevision.fecEnvioRevision"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecEnvioRevisionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseRevision.fecEnRevision" for="field_fecEnRevision" [ngbTooltip]="'desgloseApp.desgloseRevision.help.fecEnRevision' | translate">Fec En Revision</label>
+                    <div class="input-group">
+                        <input id="field_fecEnRevision" type="text" class="form-control" name="fecEnRevision" ngbDatepicker  #fecEnRevisionDp="ngbDatepicker" [(ngModel)]="desgloseRevision.fecEnRevision"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecEnRevisionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseRevision.fecTerminoRevision" for="field_fecTerminoRevision" [ngbTooltip]="'desgloseApp.desgloseRevision.help.fecTerminoRevision' | translate">Fec Termino Revision</label>
+                    <div class="input-group">
+                        <input id="field_fecTerminoRevision" type="text" class="form-control" name="fecTerminoRevision" ngbDatepicker  #fecTerminoRevisionDp="ngbDatepicker" [(ngModel)]="desgloseRevision.fecTerminoRevision"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecTerminoRevisionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseRevision.codRegStatus" for="field_codRegStatus" [ngbTooltip]="'desgloseApp.desgloseRevision.help.codRegStatus' | translate">Cod Reg Status</label>
+                    <input type="number" class="form-control" name="codRegStatus" id="field_codRegStatus"
+                        [(ngModel)]="desgloseRevision.codRegStatus" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

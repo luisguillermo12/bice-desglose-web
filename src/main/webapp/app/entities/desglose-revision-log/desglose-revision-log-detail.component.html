@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="desgloseRevisionLog">
+            <h2><span jhiTranslate="desgloseApp.desgloseRevisionLog.detail.title">Desglose Revision Log</span> {{desgloseRevisionLog.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.desgloseRevisionLog.fecEvent" [ngbTooltip]="'desgloseApp.desgloseRevisionLog.help.fecEvent' | translate">Fec Event</span></dt>
+                <dd>
+                    <span>{{desgloseRevisionLog.fecEvent}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseRevisionLog.numLineaLog" [ngbTooltip]="'desgloseApp.desgloseRevisionLog.help.numLineaLog' | translate">Num Linea Log</span></dt>
+                <dd>
+                    <span>{{desgloseRevisionLog.numLineaLog}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseRevisionLog.codCliente" [ngbTooltip]="'desgloseApp.desgloseRevisionLog.help.codCliente' | translate">Cod Cliente</span></dt>
+                <dd>
+                    <span>{{desgloseRevisionLog.codCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseRevisionLog.codTipoDes" [ngbTooltip]="'desgloseApp.desgloseRevisionLog.help.codTipoDes' | translate">Cod Tipo Des</span></dt>
+                <dd>
+                    <span>{{desgloseRevisionLog.codTipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseRevisionLog.codSubtipoDes" [ngbTooltip]="'desgloseApp.desgloseRevisionLog.help.codSubtipoDes' | translate">Cod Subtipo Des</span></dt>
+                <dd>
+                    <span>{{desgloseRevisionLog.codSubtipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseRevisionLog.codMoneda" [ngbTooltip]="'desgloseApp.desgloseRevisionLog.help.codMoneda' | translate">Cod Moneda</span></dt>
+                <dd>
+                    <span>{{desgloseRevisionLog.codMoneda}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseRevisionLog.numRolEmpleado" [ngbTooltip]="'desgloseApp.desgloseRevisionLog.help.numRolEmpleado' | translate">Num Rol Empleado</span></dt>
+                <dd>
+                    <span>{{desgloseRevisionLog.numRolEmpleado}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseRevisionLog.codEstado" [ngbTooltip]="'desgloseApp.desgloseRevisionLog.help.codEstado' | translate">Cod Estado</span></dt>
+                <dd>
+                    <span>{{desgloseRevisionLog.codEstado}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseRevisionLog.codEstadoOld" [ngbTooltip]="'desgloseApp.desgloseRevisionLog.help.codEstadoOld' | translate">Cod Estado Old</span></dt>
+                <dd>
+                    <span>{{desgloseRevisionLog.codEstadoOld}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseRevisionLog.numRolEmpReem" [ngbTooltip]="'desgloseApp.desgloseRevisionLog.help.numRolEmpReem' | translate">Num Rol Emp Reem</span></dt>
+                <dd>
+                    <span>{{desgloseRevisionLog.numRolEmpReem}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseRevisionLog.glsComentarios" [ngbTooltip]="'desgloseApp.desgloseRevisionLog.help.glsComentarios' | translate">Gls Comentarios</span></dt>
+                <dd>
+                    <span>{{desgloseRevisionLog.glsComentarios}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/desglose-revision-log', desgloseRevisionLog.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

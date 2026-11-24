@@ -1,0 +1,36 @@
+/**
+ * Representa la tabla "sf_stf_operator".
+ * @author carlos eduardo rodriguez
+ */
+entity SfStfOperator {
+	/**
+	 * BRANCH_CODE
+	 */
+	branchCode Integer required,
+	/**
+	 * OPERATOR_CODE
+	 */
+	operatorCode Integer required,
+	/**
+	 * Login
+	 */
+	loginName String,
+	/**
+	 * IS_SUPERVISOR
+	 */
+	isSupervisor Integer,
+	/**
+	 * SIGNED_ON
+	 */
+	signedOn Integer,
+	/**
+	 * DAY_OPEN
+	 */
+	dayOpen Integer
+}
+// Set pagination options
+paginate * with pagination
+// Set service options
+service * with serviceClass
+// Set mapping options
+dto * with mapstruct

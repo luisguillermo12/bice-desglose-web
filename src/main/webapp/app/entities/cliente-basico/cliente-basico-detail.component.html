@@ -1,0 +1,151 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="clienteBasico">
+            <h2><span jhiTranslate="desgloseApp.clienteBasico.detail.title">Cliente Basico</span> {{clienteBasico.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.numCliente" [ngbTooltip]="'desgloseApp.clienteBasico.help.numCliente' | translate">Num Cliente</span></dt>
+                <dd>
+                    <span>{{clienteBasico.numCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.numRolEmpleado" [ngbTooltip]="'desgloseApp.clienteBasico.help.numRolEmpleado' | translate">Num Rol Empleado</span></dt>
+                <dd>
+                    <span>{{clienteBasico.numRolEmpleado}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.codTipoJuridi">Cod Tipo Juridi</span></dt>
+                <dd>
+                    <span>{{clienteBasico.codTipoJuridi}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.codSucursal" [ngbTooltip]="'desgloseApp.clienteBasico.help.codSucursal' | translate">Cod Sucursal</span></dt>
+                <dd>
+                    <span>{{clienteBasico.codSucursal}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.codCliente">Cod Cliente</span></dt>
+                <dd>
+                    <span>{{clienteBasico.codCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.codTipoCliente">Cod Tipo Cliente</span></dt>
+                <dd>
+                    <span>{{clienteBasico.codTipoCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.codSectorEconom">Cod Sector Econom</span></dt>
+                <dd>
+                    <span>{{clienteBasico.codSectorEconom}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.fecCliente">Fec Cliente</span></dt>
+                <dd>
+                    <span>{{clienteBasico.fecCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.numCorDomlegal">Num Cor Domlegal</span></dt>
+                <dd>
+                    <span>{{clienteBasico.numCorDomlegal}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.codActividad" [ngbTooltip]="'desgloseApp.clienteBasico.help.codActividad' | translate">Cod Actividad</span></dt>
+                <dd>
+                    <span>{{clienteBasico.codActividad}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.codSector">Cod Sector</span></dt>
+                <dd>
+                    <span>{{clienteBasico.codSector}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.codCatdeu">Cod Catdeu</span></dt>
+                <dd>
+                    <span>{{clienteBasico.codCatdeu}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.codRelaBice">Cod Rela Bice</span></dt>
+                <dd>
+                    <span>{{clienteBasico.codRelaBice}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.codGrupRela">Cod Grup Rela</span></dt>
+                <dd>
+                    <span>{{clienteBasico.codGrupRela}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.codEstaDeud">Cod Esta Deud</span></dt>
+                <dd>
+                    <span>{{clienteBasico.codEstaDeud}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.numCarpeta">Num Carpeta</span></dt>
+                <dd>
+                    <span>{{clienteBasico.numCarpeta}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.numCasiInte">Num Casi Inte</span></dt>
+                <dd>
+                    <span>{{clienteBasico.numCasiInte}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.glsSinoSbif">Gls Sino Sbif</span></dt>
+                <dd>
+                    <span>{{clienteBasico.glsSinoSbif}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.fecDeclJurada">Fec Decl Jurada</span></dt>
+                <dd>
+                    <span>{{clienteBasico.fecDeclJurada}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.fecVerifDomlegal">Fec Verif Domlegal</span></dt>
+                <dd>
+                    <span>{{clienteBasico.fecVerifDomlegal}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.codRegStatus" [ngbTooltip]="'desgloseApp.clienteBasico.help.codRegStatus' | translate">Cod Reg Status</span></dt>
+                <dd>
+                    <span>{{clienteBasico.codRegStatus}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.codRegLog" [ngbTooltip]="'desgloseApp.clienteBasico.help.codRegLog' | translate">Cod Reg Log</span></dt>
+                <dd>
+                    <span>{{clienteBasico.codRegLog}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.flgFirmaCobprejud">Flg Firma Cobprejud</span></dt>
+                <dd>
+                    <span>{{clienteBasico.flgFirmaCobprejud}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.fecFirmaCobprejud">Fec Firma Cobprejud</span></dt>
+                <dd>
+                    <span>{{clienteBasico.fecFirmaCobprejud}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.numTaxId">Num Tax Id</span></dt>
+                <dd>
+                    <span>{{clienteBasico.numTaxId}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.codSiiExeimp">Cod Sii Exeimp</span></dt>
+                <dd>
+                    <span>{{clienteBasico.codSiiExeimp}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.flgSiiContprimeracat">Flg Sii Contprimeracat</span></dt>
+                <dd>
+                    <span>{{clienteBasico.flgSiiContprimeracat}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.codTipoAlerta">Cod Tipo Alerta</span></dt>
+                <dd>
+                    <span>{{clienteBasico.codTipoAlerta}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.fecAlerta">Fec Alerta</span></dt>
+                <dd>
+                    <span>{{clienteBasico.fecAlerta}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.flgMandatoInv">Flg Mandato Inv</span></dt>
+                <dd>
+                    <span>{{clienteBasico.flgMandatoInv}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.codGirosii" [ngbTooltip]="'desgloseApp.clienteBasico.help.codGirosii' | translate">Cod Girosii</span></dt>
+                <dd>
+                    <span>{{clienteBasico.codGirosii}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteBasico.codAlertaFrd" [ngbTooltip]="'desgloseApp.clienteBasico.help.codAlertaFrd' | translate">Cod Alerta Frd</span></dt>
+                <dd>
+                    <span>{{clienteBasico.codAlertaFrd}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cliente-basico', clienteBasico.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,124 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="desgloseApp.clienteBasico.home.title">Cliente Basicos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-cliente-basico" [routerLink]="['/cliente-basico/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="desgloseApp.clienteBasico.home.createLabel">
+            Create new Cliente Basico
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="clienteBasicos">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numCliente"><span jhiTranslate="desgloseApp.clienteBasico.numCliente">Num Cliente</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numRolEmpleado"><span jhiTranslate="desgloseApp.clienteBasico.numRolEmpleado">Num Rol Empleado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codTipoJuridi"><span jhiTranslate="desgloseApp.clienteBasico.codTipoJuridi">Cod Tipo Juridi</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codSucursal"><span jhiTranslate="desgloseApp.clienteBasico.codSucursal">Cod Sucursal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codCliente"><span jhiTranslate="desgloseApp.clienteBasico.codCliente">Cod Cliente</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codTipoCliente"><span jhiTranslate="desgloseApp.clienteBasico.codTipoCliente">Cod Tipo Cliente</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codSectorEconom"><span jhiTranslate="desgloseApp.clienteBasico.codSectorEconom">Cod Sector Econom</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecCliente"><span jhiTranslate="desgloseApp.clienteBasico.fecCliente">Fec Cliente</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numCorDomlegal"><span jhiTranslate="desgloseApp.clienteBasico.numCorDomlegal">Num Cor Domlegal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codActividad"><span jhiTranslate="desgloseApp.clienteBasico.codActividad">Cod Actividad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codSector"><span jhiTranslate="desgloseApp.clienteBasico.codSector">Cod Sector</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codCatdeu"><span jhiTranslate="desgloseApp.clienteBasico.codCatdeu">Cod Catdeu</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codRelaBice"><span jhiTranslate="desgloseApp.clienteBasico.codRelaBice">Cod Rela Bice</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codGrupRela"><span jhiTranslate="desgloseApp.clienteBasico.codGrupRela">Cod Grup Rela</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codEstaDeud"><span jhiTranslate="desgloseApp.clienteBasico.codEstaDeud">Cod Esta Deud</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numCarpeta"><span jhiTranslate="desgloseApp.clienteBasico.numCarpeta">Num Carpeta</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numCasiInte"><span jhiTranslate="desgloseApp.clienteBasico.numCasiInte">Num Casi Inte</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="glsSinoSbif"><span jhiTranslate="desgloseApp.clienteBasico.glsSinoSbif">Gls Sino Sbif</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecDeclJurada"><span jhiTranslate="desgloseApp.clienteBasico.fecDeclJurada">Fec Decl Jurada</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecVerifDomlegal"><span jhiTranslate="desgloseApp.clienteBasico.fecVerifDomlegal">Fec Verif Domlegal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codRegStatus"><span jhiTranslate="desgloseApp.clienteBasico.codRegStatus">Cod Reg Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codRegLog"><span jhiTranslate="desgloseApp.clienteBasico.codRegLog">Cod Reg Log</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="flgFirmaCobprejud"><span jhiTranslate="desgloseApp.clienteBasico.flgFirmaCobprejud">Flg Firma Cobprejud</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecFirmaCobprejud"><span jhiTranslate="desgloseApp.clienteBasico.fecFirmaCobprejud">Fec Firma Cobprejud</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numTaxId"><span jhiTranslate="desgloseApp.clienteBasico.numTaxId">Num Tax Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codSiiExeimp"><span jhiTranslate="desgloseApp.clienteBasico.codSiiExeimp">Cod Sii Exeimp</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="flgSiiContprimeracat"><span jhiTranslate="desgloseApp.clienteBasico.flgSiiContprimeracat">Flg Sii Contprimeracat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codTipoAlerta"><span jhiTranslate="desgloseApp.clienteBasico.codTipoAlerta">Cod Tipo Alerta</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecAlerta"><span jhiTranslate="desgloseApp.clienteBasico.fecAlerta">Fec Alerta</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="flgMandatoInv"><span jhiTranslate="desgloseApp.clienteBasico.flgMandatoInv">Flg Mandato Inv</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codGirosii"><span jhiTranslate="desgloseApp.clienteBasico.codGirosii">Cod Girosii</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codAlertaFrd"><span jhiTranslate="desgloseApp.clienteBasico.codAlertaFrd">Cod Alerta Frd</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let clienteBasico of clienteBasicos ;trackBy: trackId">
+                <td><a [routerLink]="['/cliente-basico', clienteBasico.id, 'view' ]">{{clienteBasico.id}}</a></td>
+                <td>{{clienteBasico.numCliente}}</td>
+                <td>{{clienteBasico.numRolEmpleado}}</td>
+                <td>{{clienteBasico.codTipoJuridi}}</td>
+                <td>{{clienteBasico.codSucursal}}</td>
+                <td>{{clienteBasico.codCliente}}</td>
+                <td>{{clienteBasico.codTipoCliente}}</td>
+                <td>{{clienteBasico.codSectorEconom}}</td>
+                <td>{{clienteBasico.fecCliente | date:'mediumDate'}}</td>
+                <td>{{clienteBasico.numCorDomlegal}}</td>
+                <td>{{clienteBasico.codActividad}}</td>
+                <td>{{clienteBasico.codSector}}</td>
+                <td>{{clienteBasico.codCatdeu}}</td>
+                <td>{{clienteBasico.codRelaBice}}</td>
+                <td>{{clienteBasico.codGrupRela}}</td>
+                <td>{{clienteBasico.codEstaDeud}}</td>
+                <td>{{clienteBasico.numCarpeta}}</td>
+                <td>{{clienteBasico.numCasiInte}}</td>
+                <td>{{clienteBasico.glsSinoSbif}}</td>
+                <td>{{clienteBasico.fecDeclJurada | date:'mediumDate'}}</td>
+                <td>{{clienteBasico.fecVerifDomlegal | date:'mediumDate'}}</td>
+                <td>{{clienteBasico.codRegStatus}}</td>
+                <td>{{clienteBasico.codRegLog}}</td>
+                <td>{{clienteBasico.flgFirmaCobprejud}}</td>
+                <td>{{clienteBasico.fecFirmaCobprejud | date:'mediumDate'}}</td>
+                <td>{{clienteBasico.numTaxId}}</td>
+                <td>{{clienteBasico.codSiiExeimp}}</td>
+                <td>{{clienteBasico.flgSiiContprimeracat}}</td>
+                <td>{{clienteBasico.codTipoAlerta}}</td>
+                <td>{{clienteBasico.fecAlerta | date:'mediumDate'}}</td>
+                <td>{{clienteBasico.flgMandatoInv}}</td>
+                <td>{{clienteBasico.codGirosii}}</td>
+                <td>{{clienteBasico.codAlertaFrd}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/cliente-basico', clienteBasico.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/cliente-basico', clienteBasico.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'cliente-basico/'+ clienteBasico.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="clienteBasicos && clienteBasicos.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

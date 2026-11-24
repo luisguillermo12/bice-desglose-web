@@ -1,0 +1,6 @@
+desglose:
+  build: .
+  restart: always
+  ports:
+  - 9999:8080
+

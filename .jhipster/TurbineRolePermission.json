@@ -1,0 +1,32 @@
+{
+    "name": "TurbineRolePermission",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "role",
+            "otherEntityName": "turbineRole",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "turbineRolePermission"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "permission",
+            "otherEntityName": "turbinePermission",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "turbineRolePermission"
+        }
+    ],
+    "changelogDate": "20181022174826",
+    "javadoc": "Representa la tabla \"TURBINE_ROLE_PERMISSION\" que contiene permisos asociados al rol. Pertenece al esquema SF_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "turbine_role_permission",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

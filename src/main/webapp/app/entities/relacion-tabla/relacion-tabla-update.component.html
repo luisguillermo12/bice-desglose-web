@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-relacion-tabla-heading" jhiTranslate="desgloseApp.relacionTabla.home.createOrEditLabel">Create or edit a Relacion Tabla</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!relacionTabla.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="relacionTabla.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.relacionTabla.numCorRegistro" for="field_numCorRegistro" [ngbTooltip]="'desgloseApp.relacionTabla.help.numCorRegistro' | translate">Num Cor Registro</label>
+                    <input type="number" class="form-control" name="numCorRegistro" id="field_numCorRegistro"
+                        [(ngModel)]="relacionTabla.numCorRegistro" required/>
+                    <div [hidden]="!(editForm.controls.numCorRegistro?.dirty && editForm.controls.numCorRegistro?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.numCorRegistro?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.numCorRegistro?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.relacionTabla.codTabla1" for="field_codTabla1" [ngbTooltip]="'desgloseApp.relacionTabla.help.codTabla1' | translate">Cod Tabla 1</label>
+                    <input type="text" class="form-control" name="codTabla1" id="field_codTabla1"
+                        [(ngModel)]="relacionTabla.codTabla1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.relacionTabla.codTabla2" for="field_codTabla2" [ngbTooltip]="'desgloseApp.relacionTabla.help.codTabla2' | translate">Cod Tabla 2</label>
+                    <input type="text" class="form-control" name="codTabla2" id="field_codTabla2"
+                        [(ngModel)]="relacionTabla.codTabla2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.relacionTabla.codGenerico1" for="field_codGenerico1" [ngbTooltip]="'desgloseApp.relacionTabla.help.codGenerico1' | translate">Cod Generico 1</label>
+                    <input type="text" class="form-control" name="codGenerico1" id="field_codGenerico1"
+                        [(ngModel)]="relacionTabla.codGenerico1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.relacionTabla.codGenerico2" for="field_codGenerico2" [ngbTooltip]="'desgloseApp.relacionTabla.help.codGenerico2' | translate">Cod Generico 2</label>
+                    <input type="text" class="form-control" name="codGenerico2" id="field_codGenerico2"
+                        [(ngModel)]="relacionTabla.codGenerico2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.relacionTabla.codRegStatus" for="field_codRegStatus" [ngbTooltip]="'desgloseApp.relacionTabla.help.codRegStatus' | translate">Cod Reg Status</label>
+                    <input type="number" class="form-control" name="codRegStatus" id="field_codRegStatus"
+                        [(ngModel)]="relacionTabla.codRegStatus" required/>
+                    <div [hidden]="!(editForm.controls.codRegStatus?.dirty && editForm.controls.codRegStatus?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codRegStatus?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.codRegStatus?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.relacionTabla.codRegLog" for="field_codRegLog" [ngbTooltip]="'desgloseApp.relacionTabla.help.codRegLog' | translate">Cod Reg Log</label>
+                    <input type="number" class="form-control" name="codRegLog" id="field_codRegLog"
+                        [(ngModel)]="relacionTabla.codRegLog" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

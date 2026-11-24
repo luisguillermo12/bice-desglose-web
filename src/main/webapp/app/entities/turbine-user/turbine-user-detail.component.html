@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="turbineUser">
+            <h2><span jhiTranslate="desgloseApp.turbineUser.detail.title">Turbine User</span> {{turbineUser.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.turbineUser.userId">User Id</span></dt>
+                <dd>
+                    <span>{{turbineUser.userId}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.turbineUser.loginName">Login Name</span></dt>
+                <dd>
+                    <span>{{turbineUser.loginName}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.turbineUser.passwordValue">Password Value</span></dt>
+                <dd>
+                    <span>{{turbineUser.passwordValue}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.turbineUser.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{turbineUser.firstName}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.turbineUser.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{turbineUser.lastName}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.turbineUser.email">Email</span></dt>
+                <dd>
+                    <span>{{turbineUser.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.turbineUser.confirmValue">Confirm Value</span></dt>
+                <dd>
+                    <span>{{turbineUser.confirmValue}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.turbineUser.modified">Modified</span></dt>
+                <dd>
+                    <span>{{turbineUser.modified}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.turbineUser.created">Created</span></dt>
+                <dd>
+                    <span>{{turbineUser.created}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.turbineUser.lastLogin">Last Login</span></dt>
+                <dd>
+                    <span>{{turbineUser.lastLogin}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.turbineUser.expire">Expire</span></dt>
+                <dd>
+                    <span>{{turbineUser.expire}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.turbineUser.expirePassword">Expire Password</span></dt>
+                <dd>
+                    <span>{{turbineUser.expirePassword}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.turbineUser.objectdata">Objectdata</span></dt>
+                <dd>
+                    <div *ngIf="turbineUser.objectdata">
+                        <a (click)="openFile(turbineUser.objectdataContentType, turbineUser.objectdata)" jhiTranslate="entity.action.open">open</a>
+                        {{turbineUser.objectdataContentType}}, {{byteSize(turbineUser.objectdata)}}
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/turbine-user', turbineUser.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

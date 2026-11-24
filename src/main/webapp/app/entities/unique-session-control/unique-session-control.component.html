@@ -1,0 +1,68 @@
+<div>
+    <div class="card-header hand-pointer" (click)="isCollapsedDataPanel = !isCollapsedDataPanel" [attr.aria-expanded]="!isCollapsedDataPanel" aria-controls="collapsedDataPanel">
+        <div class="row">
+            <span class="col-sm-11" jhiTranslate="desgloseApp.uniqueSessionControl.home.title"></span>
+            <span class="col-sm-1">
+                <fa-icon class="float-sm-right fa-sm" [icon]="isCollapsedDataPanel ? ICON_CARD_OPEN : ICON_CARD_CLOSE"></fa-icon>
+            </span>
+        </div>
+    </div>
+    <div class="card-body" [ngbCollapse]="isCollapsedDataPanel" id="collapsedDataPanel">
+        <jhi-alert></jhi-alert>
+        <button class="btn btn-primary float-right mb-2" (click)="loadAll()">
+            <fa-icon [icon]="'sync'"></fa-icon> <span jhiTranslate="health.refresh.button">Refresh</span>
+        </button>
+        <ngx-datatable
+            [messages]="{emptyMessage: 'footer.emptyMessage' | translate, selectedMessage: 'footer.selected' | translate, totalMessage: 'footer.total' | translate}"
+            style="width: 100%"
+            class="material"
+            [rows]="uniqueSessionControls"
+            [columnMode]="'force'"
+            [footerHeight]="50"
+            [rowHeight]="'auto'"
+            [limit]="10"
+            [selected]="selected"
+            [selectionType]="'checkbox'"
+            [selectAllRowsOnPage]="false"
+            (select)='onSelect($event)'>
+            <ngx-datatable-column [width]="50" [sortable]="false" [canAutoResize]="false" [draggable]="false" [resizeable]="false" [headerCheckboxable]="true"
+                                  [checkboxable]="true">
+            </ngx-datatable-column>
+            <ngx-datatable-column>
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <span jhiTranslate="global.field.id">ID</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.id}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column>
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <span jhiTranslate="desgloseApp.uniqueSessionControl.loginName">Login Name</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.loginName}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column>
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <span jhiTranslate="desgloseApp.uniqueSessionControl.sessionCheckTime">Session Check Time</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.sessionCheckTime | date: DATE_TIME_SECONDS_FORMAT_ES_UI }}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column>
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <span jhiTranslate="desgloseApp.uniqueSessionControl.sessionEndTime">Session End Time</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.sessionEndTime | date: DATE_TIME_SECONDS_FORMAT_ES_UI }}
+                </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
+        <button type="button" class="btn btn-primary float-right mt-2" (click)="deleteSelectedItems()" [disabled]="selected.length <= 0">
+            <fa-icon [icon]="'trash-alt'"></fa-icon>&nbsp;<span jhiTranslate="desgloseApp.uniqueSessionControl.deletedElements"></span>
+        </button>
+    </div>
+</div>

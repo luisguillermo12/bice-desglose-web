@@ -1,0 +1,11 @@
+{
+    "desgloseApp": {
+        "breakdownSearchRequestDTO": {
+            "codigoCliente": "Código de cliente",
+            "tipoPlantillaDesglose": "Tipo de plantilla",
+            "tipoDesglose": "Tipo de desglose",
+            "subTipoDesglose": "Sub tipo de desglose",
+            "moneda": "moneda"
+        }
+    }
+}

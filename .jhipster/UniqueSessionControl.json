@@ -1,0 +1,37 @@
+{
+    "name": "UniqueSessionControl",
+    "fields": [
+        {
+            "fieldName": "loginName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "sessionCheckTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "sessionEndTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "jwt",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190608200116",
+    "entityTableName": "unique_session_control",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

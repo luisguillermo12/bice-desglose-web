@@ -1,0 +1,74 @@
+<div class="modal-header">
+    <h4 class="modal-title"><span jhiTranslate="breakdown.printConfig.title"></span></h4>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            (click)="closeModal()">&times;
+    </button>
+</div>
+<div class="modal-body">
+    <!--jhi-alert></jhi-alert>
+    <jhi-alert-error></jhi-alert-error-->
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <form name="breakdownDataGeneratePrintForm" role="form" novalidate #breakdownDataGeneratePrintForm="ngForm" id="breakdownDataGeneratePrintForm">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="breakdown.printConfig.monedaDesglose"></label>
+                        <input id="field_descripMoneda1" type="text" class="form-control form-control-sm" name="descripMoneda1" [(ngModel)]="descripMoneda.glsGenericalarga" disabled/>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="breakdown.printConfig.fecha"></label>
+                        <input id="field_fecDeflacBase" type="text" class="form-control form-control-sm" name="fecDeflacBase" ngbDatepicker #fecDeflacBase="ngbDatepicker"
+                               [(ngModel)]="fecha" disabled/>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="breakdown.printConfig.monedaImpreso" for="field_currency2"></label>
+                        <select class="form-control form-control-sm" id="field_currency2" name="currency" [(ngModel)]="codMoneda"
+                                (change)="onBreakdownSubTypeChange()" #selectedCurrency>
+                            <option [ngValue]="el.codGenerico" *ngFor="let el of (simpleComboBoxTypes | filterDescripcionCodigo:CODTABLA_TIPO_MONEDAS)">
+                                {{el.glsGenericalarga }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="breakdown.printConfig.deflactorBase"></label>
+                        <input type="text" class="form-control form-control-sm" name="breakdownSubTypeDesc" id="field_breakdownSubTypeDesc2" [(ngModel)]="deflactorBase"
+                               #fieldBreakdownDeflactorBase/>
+                    </div>
+                </div>
+                <br/>
+                <div class="form-row">
+                        <div class="col-sm-12">
+                            <hot-table
+                                [hotId]="handOnInstanceId"
+                                [licenseKey]="HANDS_ON_TABLE_LICENSE_KEY"
+                                [language]="'es-MX'"
+                                [data]="data"
+                                [colHeaders]="colHeaders"
+                                [columns]="columns"
+                                [settings]="options"
+                                [afterLoadData]="afterLoadDataMethodGeneratePrint">
+                            </hot-table>
+                        </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm-8">
+                            <input class="form-check-input check-report-print" style="padding-left: 5px;" type="checkbox" name="rememberMe" id="rememberMe"  [(ngModel)]="checkedImpresion">
+                            <span class="label-report-print" jhiTranslate="breakdown.printConfig.generatePrintReport"></span>
+                    </div>
+                    <div class="col-sm-2" style="padding-left: 5px;">
+                        <button class="btn btn-default btn-block btn-custom-font-size-1" (click)="onClickCancel()">
+                            <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="global.form.cancel"></span>
+                        </button>
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="button" class="btn btn-primary btn-block btn-custom-font-size-1" (click)="triggerOnSelectItemEvent()">
+                            <fa-icon [icon]="'check'"></fa-icon>&nbsp;<span jhiTranslate="global.form.accept"></span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+{
+    "name": "DesgloseGrupo",
+    "fields": [
+        {
+            "fieldName": "codCargo",
+            "javadoc": "Código cargo. Posibles permitidos (001-Subgte, 002-Jefe Grupo y 003-Analista).",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numRolEmpleado",
+            "javadoc": "Rol de usuario asociado al cargo.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "desCodCargo",
+            "javadoc": "Código cargo. Posibles permitidos (001-Subgte, 002-Jefe Grupo y 003-Analista).",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "desNumRolEmpleado",
+            "javadoc": "Rol de usuario asociado al cargo.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181011140726",
+    "javadoc": "Representa la tabla \"DESGLO_GRUPO_WK\" que contiene la definición de grupos. Pertenece al esquema CIF_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "desglose_grupo",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

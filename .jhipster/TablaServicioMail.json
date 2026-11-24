@@ -1,0 +1,89 @@
+{
+    "name": "TablaServicioMail",
+    "fields": [
+        {
+            "fieldName": "codSistema",
+            "javadoc": "Código sistema.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numSolicitud",
+            "javadoc": "Número solicitud envio.",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fecSolicitud",
+            "javadoc": "Fecha solicitud.",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "numTrxSistema",
+            "javadoc": "Número trx sistema solicitante.",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "glsFromNombre",
+            "javadoc": "Nombre remitente.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "glsFromMail",
+            "javadoc": "Mail remitente.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "glsAsunto",
+            "javadoc": "Asunto mail.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "glsMensaje",
+            "javadoc": "Detalle mensaje.",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "fecEnvMail",
+            "javadoc": "Fecha envío mail.",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "numIntento",
+            "javadoc": "Número intento.",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "numMaxReintento",
+            "javadoc": "Número máximo reintento.",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "codEstado",
+            "javadoc": "Estado envío correo: PTE (Pendiente), PRO (En proceso), REI (Reintentar), OK (Enviado), NOK (No enviado).",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "glsDetRespuesta",
+            "javadoc": "Detalle respuesta envío.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "glsContentType",
+            "javadoc": "Tipo del contenido del correo.",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181031203315",
+    "javadoc": "Representa la tabla \"TBL_SRV_MAIL\". Almacena solicitudes de envío de correo. Pertenece al esquema BCT_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "tabla_servicio_mail",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,110 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="desgloseApp.desgloseChequeoInfo.home.title">Desglose Chequeo Infos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-desglose-chequeo-info" [routerLink]="['/desglose-chequeo-info/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="desgloseApp.desgloseChequeoInfo.home.createLabel">
+            Create new Desglose Chequeo Info
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="desgloseChequeoInfos">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecCheck"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.fecCheck">Fec Check</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codTipoInforme"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.codTipoInforme">Cod Tipo Informe</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="glsFactorInforme"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.glsFactorInforme">Gls Factor Informe</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codCliente"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.codCliente">Cod Cliente</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codTipoDes"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.codTipoDes">Cod Tipo Des</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codSubtipoDes"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.codSubtipoDes">Cod Subtipo Des</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codMoneda"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.codMoneda">Cod Moneda</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecPeriodo"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.fecPeriodo">Fec Periodo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numRank"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.numRank">Num Rank</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecUserModif"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.fecUserModif">Fec User Modif</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="glsUserModif"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.glsUserModif">Gls User Modif</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="valDeflacBase"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.valDeflacBase">Val Deflac Base</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="valDeflacPeriodo"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.valDeflacPeriodo">Val Deflac Periodo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="valDeflacCalc"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.valDeflacCalc">Val Deflac Calc</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="valConceptoBd"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.valConceptoBd">Val Concepto Bd</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="valConceptoOnline"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.valConceptoOnline">Val Concepto Online</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="glsConceptoFormula"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.glsConceptoFormula">Gls Concepto Formula</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="valDif"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.valDif">Val Dif</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="mtoActivo"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.mtoActivo">Mto Activo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="mtoPasivoPatr"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.mtoPasivoPatr">Mto Pasivo Patr</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="corConcepto"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.corConcepto">Cor Concepto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="corValor"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.corValor">Cor Valor</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codTipoConcep"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.codTipoConcep">Cod Tipo Concep</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codEstado"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.codEstado">Cod Estado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="glsObservacion"><span jhiTranslate="desgloseApp.desgloseChequeoInfo.glsObservacion">Gls Observacion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let desgloseChequeoInfo of desgloseChequeoInfos ;trackBy: trackId">
+                <td><a [routerLink]="['/desglose-chequeo-info', desgloseChequeoInfo.id, 'view' ]">{{desgloseChequeoInfo.id}}</a></td>
+                <td>{{desgloseChequeoInfo.fecCheck | date:'medium'}}</td>
+                <td>{{desgloseChequeoInfo.codTipoInforme}}</td>
+                <td>{{desgloseChequeoInfo.glsFactorInforme}}</td>
+                <td>{{desgloseChequeoInfo.codCliente}}</td>
+                <td>{{desgloseChequeoInfo.codTipoDes}}</td>
+                <td>{{desgloseChequeoInfo.codSubtipoDes}}</td>
+                <td>{{desgloseChequeoInfo.codMoneda}}</td>
+                <td>{{desgloseChequeoInfo.fecPeriodo | date:'mediumDate'}}</td>
+                <td>{{desgloseChequeoInfo.numRank}}</td>
+                <td>{{desgloseChequeoInfo.fecUserModif | date:'mediumDate'}}</td>
+                <td>{{desgloseChequeoInfo.glsUserModif}}</td>
+                <td>{{desgloseChequeoInfo.valDeflacBase}}</td>
+                <td>{{desgloseChequeoInfo.valDeflacPeriodo}}</td>
+                <td>{{desgloseChequeoInfo.valDeflacCalc}}</td>
+                <td>{{desgloseChequeoInfo.valConceptoBd}}</td>
+                <td>{{desgloseChequeoInfo.valConceptoOnline}}</td>
+                <td>{{desgloseChequeoInfo.glsConceptoFormula}}</td>
+                <td>{{desgloseChequeoInfo.valDif}}</td>
+                <td>{{desgloseChequeoInfo.mtoActivo}}</td>
+                <td>{{desgloseChequeoInfo.mtoPasivoPatr}}</td>
+                <td>{{desgloseChequeoInfo.corConcepto}}</td>
+                <td>{{desgloseChequeoInfo.corValor}}</td>
+                <td>{{desgloseChequeoInfo.codTipoConcep}}</td>
+                <td>{{desgloseChequeoInfo.codEstado}}</td>
+                <td>{{desgloseChequeoInfo.glsObservacion}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/desglose-chequeo-info', desgloseChequeoInfo.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/desglose-chequeo-info', desgloseChequeoInfo.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'desglose-chequeo-info/'+ desgloseChequeoInfo.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="desgloseChequeoInfos && desgloseChequeoInfos.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

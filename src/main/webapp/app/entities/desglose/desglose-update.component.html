@@ -1,0 +1,513 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-desglose-heading" jhiTranslate="desgloseApp.desglose.home.createOrEditLabel">Create or edit a Desglose</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.codCliente" for="field_codCliente"
+                           [ngbTooltip]="'desgloseApp.desglose.help.codCliente' | translate">Cod Cliente</label>
+                    <input type="text" class="form-control" name="codCliente" id="field_codCliente"
+                           [(ngModel)]="desglose.codCliente" required [readonly]="desglose.codCliente !== undefined && desglose.codCliente !== null"/>
+                    <div [hidden]="!(editForm.controls.codCliente?.dirty && editForm.controls.codCliente?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.codCliente?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.codTipoDes" for="field_codTipoDes"
+                           [ngbTooltip]="'desgloseApp.desglose.help.codTipoDes' | translate">Cod Tipo Des</label>
+                    <input type="number" class="form-control" name="codTipoDes" id="field_codTipoDes"
+                           [(ngModel)]="desglose.codTipoDes" required [readonly]="desglose.codTipoDes !== undefined && desglose.codTipoDes !== null"/>
+                    <div [hidden]="!(editForm.controls.codTipoDes?.dirty && editForm.controls.codTipoDes?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.codTipoDes?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.codTipoDes?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.codSubtipoDes" for="field_codSubtipoDes"
+                           [ngbTooltip]="'desgloseApp.desglose.help.codSubtipoDes' | translate">Cod Subtipo Des</label>
+                    <input type="number" class="form-control" name="codSubtipoDes" id="field_codSubtipoDes"
+                           [(ngModel)]="desglose.codSubtipoDes" required [readonly]="desglose.codSubtipoDes !== undefined && desglose.codSubtipoDes !== null"/>
+                    <div [hidden]="!(editForm.controls.codSubtipoDes?.dirty && editForm.controls.codSubtipoDes?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.codSubtipoDes?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.codSubtipoDes?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.codMoneda" for="field_codMoneda"
+                           [ngbTooltip]="'desgloseApp.desglose.help.codMoneda' | translate">Cod Moneda</label>
+                    <input type="text" class="form-control" name="codMoneda" id="field_codMoneda"
+                           [(ngModel)]="desglose.codMoneda" required [readonly]="desglose.codMoneda !== undefined && desglose.codMoneda !== null"/>
+                    <div [hidden]="!(editForm.controls.codMoneda?.dirty && editForm.controls.codMoneda?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.codMoneda?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.codUnidMoneda" for="field_codUnidMoneda"
+                           [ngbTooltip]="'desgloseApp.desglose.help.codUnidMoneda' | translate">Cod Unid Moneda</label>
+                    <input type="text" class="form-control" name="codUnidMoneda" id="field_codUnidMoneda"
+                           [(ngModel)]="desglose.codUnidMoneda" required/>
+                    <div [hidden]="!(editForm.controls.codUnidMoneda?.dirty && editForm.controls.codUnidMoneda?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.codUnidMoneda?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.glsSubtipoDes" for="field_glsSubtipoDes"
+                           [ngbTooltip]="'desgloseApp.desglose.help.glsSubtipoDes' | translate">Gls Subtipo Des</label>
+                    <input type="text" class="form-control" name="glsSubtipoDes" id="field_glsSubtipoDes"
+                           [(ngModel)]="desglose.glsSubtipoDes"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.valDeflacBase" for="field_valDeflacBase"
+                           [ngbTooltip]="'desgloseApp.desglose.help.valDeflacBase' | translate">Val Deflac Base</label>
+                    <input type="number" class="form-control" name="valDeflacBase" id="field_valDeflacBase"
+                           [(ngModel)]="desglose.valDeflacBase" required min="0" jhiMin="0" max="1000" jhiMax="1000"/>
+                    <div [hidden]="!(editForm.controls.valDeflacBase?.dirty && editForm.controls.valDeflacBase?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.valDeflacBase?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.valDeflacBase?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.valDeflacBase?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 1000 }">
+                            This field cannot be more than 1000.
+                        </small>
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.valDeflacBase?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.valIva" for="field_valIva" [ngbTooltip]="'desgloseApp.desglose.help.valIva' | translate">Val
+                        Iva</label>
+                    <input type="number" class="form-control" name="valIva" id="field_valIva"
+                           [(ngModel)]="desglose.valIva" required min="0" jhiMin="0" max="1" jhiMax="1"/>
+                    <div [hidden]="!(editForm.controls.valIva?.dirty && editForm.controls.valIva?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.valIva?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.valIva?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.valIva?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 1 }">
+                            This field cannot be more than 1.
+                        </small>
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.valIva?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.nomUserAnalis" for="field_nomUserAnalis"
+                           [ngbTooltip]="'desgloseApp.desglose.help.nomUserAnalis' | translate">Nom User Analis</label>
+                    <input type="text" class="form-control" name="nomUserAnalis" id="field_nomUserAnalis"
+                           [(ngModel)]="desglose.nomUserAnalis" required/>
+                    <div [hidden]="!(editForm.controls.nomUserAnalis?.dirty && editForm.controls.nomUserAnalis?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.nomUserAnalis?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.glsObservacion" for="field_glsObservacion"
+                           [ngbTooltip]="'desgloseApp.desglose.help.glsObservacion' | translate">Gls Observacion</label>
+                    <input type="text" class="form-control" name="glsObservacion" id="field_glsObservacion"
+                           [(ngModel)]="desglose.glsObservacion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.nomUserCrea" for="field_nomUserCrea"
+                           [ngbTooltip]="'desgloseApp.desglose.help.nomUserCrea' | translate">Nom User Crea</label>
+                    <input type="text" class="form-control" name="nomUserCrea" id="field_nomUserCrea"
+                           [(ngModel)]="desglose.nomUserCrea" required/>
+                    <div [hidden]="!(editForm.controls.nomUserCrea?.dirty && editForm.controls.nomUserCrea?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.nomUserCrea?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.fecUserCrea" for="field_fecUserCrea"
+                           [ngbTooltip]="'desgloseApp.desglose.help.fecUserCrea' | translate">Fec User Crea</label>
+                    <div class="input-group">
+                        <input id="field_fecUserCrea" type="text" class="form-control" name="fecUserCrea" ngbDatepicker #fecUserCreaDp="ngbDatepicker"
+                               [(ngModel)]="desglose.fecUserCrea"
+                               required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecUserCreaDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.fecUserCrea?.dirty && editForm.controls.fecUserCrea?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.fecUserCrea?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.nomUserModif" for="field_nomUserModif"
+                           [ngbTooltip]="'desgloseApp.desglose.help.nomUserModif' | translate">Nom User Modif</label>
+                    <input type="text" class="form-control" name="nomUserModif" id="field_nomUserModif"
+                           [(ngModel)]="desglose.nomUserModif"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.fecUserModif" for="field_fecUserModif"
+                           [ngbTooltip]="'desgloseApp.desglose.help.fecUserModif' | translate">Fec User Modif</label>
+                    <div class="input-group">
+                        <input id="field_fecUserModif" type="text" class="form-control" name="fecUserModif" ngbDatepicker #fecUserModifDp="ngbDatepicker"
+                               [(ngModel)]="desglose.fecUserModif"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecUserModifDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.fecDeflacBase" for="field_fecDeflacBase"
+                           [ngbTooltip]="'desgloseApp.desglose.help.fecDeflacBase' | translate">Fec Deflac Base</label>
+                    <div class="input-group">
+                        <input id="field_fecDeflacBase" type="text" class="form-control" name="fecDeflacBase" ngbDatepicker #fecDeflacBaseDp="ngbDatepicker"
+                               [(ngModel)]="desglose.fecDeflacBase"
+                               required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecDeflacBaseDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.fecDeflacBase?.dirty && editForm.controls.fecDeflacBase?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.fecDeflacBase?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.nomUserOpen" for="field_nomUserOpen"
+                           [ngbTooltip]="'desgloseApp.desglose.help.nomUserOpen' | translate">Nom User Open</label>
+                    <input type="text" class="form-control" name="nomUserOpen" id="field_nomUserOpen"
+                           [(ngModel)]="desglose.nomUserOpen"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.flgIsTemporal" for="field_flgIsTemporal"
+                           [ngbTooltip]="'desgloseApp.desglose.help.flgIsTemporal' | translate">Flg Is Temporal</label>
+                    <input type="checkbox" class="form-control" name="flgIsTemporal" id="field_flgIsTemporal"
+                           [(ngModel)]="desglose.flgIsTemporal"/>
+                    <div [hidden]="!(editForm.controls.flgIsTemporal?.dirty && editForm.controls.flgIsTemporal?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.flgIsTemporal?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.codMonedaImp" for="field_codMonedaImp"
+                           [ngbTooltip]="'desgloseApp.desglose.help.codMonedaImp' | translate">Cod Moneda Imp</label>
+                    <input type="text" class="form-control" name="codMonedaImp" id="field_codMonedaImp"
+                           [(ngModel)]="desglose.codMonedaImp" required/>
+                    <div [hidden]="!(editForm.controls.codMonedaImp?.dirty && editForm.controls.codMonedaImp?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.codMonedaImp?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.fecHraOpen" for="field_fecHraOpen"
+                           [ngbTooltip]="'desgloseApp.desglose.help.fecHraOpen' | translate">Fec Hra Open</label>
+                    <div class="input-group">
+                        <input id="field_fecHraOpen" type="text" class="form-control" name="fecHraOpen" ngbDatepicker #fecHraOpenDp="ngbDatepicker"
+                               [(ngModel)]="desglose.fecHraOpen"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecHraOpenDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.nomUser" for="field_nomUser"
+                           [ngbTooltip]="'desgloseApp.desglose.help.nomUser' | translate">Nom User</label>
+                    <input type="text" class="form-control" name="nomUser" id="field_nomUser"
+                           [(ngModel)]="desglose.nomUser"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.flgValidacion" for="field_flgValidacion"
+                           [ngbTooltip]="'desgloseApp.desglose.help.flgValidacion' | translate">Flg Validacion</label>
+                    <input type="text" class="form-control" name="flgValidacion" id="field_flgValidacion"
+                           [(ngModel)]="desglose.flgValidacion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.flgRevision" for="field_flgRevision"
+                           [ngbTooltip]="'desgloseApp.desglose.help.flgRevision' | translate">Flg Revision</label>
+                    <input type="text" class="form-control" name="flgRevision" id="field_flgRevision"
+                           [(ngModel)]="desglose.flgRevision"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.glsComentValid" for="field_glsComentValid"
+                           [ngbTooltip]="'desgloseApp.desglose.help.glsComentValid' | translate">Gls Coment Valid</label>
+                    <input type="text" class="form-control" name="glsComentValid" id="field_glsComentValid"
+                           [(ngModel)]="desglose.glsComentValid"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.codEstado" for="field_codEstado"
+                           [ngbTooltip]="'desgloseApp.desglose.help.codEstado' | translate">Cod Estado</label>
+                    <input type="text" class="form-control" name="codEstado" id="field_codEstado"
+                           [(ngModel)]="desglose.codEstado"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.rolEmpleadoDesDef" for="field_rolEmpleadoDesDef"
+                           [ngbTooltip]="'desgloseApp.desglose.help.rolEmpleadoDesDef' | translate">Rol Empleado Des Def</label>
+                    <input type="text" class="form-control" name="rolEmpleadoDesDef" id="field_rolEmpleadoDesDef"
+                           [(ngModel)]="desglose.rolEmpleadoDesDef"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.nomRevisorDef" for="field_nomRevisorDef"
+                           [ngbTooltip]="'desgloseApp.desglose.help.nomRevisorDef' | translate">Nom Revisor Def</label>
+                    <input type="text" class="form-control" name="nomRevisorDef" id="field_nomRevisorDef"
+                           [(ngModel)]="desglose.nomRevisorDef"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.fecDesgloDef" for="field_fecDesgloDef"
+                           [ngbTooltip]="'desgloseApp.desglose.help.fecDesgloDef' | translate">Fec Desglo Def</label>
+                    <div class="input-group">
+                        <input id="field_fecDesgloDef" type="text" class="form-control" name="fecDesgloDef" ngbDatepicker #fecDesgloDefDp="ngbDatepicker"
+                               [(ngModel)]="desglose.fecDesgloDef"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecDesgloDefDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.rolEmpleadoRevMod" for="field_rolEmpleadoRevMod"
+                           [ngbTooltip]="'desgloseApp.desglose.help.rolEmpleadoRevMod' | translate">Rol Empleado Rev Mod</label>
+                    <input type="text" class="form-control" name="rolEmpleadoRevMod" id="field_rolEmpleadoRevMod"
+                           [(ngModel)]="desglose.rolEmpleadoRevMod"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.rolEmpleadoDefEnvPdf" for="field_rolEmpleadoDefEnvPdf"
+                           [ngbTooltip]="'desgloseApp.desglose.help.rolEmpleadoDefEnvPdf' | translate">Rol Empleado Def Env Pdf</label>
+                    <input type="text" class="form-control" name="rolEmpleadoDefEnvPdf" id="field_rolEmpleadoDefEnvPdf"
+                           [(ngModel)]="desglose.rolEmpleadoDefEnvPdf"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.fecDesgloEnvPdf" for="field_fecDesgloEnvPdf"
+                           [ngbTooltip]="'desgloseApp.desglose.help.fecDesgloEnvPdf' | translate">Fec Desglo Env Pdf</label>
+                    <div class="input-group">
+                        <input id="field_fecDesgloEnvPdf" type="text" class="form-control" name="fecDesgloEnvPdf" ngbDatepicker #fecDesgloEnvPdfDp="ngbDatepicker"
+                               [(ngModel)]="desglose.fecDesgloEnvPdf"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecDesgloEnvPdfDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.codMonedaRpt" for="field_codMonedaRpt"
+                           [ngbTooltip]="'desgloseApp.desglose.help.codMonedaRpt' | translate">Cod Moneda Rpt</label>
+                    <input type="number" class="form-control" name="codMonedaRpt" id="field_codMonedaRpt"
+                           [(ngModel)]="desglose.codMonedaRpt"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.corImpresionRpt" for="field_corImpresionRpt"
+                           [ngbTooltip]="'desgloseApp.desglose.help.corImpresionRpt' | translate">Cor Impresion Rpt</label>
+                    <input type="number" class="form-control" name="corImpresionRpt" id="field_corImpresionRpt"
+                           [(ngModel)]="desglose.corImpresionRpt"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.flgEjeFactoringRpt" for="field_flgEjeFactoringRpt"
+                           [ngbTooltip]="'desgloseApp.desglose.help.flgEjeFactoringRpt' | translate">Flg Eje Factoring Rpt</label>
+                    <input type="text" class="form-control" name="flgEjeFactoringRpt" id="field_flgEjeFactoringRpt"
+                           [(ngModel)]="desglose.flgEjeFactoringRpt"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.fecPeriodo1Rpt" for="field_fecPeriodo1Rpt"
+                           [ngbTooltip]="'desgloseApp.desglose.help.fecPeriodo1Rpt' | translate">Fec Periodo 1 Rpt</label>
+                    <div class="input-group">
+                        <input id="field_fecPeriodo1Rpt" type="text" class="form-control" name="fecPeriodo1Rpt" ngbDatepicker #fecPeriodo1RptDp="ngbDatepicker"
+                               [(ngModel)]="desglose.fecPeriodo1Rpt"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecPeriodo1RptDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.fecPeriodo2Rpt" for="field_fecPeriodo2Rpt"
+                           [ngbTooltip]="'desgloseApp.desglose.help.fecPeriodo2Rpt' | translate">Fec Periodo 2 Rpt</label>
+                    <div class="input-group">
+                        <input id="field_fecPeriodo2Rpt" type="text" class="form-control" name="fecPeriodo2Rpt" ngbDatepicker #fecPeriodo2RptDp="ngbDatepicker"
+                               [(ngModel)]="desglose.fecPeriodo2Rpt"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecPeriodo2RptDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.fecPeriodo3Rpt" for="field_fecPeriodo3Rpt"
+                           [ngbTooltip]="'desgloseApp.desglose.help.fecPeriodo3Rpt' | translate">Fec Periodo 3 Rpt</label>
+                    <div class="input-group">
+                        <input id="field_fecPeriodo3Rpt" type="text" class="form-control" name="fecPeriodo3Rpt" ngbDatepicker #fecPeriodo3RptDp="ngbDatepicker"
+                               [(ngModel)]="desglose.fecPeriodo3Rpt"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecPeriodo3RptDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.fecPeriodo4Rpt" for="field_fecPeriodo4Rpt"
+                           [ngbTooltip]="'desgloseApp.desglose.help.fecPeriodo4Rpt' | translate">Fec Periodo 4 Rpt</label>
+                    <div class="input-group">
+                        <input id="field_fecPeriodo4Rpt" type="text" class="form-control" name="fecPeriodo4Rpt" ngbDatepicker #fecPeriodo4RptDp="ngbDatepicker"
+                               [(ngModel)]="desglose.fecPeriodo4Rpt"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecPeriodo4RptDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.fecPerConsol1Rpt" for="field_fecPerConsol1Rpt"
+                           [ngbTooltip]="'desgloseApp.desglose.help.fecPerConsol1Rpt' | translate">Fec Per Consol 1 Rpt</label>
+                    <div class="input-group">
+                        <input id="field_fecPerConsol1Rpt" type="text" class="form-control" name="fecPerConsol1Rpt" ngbDatepicker #fecPerConsol1RptDp="ngbDatepicker"
+                               [(ngModel)]="desglose.fecPerConsol1Rpt"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecPerConsol1RptDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.fecPerConsol2Rpt" for="field_fecPerConsol2Rpt"
+                           [ngbTooltip]="'desgloseApp.desglose.help.fecPerConsol2Rpt' | translate">Fec Per Consol 2 Rpt</label>
+                    <div class="input-group">
+                        <input id="field_fecPerConsol2Rpt" type="text" class="form-control" name="fecPerConsol2Rpt" ngbDatepicker #fecPerConsol2RptDp="ngbDatepicker"
+                               [(ngModel)]="desglose.fecPerConsol2Rpt"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecPerConsol2RptDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.fecUlt1Rpt" for="field_fecUlt1Rpt"
+                           [ngbTooltip]="'desgloseApp.desglose.help.fecUlt1Rpt' | translate">Fec Ult 1 Rpt</label>
+                    <div class="input-group">
+                        <input id="field_fecUlt1Rpt" type="text" class="form-control" name="fecUlt1Rpt" ngbDatepicker #fecUlt1RptDp="ngbDatepicker"
+                               [(ngModel)]="desglose.fecUlt1Rpt"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecUlt1RptDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.fecUlt2Rpt" for="field_fecUlt2Rpt"
+                           [ngbTooltip]="'desgloseApp.desglose.help.fecUlt2Rpt' | translate">Fec Ult 2 Rpt</label>
+                    <div class="input-group">
+                        <input id="field_fecUlt2Rpt" type="text" class="form-control" name="fecUlt2Rpt" ngbDatepicker #fecUlt2RptDp="ngbDatepicker"
+                               [(ngModel)]="desglose.fecUlt2Rpt"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecUlt2RptDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.fecUserModifRpt" for="field_fecUserModifRpt"
+                           [ngbTooltip]="'desgloseApp.desglose.help.fecUserModifRpt' | translate">Fec User Modif Rpt</label>
+                    <div class="input-group">
+                        <input id="field_fecUserModifRpt" type="text" class="form-control" name="fecUserModifRpt" ngbDatepicker #fecUserModifRptDp="ngbDatepicker"
+                               [(ngModel)]="desglose.fecUserModifRpt"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecUserModifRptDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.nomUserModifRpt" for="field_nomUserModifRpt"
+                           [ngbTooltip]="'desgloseApp.desglose.help.nomUserModifRpt' | translate">Nom User Modif Rpt</label>
+                    <input type="text" class="form-control" name="nomUserModifRpt" id="field_nomUserModifRpt"
+                           [(ngModel)]="desglose.nomUserModifRpt"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.numReporteRpt" for="field_numReporteRpt"
+                           [ngbTooltip]="'desgloseApp.desglose.help.numReporteRpt' | translate">Num Reporte Rpt</label>
+                    <input type="number" class="form-control" name="numReporteRpt" id="field_numReporteRpt"
+                           [(ngModel)]="desglose.numReporteRpt"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.fecGeneracionRpt" for="field_fecGeneracionRpt"
+                           [ngbTooltip]="'desgloseApp.desglose.help.fecGeneracionRpt' | translate">Fec Generacion Rpt</label>
+                    <div class="input-group">
+                        <input id="field_fecGeneracionRpt" type="text" class="form-control" name="fecGeneracionRpt" ngbDatepicker #fecGeneracionRptDp="ngbDatepicker"
+                               [(ngModel)]="desglose.fecGeneracionRpt"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecGeneracionRptDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.numDevolEjecutor" for="field_numDevolEjecutor"
+                           [ngbTooltip]="'desgloseApp.desglose.help.numDevolEjecutor' | translate">Num Devol Ejecutor</label>
+                    <input type="number" class="form-control" name="numDevolEjecutor" id="field_numDevolEjecutor"
+                           [(ngModel)]="desglose.numDevolEjecutor"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.numRolChgEstado" for="field_numRolChgEstado"
+                           [ngbTooltip]="'desgloseApp.desglose.help.numRolChgEstado' | translate">Num Rol Chg Estado</label>
+                    <input type="text" class="form-control" name="numRolChgEstado" id="field_numRolChgEstado"
+                           [(ngModel)]="desglose.numRolChgEstado"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desglose.flgReq2firma" for="field_flgReq2firma"
+                           [ngbTooltip]="'desgloseApp.desglose.help.flgReq2firma' | translate">Flg Req 2 Firma</label>
+                    <input type="text" class="form-control" name="flgReq2firma" id="field_flgReq2firma"
+                           [(ngModel)]="desglose.flgReq2firma"/>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tablaServicioMail">
+            <h2><span jhiTranslate="desgloseApp.tablaServicioMail.detail.title">Tabla Servicio Mail</span> {{tablaServicioMail.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.tablaServicioMail.codSistema" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.codSistema' | translate">Cod Sistema</span></dt>
+                <dd>
+                    <span>{{tablaServicioMail.codSistema}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.tablaServicioMail.numSolicitud" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.numSolicitud' | translate">Num Solicitud</span></dt>
+                <dd>
+                    <span>{{tablaServicioMail.numSolicitud}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.tablaServicioMail.fecSolicitud" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.fecSolicitud' | translate">Fec Solicitud</span></dt>
+                <dd>
+                    <span>{{tablaServicioMail.fecSolicitud}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.tablaServicioMail.numTrxSistema" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.numTrxSistema' | translate">Num Trx Sistema</span></dt>
+                <dd>
+                    <span>{{tablaServicioMail.numTrxSistema}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.tablaServicioMail.glsFromNombre" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.glsFromNombre' | translate">Gls From Nombre</span></dt>
+                <dd>
+                    <span>{{tablaServicioMail.glsFromNombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.tablaServicioMail.glsFromMail" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.glsFromMail' | translate">Gls From Mail</span></dt>
+                <dd>
+                    <span>{{tablaServicioMail.glsFromMail}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.tablaServicioMail.glsAsunto" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.glsAsunto' | translate">Gls Asunto</span></dt>
+                <dd>
+                    <span>{{tablaServicioMail.glsAsunto}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.tablaServicioMail.glsMensaje" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.glsMensaje' | translate">Gls Mensaje</span></dt>
+                <dd>
+                    <span>{{tablaServicioMail.glsMensaje}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.tablaServicioMail.fecEnvMail" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.fecEnvMail' | translate">Fec Env Mail</span></dt>
+                <dd>
+                    <span>{{tablaServicioMail.fecEnvMail}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.tablaServicioMail.numIntento" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.numIntento' | translate">Num Intento</span></dt>
+                <dd>
+                    <span>{{tablaServicioMail.numIntento}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.tablaServicioMail.numMaxReintento" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.numMaxReintento' | translate">Num Max Reintento</span></dt>
+                <dd>
+                    <span>{{tablaServicioMail.numMaxReintento}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.tablaServicioMail.codEstado" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.codEstado' | translate">Cod Estado</span></dt>
+                <dd>
+                    <span>{{tablaServicioMail.codEstado}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.tablaServicioMail.glsDetRespuesta" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.glsDetRespuesta' | translate">Gls Det Respuesta</span></dt>
+                <dd>
+                    <span>{{tablaServicioMail.glsDetRespuesta}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.tablaServicioMail.glsContentType" [ngbTooltip]="'desgloseApp.tablaServicioMail.help.glsContentType' | translate">Gls Content Type</span></dt>
+                <dd>
+                    <span>{{tablaServicioMail.glsContentType}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tabla-servicio-mail', tablaServicioMail.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

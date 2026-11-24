@@ -1,0 +1,103 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="clienteNatural">
+            <h2><span jhiTranslate="desgloseApp.clienteNatural.detail.title">Cliente Natural</span> {{clienteNatural.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.clienteNatural.numCliente" [ngbTooltip]="'desgloseApp.clienteNatural.help.numCliente' | translate">Num Cliente</span></dt>
+                <dd>
+                    <span>{{clienteNatural.numCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteNatural.flgEmpleado" [ngbTooltip]="'desgloseApp.clienteNatural.help.flgEmpleado' | translate">Flg Empleado</span></dt>
+                <dd>
+                    <span>{{clienteNatural.flgEmpleado}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteNatural.nomPaterno" [ngbTooltip]="'desgloseApp.clienteNatural.help.nomPaterno' | translate">Nom Paterno</span></dt>
+                <dd>
+                    <span>{{clienteNatural.nomPaterno}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteNatural.nomMaterno" [ngbTooltip]="'desgloseApp.clienteNatural.help.nomMaterno' | translate">Nom Materno</span></dt>
+                <dd>
+                    <span>{{clienteNatural.nomMaterno}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteNatural.nomNombres" [ngbTooltip]="'desgloseApp.clienteNatural.help.nomNombres' | translate">Nom Nombres</span></dt>
+                <dd>
+                    <span>{{clienteNatural.nomNombres}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteNatural.nomNickname" [ngbTooltip]="'desgloseApp.clienteNatural.help.nomNickname' | translate">Nom Nickname</span></dt>
+                <dd>
+                    <span>{{clienteNatural.nomNickname}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteNatural.codNacion" [ngbTooltip]="'desgloseApp.clienteNatural.help.codNacion' | translate">Cod Nacion</span></dt>
+                <dd>
+                    <span>{{clienteNatural.codNacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteNatural.codResidencia" [ngbTooltip]="'desgloseApp.clienteNatural.help.codResidencia' | translate">Cod Residencia</span></dt>
+                <dd>
+                    <span>{{clienteNatural.codResidencia}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteNatural.codProfesion" [ngbTooltip]="'desgloseApp.clienteNatural.help.codProfesion' | translate">Cod Profesion</span></dt>
+                <dd>
+                    <span>{{clienteNatural.codProfesion}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteNatural.fecNacim" [ngbTooltip]="'desgloseApp.clienteNatural.help.fecNacim' | translate">Fec Nacim</span></dt>
+                <dd>
+                    <span>{{clienteNatural.fecNacim}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteNatural.codSexo" [ngbTooltip]="'desgloseApp.clienteNatural.help.codSexo' | translate">Cod Sexo</span></dt>
+                <dd>
+                    <span>{{clienteNatural.codSexo}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteNatural.codNivEducac" [ngbTooltip]="'desgloseApp.clienteNatural.help.codNivEducac' | translate">Cod Niv Educac</span></dt>
+                <dd>
+                    <span>{{clienteNatural.codNivEducac}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteNatural.codEstcivil" [ngbTooltip]="'desgloseApp.clienteNatural.help.codEstcivil' | translate">Cod Estcivil</span></dt>
+                <dd>
+                    <span>{{clienteNatural.codEstcivil}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteNatural.codSepBienes" [ngbTooltip]="'desgloseApp.clienteNatural.help.codSepBienes' | translate">Cod Sep Bienes</span></dt>
+                <dd>
+                    <span>{{clienteNatural.codSepBienes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteNatural.numCargas" [ngbTooltip]="'desgloseApp.clienteNatural.help.numCargas' | translate">Num Cargas</span></dt>
+                <dd>
+                    <span>{{clienteNatural.numCargas}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteNatural.fecAntigViv" [ngbTooltip]="'desgloseApp.clienteNatural.help.fecAntigViv' | translate">Fec Antig Viv</span></dt>
+                <dd>
+                    <span>{{clienteNatural.fecAntigViv}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteNatural.fecDefuncion" [ngbTooltip]="'desgloseApp.clienteNatural.help.fecDefuncion' | translate">Fec Defuncion</span></dt>
+                <dd>
+                    <span>{{clienteNatural.fecDefuncion}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteNatural.fecCertEcivi" [ngbTooltip]="'desgloseApp.clienteNatural.help.fecCertEcivi' | translate">Fec Cert Ecivi</span></dt>
+                <dd>
+                    <span>{{clienteNatural.fecCertEcivi}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteNatural.codRegStatus" [ngbTooltip]="'desgloseApp.clienteNatural.help.codRegStatus' | translate">Cod Reg Status</span></dt>
+                <dd>
+                    <span>{{clienteNatural.codRegStatus}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteNatural.codRegLog" [ngbTooltip]="'desgloseApp.clienteNatural.help.codRegLog' | translate">Cod Reg Log</span></dt>
+                <dd>
+                    <span>{{clienteNatural.codRegLog}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cliente-natural', clienteNatural.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

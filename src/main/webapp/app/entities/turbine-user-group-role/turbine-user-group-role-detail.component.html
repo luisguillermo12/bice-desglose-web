@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="turbineUserGroupRole">
+            <h2><span jhiTranslate="desgloseApp.turbineUserGroupRole.detail.title">Turbine User Group Role</span> {{turbineUserGroupRole.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.turbineUserGroupRole.user">User</span></dt>
+                <dd>
+                    <div *ngIf="turbineUserGroupRole.userId">
+                        <a [routerLink]="['/turbine-user', turbineUserGroupRole.userId, 'view']">{{turbineUserGroupRole.userId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.turbineUserGroupRole.group">Group</span></dt>
+                <dd>
+                    <div *ngIf="turbineUserGroupRole.groupId">
+                        <a [routerLink]="['/turbine-group', turbineUserGroupRole.groupId, 'view']">{{turbineUserGroupRole.groupId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.turbineUserGroupRole.role">Role</span></dt>
+                <dd>
+                    <div *ngIf="turbineUserGroupRole.roleId">
+                        <a [routerLink]="['/turbine-role', turbineUserGroupRole.roleId, 'view']">{{turbineUserGroupRole.roleId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/turbine-user-group-role', turbineUserGroupRole.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

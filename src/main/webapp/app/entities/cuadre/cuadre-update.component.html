@@ -1,0 +1,81 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-cuadre-heading" jhiTranslate="desgloseApp.cuadre.home.createOrEditLabel">Create or edit a Cuadre</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.cuadre.codTpoConcep1" for="field_codTpoConcep1"
+                           [ngbTooltip]="'desgloseApp.cuadre.help.codTpoConcep1' | translate">Cod Tpo Concep 1</label>
+                    <input type="text" class="form-control" name="codTpoConcep1" id="field_codTpoConcep1"
+                           [(ngModel)]="cuadre.codTpoConcep1" required [readonly]="cuadre.codTpoConcep1 !== undefined && cuadre.codTpoConcep1 !== null"/>
+                    <div [hidden]="!(editForm.controls.codTpoConcep1?.dirty && editForm.controls.codTpoConcep1?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.codTpoConcep1?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.cuadre.corConcepto1" for="field_corConcepto1"
+                           [ngbTooltip]="'desgloseApp.cuadre.help.corConcepto1' | translate">Cor Concepto 1</label>
+                    <input type="number" class="form-control" name="corConcepto1" id="field_corConcepto1"
+                           [(ngModel)]="cuadre.corConcepto1" required [readonly]="cuadre.corConcepto1 !== undefined && cuadre.corConcepto1 !== null"/>
+                    <div [hidden]="!(editForm.controls.corConcepto1?.dirty && editForm.controls.corConcepto1?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.corConcepto1?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.corConcepto1?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.cuadre.codTpoConcep2" for="field_codTpoConcep2"
+                           [ngbTooltip]="'desgloseApp.cuadre.help.codTpoConcep2' | translate">Cod Tpo Concep 2</label>
+                    <input type="text" class="form-control" name="codTpoConcep2" id="field_codTpoConcep2"
+                           [(ngModel)]="cuadre.codTpoConcep2" required [readonly]="cuadre.codTpoConcep2 !== undefined && cuadre.codTpoConcep2 !== null"/>
+                    <div [hidden]="!(editForm.controls.codTpoConcep2?.dirty && editForm.controls.codTpoConcep2?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.codTpoConcep2?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.cuadre.corConcepto2" for="field_corConcepto2"
+                           [ngbTooltip]="'desgloseApp.cuadre.help.corConcepto2' | translate">Cor Concepto 2</label>
+                    <input type="number" class="form-control" name="corConcepto2" id="field_corConcepto2"
+                           [(ngModel)]="cuadre.corConcepto2" required [readonly]="cuadre.corConcepto2 !== undefined && cuadre.corConcepto2 !== null"/>
+                    <div [hidden]="!(editForm.controls.corConcepto2?.dirty && editForm.controls.corConcepto2?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.corConcepto2?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.corConcepto2?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.cuadre.glsMensaje" for="field_glsMensaje"
+                           [ngbTooltip]="'desgloseApp.cuadre.help.glsMensaje' | translate">Gls Mensaje</label>
+                    <input type="text" class="form-control" name="glsMensaje" id="field_glsMensaje"
+                           [(ngModel)]="cuadre.glsMensaje"/>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

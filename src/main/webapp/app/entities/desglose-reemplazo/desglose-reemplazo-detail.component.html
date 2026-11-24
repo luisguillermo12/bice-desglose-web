@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="desgloseReemplazo">
+            <h2><span jhiTranslate="desgloseApp.desgloseReemplazo.detail.title">Desglose Reemplazo</span> {{desgloseReemplazo.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.desgloseReemplazo.codCargo" [ngbTooltip]="'desgloseApp.desgloseReemplazo.help.codCargo' | translate">Cod Cargo</span></dt>
+                <dd>
+                    <span>{{desgloseReemplazo.codCargo}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseReemplazo.numRolEmpleado" [ngbTooltip]="'desgloseApp.desgloseReemplazo.help.numRolEmpleado' | translate">Num Rol Empleado</span></dt>
+                <dd>
+                    <span>{{desgloseReemplazo.numRolEmpleado}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseReemplazo.desCodCargo" [ngbTooltip]="'desgloseApp.desgloseReemplazo.help.desCodCargo' | translate">Des Cod Cargo</span></dt>
+                <dd>
+                    <span>{{desgloseReemplazo.desCodCargo}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseReemplazo.desNumRolEmpleado" [ngbTooltip]="'desgloseApp.desgloseReemplazo.help.desNumRolEmpleado' | translate">Des Num Rol Empleado</span></dt>
+                <dd>
+                    <span>{{desgloseReemplazo.desNumRolEmpleado}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseReemplazo.fecReemplazo" [ngbTooltip]="'desgloseApp.desgloseReemplazo.help.fecReemplazo' | translate">Fec Reemplazo</span></dt>
+                <dd>
+                    <span>{{desgloseReemplazo.fecReemplazo}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseReemplazo.fecElimReemplazo" [ngbTooltip]="'desgloseApp.desgloseReemplazo.help.fecElimReemplazo' | translate">Fec Elim Reemplazo</span></dt>
+                <dd>
+                    <span>{{desgloseReemplazo.fecElimReemplazo}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseReemplazo.numRolEmpleadoCrea" [ngbTooltip]="'desgloseApp.desgloseReemplazo.help.numRolEmpleadoCrea' | translate">Num Rol Empleado Crea</span></dt>
+                <dd>
+                    <span>{{desgloseReemplazo.numRolEmpleadoCrea}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseReemplazo.numRolEmpleadoElim" [ngbTooltip]="'desgloseApp.desgloseReemplazo.help.numRolEmpleadoElim' | translate">Num Rol Empleado Elim</span></dt>
+                <dd>
+                    <span>{{desgloseReemplazo.numRolEmpleadoElim}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.desgloseReemplazo.codRegStatus" [ngbTooltip]="'desgloseApp.desgloseReemplazo.help.codRegStatus' | translate">Cod Reg Status</span></dt>
+                <dd>
+                    <span>{{desgloseReemplazo.codRegStatus}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/desglose-reemplazo', desgloseReemplazo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

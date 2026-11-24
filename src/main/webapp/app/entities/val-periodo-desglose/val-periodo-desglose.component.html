@@ -1,0 +1,84 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="desgloseApp.valPeriodoDesglose.home.title">Val Periodo Desgloses</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-val-periodo-desglose" [routerLink]="['/val-periodo-desglose/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="desgloseApp.valPeriodoDesglose.home.createLabel">
+            Create new Val Periodo Desglose
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="valPeriodoDesgloses">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codCliente"><span jhiTranslate="desgloseApp.valPeriodoDesglose.codCliente">Cod Cliente</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codTipoDes"><span jhiTranslate="desgloseApp.valPeriodoDesglose.codTipoDes">Cod Tipo Des</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codSubtipoDes"><span jhiTranslate="desgloseApp.valPeriodoDesglose.codSubtipoDes">Cod Subtipo Des</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codMoneda"><span jhiTranslate="desgloseApp.valPeriodoDesglose.codMoneda">Cod Moneda</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecPeriodo"><span jhiTranslate="desgloseApp.valPeriodoDesglose.fecPeriodo">Fec Periodo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codTipoConcep"><span jhiTranslate="desgloseApp.valPeriodoDesglose.codTipoConcep">Cod Tipo Concep</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="corConcepto"><span jhiTranslate="desgloseApp.valPeriodoDesglose.corConcepto">Cor Concepto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="corValor"><span jhiTranslate="desgloseApp.valPeriodoDesglose.corValor">Cor Valor</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="valConcepto"><span jhiTranslate="desgloseApp.valPeriodoDesglose.valConcepto">Val Concepto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="glsFrmlConcep"><span jhiTranslate="desgloseApp.valPeriodoDesglose.glsFrmlConcep">Gls Frml Concep</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="glsConcepto"><span jhiTranslate="desgloseApp.valPeriodoDesglose.glsConcepto">Gls Concepto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="valPrcConcep"><span jhiTranslate="desgloseApp.valPeriodoDesglose.valPrcConcep">Val Prc Concep</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let valPeriodoDesglose of valPeriodoDesgloses ;trackBy: trackId">
+                <td><a [routerLink]="['/val-periodo-desglose', valPeriodoDesglose.id, 'view' ]">{{valPeriodoDesglose.id}}</a></td>
+                <td>{{valPeriodoDesglose.codCliente}}</td>
+                <td>{{valPeriodoDesglose.codTipoDes}}</td>
+                <td>{{valPeriodoDesglose.codSubtipoDes}}</td>
+                <td>{{valPeriodoDesglose.codMoneda}}</td>
+                <td>{{valPeriodoDesglose.fecPeriodo | date:'mediumDate'}}</td>
+                <td>{{valPeriodoDesglose.codTipoConcep}}</td>
+                <td>{{valPeriodoDesglose.corConcepto}}</td>
+                <td>{{valPeriodoDesglose.corValor}}</td>
+                <td>{{valPeriodoDesglose.valConcepto}}</td>
+                <td>{{valPeriodoDesglose.glsFrmlConcep}}</td>
+                <td>{{valPeriodoDesglose.glsConcepto}}</td>
+                <td>{{valPeriodoDesglose.valPrcConcep}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/val-periodo-desglose', valPeriodoDesglose.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/val-periodo-desglose', valPeriodoDesglose.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'val-periodo-desglose/'+ valPeriodoDesglose.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="valPeriodoDesgloses && valPeriodoDesgloses.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

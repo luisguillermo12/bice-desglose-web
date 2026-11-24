@@ -1,0 +1,3 @@
+
+-- de pruebas para un usuario
+INSERT INTO "TURBINE_USER_GROUP_ROLE" (USER_ID, GROUP_ID, ROLE_ID) VALUES ('2202', '1', '27005');

@@ -1,0 +1,161 @@
+{
+    "name": "ClienteBasico",
+    "fields": [
+        {
+            "fieldName": "numCliente",
+            "javadoc": "Número del cliente.",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numRolEmpleado",
+            "javadoc": "Rol empleado asociado.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codTipoJuridi",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codSucursal",
+            "javadoc": "Sucursal del cliente.",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codCliente",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codTipoCliente",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codSectorEconom",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fecCliente",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "numCorDomlegal",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codActividad",
+            "javadoc": "Código de actividad asociada al cliente.",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codSector",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codCatdeu",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codRelaBice",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codGrupRela",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codEstaDeud",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numCarpeta",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numCasiInte",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "glsSinoSbif",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fecDeclJurada",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fecVerifDomlegal",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "codRegStatus",
+            "javadoc": "Código de vigencia del registro.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codRegLog",
+            "javadoc": "Código de modificación del registro.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "flgFirmaCobprejud",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fecFirmaCobprejud",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "numTaxId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codSiiExeimp",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "flgSiiContprimeracat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codTipoAlerta",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fecAlerta",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "flgMandatoInv",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codGirosii",
+            "javadoc": "Giro del cliente según SII.",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codAlertaFrd",
+            "javadoc": "Código alerta de fraude.",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181022151459",
+    "javadoc": "Representa la tabla \"BASCLI\" que contiene información basica de los clientes. Pertenece al esquema CIF_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "cliente_basico",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

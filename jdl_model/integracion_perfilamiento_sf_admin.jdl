@@ -1,0 +1,80 @@
+
+/**
+ * Representa la tabla "TURBINE_ROLE" que contiene roles de usuario. Pertenece al esquema SF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity TurbineRole {
+	roleId Long required,
+	roleName String required unique,
+	objectdata AnyBlob 
+}
+
+/**
+ * Representa la tabla "TURBINE_GROUP" que contiene grupos de usuario. Pertenece al esquema SF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity TurbineGroup {
+	groupId Long required,
+	groupName String required unique,
+	objectdata AnyBlob 
+} 
+
+/**
+ * Representa la tabla "TURBINE_PERMISSION" que contiene permisos. Pertenece al esquema SF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity TurbinePermission {
+	permissionId Long required,
+	permissionName String required unique,
+	objectdata AnyBlob 
+} 
+
+/**
+ * Representa la tabla "TURBINE_USER" que contiene usuarios del banco. Pertenece al esquema SF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity TurbineUser {
+	userId Long required,
+	loginName String required unique,
+	passwordValue String required,
+	firstName String required,
+	lastName String required,
+	email String,
+	confirmValue String,
+	modified LocalDate,
+	created LocalDate,
+	lastLogin LocalDate,
+	expire LocalDate,
+	expirePassword LocalDate,
+	objectdata AnyBlob 
+} 
+
+/**
+ * Representa la tabla "TURBINE_ROLE_PERMISSION" que contiene permisos asociados al rol. Pertenece al esquema SF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity TurbineRolePermission {
+} 
+
+/**
+ * Representa la tabla "TURBINE_USER_GROUP_ROLE" que relacion usuario, grupo y rol. Pertenece al esquema SF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity TurbineUserGroupRole {
+}
+
+relationship OneToOne {
+	TurbineRolePermission{role} to TurbineRole,
+	TurbineRolePermission{permission} to TurbinePermission,
+	
+	TurbineUserGroupRole{user} to TurbineUser,
+	TurbineUserGroupRole{group} to TurbineGroup,
+	TurbineUserGroupRole{role} to TurbineRole
+}
+
+// Set pagination options
+paginate * with pagination
+// Set service options
+service * with serviceClass
+// Set mapping options
+dto * with mapstruct

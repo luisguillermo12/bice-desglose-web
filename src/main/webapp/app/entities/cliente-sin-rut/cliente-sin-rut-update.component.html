@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-cliente-sin-rut-heading" jhiTranslate="desgloseApp.clienteSinRut.home.createOrEditLabel">Create or edit a Cliente Sin Rut</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteSinRut.codCliente" for="field_codCliente"
+                           [ngbTooltip]="'desgloseApp.clienteSinRut.help.codCliente' | translate">Cod Cliente</label>
+                    <input type="text" class="form-control" name="codCliente" id="field_codCliente"
+                           [(ngModel)]="clienteSinRut.codCliente" required [readonly]="clienteSinRut.codCliente !== undefined && clienteSinRut.codCliente !== null"/>
+                    <div [hidden]="!(editForm.controls.codCliente?.dirty && editForm.controls.codCliente?.invalid)">
+                        <small class="form-text text-danger" [hidden]="!editForm.controls.codCliente?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteSinRut.nomCliente" for="field_nomCliente"
+                           [ngbTooltip]="'desgloseApp.clienteSinRut.help.nomCliente' | translate">Nom Cliente</label>
+                    <input type="text" class="form-control" name="nomCliente" id="field_nomCliente" maxlength="20" [(ngModel)]="clienteSinRut.nomCliente" required/>
+                    <div [hidden]="!(editForm.controls.nomCliente?.dirty && editForm.controls.nomCliente?.invalid)">
+                        <small class="form-text text-danger" [hidden]="!editForm.controls.nomCliente?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteSinRut.nomPaterno" for="field_nomPaterno"
+                           [ngbTooltip]="'desgloseApp.clienteSinRut.help.nomPaterno' | translate">Nom Paterno</label>
+                    <input type="text" class="form-control" name="nomPaterno" id="field_nomPaterno" maxlength="40" [(ngModel)]="clienteSinRut.nomPaterno"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteSinRut.nomMaterno" for="field_nomMaterno"
+                           [ngbTooltip]="'desgloseApp.clienteSinRut.help.nomMaterno' | translate">Nom Materno</label>
+                    <input type="text" class="form-control" name="nomMaterno" id="field_nomMaterno" maxlength="40" [(ngModel)]="clienteSinRut.nomMaterno"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.clienteSinRut.codActividad" for="field_codActividad"
+                           [ngbTooltip]="'desgloseApp.clienteSinRut.help.codActividad' | translate">Cod Actividad</label>
+                    <input type="text" class="form-control" name="codActividad" id="field_codActividad"
+                           [(ngModel)]="clienteSinRut.codActividad"/>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

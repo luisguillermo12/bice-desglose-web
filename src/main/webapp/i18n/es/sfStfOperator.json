@@ -1,0 +1,35 @@
+
+{
+    "desgloseApp": {
+        "sfStfOperator" : {
+            "home": {
+                "title": "Sf Stf Operators",
+                "createLabel": "Crear nuevo Sf Stf Operator",
+                "createOrEditLabel": "Crear o editar Sf Stf Operator"
+            },
+            "created": "Un nuevo Sf Stf Operator ha sido creado con el identificador {{ param }}",
+            "updated": "Un Sf Stf Operator ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Sf Stf Operator ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Sf Stf Operator {{ id }}?"
+            },
+            "detail": {
+                "title": "Sf Stf Operator"
+            },
+            "branchCode": "Branch Code",
+            "operatorCode": "Operator Code",
+            "loginName": "Login Name",
+            "isSupervisor": "Is Supervisor",
+            "signedOn": "Signed On",
+            "dayOpen": "Day Open",
+            "help": {
+                "branchCode": "BRANCH_CODE",
+                "operatorCode": "OPERATOR_CODE",
+                "loginName": "Login",
+                "isSupervisor": "IS_SUPERVISOR",
+                "signedOn": "SIGNED_ON",
+                "dayOpen": "DAY_OPEN"
+            }
+        }
+    }
+}

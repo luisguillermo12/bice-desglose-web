@@ -1,0 +1,49 @@
+
+{
+    "desgloseApp": {
+        "desgloseRevision" : {
+            "home": {
+                "title": "Desglose Revisions",
+                "createLabel": "Crear nuevo Desglose Revision",
+                "createOrEditLabel": "Crear o editar Desglose Revision"
+            },
+            "created": "Un nuevo Desglose Revision ha sido creado con el identificador {{ param }}",
+            "updated": "Un Desglose Revision ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Desglose Revision ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Desglose Revision {{ id }}?"
+            },
+            "detail": {
+                "title": "Desglose Revision"
+            },
+            "codCliente": "Cod Cliente",
+            "codTipoDes": "Cod Tipo Des",
+            "codSubtipoDes": "Cod Subtipo Des",
+            "codMoneda": "Cod Moneda",
+            "rolDigitador": "Rol Digitador",
+            "rolRevisor": "Rol Revisor",
+            "rolRevisorReem": "Rol Revisor Reem",
+            "glsNotificacion": "Gls Notificacion",
+            "flgNotificado": "Flg Notificado",
+            "fecEnvioRevision": "Fec Envio Revision",
+            "fecEnRevision": "Fec En Revision",
+            "fecTerminoRevision": "Fec Termino Revision",
+            "codRegStatus": "Cod Reg Status",
+            "help": {
+                "codCliente": "Rut de cliente.",
+                "codTipoDes": "Tipo de desglose.",
+                "codSubtipoDes": "Sub Tipo de desglose.",
+                "codMoneda": "Código de moneda.",
+                "rolDigitador": "Rol empleado digitador de quien envia a revisión.",
+                "rolRevisor": "Rol empleado revisor que está asignado para revisión segun RELTAB.",
+                "rolRevisorReem": "Rol empleado revisor reemplazado.",
+                "glsNotificacion": "Mensaje de notificación.",
+                "flgNotificado": "Señala si se notificó al revisor.",
+                "fecEnvioRevision": "Fecha de envío a revisión.",
+                "fecEnRevision": "Fecha cuando es tomada para revisión.",
+                "fecTerminoRevision": "Fecha cuando se termina revisión.",
+                "codRegStatus": "Código de vigencia del registro."
+            }
+        }
+    }
+}

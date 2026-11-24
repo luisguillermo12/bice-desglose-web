@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-black-list-jwt-heading" jhiTranslate="desgloseApp.blackListJwt.home.createOrEditLabel">Create or edit a Black List Jwt</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!blackListJwt.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="blackListJwt.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.blackListJwt.invalidateTime" for="field_invalidateTime">Invalidate Time</label>
+                    <div class="d-flex">
+                        <input id="field_invalidateTime" type="datetime-local" class="form-control" name="invalidateTime" [(ngModel)]="invalidateTime"
+                        required/>
+                    </div>
+                    <div [hidden]="!(editForm.controls.invalidateTime?.dirty && editForm.controls.invalidateTime?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.invalidateTime?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.invalidateTime?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.blackListJwt.jwt" for="field_jwt">Jwt</label>
+                    <input type="text" class="form-control" name="jwt" id="field_jwt"
+                        [(ngModel)]="blackListJwt.jwt" required/>
+                    <div [hidden]="!(editForm.controls.jwt?.dirty && editForm.controls.jwt?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.jwt?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

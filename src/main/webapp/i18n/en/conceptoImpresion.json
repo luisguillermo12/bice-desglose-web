@@ -1,0 +1,35 @@
+
+{
+    "desgloseApp": {
+        "conceptoImpresion" : {
+            "home": {
+                "title": "Concepto Impresions",
+                "createLabel": "Create a new Concepto Impresion",
+                "createOrEditLabel": "Create or edit a Concepto Impresion"
+            },
+            "created": "A new Concepto Impresion is created with identifier {{ param }}",
+            "updated": "A Concepto Impresion is updated with identifier {{ param }}",
+            "deleted": "A Concepto Impresion is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Concepto Impresion {{ id }}?"
+            },
+            "detail": {
+                "title": "Concepto Impresion"
+            },
+            "codCliente": "Cod Cliente",
+            "codTipoDes": "Cod Tipo Des",
+            "codSubtipoDes": "Cod Subtipo Des",
+            "codMoneda": "Cod Moneda",
+            "codTipoConcep": "Cod Tipo Concep",
+            "corConcepto": "Cor Concepto",
+            "help": {
+                "codCliente": "Rut de cliente.",
+                "codTipoDes": "Tipo de desglose.",
+                "codSubtipoDes": "Subtipo de desglose.",
+                "codMoneda": "Código de moneda.",
+                "codTipoConcep": "Tipo de concepto.",
+                "corConcepto": "Correlativo para concepto."
+            }
+        }
+    }
+}

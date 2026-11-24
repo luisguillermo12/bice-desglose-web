@@ -1,0 +1,16 @@
+{
+  "query": {
+    "title": "Consulta de Desgloses",
+    "subtitle": "Criterios de Búsqueda",
+    "rut": "Rut",
+    "nombre": "Nombre",
+    "tipoDesglose": "Tipo de Desglose",
+    "subTipoDesglose": "Sub Tipo de Desglose",
+    "moneda": "Moneda",
+    "estadoDesglose": "Estado de Desglose",
+    "fechaModificacion": "Fecha Modificación",
+    "usuarioModificacion": "Usuario Modificación",
+    "detalleConsulta": "Detalle de Consulta",
+    "buscar": "Buscar"
+  }
+}

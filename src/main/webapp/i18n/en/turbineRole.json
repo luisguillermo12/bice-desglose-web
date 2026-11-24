@@ -1,0 +1,24 @@
+
+{
+    "desgloseApp": {
+        "turbineRole" : {
+            "home": {
+                "title": "Turbine Roles",
+                "createLabel": "Create a new Turbine Role",
+                "createOrEditLabel": "Create or edit a Turbine Role"
+            },
+            "created": "A new Turbine Role is created with identifier {{ param }}",
+            "updated": "A Turbine Role is updated with identifier {{ param }}",
+            "deleted": "A Turbine Role is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Turbine Role {{ id }}?"
+            },
+            "detail": {
+                "title": "Turbine Role"
+            },
+            "roleId": "Role Id",
+            "roleName": "Role Name",
+            "objectdata": "Objectdata"
+        }
+    }
+}

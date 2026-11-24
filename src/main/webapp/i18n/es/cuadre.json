@@ -1,0 +1,33 @@
+
+{
+    "desgloseApp": {
+        "cuadre" : {
+            "home": {
+                "title": "Cuadres",
+                "createLabel": "Crear nuevo Cuadre",
+                "createOrEditLabel": "Crear o editar Cuadre"
+            },
+            "created": "Un nuevo Cuadre ha sido creado con el identificador {{ param }}",
+            "updated": "Un Cuadre ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Cuadre ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Cuadre {{ id }}?"
+            },
+            "detail": {
+                "title": "Cuadre"
+            },
+            "codTpoConcep1": "Cod Tpo Concep 1",
+            "corConcepto1": "Cor Concepto 1",
+            "codTpoConcep2": "Cod Tpo Concep 2",
+            "corConcepto2": "Cor Concepto 2",
+            "glsMensaje": "Gls Mensaje",
+            "help": {
+                "codTpoConcep1": "Tipo de concepto 1.",
+                "corConcepto1": "Correlativo del concepto 1.",
+                "codTpoConcep2": "Tipo de concepto 2.",
+                "corConcepto2": "Correlativo del concepto 2.",
+                "glsMensaje": "Mensaje a mostrar."
+            }
+        }
+    }
+}

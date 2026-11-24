@@ -1,0 +1,23 @@
+{
+    "logs": {
+        "search": "Buscar",
+        "title": "Logs",
+        "filtros": "Filtros",
+        "detalle": "Detalle de logs",
+        "fechaInicio": "Fecha inicio",
+        "nbloggers": "Hay {{ total }} registros.",
+        "filter": "Filtro",
+        "fichero": "Fichero",
+        "tamanio": "Tamaño KB",
+        "descargar": "Descargar",
+        "aceptar": "Aceptar",
+        "cancelar":  "Cancelar",
+        "alertaDescargar": "Está Seguro de Descargar los ficheros Seleccionados.",
+        "mensaje": "",
+        "alertaSeleccionEliminar": "No selecciono ningun elemento a descargar",
+        "table": {
+            "name": "Nombre",
+            "level": "Nivel"
+        }
+    }
+}

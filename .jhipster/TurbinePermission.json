@@ -1,0 +1,36 @@
+{
+    "name": "TurbinePermission",
+    "fields": [
+        {
+            "fieldName": "permissionId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "permissionName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "objectdata",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181022174824",
+    "javadoc": "Representa la tabla \"TURBINE_PERMISSION\" que contiene permisos. Pertenece al esquema SF_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "turbine_permission",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

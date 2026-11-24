@@ -1,0 +1,2 @@
+ALTER TABLE DESGLO_MSG ADD (COD_PLANTILLA NUMBER(5) DEFAULT 0 NOT NULL);
+COMMENT ON COLUMN DESGLO_MSG.COD_PLANTILLA IS 'Código del tipo de planilla. Por defecto 0 que es tipo banco.';

@@ -1,0 +1,160 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="desgloseApp.periodo.home.title">Periodos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-periodo" [routerLink]="['/periodo/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span jhiTranslate="desgloseApp.periodo.home.createLabel">
+            Create new Periodo
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="periodos">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+                <th jhiSortBy="codCliente"><span jhiTranslate="desgloseApp.periodo.codCliente">Cod Cliente</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="codTipoDes"><span jhiTranslate="desgloseApp.periodo.codTipoDes">Cod Tipo Des</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="codSubtipoDes"><span jhiTranslate="desgloseApp.periodo.codSubtipoDes">Cod Subtipo Des</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="codMoneda"><span jhiTranslate="desgloseApp.periodo.codMoneda">Cod Moneda</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="fecPeriodo"><span jhiTranslate="desgloseApp.periodo.fecPeriodo">Fec Periodo</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="numMeses"><span jhiTranslate="desgloseApp.periodo.numMeses">Num Meses</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="valDeflacPrd"><span jhiTranslate="desgloseApp.periodo.valDeflacPrd">Val Deflac Prd</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="codAuditor"><span jhiTranslate="desgloseApp.periodo.codAuditor">Cod Auditor</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="glsOtrosAudit"><span jhiTranslate="desgloseApp.periodo.glsOtrosAudit">Gls Otros Audit</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="codEstadoPrd"><span jhiTranslate="desgloseApp.periodo.codEstadoPrd">Cod Estado Prd</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="codEstadoAudi"><span jhiTranslate="desgloseApp.periodo.codEstadoAudi">Cod Estado Audi</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="mtoSbifDdVig"><span jhiTranslate="desgloseApp.periodo.mtoSbifDdVig">Mto Sbif Dd Vig</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="mtoSbifDdMor"><span jhiTranslate="desgloseApp.periodo.mtoSbifDdMor">Mto Sbif Dd Mor</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="mtoSbifDdVen"><span jhiTranslate="desgloseApp.periodo.mtoSbifDdVen">Mto Sbif Dd Ven</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="mtoSbifDdCas"><span jhiTranslate="desgloseApp.periodo.mtoSbifDdCas">Mto Sbif Dd Cas</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="mtoSbifDiVig"><span jhiTranslate="desgloseApp.periodo.mtoSbifDiVig">Mto Sbif Di Vig</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="mtoSbifDiVen"><span jhiTranslate="desgloseApp.periodo.mtoSbifDiVen">Mto Sbif Di Ven</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="mtoSbifDiCas"><span jhiTranslate="desgloseApp.periodo.mtoSbifDiCas">Mto Sbif Di Cas</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="nomUserCrea"><span jhiTranslate="desgloseApp.periodo.nomUserCrea">Nom User Crea</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="fecUserCrea"><span jhiTranslate="desgloseApp.periodo.fecUserCrea">Fec User Crea</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="nomUserModif"><span jhiTranslate="desgloseApp.periodo.nomUserModif">Nom User Modif</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="fecUserModif"><span jhiTranslate="desgloseApp.periodo.fecUserModif">Fec User Modif</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="fecInformSbif"><span jhiTranslate="desgloseApp.periodo.fecInformSbif">Fec Inform Sbif</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="valTipoCambio"><span jhiTranslate="desgloseApp.periodo.valTipoCambio">Val Tipo Cambio</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="mtoSbifImp90179"><span jhiTranslate="desgloseApp.periodo.mtoSbifImp90179">Mto Sbif Imp 90179</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let periodo of periodos ;trackBy: trackId">
+                <td><a [routerLink]="['/periodo', periodo.codCliente, periodo.codTipoDes, periodo.codSubtipoDes, periodo.codMoneda, 'view' ]">{{periodo.codCliente}}</a></td>
+                <td>{{periodo.codTipoDes}}</td>
+                <td>{{periodo.codSubtipoDes}}</td>
+                <td>{{periodo.codMoneda}}</td>
+                <td>{{periodo.fecPeriodo | date:'mediumDate'}}</td>
+                <td>{{periodo.numMeses}}</td>
+                <td>{{periodo.valDeflacPrd}}</td>
+                <td>{{periodo.codAuditor}}</td>
+                <td>{{periodo.glsOtrosAudit}}</td>
+                <td>{{periodo.codEstadoPrd}}</td>
+                <td>{{periodo.codEstadoAudi}}</td>
+                <td>{{periodo.mtoSbifDdVig}}</td>
+                <td>{{periodo.mtoSbifDdMor}}</td>
+                <td>{{periodo.mtoSbifDdVen}}</td>
+                <td>{{periodo.mtoSbifDdCas}}</td>
+                <td>{{periodo.mtoSbifDiVig}}</td>
+                <td>{{periodo.mtoSbifDiVen}}</td>
+                <td>{{periodo.mtoSbifDiCas}}</td>
+                <td>{{periodo.nomUserCrea}}</td>
+                <td>{{periodo.fecUserCrea | date:'mediumDate'}}</td>
+                <td>{{periodo.nomUserModif}}</td>
+                <td>{{periodo.fecUserModif | date:'mediumDate'}}</td>
+                <td>{{periodo.fecInformSbif | date:'mediumDate'}}</td>
+                <td>{{periodo.valTipoCambio}}</td>
+                <td>{{periodo.mtoSbifImp90179}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/periodo', periodo.codCliente, periodo.codTipoDes, periodo.codSubtipoDes, periodo.codMoneda, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/periodo', periodo.codCliente, periodo.codTipoDes, periodo.codSubtipoDes, periodo.codMoneda, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'periodo/'+ periodo.codCliente + '/' + periodo.codTipoDes + '/' + periodo.codSubtipoDes + '/' +
+                                    periodo.codMoneda + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="periodos && periodos.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true"
+                            (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

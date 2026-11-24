@@ -1,0 +1,23 @@
+
+{
+    "desgloseApp": {
+        "turbineRolePermission" : {
+            "home": {
+                "title": "Turbine Role Permissions",
+                "createLabel": "Crear nuevo Turbine Role Permission",
+                "createOrEditLabel": "Crear o editar Turbine Role Permission"
+            },
+            "created": "Un nuevo Turbine Role Permission ha sido creado con el identificador {{ param }}",
+            "updated": "Un Turbine Role Permission ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Turbine Role Permission ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Turbine Role Permission {{ id }}?"
+            },
+            "detail": {
+                "title": "Turbine Role Permission"
+            },
+            "role": "Role",
+            "permission": "Permission"
+        }
+    }
+}

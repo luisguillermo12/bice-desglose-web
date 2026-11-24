@@ -1,0 +1,40 @@
+{
+    "name": "DesgloseFirma",
+    "fields": [
+        {
+            "fieldName": "codCargo",
+            "javadoc": "Código cargo. Posibles permitidos (001-Subgte, 002-Jefe Grupo y 003-Analista).",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numRolEmpleado",
+            "javadoc": "Rol empleado de primera firma.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numRolEmpleado2fir",
+            "javadoc": "Rol empleado de segunda firma.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181011140725",
+    "javadoc": "Representa la tabla \"DESGLO_FIR_WK\" que contiene estructura de la segunda firma. Pertenece al esquema CIF_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "desglose_firma",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

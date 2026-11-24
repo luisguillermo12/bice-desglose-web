@@ -1,0 +1,56 @@
+{
+    "name": "TablaServMailDest",
+    "fields": [
+        {
+            "fieldName": "codSistema",
+            "javadoc": "Codigo sistema.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numSolicitud",
+            "javadoc": "Número solicitud envío.",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "glsToNombre",
+            "javadoc": "Nombre destinatario.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "glsToMail",
+            "javadoc": "Mail destinatario.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codTipoDest",
+            "javadoc": "Tipo destinatario TO, CC, CCO.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181031203316",
+    "javadoc": "Representa la tabla \"TBL_SRV_MAIL_DEST\". Almacena los destinatarios de las solicitudes de envío de correo. Pertenece al esquema BCT_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "tabla_serv_mail_dest",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

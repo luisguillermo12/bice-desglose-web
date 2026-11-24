@@ -1,0 +1,41 @@
+
+{
+    "desgloseApp": {
+        "desgloseImpresion" : {
+            "home": {
+                "title": "Desglose Impresions",
+                "createLabel": "Create a new Desglose Impresion",
+                "createOrEditLabel": "Create or edit a Desglose Impresion"
+            },
+            "created": "A new Desglose Impresion is created with identifier {{ param }}",
+            "updated": "A Desglose Impresion is updated with identifier {{ param }}",
+            "deleted": "A Desglose Impresion is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Desglose Impresion {{ id }}?"
+            },
+            "detail": {
+                "title": "Desglose Impresion"
+            },
+            "codCliente": "Cod Cliente",
+            "codTipoDes": "Cod Tipo Des",
+            "codSubtipoDes": "Cod Subtipo Des",
+            "codMoneda": "Cod Moneda",
+            "codMonedaImp": "Cod Moneda Imp",
+            "valDeflacBase": "Val Deflac Base",
+            "fecCreacion": "Fec Creacion",
+            "fecDeflacBase": "Fec Deflac Base",
+            "corImpreso": "Cor Impreso",
+            "help": {
+                "codCliente": "Rut de cliente.",
+                "codTipoDes": "Tipo de desglose.",
+                "codSubtipoDes": "Subtipo de desglose.",
+                "codMoneda": "Código de moneda.",
+                "codMonedaImp": "Código de moneda de impresión.",
+                "valDeflacBase": "Valor deflactor base. Precisión 6, escala 3.",
+                "fecCreacion": "Fecha de creación del desglose.",
+                "fecDeflacBase": "Fecha asociada al deflactor base.",
+                "corImpreso": "Correlativo de impresión."
+            }
+        }
+    }
+}

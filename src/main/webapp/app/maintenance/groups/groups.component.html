@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="card-header hand-pointer" (click)="isCollapsedDataPanel = !isCollapsedDataPanel" [attr.aria-expanded]="!isCollapsedDataPanel" aria-controls="collapsedDataPanel">
+        <div class="row">
+            <span class="col-sm-11" jhiTranslate="groups.title"></span>
+            <span class="col-sm-1">
+                <fa-icon class="float-sm-right fa-sm" [icon]="isCollapsedDataPanel ? ICON_CARD_OPEN : ICON_CARD_CLOSE"></fa-icon>
+            </span>
+        </div>
+    </div>
+    <div class="card-body" [ngbCollapse]="isCollapsedDataPanel" id="collapsedDataPanel">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-10 card">
+                        <div class="card-body" style="padding: 0;height:400px;">
+                            <p jhiTranslate="groups.grupos"></p>
+                            <tree-root [nodes]="nodes" [focused]="true" [options]="options"></tree-root>
+                        </div>
+                    </div>
+                    <div class="col-md-2" style="text-align: center">
+                        <button class="btn btn-primary btn-block btn-sm" (click)="onClickAssociateMember()">
+                            <fa-icon [icon]="'angle-left'"></fa-icon>
+                        </button>
+                        <button class="btn btn-primary btn-block btn-sm" (click)="onClickDeleteMember()">
+                            <fa-icon [icon]="'angle-right'"></fa-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 card">
+                <div class="card-body">
+                    <ngx-datatable
+                        [messages]="{emptyMessage: 'footer.emptyMessage' | translate, selectedMessage: 'footer.selected' | translate, totalMessage: 'footer.total' | translate}"
+                        *ngIf="ejecutores?.length>0"
+                        class="material"
+                        [rows]="ejecutores"
+                        [columnMode]="'force'"
+                        [footerHeight]="50"
+                        [rowHeight]="'auto'"
+                        [limit]="10"
+                        [selected]="selectedEjecutores"
+                        [selectionType]="'single'"
+                        (select)='onSelectExecutors($event)'>
+                        <ngx-datatable-column name="Login Name"></ngx-datatable-column>
+                        <ngx-datatable-column name="Nombre"></ngx-datatable-column>
+                    </ngx-datatable>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

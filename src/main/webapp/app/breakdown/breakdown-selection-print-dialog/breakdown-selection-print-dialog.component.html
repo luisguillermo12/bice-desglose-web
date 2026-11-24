@@ -1,0 +1,45 @@
+<div class="modal-header">
+    <h4 class="modal-title"><span jhiTranslate="breakdown.buttonSelectionPrint.title"></span></h4>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            (click)="closeModal()">&times;
+    </button>
+</div>
+<div class="modal-body">
+    <jhi-alert></jhi-alert>
+    <jhi-alert-error></jhi-alert-error>
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <form name="breakdownDataSelectionPrintForm" role="form" novalidate #breakdownDataSelectionPrintForm="ngForm" id="breakdownDataSelectionPrintForm">
+                <div class="form-row">
+                    <div class="form-group mb-2">
+                        <div class="radio">
+                            <input class="form-check-input radio-report-print" [(ngModel)]="result" value="0" type="radio" name="rdoResult" checked = "checked">
+                            <span class="radio-report-print" jhiTranslate="breakdown.buttonSelectionPrint.resumeDesglose"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <div class="radio">
+                            <input class="form-check-input radio-report-print" [(ngModel)]="result" value="1" type="radio" name="rdoResult" >
+                            <span class="radio-report-print" jhiTranslate="breakdown.buttonSelectionPrint.detailDesglose"></span>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <button class="btn btn-default btn-block btn-custom-font-size-1" (click)="onClickCancel()">
+                            <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="global.form.cancel"></span>
+                        </button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="button" class="btn btn-primary btn-block btn-custom-font-size-1" (click)="onClickSave()">
+                            <fa-icon [icon]="'check'"></fa-icon>&nbsp;<span jhiTranslate="global.form.accept"></span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+{
+    "charges": {
+        "title": "Configuración de cargos",
+        "subtitle": "Cargos",
+        "aviso": "¡Aviso!",
+        "error": "Error",
+        "aceptar": "Aceptar",
+        "cancelar": "Cancelar",
+        "mensaje": "",
+        "boss": "Jefe",
+        "executor": "Ejecutor",
+        "reviewer": "Revisor",
+        "desasociar": "¿Está seguro de desasociar a {{persona}} con cargo {{cargo}}?",
+        "asociar": "¿Está seguro de asociar a {{persona}} con cargo {{cargo}}?",
+        "alertaSeleccionCargo": "Debe seleccionar {{cargo}}",
+        "alertaEliminacion": "Debe eliminar Ejecutores vinculados antes de remover de cargo Revisor...",
+        "alertPeriodoConsol": "No hay períodos a consolidar"
+    }
+}

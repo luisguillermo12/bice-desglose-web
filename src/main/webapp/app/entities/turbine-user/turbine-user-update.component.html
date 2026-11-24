@@ -1,0 +1,161 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-turbine-user-heading" jhiTranslate="desgloseApp.turbineUser.home.createOrEditLabel">Create or edit a Turbine User</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!turbineUser.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="turbineUser.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.turbineUser.userId" for="field_userId">User Id</label>
+                    <input type="number" class="form-control" name="userId" id="field_userId"
+                        [(ngModel)]="turbineUser.userId" required/>
+                    <div [hidden]="!(editForm.controls.userId?.dirty && editForm.controls.userId?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.userId?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.userId?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.turbineUser.loginName" for="field_loginName">Login Name</label>
+                    <input type="text" class="form-control" name="loginName" id="field_loginName"
+                        [(ngModel)]="turbineUser.loginName" required/>
+                    <div [hidden]="!(editForm.controls.loginName?.dirty && editForm.controls.loginName?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.loginName?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.turbineUser.passwordValue" for="field_passwordValue">Password Value</label>
+                    <input type="text" class="form-control" name="passwordValue" id="field_passwordValue"
+                        [(ngModel)]="turbineUser.passwordValue" required/>
+                    <div [hidden]="!(editForm.controls.passwordValue?.dirty && editForm.controls.passwordValue?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.passwordValue?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.turbineUser.firstName" for="field_firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="field_firstName"
+                        [(ngModel)]="turbineUser.firstName" required/>
+                    <div [hidden]="!(editForm.controls.firstName?.dirty && editForm.controls.firstName?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.firstName?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.turbineUser.lastName" for="field_lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                        [(ngModel)]="turbineUser.lastName" required/>
+                    <div [hidden]="!(editForm.controls.lastName?.dirty && editForm.controls.lastName?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.lastName?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.turbineUser.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                        [(ngModel)]="turbineUser.email" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.turbineUser.confirmValue" for="field_confirmValue">Confirm Value</label>
+                    <input type="text" class="form-control" name="confirmValue" id="field_confirmValue"
+                        [(ngModel)]="turbineUser.confirmValue" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.turbineUser.modified" for="field_modified">Modified</label>
+                    <div class="input-group">
+                        <input id="field_modified" type="text" class="form-control" name="modified" ngbDatepicker  #modifiedDp="ngbDatepicker" [(ngModel)]="turbineUser.modified"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="modifiedDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.turbineUser.created" for="field_created">Created</label>
+                    <div class="input-group">
+                        <input id="field_created" type="text" class="form-control" name="created" ngbDatepicker  #createdDp="ngbDatepicker" [(ngModel)]="turbineUser.created"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="createdDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.turbineUser.lastLogin" for="field_lastLogin">Last Login</label>
+                    <div class="input-group">
+                        <input id="field_lastLogin" type="text" class="form-control" name="lastLogin" ngbDatepicker  #lastLoginDp="ngbDatepicker" [(ngModel)]="turbineUser.lastLogin"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="lastLoginDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.turbineUser.expire" for="field_expire">Expire</label>
+                    <div class="input-group">
+                        <input id="field_expire" type="text" class="form-control" name="expire" ngbDatepicker  #expireDp="ngbDatepicker" [(ngModel)]="turbineUser.expire"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="expireDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.turbineUser.expirePassword" for="field_expirePassword">Expire Password</label>
+                    <div class="input-group">
+                        <input id="field_expirePassword" type="text" class="form-control" name="expirePassword" ngbDatepicker  #expirePasswordDp="ngbDatepicker" [(ngModel)]="turbineUser.expirePassword"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="expirePasswordDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.turbineUser.objectdata" for="field_objectdata">Objectdata</label>
+                    <div>
+                        <div *ngIf="turbineUser.objectdata" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(turbineUser.objectdataContentType, turbineUser.objectdata)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{turbineUser.objectdataContentType}}, {{byteSize(turbineUser.objectdata)}}</span>
+                            <button type="button" (click)="turbineUser.objectdata=null;turbineUser.objectdataContentType=null;"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_objectdata" (change)="setFileData($event, turbineUser, 'objectdata', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="objectdata" id="field_objectdata"
+                        [(ngModel)]="turbineUser.objectdata" />
+                    <input type="hidden" class="form-control" name="objectdataContentType" id="field_objectdataContentType"
+                        [(ngModel)]="turbineUser.objectdataContentType" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

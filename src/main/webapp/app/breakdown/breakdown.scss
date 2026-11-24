@@ -1,0 +1,95 @@
+/*.nav-tabs {
+    border-color: #025b97;
+}
+
+.nav-tabs .nav-link.active {
+    color: #d6ffff;
+    background-color: #025b97;
+    border-color: #025b97;
+    font-weight: normal;
+}
+
+.nav-link {
+    padding: 0.5px;
+}*/
+.envelope{
+    icon: 'home';
+}
+
+.space{
+    padding-bottom: 2px !important;
+
+}
+
+.spacerigth{
+    padding-right: 50px !important;
+}
+
+.col-lg-12,
+.col-lg-3,
+.col-lg-4 {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.border-default {
+    color: #025b97;
+}
+
+.form-group {
+    margin-bottom: 0.1rem;
+}
+
+::ng-deep .generate-dialogo .modal-dialog {
+    max-width: 95%;
+    width: 95%;
+}
+
+label {
+    margin-bottom: 0.15rem;
+}
+
+.card-body {
+    padding: 0.15rem;
+}
+
+.btn-custom-margin {
+    margin-left: 5px;
+}
+
+.btn-custom-font-size-x {
+    height: 90%;
+}
+
+.btn-custom-font-size {
+    height: 57%;
+}
+
+.btn-custom-font-size-1 {
+    height: 96%;
+}
+
+.cell-value-excel {
+    height: 35px;
+    margin-bottom: 0rem;
+}
+
+.btn-left-marg {
+    margin-left: 15px !important;
+}
+
+.btn-no-right-marg {
+     padding-right: 0px !important;
+ }
+
+.btn-both-marg {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+// @media (min-width: 576px)
+.form-inline .form-group {
+    margin-bottom: 0.0rem !important;
+}
+
+

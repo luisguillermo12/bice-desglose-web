@@ -1,0 +1,39 @@
+application {
+  config {
+    applicationType monolith          // monolith, microservice, gateway, uaa
+    baseName desglose
+    packageName cl.tutorial.breakdown // Sets the packageFolder option
+    authenticationType jwt            // jwt, session, uaa, oauth2. uaa for UAA apps, jwt otherwise
+    clientFramework angularX          // angularX, react
+    databaseType sql                  // sql, mongodb, cassandra, couchbase, no
+    prodDatabaseType oracle           // mysql, mariadb, mssql, postgresql, oracle, no
+    devDatabaseType oracle            // h2Disk, h2Memory, or the prod database type
+    cacheProvider ehcache             // ehcache, hazelcast, infinispan, no. Use ehcache for monoliths and gateways, hazelcast otherwise
+    enableHibernateCache true
+    searchEngine elasticsearch        // elasticsearch, false
+    serverPort 8080                   // 8080, 8081 or 9999. Depends on the app type
+    buildTool maven                   // maven, gradle
+    clientPackageManager npm
+    enableSwaggerCodegen false
+    enableTranslation	true
+    jhiPrefix	jhi
+    languages [es, en]                // Languages available in JHipster	Braces are mandatory
+    messageBroker	false               // kafka, false	
+    nativeLanguage es                 // Any language supported by JHipster
+    serviceDiscoveryType no           // eureka, consul, no
+    skipClient false		
+    skipServer false
+    skipUserManagement false
+    testFrameworks []                 // protractor, cucumber, gatling. Braces mandatory
+    useSass	true                      // default value is false
+    websocket	false                   // spring-websocket, false	
+  }
+  entities * 
+}
+
+// Set pagination options
+paginate * with pagination
+// Set service options
+service * with serviceClass
+// Set mapping options
+dto * with mapstruct

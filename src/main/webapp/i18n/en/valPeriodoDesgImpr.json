@@ -1,0 +1,45 @@
+
+{
+    "desgloseApp": {
+        "valPeriodoDesgImpr" : {
+            "home": {
+                "title": "Val Periodo Desg Imprs",
+                "createLabel": "Create a new Val Periodo Desg Impr",
+                "createOrEditLabel": "Create or edit a Val Periodo Desg Impr"
+            },
+            "created": "A new Val Periodo Desg Impr is created with identifier {{ param }}",
+            "updated": "A Val Periodo Desg Impr is updated with identifier {{ param }}",
+            "deleted": "A Val Periodo Desg Impr is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Val Periodo Desg Impr {{ id }}?"
+            },
+            "detail": {
+                "title": "Val Periodo Desg Impr"
+            },
+            "codCliente": "Cod Cliente",
+            "codTipoDes": "Cod Tipo Des",
+            "codSubtipoDes": "Cod Subtipo Des",
+            "codMoneda": "Cod Moneda",
+            "codMonedaImp": "Cod Moneda Imp",
+            "fecPeriodo": "Fec Periodo",
+            "codTipoConcep": "Cod Tipo Concep",
+            "corConcepto": "Cor Concepto",
+            "corValor": "Cor Valor",
+            "valConcepto": "Val Concepto",
+            "corImpreso": "Cor Impreso",
+            "help": {
+                "codCliente": "Rut de cliente.",
+                "codTipoDes": "Tipo de desglose.",
+                "codSubtipoDes": "Subtipo de desglose.",
+                "codMoneda": "Código de moneda.",
+                "codMonedaImp": "Código de moneda de impresión.",
+                "fecPeriodo": "Fecha para el período.",
+                "codTipoConcep": "Tipo de concepto.",
+                "corConcepto": "Correlativo para concepto.",
+                "corValor": "Correlativo que aplica para multiregistro, de lo contrario siempre es cero.",
+                "valConcepto": "Valor asociado al concepto o cuenta. Precisión 17, escala 3.",
+                "corImpreso": "Correlativo de impresión."
+            }
+        }
+    }
+}

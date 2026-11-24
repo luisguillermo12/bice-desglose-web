@@ -1,0 +1,52 @@
+{
+    "name": "SfStfOperator",
+    "fields": [
+        {
+            "fieldName": "branchCode",
+            "javadoc": "BRANCH_CODE",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "operatorCode",
+            "javadoc": "OPERATOR_CODE",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "loginName",
+            "javadoc": "Login",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isSupervisor",
+            "javadoc": "IS_SUPERVISOR",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "signedOn",
+            "javadoc": "SIGNED_ON",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dayOpen",
+            "javadoc": "DAY_OPEN",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190215152205",
+    "javadoc": "Representa la tabla \"sf_stf_operator\".\n@author carlos eduardo rodriguez",
+    "entityTableName": "sf_stf_operator",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

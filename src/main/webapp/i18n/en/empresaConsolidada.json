@@ -1,0 +1,35 @@
+
+{
+    "desgloseApp": {
+        "empresaConsolidada" : {
+            "home": {
+                "title": "Empresa Consolidadas",
+                "createLabel": "Create a new Empresa Consolidada",
+                "createOrEditLabel": "Create or edit a Empresa Consolidada"
+            },
+            "created": "A new Empresa Consolidada is created with identifier {{ param }}",
+            "updated": "A Empresa Consolidada is updated with identifier {{ param }}",
+            "deleted": "A Empresa Consolidada is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Empresa Consolidada {{ id }}?"
+            },
+            "detail": {
+                "title": "Empresa Consolidada"
+            },
+            "codCliente": "Cod Cliente",
+            "codTipoDes": "Cod Tipo Des",
+            "codSubtipoDes": "Cod Subtipo Des",
+            "codMoneda": "Cod Moneda",
+            "corEmpresa": "Cor Empresa",
+            "nomEmpresa": "Nom Empresa",
+            "help": {
+                "codCliente": "Rut de cliente.",
+                "codTipoDes": "Tipo de desglose.",
+                "codSubtipoDes": "Subtipo de desglose.",
+                "codMoneda": "Código de moneda.",
+                "corEmpresa": "Correlativo para diferencia una empresa de otra dentro del consolidado.",
+                "nomEmpresa": "Nombre de la empresa consolidada."
+            }
+        }
+    }
+}

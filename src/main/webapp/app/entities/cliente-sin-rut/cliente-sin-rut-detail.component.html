@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="clienteSinRut">
+            <h2><span jhiTranslate="desgloseApp.clienteSinRut.detail.title">Cliente Sin Rut</span></h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.clienteSinRut.codCliente" [ngbTooltip]="'desgloseApp.clienteSinRut.help.codCliente' | translate">Cod Cliente</span></dt>
+                <dd>
+                    <span>{{clienteSinRut.codCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteSinRut.nomCliente" [ngbTooltip]="'desgloseApp.clienteSinRut.help.nomCliente' | translate">Nom Cliente</span></dt>
+                <dd>
+                    <span>{{clienteSinRut.nomCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteSinRut.nomPaterno" [ngbTooltip]="'desgloseApp.clienteSinRut.help.nomPaterno' | translate">Nom Paterno</span></dt>
+                <dd>
+                    <span>{{clienteSinRut.nomPaterno}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteSinRut.nomMaterno" [ngbTooltip]="'desgloseApp.clienteSinRut.help.nomMaterno' | translate">Nom Materno</span></dt>
+                <dd>
+                    <span>{{clienteSinRut.nomMaterno}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteSinRut.codActividad" [ngbTooltip]="'desgloseApp.clienteSinRut.help.codActividad' | translate">Cod Actividad</span></dt>
+                <dd>
+                    <span>{{clienteSinRut.codActividad}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cliente-sin-rut', clienteSinRut.codCliente, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

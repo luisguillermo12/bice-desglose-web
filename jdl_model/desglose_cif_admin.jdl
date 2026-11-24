@@ -1,0 +1,1184 @@
+/**
+ * 0.001
+ */
+DEFAULT_MIN_DESG = 0
+/**
+ * 999.999
+ */
+DEFAULT_MAX_DESG = 1000
+
+DEFAULT_MIN_IVA = 0
+DEFAULT_MAX_IVA = 1
+
+MONTH_NUMBER_MAX = 12
+MONTH_NUMBER_MIN = 1
+
+/**
+ * Representa la tabla "DESGLO" que contiene desglose individuales o consolidado para las distintas monedas. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity Desglose {
+	/**
+	 * Rut de cliente.
+	 */
+	codCliente String required,
+	/**
+	 * Tipo de desglose.
+	 */
+	codTipoDes Integer required,
+	/**
+	 * Subtipo de desglose.
+	 */
+	codSubtipoDes Integer required,
+	/**
+	 * Código de moneda.
+	 */
+	codMoneda String required,
+	/**
+	 * Unidad monetaria.
+	 */
+	codUnidMoneda String required,
+	/**
+	 * Descripción para Subtipo de desglose.
+	 */
+	glsSubtipoDes String,
+	/**
+	 * Valor deflactor base. Precisión 6, escala 3.
+	 */
+	valDeflacBase BigDecimal required min(DEFAULT_MIN_DESG) max(DEFAULT_MAX_DESG),
+	/**
+	 * Valor IVA. Precisión 4, escala 3.
+	 */
+	valIva BigDecimal required min(DEFAULT_MIN_IVA) max(DEFAULT_MAX_IVA),
+	/**
+	 * Login de último usuario que guarda desglose.
+	 */
+	nomUserAnalis String required,
+	/**
+	 * Observación para el Desglose ingresada en configuración de desglose.
+	 */
+	glsObservacion String,
+	/**
+	 * Login de usuario que crea desglose.
+	 */
+	nomUserCrea String required,
+	/**
+	 * Fecha de creación de desglose.
+	 */
+	fecUserCrea LocalDate required,
+	/**
+	 * Login de usuario que modifica desglose.
+	 */
+	nomUserModif String,
+	/**
+	 * Fecha de modificación de desglose.
+	 */
+	fecUserModif LocalDate,
+	/**
+	 * Fecha asociada al deflactor base.
+	 */
+	fecDeflacBase LocalDate required,
+	/**
+	 * Login de usuario que tiene abierto o cargado el desglose.
+	 */
+	nomUserOpen String,
+	/**
+	 * Flag que indica si el desglose es temporal o no.
+	 */
+	flgIsTemporal Boolean required,
+	/**
+	 * Código de moneda de impresión.
+	 */
+	codMonedaImp String required,
+	/**
+	 * Fecha y hora desde que está abierto o cargado el desglose.
+	 */
+	fecHraOpen LocalDate,
+	/**
+	 * Nombre del usuario que tiene abierto o cargado el desglose.
+	 */
+	nomUser String,
+	/**
+	 * Flag que señala resultado de validación. OK o NOK.
+	 */
+	flgValidacion String,
+	/**
+	 * Flag que señala condicion de revision. AREV o ENREV.
+	 */
+	flgRevision String,
+	/**
+	 * Comentario producto de la validación.
+	 */
+	glsComentValid String,
+	/**
+	 * Estado del desglose.
+	 */
+	codEstado String,
+	/**
+	 * Rol empleado que lleva desglose a estado definitivo.
+	 */
+	rolEmpleadoDesDef String,
+	/**
+	 * Nombre de revisor que lleva desglose a estado definitivo.
+	 */
+	nomRevisorDef String,
+	/**
+	 * Fecha en que desglose se lleva a estado definitivo.
+	 */
+	fecDesgloDef LocalDate,
+	/**
+	 * Rol empleado de revisor que revisó y modificó desglose.
+	 */
+	rolEmpleadoRevMod String,
+	/**
+	 * Rol empleado que genera PDF para desglose.
+	 */
+	rolEmpleadoDefEnvPdf String,
+	/**
+	 * Fecha de envío del PDF.
+	 */
+	fecDesgloEnvPdf LocalDate,
+	/**
+	 * Código moneda impresión (se usa como parámetro).
+	 */
+	codMonedaRpt Integer,
+	/**
+	 * Correlativo de impresión (se usa como parámetro).
+	 */
+	corImpresionRpt Integer,
+	/**
+	 * Flag que señala si es ejecutivo de factoring o no (se usa como parámetro).
+	 */
+	flgEjeFactoringRpt String,
+	/**
+	 * Fecha período 1 (se usa como parámetro).
+	 */
+	fecPeriodo1Rpt LocalDate,
+	/**
+	 * Fecha período 2 (se usa como parámetro).
+	 */
+	fecPeriodo2Rpt LocalDate,
+	/**
+	 * Fecha período 3 (se usa como parámetro).
+	 */
+	fecPeriodo3Rpt LocalDate,
+	/**
+	 * Fecha período 4 (se usa como parámetro).
+	 */
+	fecPeriodo4Rpt LocalDate,
+	/**
+	 * Fecha período Consolidado 1 (se usa como parámetro).
+	 */
+	fecPerConsol1Rpt LocalDate,
+	/**
+	 * Fecha período consolidado 2 (se usa como parámetro).
+	 */
+	fecPerConsol2Rpt LocalDate,
+	/**
+	 * Fecha último período 1 (se usa como parámetro).
+	 */
+	fecUlt1Rpt LocalDate,
+	/**
+	 * Fecha último período 2 (se usa como parámetro).
+	 */
+	fecUlt2Rpt LocalDate,
+	/**
+	 * Fecha de aprobación desglose (se usa como parámetro).
+	 */
+	fecUserModifRpt LocalDate,
+	/**
+	 * Nombre aprobador de desglose (se usa como parámetro).
+	 */
+	nomUserModifRpt String,
+	/**
+	 * Número de plantilla de reporte (se usa como parámetro).
+	 */
+	numReporteRpt Integer,
+	/**
+	 * Fecha generación del reporte (se usa como parámetro).
+	 */
+	fecGeneracionRpt LocalDate,
+	/**
+	 * Contador que señala las veces en que desglose es enviado a revisión.
+	 */
+	numDevolEjecutor Integer,
+	/**
+	 * Rol empleado que produce cambio de estado a desglose.
+	 */
+	numRolChgEstado String,
+	/**
+	 * Flag que señala si falta segunda firma o no.
+	 */
+	flgReq2firma String
+}
+/**
+ * Representa la tabla "PERIOD" que contiene información para períodos del desglose. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity Periodo {
+	/**
+	 * Rut de cliente.
+	 */
+	codCliente String required,
+	/**
+	 * Tipo de desglose.
+	 */
+	codTipoDes Integer required,
+	/**
+	 * Subtipo de desglose.
+	 */
+	codSubtipoDes Integer required,
+	/**
+	 * Código de moneda.
+	 */
+	codMoneda String required,
+	/**
+	 * Fecha para el período.
+	 */
+	fecPeriodo LocalDate required,
+	/**
+	 * Cantidad de meses asociadas al período. Valor entre 1 y 12, ambos inclusive.
+	 */
+	numMeses Integer required min(MONTH_NUMBER_MIN) max(MONTH_NUMBER_MAX),
+	/**
+	 *  Valor deflator para el período. Precisión 6, escala 3. Valor entre 1 y 1000, sin incluir ambos.
+	 */
+	valDeflacPrd BigDecimal required min(DEFAULT_MIN_DESG) max(DEFAULT_MAX_DESG),
+	/**
+	 * Código empresa auditora.
+	 */
+	codAuditor String,
+	/**
+	 * Descripción de otra auditora.
+	 */
+	glsOtrosAudit String,
+	/**
+	 * Estado del período. Valores permitidos (0, 1, 2).
+	 */
+	codEstadoPrd Integer required,
+	/**
+	 * Estado de la auditoría. Valores permitidos (0, 1, 2).
+	 */
+	codEstadoAudi Integer required,
+	/**
+	 * Valor deuda directa vigente. Precisión 17, escala 2.
+	 */
+	mtoSbifDdVig BigDecimal,
+	/**
+	 * Valor deuda directa morosa. Precisión 17, escala 2.
+	 */
+	mtoSbifDdMor BigDecimal,
+	/**
+	 * Valor deuda directa vencida. Precisión 17, escala 2.
+	 */
+	mtoSbifDdVen BigDecimal,
+	/**
+	 * Valor deuda directa castigada. Precisión 17, escala 2.
+	 */
+	mtoSbifDdCas BigDecimal,
+	/**
+	 * Valor deuda indirecta vigente. Precisión 17, escala 2.
+	 */
+	mtoSbifDiVig BigDecimal,
+	/**
+	 * Valor deuda indirecta vencida. Precisión 17, escala 2.
+	 */
+	mtoSbifDiVen BigDecimal,
+	/**
+	 * Valor deuda indirecta castigada. Precisión 17, escala 2.
+	 */
+	mtoSbifDiCas BigDecimal,
+	/**
+	 * Login usuario que crea período.
+	 */
+	nomUserCrea String required,
+	/**
+	 * Fecha de creación del período.
+	 */
+	fecUserCrea LocalDate required,
+	/**
+	 * Login usuario que modifica período.
+	 */
+	nomUserModif String,
+	/**
+	 * Fecha de modificación del período.
+	 */
+	fecUserModif LocalDate,
+	/**
+	 * Fecha de actualización deudas SBIF.
+	 */
+	fecInformSbif LocalDate,
+	/**
+	 * Valor tipo de cambio. Precisión 12, escala 6.
+	 */
+	valTipoCambio BigDecimal required,
+	/**
+	 * Valor deuda impaga entre 90 y 180 días. Precisión 17, escala 2.
+	 */
+	mtoSbifImp90179 BigDecimal
+}
+/**
+ * Representa la tabla "VALPRD_WK" que contiene detalle de valores asociada a las distintas cuentas y períodos de cada desglose. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity ValPeriodoDesglose {
+	/**
+	 * Rut de cliente.
+	 */
+	codCliente String required,
+	/**
+	 * Tipo de desglose.
+	 */
+	codTipoDes Integer required,
+	/**
+	 * Subtipo de desglose.
+	 */
+	codSubtipoDes Integer required,
+	/**
+	 * Código de moneda.
+	 */
+	codMoneda String required,
+	/**
+	 * Fecha para el período.
+	 */
+	fecPeriodo LocalDate required,
+	/**
+	 * Tipo de concepto.
+	 */
+	codTipoConcep String required,
+	/**
+	 * Correlativo para concepto.
+	 */
+	corConcepto Integer required,
+	/**
+	 * Correlativo que aplica para multiregistro, de lo contrario siempre es cero.
+	 */
+	corValor Integer required,
+	/**
+	 * Valor asociado al concepto o cuenta. Precisión 17, escala 3.
+	 */
+	valConcepto BigDecimal,
+	/**
+	 * Fórmula asociada a la celda, solo cuando se ingresa valor expresado en fórmula.
+	 */
+	glsFrmlConcep String,
+	/**
+	 * Descripción del concepto que aplica para los multiregistros.
+	 */
+	glsConcepto String,
+	/**
+	 * Valor porcentual asociado a la cuenta. Precisión 4, escala 3.
+	 */
+	valPrcConcep BigDecimal
+}
+/**
+ * Representa la tabla "VALIMP_WK" que contiene detalle de valores asociada a las distintas cuentas y períodos de cada desglose generado para la impresión. Pertenece al esquema
+ CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity ValPeriodoDesgImpr {
+	/**
+	 * Rut de cliente.
+	 */
+	codCliente String required,
+	/**
+	 * Tipo de desglose.
+	 */
+	codTipoDes Integer required,
+	/**
+	 * Subtipo de desglose.
+	 */
+	codSubtipoDes Integer required,
+	/**
+	 * Código de moneda.
+	 */
+	codMoneda String required,
+	/**
+	 * Código de moneda de impresión.
+	 */
+	codMonedaImp String required,
+	/**
+	 * Fecha para el período.
+	 */
+	fecPeriodo LocalDate required,
+	/**
+	 * Tipo de concepto.
+	 */
+	codTipoConcep String required,
+	/**
+	 * Correlativo para concepto.
+	 */
+	corConcepto Integer required,
+	/**
+	 * Correlativo que aplica para multiregistro, de lo contrario siempre es cero.
+	 */
+	corValor Integer required,
+	/**
+	 * Valor asociado al concepto o cuenta. Precisión 17, escala 3.
+	 */
+	valConcepto BigDecimal required,
+	/**
+	 * Correlativo de impresión.
+	 */
+	corImpreso Integer required
+}
+/**
+ * Representa la tabla "CONSOL_WK" que contiene empresas consolidadas para un desglose consolidado. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity EmpresaConsolidada {
+	/**
+	 * Rut de cliente.
+	 */
+	codCliente String required,
+	/**
+	 * Tipo de desglose.
+	 */
+	codTipoDes Integer required,
+	/**
+	 * Subtipo de desglose.
+	 */
+	codSubtipoDes Integer required,
+	/**
+	 * Código de moneda.
+	 */
+	codMoneda String required,
+	/**
+	 * Correlativo para diferencia una empresa de otra dentro del consolidado.
+	 */
+	corEmpresa Integer required,
+	/**
+	 * Nombre de la empresa consolidada.
+	 */
+	nomEmpresa String required
+}
+/**
+ * Representa la tabla "CONIMP_WK" de conceptos que se generan para la impresión del desglose. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity ConceptoImpresion {
+	/**
+	 * Rut de cliente.
+	 */
+	codCliente String required,
+	/**
+	 * Tipo de desglose.
+	 */
+	codTipoDes Integer required,
+	/**
+	 * Subtipo de desglose.
+	 */
+	codSubtipoDes Integer required,
+	/**
+	 * Código de moneda.
+	 */
+	codMoneda String required,
+	/**
+	 * Tipo de concepto.
+	 */
+	codTipoConcep String required,
+	/**
+	 * Correlativo para concepto.
+	 */
+	corConcepto Integer required
+}
+/**
+ * Representa la tabla "PRCCNS_WK" que contiene los períodos de un desglose consolidado. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity PeriodoDesgConsol {
+	/**
+	 * Rut de cliente.
+	 */
+	codCliente String required,
+	/**
+	 * Tipo de desglose.
+	 */
+	codTipoDes Integer required,
+	/**
+	 * Subtipo de desglose.
+	 */
+	codSubtipoDes Integer required,
+	/**
+	 * Código de moneda.
+	 */
+	codMoneda String required,
+	/**
+	 * Correlativo para diferenciar una empresa de otra dentro del consolidado.
+	 */
+	corEmpresa Integer required,
+	/**
+	 * Fecha para el período.
+	 */
+	fecPeriodo LocalDate required,
+	/**
+	 * Valor porcentual asociado a la empresa dentro del consolidado. Precisión 5, escala 4.
+	 */
+	valPrcConsol BigDecimal required
+}
+/**
+ * Representa la tabla "PRDIMP_WK" que contiene información para períodos del desglose generado para la impresión. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity PeriodoDesgImpresion {
+	/**
+	 * Rut de cliente.
+	 */
+	codCliente String required,
+	/**
+	 * Tipo de desglose.
+	 */
+	codTipoDes Integer required,
+	/**
+	 * Subtipo de desglose.
+	 */
+	codSubtipoDes Integer required,
+	/**
+	 * Código de moneda.
+	 */
+	codMoneda String required,
+	/**
+	 * Código de moneda de impresión.
+	 */
+	codMonedaImp String required,
+	/**
+	 * Fecha para el período.
+	 */
+	fecPeriodo LocalDate required,
+	/**
+	 * Valor deflator para el período. Precisión 6, escala 3.
+	 */
+	valDeflacPrd BigDecimal required,
+	/**
+	 * Valor tipo de cambio. Precisión 12, escala 6.
+	 */
+	valTipoCambio BigDecimal required,
+	/**
+	 * Correlativo de impresión.
+	 */
+	corImpreso Integer required
+}
+/**
+ * Representa la tabla "DESIMP" que contiene detalle del desglose generado para la impresión. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity DesgloseImpresion {
+	/**
+	 * Rut de cliente.
+	 */
+	codCliente String required,
+	/**
+	 * Tipo de desglose.
+	 */
+	codTipoDes Integer required,
+	/**
+	 * Subtipo de desglose.
+	 */
+	codSubtipoDes Integer required,
+	/**
+	 * Código de moneda.
+	 */
+	codMoneda String required,
+	/**
+	 * Código de moneda de impresión.
+	 */
+	codMonedaImp String required,
+	/**
+	 * Valor deflactor base. Precisión 6, escala 3.
+	 */
+	valDeflacBase BigDecimal required,
+	/**
+	 * Fecha de creación del desglose.
+	 */
+	fecCreacion LocalDate required,
+	/**
+	 * Fecha asociada al deflactor base.
+	 */
+	fecDeflacBase LocalDate required,
+	/**
+	 * Correlativo de impresión.
+	 */
+	corImpreso Integer required
+}
+/**
+ * Representa la tabla "DESGLO_REV" que contiene las notificaciones de desgloses producto de los envíos a revisión. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity DesgloseRevision {
+	/**
+	 * Rut de cliente.
+	 */
+	codCliente String,
+	/**
+	 * Tipo de desglose.
+	 */
+	codTipoDes Integer,
+	/**
+	 * Sub Tipo de desglose.
+	 */
+	codSubtipoDes Integer,
+	/**
+	 * Código de moneda.
+	 */
+	codMoneda String,
+	/**
+	 * Rol empleado digitador de quien envia a revisión.
+	 */
+	rolDigitador String,
+	/**
+	 * Rol empleado revisor que está asignado para revisión segun RELTAB.
+	 */
+	rolRevisor String,
+	/**
+	 * Rol empleado revisor reemplazado.
+	 */
+	rolRevisorReem String,
+	/**
+	 * Mensaje de notificación.
+	 */
+	glsNotificacion String,
+	/**
+	 * Señala si se notificó al revisor.
+	 */
+	flgNotificado Boolean,
+	/**
+	 * Fecha de envío a revisión.
+	 */
+	fecEnvioRevision LocalDate,
+	/**
+	 * Fecha cuando es tomada para revisión.
+	 */
+	fecEnRevision LocalDate,
+	/**
+	 * Fecha cuando se termina revisión.
+	 */
+	fecTerminoRevision LocalDate,
+	/**
+	 * Código de vigencia del registro.
+	 */
+	codRegStatus Integer
+}
+/**
+ * Representa la tabla "DESGLO_FIR_WK" que contiene estructura de la segunda firma. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity DesgloseFirma {
+	/**
+	 * Código cargo. Posibles permitidos (001-Subgte, 002-Jefe Grupo y 003-Analista).
+	 */
+	codCargo String required,
+	/**
+	 * Rol empleado de primera firma.
+	 */
+	numRolEmpleado String required,
+	/**
+	 * Rol empleado de segunda firma.
+	 */
+	numRolEmpleado2fir String required
+}
+/**
+ * Representa la tabla "DESGLO_GRUPO_WK" que contiene la definición de grupos. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity DesgloseGrupo {
+	/**
+	 * Código cargo. Posibles permitidos (001-Subgte, 002-Jefe Grupo y 003-Analista).
+	 */
+	codCargo String required,
+	/**
+	 * Rol de usuario asociado al cargo.
+	 */
+	numRolEmpleado String required,
+	/**
+	 * Código cargo. Posibles permitidos (001-Subgte, 002-Jefe Grupo y 003-Analista).
+	 */
+	desCodCargo String required,
+	/**
+	 * Rol de usuario asociado al cargo.
+	 */
+	desNumRolEmpleado String required
+}
+/**
+ * Representa la tabla "DESGLO_REE_WK" que contiene la definición de los reemplazos. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity DesgloseReemplazo {
+	/**
+	 * Código cargo. Posibles permitidos (001-Subgte, 002-Jefe Grupo y 003-Analista).
+	 */
+	codCargo String,
+	/**
+	 * Rol de usuario asociado al cargo.
+	 */
+	numRolEmpleado String,
+	/**
+	 * Código cargo. Posibles permitidos (001-Subgte, 002-Jefe Grupo y 003-Analista).
+	 */
+	desCodCargo String,
+	/**
+	 * Rol de usuario asociado al cargo.
+	 */
+	desNumRolEmpleado String,
+	/**
+	 * Fecha del reemplazo.
+	 */
+	fecReemplazo LocalDate,
+	/**
+	 * Fecha de eliminación del reemplazo.
+	 */
+	fecElimReemplazo LocalDate,
+	/**
+	 * Rol de quien crea el reemplazo.
+	 */
+	numRolEmpleadoCrea String,
+	/**
+	 * Rol de quien elimina el reemplazo.
+	 */
+	numRolEmpleadoElim String,
+	/**
+	 * Código de vigencia del registro.
+	 */
+	codRegStatus Integer
+}
+/**
+ * Representa la tabla "DESGLO_MSG_WK" que guarda mensajería entre digitador y revisor para un ciclo o flujo de desglose. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity DesgloseMensaje {
+	/**
+	 * Fecha y hora de ocurrido el evento.
+	 */
+	fecEvent ZonedDateTime required,
+	/**
+	 * Rut de cliente.
+	 */
+	codCliente String required,
+	/**
+	 * Tipo de desglose.
+	 */
+	codTipoDes Integer required,
+	/**
+	 * Subtipo de desglose.
+	 */
+	codSubtipoDes Integer required,
+	/**
+	 * Código de moneda.
+	 */
+	codMoneda String required,
+	/**
+	 * Rol empleado asociado.
+	 */
+	numRolEmpleado String required,
+	/**
+	 * Mensaje enviado.
+	 */
+	glsComentarios String
+}
+/**
+ * Representa la tabla "DESGLO_AUDIT_WK" que contiene información de auditoría de desgloses. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity DesgloseAuditoria {
+	/**
+	 * Rut de cliente.
+	 */
+	codCliente String required,
+	/**
+	 * Tipo de desglose.
+	 */
+	codTipoDes Integer required,
+	/**
+	 * Subtipo de desglose.
+	 */
+	codSubtipoDes Integer required,
+	/**
+	 * Código de moneda.
+	 */
+	codMoneda String required,
+	/**
+	 * Fecha de ocurrencia de evento.
+	 */
+	fecEvento LocalDate required,
+	/**
+	 * Numero de línea.
+	 */
+	numLinea Integer required,
+	/**
+	 * Cambio estado - Reemplazo - Validación - Desvinculación digitador.
+	 */
+	codEvento String,
+	/**
+	 * Rol empleado que realiza la acción.
+	 */
+	rolEmpleadoAccion String,
+	/**
+	 * Rol de quien realiza la acción (Digitador - Revisor).
+	 */
+	glsRol String,
+	/**
+	 * Estado original o anterior.
+	 */
+	codEstadoOri String,
+	/**
+	 * Nuevo estado.
+	 */
+	codEstadoNvo String,
+	/**
+	 * Rol empleado original.
+	 */
+	rolEmpleadoOri String,
+	/**
+	 * Rol empleado nuevo.
+	 */
+	rolEmpleadoNvo String,
+	/**
+	 * OK - NOK.
+	 */
+	flgResultValid String,
+	/**
+	 * Comentario asociado.
+	 */
+	glsComentario String
+}
+/**
+ * Representa la tabla "SINRUT" que contiene detalle de cliente sin rut. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity ClienteSinRut {
+	/**
+	 * Rut de cliente.
+	 */
+	codCliente String required,
+	/**
+	 * Nombre de cliente o razón social.
+	 */
+	nomCliente String required,
+	/**
+	 * Apellido paterno del cliente.
+	 */
+	nomPaterno String,
+	/**
+	 * Apellido materno del cliente.
+	 */
+	nomMaterno String,
+	/**
+	 * Código de actividad asociada al cliente.
+	 */
+	codActividad String
+}
+/**
+ * Representa la tabla "DGL_CHK_LOG_WK" que contiene información de auditoría de desgloses. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity DesgloseChequeoLog {
+	/**
+	 * Identifica tipo de proceso en LOG.
+	 */
+	codTipoProceso String,
+	/**
+	 * Rut de cliente.
+	 */
+	codCliente String,
+	/**
+	 * Tipo de desglose.
+	 */
+	codTipoDes Integer,
+	/**
+	 * Subtipo de desglose.
+	 */
+	codSubtipoDes Integer,
+	/**
+	 * Codigo de moneda.
+	 */
+	codMoneda String,
+	/**
+	 * Fecha y hora de LOG.
+	 */
+	fecLog ZonedDateTime,
+	/**
+	 * Descripcion del LOG.
+	 */
+	glsLog String
+}
+/**
+ * Representa la tabla "DGL_CHK_INFO_WK" que contiene logs de chequeo. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity DesgloseChequeoInfo {
+	/**
+	 * Fecha y hora del chequeo.
+	 */
+	fecCheck ZonedDateTime,
+	/**
+	 * Tipo de informe.
+	 */
+	codTipoInforme String,
+	/**
+	 * Glosa asociada al tipo de informe.
+	 */
+	glsFactorInforme String,
+	/**
+	 * Rut de cliente.
+	 */
+	codCliente String,
+	/**
+	 * Tipo de desglose.
+	 */
+	codTipoDes Integer,
+	/**
+	 * Subtipo de desglose.
+	 */
+	codSubtipoDes Integer,
+	/**
+	 * Codigo de moneda.
+	 */
+	codMoneda String,
+	/**
+	 * Fecha para el período.
+	 */
+	fecPeriodo LocalDate,
+	/**
+	 * Contador de ocurrencias.
+	 */
+	numRank Integer,
+	/**
+	 * Fecha de modificación de desglose.
+	 */
+	fecUserModif LocalDate,
+	/**
+	 * Usuario que realiza modificación.
+	 */
+	glsUserModif String,
+	/**
+	 * Valor deflactor base. Precisión 38, escala 3.
+	 */
+	valDeflacBase BigDecimal,
+	/**
+	 * Valor deflactor período. Precisión 38, escala 3.
+	 */
+	valDeflacPeriodo BigDecimal,
+	/**
+	 * Valor de deflactacion (base dividido por período). Precisión 38, escala 3.
+	 */
+	valDeflacCalc BigDecimal,
+	/**
+	 * Valor de concepto en base de datos. Precisión 38, escala 3.
+	 */
+	valConceptoBd BigDecimal,
+	/**
+	 * Valor de concepto calculado en consulta. Precisión 38, escala 3.
+	 */
+	valConceptoOnline BigDecimal,
+	/**
+	 * Detalle de fórmula.
+	 */
+	glsConceptoFormula String,
+	/**
+	 * Diferencia entre valor base de datos y valor calculado en consulta. Precisión 38, escala 3.
+	 */
+	valDif BigDecimal,
+	/**
+	 * Monto activo. Precisión 38, escala 3.
+	 */
+	mtoActivo BigDecimal,
+	/**
+	 * Monto pasivo-patrimonio. Precisión 38, escala 3.
+	 */
+	mtoPasivoPatr BigDecimal,
+	/**
+	 * Correlativo para concepto.
+	 */
+	corConcepto Integer,
+	/**
+	 * Correlativo que aplica para multiregistro, de lo contrario siempre es cero.
+	 */
+	corValor Integer,
+	/**
+	 * Tipo de concepto.
+	 */
+	codTipoConcep String,
+	/**
+	 * Estado.
+	 */
+	codEstado String,
+	/**
+	 * Comentarios.
+	 */
+	glsObservacion String
+}
+/**
+ * Representa la tabla "DESGLO_REV_LOG" que contiene los logs de flujo de desglose. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity DesgloseRevisionLog {
+	/**
+	 * Fecha y hora de evento.
+	 */
+	fecEvent ZonedDateTime required,
+	/**
+	 * Número de linea.
+	 */
+	numLineaLog Integer required,
+	/**
+	 * Rut de cliente.
+	 */
+	codCliente String required,
+	/**
+	 * Tipo de desglose.
+	 */
+	codTipoDes Integer required,
+	/**
+	 * Subtipo de desglose.
+	 */
+	codSubtipoDes Integer required,
+	/**
+	 * Código de moneda.
+	 */
+	codMoneda String required,
+	/**
+	 * Rol empleado.
+	 */
+	numRolEmpleado String required,
+	/**
+	 * Estado nuevo.
+	 */
+	codEstado String,
+	/**
+	 * Estado antiguo.
+	 */
+	codEstadoOld String,
+	/**
+	 * Rol empleado reemplazado.
+	 */
+	numRolEmpReem String,
+	/**
+	 * Comentarios.
+	 */
+	glsComentarios String
+}
+/**
+ * Representa la tabla "CUADRE", en donde se definición condiciones de cuadratura a realizar previo al grabado de un desglose. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity Cuadre {
+	/**
+	 * Tipo de concepto 1.
+	 */
+	codTpoConcep1 String required,
+	/**
+	 * Correlativo del concepto 1.
+	 */
+	corConcepto1 Integer required,
+	/**
+	 * Tipo de concepto 2.
+	 */
+	codTpoConcep2 String required,
+	/**
+	 * Correlativo del concepto 2.
+	 */
+	corConcepto2 Integer required,
+	/**
+	 * Mensaje a mostrar.
+	 */
+	glsMensaje String
+}
+/**
+ * Representa la tabla "CONCEP" que contiene concepto de desglose. Pertenece al esquema CIF_ADMIN.
+ * @author Antonio Marrero Palomino
+ */
+entity Concepto {
+	/**
+	 * Tipo de concepto. Posibles permitidos ('Balance','EstResult','GenFondos','IndFinan','DeudaSbif').
+	 */
+	codTipoConcep String required,
+	/**
+	 * Correlativo de concepto.
+	 */
+	corConcepto Integer required,
+	/**
+	 * Código de cuenta.
+	 */
+	codConcepto String required,
+	/**
+	 * Decripción de concepto o cuenta.
+	 */
+	glsConcepto String required,
+	/**
+	 * Secuencia.
+	 */
+	numSecuencia Integer required,
+	/**
+	 * Nivel de identación.
+	 */
+	numLvlIndent Integer,
+	/**
+	 * Tipo registro. Posibles permitidos (TITULO, NORMAL, MULTIREGISTRO).
+	 */
+	codTipoRegis String,
+	/**
+	 * Fórmula de evaluación de concepto.
+	 */
+	glsFormulaVal String,
+	/**
+	 * Fórmula de evaluación totales porcentuales.
+	 */
+	glsFormulaPrc String,
+	/**
+	 * Fórmuala conceptual de deflactación.
+	 */
+	glsFormulaDef String,
+	/**
+	 * Señala si concepto es de total o no.
+	 */
+	flgIsTotal Boolean required,
+	/**
+	 * Señala si concepto en desglose puede ser modificado por el usuario.
+	 */
+	flgUserModif Boolean required,
+	/**
+	 * Señala si concepto en desglose está activo o no.
+	 */
+	flgConActivo Boolean required,
+	/**
+	 * Cantidad de decimales.
+	 */
+	numDecimales Boolean,
+	/**
+	 * Señala si concepto se ajusta o no (redondeo).
+	 */
+	flgHaceAjust Boolean required,
+	/**
+	 * Señala si se muestra con negritas o no.
+	 */
+	flgIsBold Boolean required,
+	/**
+	 * Señala si se muestra en mayúscula o no.
+	 */
+	flgIsUcase Boolean required,
+	/**
+	 * Señala que es adjunto y hereda formato de concepto padre.
+	 */
+	flgIsEnclosed Boolean required,
+	/**
+	 * Señala si concepto se imprime en reporte o no.
+	 */
+	flgIsPrinted Boolean required,
+	/**
+	 * Señala cantidad de decimales que se imprimen en reporte.
+	 */
+	numDecPrint Boolean required,
+	/**
+	 * Señala si concepto puede ser negativo o no.
+	 */
+	flgNonegativ Boolean required,
+	/**
+	 * Señala si imprime espacio después de concepto.
+	 */
+	flgAfterspace Boolean required
+}
+// Set pagination options
+paginate * with pagination
+// Set service options
+service * with serviceClass
+// Set mapping options
+dto * with mapstruct

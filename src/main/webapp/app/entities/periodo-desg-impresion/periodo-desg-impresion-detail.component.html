@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="periodoDesgImpresion">
+            <h2><span jhiTranslate="desgloseApp.periodoDesgImpresion.detail.title">Periodo Desg Impresion</span> {{periodoDesgImpresion.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.periodoDesgImpresion.codCliente" [ngbTooltip]="'desgloseApp.periodoDesgImpresion.help.codCliente' | translate">Cod Cliente</span></dt>
+                <dd>
+                    <span>{{periodoDesgImpresion.codCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodoDesgImpresion.codTipoDes" [ngbTooltip]="'desgloseApp.periodoDesgImpresion.help.codTipoDes' | translate">Cod Tipo Des</span></dt>
+                <dd>
+                    <span>{{periodoDesgImpresion.codTipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodoDesgImpresion.codSubtipoDes" [ngbTooltip]="'desgloseApp.periodoDesgImpresion.help.codSubtipoDes' | translate">Cod Subtipo Des</span></dt>
+                <dd>
+                    <span>{{periodoDesgImpresion.codSubtipoDes}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodoDesgImpresion.codMoneda" [ngbTooltip]="'desgloseApp.periodoDesgImpresion.help.codMoneda' | translate">Cod Moneda</span></dt>
+                <dd>
+                    <span>{{periodoDesgImpresion.codMoneda}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodoDesgImpresion.codMonedaImp" [ngbTooltip]="'desgloseApp.periodoDesgImpresion.help.codMonedaImp' | translate">Cod Moneda Imp</span></dt>
+                <dd>
+                    <span>{{periodoDesgImpresion.codMonedaImp}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodoDesgImpresion.fecPeriodo" [ngbTooltip]="'desgloseApp.periodoDesgImpresion.help.fecPeriodo' | translate">Fec Periodo</span></dt>
+                <dd>
+                    <span>{{periodoDesgImpresion.fecPeriodo}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodoDesgImpresion.valDeflacPrd" [ngbTooltip]="'desgloseApp.periodoDesgImpresion.help.valDeflacPrd' | translate">Val Deflac Prd</span></dt>
+                <dd>
+                    <span>{{periodoDesgImpresion.valDeflacPrd}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodoDesgImpresion.valTipoCambio" [ngbTooltip]="'desgloseApp.periodoDesgImpresion.help.valTipoCambio' | translate">Val Tipo Cambio</span></dt>
+                <dd>
+                    <span>{{periodoDesgImpresion.valTipoCambio}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.periodoDesgImpresion.corImpreso" [ngbTooltip]="'desgloseApp.periodoDesgImpresion.help.corImpreso' | translate">Cor Impreso</span></dt>
+                <dd>
+                    <span>{{periodoDesgImpresion.corImpreso}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/periodo-desg-impresion', periodoDesgImpresion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

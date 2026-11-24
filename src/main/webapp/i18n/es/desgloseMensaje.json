@@ -1,0 +1,37 @@
+
+{
+    "desgloseApp": {
+        "desgloseMensaje" : {
+            "home": {
+                "title": "Desglose Mensajes",
+                "createLabel": "Crear nuevo Desglose Mensaje",
+                "createOrEditLabel": "Crear o editar Desglose Mensaje"
+            },
+            "created": "Un nuevo Desglose Mensaje ha sido creado con el identificador {{ param }}",
+            "updated": "Un Desglose Mensaje ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Desglose Mensaje ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Desglose Mensaje {{ id }}?"
+            },
+            "detail": {
+                "title": "Desglose Mensaje"
+            },
+            "fecEvent": "Fec Event",
+            "codCliente": "Cod Cliente",
+            "codTipoDes": "Cod Tipo Des",
+            "codSubtipoDes": "Cod Subtipo Des",
+            "codMoneda": "Cod Moneda",
+            "numRolEmpleado": "Num Rol Empleado",
+            "glsComentarios": "Gls Comentarios",
+            "help": {
+                "fecEvent": "Fecha y hora de ocurrido el evento.",
+                "codCliente": "Rut de cliente.",
+                "codTipoDes": "Tipo de desglose.",
+                "codSubtipoDes": "Subtipo de desglose.",
+                "codMoneda": "Código de moneda.",
+                "numRolEmpleado": "Rol empleado asociado.",
+                "glsComentarios": "Mensaje enviado."
+            }
+        }
+    }
+}

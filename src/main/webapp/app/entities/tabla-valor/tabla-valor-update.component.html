@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-tabla-valor-heading" jhiTranslate="desgloseApp.tablaValor.home.createOrEditLabel">Create or edit a Tabla Valor</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!tablaValor.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="tablaValor.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.tablaValor.codTabla" for="field_codTabla" [ngbTooltip]="'desgloseApp.tablaValor.help.codTabla' | translate">Cod Tabla</label>
+                    <input type="text" class="form-control" name="codTabla" id="field_codTabla"
+                        [(ngModel)]="tablaValor.codTabla" required/>
+                    <div [hidden]="!(editForm.controls.codTabla?.dirty && editForm.controls.codTabla?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codTabla?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.tablaValor.codGenerico" for="field_codGenerico" [ngbTooltip]="'desgloseApp.tablaValor.help.codGenerico' | translate">Cod Generico</label>
+                    <input type="text" class="form-control" name="codGenerico" id="field_codGenerico"
+                        [(ngModel)]="tablaValor.codGenerico" required/>
+                    <div [hidden]="!(editForm.controls.codGenerico?.dirty && editForm.controls.codGenerico?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codGenerico?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.tablaValor.fecValidez" for="field_fecValidez" [ngbTooltip]="'desgloseApp.tablaValor.help.fecValidez' | translate">Fec Validez</label>
+                    <div class="input-group">
+                        <input id="field_fecValidez" type="text" class="form-control" name="fecValidez" ngbDatepicker  #fecValidezDp="ngbDatepicker" [(ngModel)]="tablaValor.fecValidez"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fecValidezDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.fecValidez?.dirty && editForm.controls.fecValidez?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.fecValidez?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.tablaValor.valor" for="field_valor" [ngbTooltip]="'desgloseApp.tablaValor.help.valor' | translate">Valor</label>
+                    <input type="number" class="form-control" name="valor" id="field_valor"
+                        [(ngModel)]="tablaValor.valor" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.tablaValor.codTipovalor" for="field_codTipovalor" [ngbTooltip]="'desgloseApp.tablaValor.help.codTipovalor' | translate">Cod Tipovalor</label>
+                    <input type="number" class="form-control" name="codTipovalor" id="field_codTipovalor"
+                        [(ngModel)]="tablaValor.codTipovalor" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.tablaValor.codRegStatus" for="field_codRegStatus" [ngbTooltip]="'desgloseApp.tablaValor.help.codRegStatus' | translate">Cod Reg Status</label>
+                    <input type="number" class="form-control" name="codRegStatus" id="field_codRegStatus"
+                        [(ngModel)]="tablaValor.codRegStatus" required/>
+                    <div [hidden]="!(editForm.controls.codRegStatus?.dirty && editForm.controls.codRegStatus?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codRegStatus?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.codRegStatus?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.tablaValor.codRegLog" for="field_codRegLog" [ngbTooltip]="'desgloseApp.tablaValor.help.codRegLog' | translate">Cod Reg Log</label>
+                    <input type="number" class="form-control" name="codRegLog" id="field_codRegLog"
+                        [(ngModel)]="tablaValor.codRegLog" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

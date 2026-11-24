@@ -1,0 +1,24 @@
+
+{
+    "desgloseApp": {
+        "turbinePermission" : {
+            "home": {
+                "title": "Turbine Permissions",
+                "createLabel": "Crear nuevo Turbine Permission",
+                "createOrEditLabel": "Crear o editar Turbine Permission"
+            },
+            "created": "Un nuevo Turbine Permission ha sido creado con el identificador {{ param }}",
+            "updated": "Un Turbine Permission ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Turbine Permission ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Turbine Permission {{ id }}?"
+            },
+            "detail": {
+                "title": "Turbine Permission"
+            },
+            "permissionId": "Permission Id",
+            "permissionName": "Permission Name",
+            "objectdata": "Objectdata"
+        }
+    }
+}

@@ -1,0 +1,311 @@
+<div>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <form class="form-inline" name="conceptsForm" role="form" novalidate #conceptsForm="ngForm" id="conceptsForm">
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label class="col-sm-4 col-form-label col-form-label-sm" jhiTranslate="desgloseApp.concepto.tipoPlantilla" for="fiel_tipoPlantilla"> Tipo de Plantilla</label>
+                <select class="form-control form-control-sm col-sm-8" name="tipoPlantilla" id="fiel_tipoPlantilla" (change)="onChange($event.target.value)">
+                    <option *ngFor="let item of listaPlantillas" [value]="item.codGenerico"> {{item.glsGenericalarga}}</option>
+                </select>
+            </div>
+            <div class="form-group col-md-5">
+                <label class="col-sm-4 col-form-label col-form-label-sm" jhiTranslate="desgloseApp.concepto.codTipoConcep"> Cod de Tipo Concepto</label>
+                <input type="text" class="form-control form-control-sm col-sm-8" (keyup)='updateFilter($event)' id="conceptTypeFilter"/>
+            </div>
+            <div class="form-group ml-2">
+                <button id="jh-create-entity" class="btn btn-primary btn-sm" [routerLink]="['/', { outlets: { popup: 'concepto/new'} }]" replaceUrl="true"
+                        queryParamsHandling="merge">
+                    <fa-icon [icon]="'plus'"></fa-icon>
+                    <span jhiTranslate="desgloseApp.concepto.home.createLabel">Create new Concepto</span>
+                </button>
+            </div>
+            <div class="form-group ml-2">
+                <button  class="btn btn-primary btn-sm" (click)="resecuenciar()">
+                    <fa-icon [icon]="'clone'"></fa-icon>
+                    <span jhiTranslate="desgloseApp.concepto.home.secuencias">Secuenciar</span>
+                </button>
+            </div>
+        </div>
+    </form>
+    <div [ngStyle]="{'paddingTop':'10px'}">
+        <ngx-datatable
+            [messages]="{emptyMessage: 'footer.emptyMessage' | translate, selectedMessage: 'footer.selected' | translate, totalMessage: 'footer.total' | translate}"
+            #table
+            class="material"
+            [rows]="conceptos"
+            [columnMode]="'force'"
+            [footerHeight]="50"
+            [rowHeight]="'auto'"
+            [limit]="20"
+            [scrollbarH]="true"
+            [offset]="pagina"
+            (page)='loadPage($event)'
+            [sorts]="[{prop: 'codTipoConcep', dir: 'asc'},{prop: 'codConcepto', dir: 'asc'}]">
+            <!-- Row Detail Template -->
+            <ngx-datatable-row-detail [rowHeight]="'auto'" (toggle)="onDetailToggle($event)" *ngIf="!isProyec">
+                <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th><span jhiTranslate="desgloseApp.concepto.codTipoConcep">Cod Tipo Concep</span></th>
+                            <th><span jhiTranslate="desgloseApp.concepto.codConcepto">Cod Concepto</span></th>
+                            <th><span jhiTranslate="desgloseApp.concepto.glsConcepto">Gls Concepto</span></th>
+                            <th><span jhiTranslate="desgloseApp.concepto.glsFormulaVal">Gls Formula Val</span></th>
+                            <th><span jhiTranslate="desgloseApp.concepto.expValidacionVal">expValidacionVal</span></th>
+                            <!--<th><span jhiTranslate="desgloseApp.concepto.glsFormulaPrc">Gls Formula Prc</span></th>-->
+                            <!--<th><span jhiTranslate="desgloseApp.concepto.glsFormulaDef">Gls Formula Def</span></th>-->
+                            <th>
+                                <button type="submit" replaceUrl="true" queryParamsHandling="merge" class="btn btn-primary"
+                                        [routerLink]="['/', { outlets: { popup: 'concepto/'+ row.codTipoConcep + '/' + row.codTipoPlantilla + '/'+row.codConcepto+'/new'} }]">
+                                    <fa-icon [icon]="'plus'"></fa-icon>
+                                </button>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let item of row.concepto">
+                            <td>{{item.codTipoConcep}}</td>
+                            <td>{{item.codConcepto}}</td>
+                            <td>{{item.glsConcepto}}</td>
+                            <td>{{item.glsFormulaVal}}</td>
+                            <td>{{item.expValidacionVal}}</td>
+                            <!--<td>{{item.glsFormulaPrc}}</td>-->
+                            <!--<td>{{item.glsFormulaDef}}</td>-->
+                            <td>
+                                <div class="btn-group flex-btn-group-container">
+                                    <button type="submit" replaceUrl="true" queryParamsHandling="merge" class="btn btn-primary btn-sm"
+                                            [routerLink]="['/', { outlets: { popup: 'concepto/'+ item.codTipoConcep + '/' + item.corConcepto + '/'+item.codTipoPlantilla+'/edit'} }]">
+                                        <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                                        <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                                    </button>
+                                    <button type="submit" replaceUrl="true" queryParamsHandling="merge" class="btn btn-danger btn-sm"
+                                            [routerLink]="['/', { outlets: { popup: 'concepto/'+ item.codTipoConcep + '/' + item.corConcepto + '/'+item.codTipoPlantilla+'/delete'} }]">
+                                        <fa-icon [icon]="'times'"></fa-icon>
+                                        <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </ng-template>
+            </ngx-datatable-row-detail>
+            <ngx-datatable-column *ngIf="!isProyec"
+                [width]="50"
+                [resizeable]="false"
+                [sortable]="false"
+                [draggable]="false"
+                [canAutoResize]="false">
+                <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template >
+                    <a href="javascript:void(0)" [class.datatable-icon-right]="!expanded" [class.datatable-icon-down]="expanded" title="Expand/Collapse Row"
+                       (click)="toggleExpandRow(row)">
+                    </a>
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column>
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <span jhiTranslate="desgloseApp.concepto.codTipoConcep">Cod Tipo Concep</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.codTipoConcep}}
+                </ng-template>
+            </ngx-datatable-column>
+            <!--<ngx-datatable-column>
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <span jhiTranslate="desgloseApp.concepto.corConcepto">Cor Concepto</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.corConcepto}}
+                </ng-template>
+            </ngx-datatable-column>-->
+            <ngx-datatable-column [width]="100">
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <span jhiTranslate="desgloseApp.concepto.codConcepto">Cod Concepto</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.codConcepto}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column>
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <span jhiTranslate="desgloseApp.concepto.glsConcepto">Gls Concepto</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.glsConcepto}}
+                </ng-template>
+            </ngx-datatable-column>
+            <!-- <ngx-datatable-column>
+                 <ng-template let-column="column" ngx-datatable-header-template>
+                     <span jhiTranslate="desgloseApp.concepto.numSecuencia">Num Secuencia</span>
+                 </ng-template>
+                 <ng-template let-row="row" ngx-datatable-cell-template>
+                     {{row.numSecuencia}}
+                 </ng-template>
+             </ngx-datatable-column>-->
+            <!-- <ngx-datatable-column>
+                 <ng-template let-column="column" ngx-datatable-header-template>
+                     <span jhiTranslate="desgloseApp.concepto.numLvlIndent">Num Lvl Indent</span>
+                 </ng-template>
+                 <ng-template let-row="row" ngx-datatable-cell-template>
+                     {{row.numLvlIndent}}
+                 </ng-template>
+             </ngx-datatable-column>-->
+            <!-- <ngx-datatable-column>
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <span jhiTranslate="desgloseApp.concepto.codTipoRegis">Cod Tipo Regis</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.codTipoRegis}}
+                </ng-template>
+            </ngx-datatable-column> -->
+            <ngx-datatable-column>
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <span jhiTranslate="desgloseApp.concepto.glsFormulaVal">Gls Formula Val</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.glsFormulaVal}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column>
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <span jhiTranslate="desgloseApp.concepto.expValidacionVal">expValidacionVal</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.expValidacionVal}}
+                </ng-template>
+            </ngx-datatable-column>
+            <!--  <ngx-datatable-column>
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <span jhiTranslate="desgloseApp.concepto.glsFormulaPrc">Gls Formula Prc</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.glsFormulaPrc}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column>
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <span jhiTranslate="desgloseApp.concepto.glsFormulaDef">Gls Formula Def</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.glsFormulaDef}}
+                </ng-template>
+            </ngx-datatable-column> -->
+            <!--  <ngx-datatable-column>
+                  <ng-template let-column="column" ngx-datatable-header-template>
+                      <span jhiTranslate="desgloseApp.concepto.flgIsTotal">Flg Is Total</span>
+                  </ng-template>
+                  <ng-template let-row="row" ngx-datatable-cell-template>
+                      {{row.flgIsTotal}}
+                  </ng-template>
+              </ngx-datatable-column>-->
+            <!-- <ngx-datatable-column>
+                 <ng-template let-column="column" ngx-datatable-header-template>
+                     <span jhiTranslate="desgloseApp.concepto.flgUserModif">Flg User Modif</span>
+                 </ng-template>
+                 <ng-template let-row="row" ngx-datatable-cell-template>
+                     {{row.flgUserModif}}
+                 </ng-template>
+             </ngx-datatable-column>-->
+            <!--  <ngx-datatable-column>
+                  <ng-template let-column="column" ngx-datatable-header-template>
+                      <span jhiTranslate="desgloseApp.concepto.flgConActivo">Flg Con Activo</span>
+                  </ng-template>
+                  <ng-template let-row="row" ngx-datatable-cell-template>
+                      {{row.flgConActivo}}
+                  </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                  <ng-template let-column="column" ngx-datatable-header-template>
+                      <span jhiTranslate="desgloseApp.concepto.numDecimales">Num Decimales</span>
+                  </ng-template>
+                  <ng-template let-row="row" ngx-datatable-cell-template>
+                      {{row.numDecimales}}
+                  </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                  <ng-template let-column="column" ngx-datatable-header-template>
+                      <span jhiTranslate="desgloseApp.concepto.flgHaceAjust">Flg Hace Ajust</span>
+                  </ng-template>
+                  <ng-template let-row="row" ngx-datatable-cell-template>
+                      {{row.flgHaceAjust}}
+                  </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                  <ng-template let-column="column" ngx-datatable-header-template>
+                      <span jhiTranslate="desgloseApp.concepto.flgIsBold">Flg Is Bold</span>
+                  </ng-template>
+                  <ng-template let-row="row" ngx-datatable-cell-template>
+                      {{row.flgIsBold}}
+                  </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                  <ng-template let-column="column" ngx-datatable-header-template>
+                      <span jhiTranslate="desgloseApp.concepto.flgIsUcase">Flg Is Ucase</span>
+                  </ng-template>
+                  <ng-template let-row="row" ngx-datatable-cell-template>
+                      {{row.flgIsUcase}}
+                  </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                  <ng-template let-column="column" ngx-datatable-header-template>
+                      <span jhiTranslate="desgloseApp.concepto.flgIsEnclosed">Flg Is Enclosed</span>
+                  </ng-template>
+                  <ng-template let-row="row" ngx-datatable-cell-template>
+                      {{row.flgIsEnclosed}}
+                  </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                  <ng-template let-column="column" ngx-datatable-header-template>
+                      <span jhiTranslate="desgloseApp.concepto.flgIsPrinted">Flg Is Printed</span>
+                  </ng-template>
+                  <ng-template let-row="row" ngx-datatable-cell-template>
+                      {{row.flgIsPrinted}}
+                  </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                  <ng-template let-column="column" ngx-datatable-header-template>
+                      <span jhiTranslate="desgloseApp.concepto.numDecPrint">Num Dec Print</span>
+                  </ng-template>
+                  <ng-template let-row="row" ngx-datatable-cell-template>
+                      {{row.numDecPrint}}
+                  </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                  <ng-template let-column="column" ngx-datatable-header-template>
+                      <span jhiTranslate="desgloseApp.concepto.flgNonegativ">Flg Nonegativ</span>
+                  </ng-template>
+                  <ng-template let-row="row" ngx-datatable-cell-template>
+                      {{row.flgNonegativ}}
+                  </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                  <ng-template let-column="column" ngx-datatable-header-template>
+                      <span jhiTranslate="desgloseApp.concepto.flgAfterspace">Flg Afterspace</span>
+                  </ng-template>
+                  <ng-template let-row="row" ngx-datatable-cell-template>
+                      {{row.flgAfterspace}}
+                  </ng-template>
+              </ngx-datatable-column>-->
+            <ngx-datatable-column>
+                <ng-template let-column="column" ngx-datatable-header-template>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit" replaceUrl="true" queryParamsHandling="merge" class="btn btn-primary btn-sm"
+                                [routerLink]="['/', { outlets: { popup: 'concepto/'+ row.codTipoConcep + '/' + row.corConcepto + '/'+row.codTipoPlantilla+'/edit'} }]"
+                                [queryParams]="{'isProyec': isProyec}">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" replaceUrl="true" queryParamsHandling="merge" class="btn btn-danger btn-sm"
+                                [routerLink]="['/', { outlets: { popup: 'concepto/'+ row.codTipoConcep + '/' + row.corConcepto + '/'+row.codTipoPlantilla+'/delete'} }]">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
+    </div>
+</div>

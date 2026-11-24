@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-desglose-grupo-heading" jhiTranslate="desgloseApp.desgloseGrupo.home.createOrEditLabel">Create or edit a Desglose Grupo</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!desgloseGrupo.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="desgloseGrupo.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseGrupo.codCargo" for="field_codCargo" [ngbTooltip]="'desgloseApp.desgloseGrupo.help.codCargo' | translate">Cod Cargo</label>
+                    <input type="text" class="form-control" name="codCargo" id="field_codCargo"
+                        [(ngModel)]="desgloseGrupo.codCargo" required/>
+                    <div [hidden]="!(editForm.controls.codCargo?.dirty && editForm.controls.codCargo?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codCargo?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseGrupo.numRolEmpleado" for="field_numRolEmpleado" [ngbTooltip]="'desgloseApp.desgloseGrupo.help.numRolEmpleado' | translate">Num Rol Empleado</label>
+                    <input type="text" class="form-control" name="numRolEmpleado" id="field_numRolEmpleado"
+                        [(ngModel)]="desgloseGrupo.numRolEmpleado" required/>
+                    <div [hidden]="!(editForm.controls.numRolEmpleado?.dirty && editForm.controls.numRolEmpleado?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.numRolEmpleado?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseGrupo.desCodCargo" for="field_desCodCargo" [ngbTooltip]="'desgloseApp.desgloseGrupo.help.desCodCargo' | translate">Des Cod Cargo</label>
+                    <input type="text" class="form-control" name="desCodCargo" id="field_desCodCargo"
+                        [(ngModel)]="desgloseGrupo.desCodCargo" required/>
+                    <div [hidden]="!(editForm.controls.desCodCargo?.dirty && editForm.controls.desCodCargo?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.desCodCargo?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="desgloseApp.desgloseGrupo.desNumRolEmpleado" for="field_desNumRolEmpleado" [ngbTooltip]="'desgloseApp.desgloseGrupo.help.desNumRolEmpleado' | translate">Des Num Rol Empleado</label>
+                    <input type="text" class="form-control" name="desNumRolEmpleado" id="field_desNumRolEmpleado"
+                        [(ngModel)]="desgloseGrupo.desNumRolEmpleado" required/>
+                    <div [hidden]="!(editForm.controls.desNumRolEmpleado?.dirty && editForm.controls.desNumRolEmpleado?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.desNumRolEmpleado?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,141 @@
+{
+    "name": "DesgloseChequeoInfo",
+    "fields": [
+        {
+            "fieldName": "fecCheck",
+            "javadoc": "Fecha y hora del chequeo.",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "codTipoInforme",
+            "javadoc": "Tipo de informe.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "glsFactorInforme",
+            "javadoc": "Glosa asociada al tipo de informe.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codCliente",
+            "javadoc": "Rut de cliente.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codTipoDes",
+            "javadoc": "Tipo de desglose.",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codSubtipoDes",
+            "javadoc": "Subtipo de desglose.",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codMoneda",
+            "javadoc": "Codigo de moneda.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fecPeriodo",
+            "javadoc": "Fecha para el período.",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "numRank",
+            "javadoc": "Contador de ocurrencias.",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fecUserModif",
+            "javadoc": "Fecha de modificación de desglose.",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "glsUserModif",
+            "javadoc": "Usuario que realiza modificación.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valDeflacBase",
+            "javadoc": "Valor deflactor base. Precisión 38, escala 3.",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "valDeflacPeriodo",
+            "javadoc": "Valor deflactor período. Precisión 38, escala 3.",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "valDeflacCalc",
+            "javadoc": "Valor de deflactacion (base dividido por período). Precisión 38, escala 3.",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "valConceptoBd",
+            "javadoc": "Valor de concepto en base de datos. Precisión 38, escala 3.",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "valConceptoOnline",
+            "javadoc": "Valor de concepto calculado en consulta. Precisión 38, escala 3.",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "glsConceptoFormula",
+            "javadoc": "Detalle de fórmula.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valDif",
+            "javadoc": "Diferencia entre valor base de datos y valor calculado en consulta. Precisión 38, escala 3.",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "mtoActivo",
+            "javadoc": "Monto activo. Precisión 38, escala 3.",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "mtoPasivoPatr",
+            "javadoc": "Monto pasivo-patrimonio. Precisión 38, escala 3.",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "corConcepto",
+            "javadoc": "Correlativo para concepto.",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "corValor",
+            "javadoc": "Correlativo que aplica para multiregistro, de lo contrario siempre es cero.",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codTipoConcep",
+            "javadoc": "Tipo de concepto.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codEstado",
+            "javadoc": "Estado.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "glsObservacion",
+            "javadoc": "Comentarios.",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181011140732",
+    "javadoc": "Representa la tabla \"DGL_CHK_INFO_WK\" que contiene logs de chequeo. Pertenece al esquema CIF_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "desglose_chequeo_info",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

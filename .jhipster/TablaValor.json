@@ -1,0 +1,63 @@
+{
+    "name": "TablaValor",
+    "fields": [
+        {
+            "fieldName": "codTabla",
+            "javadoc": "Código de tabla del concepto.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codGenerico",
+            "javadoc": "Código genérico asociado al código de tabla.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fecValidez",
+            "javadoc": "Fecha de validez.",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "valor",
+            "javadoc": "Valor asociado al concepto.",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "codTipovalor",
+            "javadoc": "Tipo del valor.",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codRegStatus",
+            "javadoc": "Código de vigencia del registro.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codRegLog",
+            "javadoc": "Código de modificación del registro.",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181031203314",
+    "javadoc": "Representa la tabla \"TABVAL\". Contiene la definición de valores de conceptos definidos en DESCOD. Pertenece al esquema BCT_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "tabla_valor",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

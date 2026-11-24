@@ -1,0 +1,60 @@
+{
+    "desgloseApp": {
+        "clienteSinRut": {
+            "home": {
+                "title": "Cliente Sin Ruts",
+                "createLabel": "Crear nuevo Cliente Sin Rut",
+                "createOrEditLabel": "Crear o editar Cliente Sin Rut"
+            },
+            "created": "Un nuevo Cliente Sin Rut ha sido creado",
+            "updated": "Un Cliente Sin Rut ha sido actualizado",
+            "deleted": "Un Cliente Sin Rut ha sido eliminado",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Cliente Sin Rut?"
+            },
+            "detail": {
+                "title": "Cliente Sin Rut"
+            },
+            "codCliente": "Cod Cliente",
+            "nomCliente": "Nom Cliente",
+            "nomPaterno": "Nom Paterno",
+            "nomMaterno": "Nom Materno",
+            "codActividad": "Cod Actividad",
+            "help": {
+                "codCliente": "Rut de cliente.",
+                "nomCliente": "Nombre de cliente o razón social.",
+                "nomPaterno": "Apellido paterno del cliente.",
+                "nomMaterno": "Apellido materno del cliente.",
+                "codActividad": "Código de actividad asociada al cliente."
+            }
+        },
+        "clienteSinRutDTO": {
+            "home": {
+                "title": "Cliente Sin Ruts",
+                "createLabel": "Crear nuevo Cliente Sin Rut",
+                "createOrEditLabel": "Crear o editar Cliente Sin Rut"
+            },
+            "created": "Un nuevo Cliente Sin Rut ha sido creado con el identificador {{ param }}",
+            "updated": "Un Cliente Sin Rut ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Cliente Sin Rut ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Cliente Sin Rut {{ id }}?"
+            },
+            "detail": {
+                "title": "Cliente Sin Rut"
+            },
+            "codCliente": "Cod Cliente",
+            "nomCliente": "Nombre",
+            "nomPaterno": "Apellido paterno",
+            "nomMaterno": "Apellido materno",
+            "codActividad": "Cod Actividad",
+            "help": {
+                "codCliente": "Rut de cliente.",
+                "nomCliente": "Nombre de cliente o razón social.",
+                "nomPaterno": "Apellido paterno del cliente.",
+                "nomMaterno": "Apellido materno del cliente.",
+                "codActividad": "Código de actividad asociada al cliente."
+            }
+        }
+    }
+}

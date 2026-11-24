@@ -1,0 +1,1 @@
+INSERT INTO "TURBINE_ROLE" (ROLE_ID, ROLE_NAME) VALUES ('27005', 'Plat_Desglose_Administrador');

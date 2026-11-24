@@ -1,0 +1,37 @@
+
+{
+    "desgloseApp": {
+        "tablaValor" : {
+            "home": {
+                "title": "Tabla Valors",
+                "createLabel": "Create a new Tabla Valor",
+                "createOrEditLabel": "Create or edit a Tabla Valor"
+            },
+            "created": "A new Tabla Valor is created with identifier {{ param }}",
+            "updated": "A Tabla Valor is updated with identifier {{ param }}",
+            "deleted": "A Tabla Valor is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tabla Valor {{ id }}?"
+            },
+            "detail": {
+                "title": "Tabla Valor"
+            },
+            "codTabla": "Cod Tabla",
+            "codGenerico": "Cod Generico",
+            "fecValidez": "Fec Validez",
+            "valor": "Valor",
+            "codTipovalor": "Cod Tipovalor",
+            "codRegStatus": "Cod Reg Status",
+            "codRegLog": "Cod Reg Log",
+            "help": {
+                "codTabla": "Código de tabla del concepto.",
+                "codGenerico": "Código genérico asociado al código de tabla.",
+                "fecValidez": "Fecha de validez.",
+                "valor": "Valor asociado al concepto.",
+                "codTipovalor": "Tipo del valor.",
+                "codRegStatus": "Código de vigencia del registro.",
+                "codRegLog": "Código de modificación del registro."
+            }
+        }
+    }
+}

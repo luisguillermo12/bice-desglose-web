@@ -1,0 +1,100 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header hand-pointer" (click)="isCollapsedClientDataPanel = !isCollapsedClientDataPanel" [attr.aria-expanded]="!isCollapsedClientDataPanel"
+             aria-controls="collapseClientDataPanel">
+            <div class="row">
+                <span class="col-sm-11" jhiTranslate="replacement.title"></span>
+                <span class="col-sm-1">
+                    <fa-icon class="float-sm-right fa-sm" [icon]="isCollapsedClientDataPanel ? ICON_CARD_OPEN : ICON_CARD_CLOSE"></fa-icon>
+                </span>
+            </div>
+        </div>
+        <div class="card-body" [ngbCollapse]="isCollapsedClientDataPanel" id="collapseClientDataPanel">
+            <jhi-alert-error></jhi-alert-error>
+            <form [formGroup]="forma" (ngSubmit)="agregarReemplazo()" novalidate="" class="form-inline">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label class="col-sm-4 col-form-label col-form-label-sm" jhiTranslate="replacement.cargo"></label>
+                        <select class="form-control form-control-sm col-sm-8" name="cargo" formControlName="cargo" (ngModelChange)="onSelectCargos($event)">
+                            <option [ngValue]=null jhiTranslate="replacement.seleccioneCargo"></option>
+                            <option *ngFor="let item of listaCargos" [ngValue]="item">{{item.glsGenericalarga }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label class="col-sm-4 col-form-label col-form-label-sm" jhiTranslate="replacement.miembroReemplazar"></label>
+                        <select class="form-control form-control-sm col-sm-8" name="miembroReemplazar" formControlName="miembroReemplazar"
+                                (ngModelChange)="onSelectOperatorCode($event)">
+                            <option [ngValue]=null jhiTranslate="replacement.seleccioneReemplazar"></option>
+                            <option *ngFor="let item of listaReemplazar" [ngValue]="item">{{item.nombre}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="col-sm-4 col-form-label col-form-label-sm" jhiTranslate="replacement.miembroReemplazo"></label>
+                        <select class="form-control form-control-sm col-sm-8" name="miembroReemplazo" formControlName="miembroReemplazo">
+                            <option [ngValue]=null jhiTranslate="replacement.seleccioneReemplazo"></option>
+                            <option *ngFor="let item of listaReemplazos" [ngValue]="item">{{item.nombre}}</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary float-right">
+                    <fa-icon [icon]="'plus'"></fa-icon>&nbsp;<span jhiTranslate="replacement.agregarReemplazo"></span>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="card-header hand-pointer" (click)="isCollapsedDataPanel = !isCollapsedDataPanel" [attr.aria-expanded]="!isCollapsedDataPanel" aria-controls="collapsedDataPanel">
+        <div class="row">
+            <span class="col-sm-11" jhiTranslate="replacement.detalle"></span>
+            <span class="col-sm-1">
+                <fa-icon class="float-sm-right fa-sm" [icon]="isCollapsedDataPanel ? ICON_CARD_OPEN : ICON_CARD_CLOSE"></fa-icon>
+            </span>
+        </div>
+    </div>
+    <div class="card-body" [ngbCollapse]="isCollapsedDataPanel" id="collapsedDataPanel">
+        <ngx-datatable
+            [messages]="{emptyMessage: 'footer.emptyMessage' | translate, selectedMessage: 'footer.selected' | translate, totalMessage: 'footer.total' | translate}"
+            style="width: 100%"
+            class="material"
+            [rows]="rows"
+            [columnMode]="'force'"
+            [footerHeight]="50"
+            [rowHeight]="'auto'"
+            [limit]="10"
+            [selected]="selected"
+            [selectionType]="'checkbox'"
+            [selectAllRowsOnPage]="false"
+            (select)='onSelect($event)'>
+            <ngx-datatable-column
+                [width]="50"
+                [sortable]="false"
+                [canAutoResize]="false"
+                [draggable]="false"
+                [resizeable]="false"
+                [headerCheckboxable]="true"
+                [checkboxable]="true"
+            >
+            </ngx-datatable-column>
+            <ngx-datatable-column>
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <span jhiTranslate="replacement.miembroReemplazar">miembroReemplazar</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.nombre1}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column>
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <span jhiTranslate="replacement.miembroReemplazo">miembroReemplazo</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.nombre2}}
+                </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
+        <button type="button" class="btn btn-primary float-right mt-2" (click)="eliminarReemplazo()">
+            <fa-icon [icon]="'trash-alt'"></fa-icon>&nbsp;<span jhiTranslate="replacement.eliminarReemplazo"></span>
+        </button>
+    </div>
+</div>

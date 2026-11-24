@@ -1,0 +1,105 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header hand-pointer" (click)="isCollapsedClientDataPanel = !isCollapsedClientDataPanel"
+             [attr.aria-expanded]="!isCollapsedClientDataPanel" aria-controls="CollapsedClientDataPanel">
+            <div class="row">
+                <span class="col-sm-11" jhiTranslate="logs.filtros"></span>
+                <span class="col-sm-1">
+                <fa-icon class="float-sm-right fa-sm"
+                         [icon]="isCollapsedClientDataPanel ? ICON_CARD_OPEN : ICON_CARD_CLOSE"></fa-icon>
+            </span>
+            </div>
+        </div>
+        <div class="card-body" [ngbCollapse]="isCollapsedClientDataPanel" id="isCollapsedClientDataPanel">
+            <form name="clientDataForm" role="form" novalidate #clientDataForm="ngForm" id="clientDataForm">
+            <div class="form-row">
+            <div class="form-group row col-sm-10">
+                <label for="field_modificationDateFrom" class="col-sm-2 col-form-label"
+                       jhiTranslate="logs.fechaInicio"></label>
+                <div class="input-group col-sm-3 pl-0">
+                    <input id="field_modificationDateFrom" type="text" class="form-control form-control-sm"
+                           name="modificationDateFrom" ngbDatepicker
+                           #modificationDateFrom="ngbDatepicker" [(ngModel)]="fechaInicio"/>
+                    <span class="input-group-append">
+                            <!--<span [class]="isExternal ? 'input-group-append' : 'input-group-append max-height-date-btn'">-->
+                                <button type="button" class="btn btn-default btn-sm"
+                                        (click)="modificationDateFrom.toggle()"><fa-icon
+                                    [icon]="'calendar-alt'"></fa-icon></button>
+                            </span>
+                </div>
+                <label for="field_modificationDateTo" class="col-sm-0 col-form-label"
+                       jhiTranslate="breakdown.search.to"></label>
+                <div class="input-group col-sm-3 pl-1 pr-2">
+                    <input id="field_modificationDateTo" type="text" class="form-control form-control-sm"
+                           name="modificationDateTo" ngbDatepicker
+                           #modificationDateTo="ngbDatepicker" [(ngModel)]="fechaFin"/>
+                    <span class="input-group-append">
+                                <button type="button" class="btn btn-default btn-sm"
+                                        (click)="modificationDateTo.toggle()"><fa-icon
+                                    [icon]="'calendar-alt'"></fa-icon></button>
+                            </span>
+                </div>
+            </div>
+                <div class="form-group row col-sm-2">
+                    <button type="button" class="btn btn-primary btn-block btn-custom-font-size-1 pull-right" (click)="onClickSearchBreakdown()" [disabled]="clientDataForm.form.invalid">
+                        <fa-icon [icon]="'search'"></fa-icon>&nbsp;<span jhiTranslate="logs.search"></span>
+                    </button>
+                </div>
+            </div>
+            </form>
+        </div>
+    <div class="card-header hand-pointer" (click)="isCollapsedDataPanel = !isCollapsedDataPanel" [attr.aria-expanded]="!isCollapsedDataPanel" aria-controls="collapsedDataPanel">
+        <div class="row">
+            <span class="col-sm-11" jhiTranslate="logs.detalle"></span>
+            <span class="col-sm-1">
+                <fa-icon class="float-sm-right fa-sm" [icon]="isCollapsedDataPanel ? ICON_CARD_OPEN : ICON_CARD_CLOSE"></fa-icon>
+            </span>
+        </div>
+    </div>
+    <div class="card-body" [ngbCollapse]="isCollapsedDataPanel" id="collapsedDataPanel">
+        <ngx-datatable
+            [messages]="{emptyMessage: 'footer.emptyMessage' | translate, selectedMessage: 'footer.selected' | translate, totalMessage: 'footer.total' | translate}"
+            style="width: 100%"
+            class="material"
+            [rows]="rows"
+            [columnMode]="'force'"
+            [footerHeight]="50"
+            [rowHeight]="'auto'"
+            [limit]="10"
+            [selected]="selected"
+            [selectionType]="'checkbox'"
+            [selectAllRowsOnPage]="false"
+            (select)='onSelect($event)'>
+            <ngx-datatable-column
+                [width]="50"
+                [sortable]="false"
+                [canAutoResize]="false"
+                [draggable]="false"
+                [resizeable]="false"
+                [headerCheckboxable]="true"
+                [checkboxable]="true"
+            >
+            </ngx-datatable-column>
+            <ngx-datatable-column>
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <span jhiTranslate="logs.fichero"></span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.nombre}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column>
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <span jhiTranslate="logs.tamanio"></span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row.megaBytes}}
+                </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
+        <button type="button" class="btn btn-primary float-right mt-2" (click)="descargar()">
+            <!--<fa-icon [icon]="'trash-alt'"></fa-icon>-->&nbsp;<span jhiTranslate="logs.descargar"></span>
+        </button>
+    </div>
+    </div>
+</div>

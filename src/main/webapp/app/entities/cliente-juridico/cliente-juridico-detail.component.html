@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="clienteJuridico">
+            <h2><span jhiTranslate="desgloseApp.clienteJuridico.detail.title">Cliente Juridico</span> {{clienteJuridico.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="desgloseApp.clienteJuridico.numCliente" [ngbTooltip]="'desgloseApp.clienteJuridico.help.numCliente' | translate">Num Cliente</span></dt>
+                <dd>
+                    <span>{{clienteJuridico.numCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteJuridico.glsRazonSoci" [ngbTooltip]="'desgloseApp.clienteJuridico.help.glsRazonSoci' | translate">Gls Razon Soci</span></dt>
+                <dd>
+                    <span>{{clienteJuridico.glsRazonSoci}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteJuridico.nomFantasia" [ngbTooltip]="'desgloseApp.clienteJuridico.help.nomFantasia' | translate">Nom Fantasia</span></dt>
+                <dd>
+                    <span>{{clienteJuridico.nomFantasia}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteJuridico.codGrupoEcon" [ngbTooltip]="'desgloseApp.clienteJuridico.help.codGrupoEcon' | translate">Cod Grupo Econ</span></dt>
+                <dd>
+                    <span>{{clienteJuridico.codGrupoEcon}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteJuridico.fecConstitucion" [ngbTooltip]="'desgloseApp.clienteJuridico.help.fecConstitucion' | translate">Fec Constitucion</span></dt>
+                <dd>
+                    <span>{{clienteJuridico.fecConstitucion}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteJuridico.codTipoCliempresa" [ngbTooltip]="'desgloseApp.clienteJuridico.help.codTipoCliempresa' | translate">Cod Tipo Cliempresa</span></dt>
+                <dd>
+                    <span>{{clienteJuridico.codTipoCliempresa}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteJuridico.glsWeb" [ngbTooltip]="'desgloseApp.clienteJuridico.help.glsWeb' | translate">Gls Web</span></dt>
+                <dd>
+                    <span>{{clienteJuridico.glsWeb}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteJuridico.codRegStatus" [ngbTooltip]="'desgloseApp.clienteJuridico.help.codRegStatus' | translate">Cod Reg Status</span></dt>
+                <dd>
+                    <span>{{clienteJuridico.codRegStatus}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteJuridico.codRegLog" [ngbTooltip]="'desgloseApp.clienteJuridico.help.codRegLog' | translate">Cod Reg Log</span></dt>
+                <dd>
+                    <span>{{clienteJuridico.codRegLog}}</span>
+                </dd>
+                <dt><span jhiTranslate="desgloseApp.clienteJuridico.glsRazonSocialLegal" [ngbTooltip]="'desgloseApp.clienteJuridico.help.glsRazonSocialLegal' | translate">Gls Razon Social Legal</span></dt>
+                <dd>
+                    <span>{{clienteJuridico.glsRazonSocialLegal}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cliente-juridico', clienteJuridico.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,125 @@
+{
+    "name": "ClienteNatural",
+    "fields": [
+        {
+            "fieldName": "numCliente",
+            "javadoc": "Número del cliente.",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "flgEmpleado",
+            "javadoc": "Si es empleado o no.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nomPaterno",
+            "javadoc": "Apellido paterno.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nomMaterno",
+            "javadoc": "Apellido materno.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nomNombres",
+            "javadoc": "Nombres.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nomNickname",
+            "javadoc": "Pseudonimo.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codNacion",
+            "javadoc": "Nacionalidad del cliente.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codResidencia",
+            "javadoc": "Residencia.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codProfesion",
+            "javadoc": "Profesión del cliente.",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fecNacim",
+            "javadoc": "Fecha de nacimiento.",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "codSexo",
+            "javadoc": "Sexo.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codNivEducac",
+            "javadoc": "Nivel educacional del cliente.",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codEstcivil",
+            "javadoc": "Estado civil del cliente.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codSepBienes",
+            "javadoc": "Separación de bienes.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numCargas",
+            "javadoc": "Número de cargas.",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fecAntigViv",
+            "javadoc": "Antiguedad vivienda.",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fecDefuncion",
+            "javadoc": "Fecha de defunción.",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fecCertEcivi",
+            "javadoc": "Fecha certificado estado civil.",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "codRegStatus",
+            "javadoc": "Código de vigencia del registro.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codRegLog",
+            "javadoc": "Código de modificación del registro.",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181022151500",
+    "javadoc": "Representa la tabla \"CLINAT\" que contiene información de clientes persona natural. Pertenece al esquema CIF_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "cliente_natural",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

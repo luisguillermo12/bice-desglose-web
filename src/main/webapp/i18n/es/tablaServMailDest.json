@@ -1,0 +1,33 @@
+
+{
+    "desgloseApp": {
+        "tablaServMailDest" : {
+            "home": {
+                "title": "Tabla Serv Mail Dests",
+                "createLabel": "Crear nuevo Tabla Serv Mail Dest",
+                "createOrEditLabel": "Crear o editar Tabla Serv Mail Dest"
+            },
+            "created": "Un nuevo Tabla Serv Mail Dest ha sido creado con el identificador {{ param }}",
+            "updated": "Un Tabla Serv Mail Dest ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Tabla Serv Mail Dest ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Tabla Serv Mail Dest {{ id }}?"
+            },
+            "detail": {
+                "title": "Tabla Serv Mail Dest"
+            },
+            "codSistema": "Cod Sistema",
+            "numSolicitud": "Num Solicitud",
+            "glsToNombre": "Gls To Nombre",
+            "glsToMail": "Gls To Mail",
+            "codTipoDest": "Cod Tipo Dest",
+            "help": {
+                "codSistema": "Codigo sistema.",
+                "numSolicitud": "Número solicitud envío.",
+                "glsToNombre": "Nombre destinatario.",
+                "glsToMail": "Mail destinatario.",
+                "codTipoDest": "Tipo destinatario TO, CC, CCO."
+            }
+        }
+    }
+}

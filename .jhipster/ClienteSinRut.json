@@ -1,0 +1,47 @@
+{
+    "name": "ClienteSinRut",
+    "fields": [
+        {
+            "fieldName": "codCliente",
+            "javadoc": "Rut de cliente.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nomCliente",
+            "javadoc": "Nombre de cliente o razón social.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nomPaterno",
+            "javadoc": "Apellido paterno del cliente.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nomMaterno",
+            "javadoc": "Apellido materno del cliente.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codActividad",
+            "javadoc": "Código de actividad asociada al cliente.",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181011140730",
+    "javadoc": "Representa la tabla \"SINRUT\" que contiene detalle de cliente sin rut. Pertenece al esquema CIF_ADMIN.\n@author Antonio Marrero Palomino",
+    "entityTableName": "cliente_sin_rut",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

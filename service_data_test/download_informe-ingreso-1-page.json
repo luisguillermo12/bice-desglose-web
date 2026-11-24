@@ -1,0 +1,61 @@
+{
+	"codCliente": "12221312-k",
+	"codMoneda": "Dolar",
+	"codSubtipoDes": "Otra moneda",
+	"codTipoDes": "Individual",
+	"codTipoPlantilla": "Base banco",
+	"fileName": "test-reporte-informe-ingreso",
+	"tableValueDTOS": [{
+			"conceptName": "Efectivo y Equivalentes a Efectivo",
+			"period1Percent": "12",
+			"period1Value": "11",
+			"period2Percent": "12",
+			"period2Value": "44",
+			"period3Percent": "4",
+			"period3Value": "33",
+			"period4Percent": "6",
+			"period4Value": "45"
+		}, {
+			"conceptName": "Caja y Bancos",
+			"period1Percent": "12",
+			"period1Value": "131",
+			"period2Percent": "12",
+			"period2Value": "434",
+			"period3Percent": "4",
+			"period3Value": "333",
+			"period4Percent": "36",
+			"period4Value": "445"
+		}, {
+			"conceptName": "Fondos Mutuos",
+			"period1Percent": "12",
+			"period1Value": "611",
+			"period2Percent": "12",
+			"period2Value": "144",
+			"period3Percent": "4",
+			"period3Value": "393",
+			"period4Percent": "6",
+			"period4Value": "245"
+		}, {
+			"conceptName": "Productos en Proceso",
+			"period1Percent": "12",
+			"period1Value": "11",
+			"period2Percent": "12",
+			"period2Value": "44",
+			"period3Percent": "4",
+			"period3Value": "33",
+			"period4Percent": "6",
+			"period4Value": "45"
+		}, {
+			"conceptName": "Impuestos x Recuperar",
+			"period1Percent": "132",
+			"period1Value": "3",
+			"period2Percent": "12",
+			"period2Value": "424",
+			"period3Percent": "24",
+			"period3Value": "467",
+			"period4Percent": "2",
+			"period4Value": "899"
+		}
+	],
+	"tittle": "EJEMPLO DESGLOSE TÍTULO"
+}

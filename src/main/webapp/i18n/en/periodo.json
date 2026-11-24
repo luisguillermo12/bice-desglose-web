@@ -1,0 +1,73 @@
+
+{
+    "desgloseApp": {
+        "periodo" : {
+            "home": {
+                "title": "Periodos",
+                "createLabel": "Create a new Periodo",
+                "createOrEditLabel": "Create or edit a Periodo"
+            },
+            "created": "A new Periodo is created with identifier {{ param }}",
+            "updated": "A Periodo is updated with identifier {{ param }}",
+            "deleted": "A Periodo is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Periodo {{ id }}?"
+            },
+            "detail": {
+                "title": "Periodo"
+            },
+            "codCliente": "Cod Cliente",
+            "codTipoDes": "Cod Tipo Des",
+            "codSubtipoDes": "Cod Subtipo Des",
+            "codMoneda": "Cod Moneda",
+            "fecPeriodo": "Fec Periodo",
+            "numMeses": "Num Meses",
+            "valDeflacPrd": "Val Deflac Prd",
+            "codAuditor": "Cod Auditor",
+            "glsOtrosAudit": "Gls Otros Audit",
+            "codEstadoPrd": "Cod Estado Prd",
+            "codEstadoAudi": "Cod Estado Audi",
+            "mtoSbifDdVig": "Mto Sbif Dd Vig",
+            "mtoSbifDdMor": "Mto Sbif Dd Mor",
+            "mtoSbifDdVen": "Mto Sbif Dd Ven",
+            "mtoSbifDdCas": "Mto Sbif Dd Cas",
+            "mtoSbifDiVig": "Mto Sbif Di Vig",
+            "mtoSbifDiVen": "Mto Sbif Di Ven",
+            "mtoSbifDiCas": "Mto Sbif Di Cas",
+            "nomUserCrea": "Nom User Crea",
+            "fecUserCrea": "Fec User Crea",
+            "nomUserModif": "Nom User Modif",
+            "fecUserModif": "Fec User Modif",
+            "fecInformSbif": "Fec Inform Sbif",
+            "valTipoCambio": "Val Tipo Cambio",
+            "mtoSbifImp90179": "Mto Sbif Imp 90179",
+            "help": {
+                "codCliente": "Rut de cliente.",
+                "codTipoDes": "Tipo de desglose.",
+                "codSubtipoDes": "Subtipo de desglose.",
+                "codMoneda": "Código de moneda.",
+                "fecPeriodo": "Fecha para el período.",
+                "numMeses": "Cantidad de meses asociadas al período. Valor entre 1 y 12, ambos inclusive.",
+                "valDeflacPrd": "Valor deflator para el período. Precisión 6, escala 3. Valor entre 1 y 1000, sin incluir ambos.",
+                "codAuditor": "Código empresa auditora.",
+                "glsOtrosAudit": "Descripción de otra auditora.",
+                "codEstadoPrd": "Estado del período. Valores permitidos (0, 1, 2).",
+                "codEstadoAudi": "Estado de la auditoría. Valores permitidos (0, 1, 2).",
+                "mtoSbifDdVig": "Valor deuda directa vigente. Precisión 17, escala 2.",
+                "mtoSbifDdMor": "Valor deuda directa morosa. Precisión 17, escala 2.",
+                "mtoSbifDdVen": "Valor deuda directa vencida. Precisión 17, escala 2.",
+                "mtoSbifDdCas": "Valor deuda directa castigada. Precisión 17, escala 2.",
+                "mtoSbifDiVig": "Valor deuda indirecta vigente. Precisión 17, escala 2.",
+                "mtoSbifDiVen": "Valor deuda indirecta vencida. Precisión 17, escala 2.",
+                "mtoSbifDiCas": "Valor deuda indirecta castigada. Precisión 17, escala 2.",
+                "nomUserCrea": "Login usuario que crea período.",
+                "fecUserCrea": "Fecha de creación del período.",
+                "nomUserModif": "Login usuario que modifica período.",
+                "fecUserModif": "Fecha de modificación del período.",
+                "fecInformSbif": "Fecha de actualización deudas SBIF.",
+                "valTipoCambio": "Valor tipo de cambio. Precisión 12, escala 6.",
+                "mtoSbifImp90179": "Valor deuda impaga entre 90 y 180 días. Precisión 17, escala 2."
+            }
+        }
+    }
+}
